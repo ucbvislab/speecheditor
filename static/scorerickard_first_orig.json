@@ -1,0 +1,794 @@
+{
+    "words": [
+        {
+            "start": 0.16, 
+            "end": 0.31, 
+            "word": "i"
+        }, 
+        {
+            "start": 0.31, 
+            "end": 0.58, 
+            "word": "first"
+        }, 
+        {
+            "start": 0.58, 
+            "end": 0.76, 
+            "word": "heard"
+        }, 
+        {
+            "start": 0.76, 
+            "end": 1.05, 
+            "word": "about"
+        }, 
+        {
+            "start": 1.05, 
+            "end": 1.48, 
+            "word": "professor"
+        }, 
+        {
+            "start": 1.48, 
+            "end": 2.04, 
+            "word": "ricard"
+        }, 
+        {
+            "start": 2.22, 
+            "end": 2.5, 
+            "word": "because"
+        }, 
+        {
+            "start": 2.5, 
+            "end": 2.57, 
+            "word": "of"
+        }, 
+        {
+            "start": 2.57, 
+            "end": 2.65, 
+            "word": "a"
+        }, 
+        {
+            "start": 2.65, 
+            "end": 3.06, 
+            "word": "video"
+        }, 
+        {
+            "start": 3.06, 
+            "end": 3.15, 
+            "word": "of"
+        }, 
+        {
+            "start": 3.15, 
+            "end": 3.23, 
+            "word": "a"
+        }, 
+        {
+            "start": 3.23, 
+            "end": 3.51, 
+            "word": "ted"
+        }, 
+        {
+            "start": 3.51, 
+            "end": 3.76, 
+            "word": "x"
+        }, 
+        {
+            "start": 3.76, 
+            "end": 4.06, 
+            "word": "talk"
+        }, 
+        {
+            "start": 4.06, 
+            "end": 4.17, 
+            "word": "that"
+        }, 
+        {
+            "start": 4.17, 
+            "end": 4.3, 
+            "word": "he"
+        }, 
+        {
+            "start": 4.3, 
+            "end": 4.6, 
+            "word": "gave"
+        }, 
+        {
+            "start": 4.6, 
+            "end": 4.78, 
+            "word": "that"
+        }, 
+        {
+            "start": 4.78, 
+            "end": 5.05, 
+            "word": "found"
+        }, 
+        {
+            "start": 5.05, 
+            "end": 5.46, 
+            "word": "itself"
+        }, 
+        {
+            "start": 5.46, 
+            "end": 5.9, 
+            "word": "rather"
+        }, 
+        {
+            "start": 6.21, 
+            "end": 7.13, 
+            "word": "rapidly"
+        }, 
+        {
+            "start": 7.16, 
+            "end": 7.51, 
+            "word": "spread"
+        }, 
+        {
+            "start": 7.51, 
+            "end": 7.9, 
+            "word": "around"
+        }, 
+        {
+            "start": 7.9, 
+            "end": 8.21, 
+            "word": "the"
+        }, 
+        {
+            "start": 8.25, 
+            "end": 8.89, 
+            "word": "mathematical"
+        }, 
+        {
+            "start": 8.89, 
+            "end": 9.49, 
+            "word": "community"
+        }, 
+        {
+            "start": 9.49, 
+            "end": 9.61, 
+            "word": "on"
+        }, 
+        {
+            "start": 9.61, 
+            "end": 9.69, 
+            "word": "the"
+        }, 
+        {
+            "start": 9.69, 
+            "end": 10.22, 
+            "word": "internet"
+        }, 
+        {
+            "start": 10.55, 
+            "end": 10.91, 
+            "word": "this"
+        }, 
+        {
+            "start": 10.91, 
+            "end": 11.34, 
+            "word": "talk"
+        }, 
+        {
+            "start": 11.34, 
+            "end": 11.62, 
+            "word": "had"
+        }, 
+        {
+            "start": 11.62, 
+            "end": 11.91, 
+            "word": "a"
+        }, 
+        {
+            "start": 12.27, 
+            "end": 12.77, 
+            "word": "rather"
+        }, 
+        {
+            "start": 12.77, 
+            "end": 13.85, 
+            "word": "unique"
+        }, 
+        {
+            "start": 14.25, 
+            "end": 14.91, 
+            "word": "topic"
+        }, 
+        {
+            "start": 14.91, 
+            "end": 15.01, 
+            "word": "it"
+        }, 
+        {
+            "start": 15.01, 
+            "end": 15.19, 
+            "word": "was"
+        }, 
+        {
+            "start": 15.19, 
+            "end": 15.68, 
+            "word": "about"
+        }, 
+        {
+            "start": 16.2, 
+            "end": 16.57, 
+            "word": "well"
+        }, 
+        {
+            "start": 17.32, 
+            "end": 17.47, 
+            "word": "you"
+        }, 
+        {
+            "start": 17.47, 
+            "end": 17.6, 
+            "word": "know"
+        }, 
+        {
+            "start": 17.6, 
+            "end": 18.12, 
+            "word": "what"
+        }, 
+        {
+            "start": 18.36, 
+            "end": 18.56, 
+            "word": "it"
+        }, 
+        {
+            "start": 18.56, 
+            "end": 18.76, 
+            "word": "might"
+        }, 
+        {
+            "start": 18.76, 
+            "end": 18.9, 
+            "word": "be"
+        }, 
+        {
+            "start": 18.9, 
+            "end": 19.36, 
+            "word": "better"
+        }, 
+        {
+            "start": 19.99, 
+            "end": 20.11, 
+            "word": "to"
+        }, 
+        {
+            "start": 20.11, 
+            "end": 20.32, 
+            "word": "let"
+        }, 
+        {
+            "start": 20.32, 
+            "end": 20.59, 
+            "word": "him"
+        }, 
+        {
+            "start": 20.59, 
+            "end": 20.79, 
+            "word": "tell"
+        }, 
+        {
+            "start": 20.79, 
+            "end": 20.96, 
+            "word": "you"
+        }, 
+        {
+            "start": 20.96, 
+            "end": 21.26, 
+            "word": "about"
+        }, 
+        {
+            "start": 21.26, 
+            "end": 21.38, 
+            "word": "it"
+        }, 
+        {
+            "start": 22.4, 
+            "end": 23.07, 
+            "word": "so"
+        }, 
+        {
+            "start": 23.36, 
+            "end": 23.66, 
+            "word": "you"
+        }, 
+        {
+            "start": 23.69, 
+            "end": 23.88, 
+            "word": "you"
+        }, 
+        {
+            "start": 23.88, 
+            "end": 24.34, 
+            "word": "do"
+        }, 
+        {
+            "start": 24.34, 
+            "end": 26.1, 
+            "word": "engineering"
+        }, 
+        {
+            "start": 26.13, 
+            "end": 26.61, 
+            "word": "not"
+        }, 
+        {
+            "start": 26.61, 
+            "end": 26.74, 
+            "word": "here"
+        }, 
+        {
+            "start": 26.74, 
+            "end": 26.82, 
+            "word": "to"
+        }, 
+        {
+            "start": 26.82, 
+            "end": 27.15, 
+            "word": "talk"
+        }, 
+        {
+            "start": 27.15, 
+            "end": 27.26, 
+            "word": "you"
+        }, 
+        {
+            "start": 27.26, 
+            "end": 27.57, 
+            "word": "about"
+        }, 
+        {
+            "start": 27.57, 
+            "end": 27.81, 
+            "word": "that"
+        }, 
+        {
+            "start": 27.81, 
+            "end": 28.28, 
+            "word": "technically"
+        }, 
+        {
+            "start": 28.28, 
+            "end": 28.34, 
+            "word": "phd"
+        }, 
+        {
+            "start": 28.34, 
+            "end": 28.67, 
+            "word": "is"
+        }, 
+        {
+            "start": 28.73, 
+            "end": 28.84, 
+            "word": "in"
+        }, 
+        {
+            "start": 28.84, 
+            "end": 29.34, 
+            "word": "applied"
+        }, 
+        {
+            "start": 29.73, 
+            "end": 29.8, 
+            "word": "uh"
+        }, 
+        {
+            "start": 29.8, 
+            "end": 29.97, 
+            "word": "and"
+        }, 
+        {
+            "start": 29.97, 
+            "end": 32.17, 
+            "word": "computational"
+        }, 
+        {
+            "start": 32.2, 
+            "end": 32.47, 
+            "word": "but"
+        }, 
+        {
+            "start": 32.47, 
+            "end": 32.63, 
+            "word": "i've"
+        }, 
+        {
+            "start": 32.67, 
+            "end": 33.14, 
+            "word": "always"
+        }, 
+        {
+            "start": 33.24, 
+            "end": 33.81, 
+            "word": "a"
+        }, 
+        {
+            "start": 33.81, 
+            "end": 34.03, 
+            "word": "very"
+        }, 
+        {
+            "start": 34.03, 
+            "end": 34.13, 
+            "word": "keen"
+        }, 
+        {
+            "start": 34.13, 
+            "end": 37.46, 
+            "word": "interest"
+        }, 
+        {
+            "start": 37.46, 
+            "end": 38.15, 
+            "word": "in"
+        }, 
+        {
+            "start": 38.15, 
+            "end": 38.57, 
+            "word": "music"
+        }, 
+        {
+            "start": 38.79, 
+            "end": 39.0, 
+            "word": "uh"
+        }, 
+        {
+            "start": 39.0, 
+            "end": 39.49, 
+            "word": "my"
+        }, 
+        {
+            "start": 39.55, 
+            "end": 40.32, 
+            "word": "undergraduate"
+        }, 
+        {
+            "start": 40.32, 
+            "end": 40.71, 
+            "word": "degrees"
+        }, 
+        {
+            "start": 40.71, 
+            "end": 40.89, 
+            "word": "were"
+        }, 
+        {
+            "start": 40.89, 
+            "end": 41.15, 
+            "word": "in"
+        }, 
+        {
+            "start": 41.15, 
+            "end": 42.03, 
+            "word": "electronic"
+        }, 
+        {
+            "start": 42.03, 
+            "end": 42.51, 
+            "word": "engineering"
+        }, 
+        {
+            "start": 42.51, 
+            "end": 43.04, 
+            "word": "specifically"
+        }, 
+        {
+            "start": 43.04, 
+            "end": 43.16, 
+            "word": "in"
+        }, 
+        {
+            "start": 43.16, 
+            "end": 43.84, 
+            "word": "sonar"
+        }, 
+        {
+            "start": 44.09, 
+            "end": 44.25, 
+            "word": "uh"
+        }, 
+        {
+            "start": 44.29, 
+            "end": 45.06, 
+            "word": "sound"
+        }, 
+        {
+            "start": 45.06, 
+            "end": 46.0, 
+            "word": "processing"
+        }, 
+        {
+            "start": 46.0, 
+            "end": 46.31, 
+            "word": "so"
+        }, 
+        {
+            "start": 46.31, 
+            "end": 46.4, 
+            "word": "i"
+        }, 
+        {
+            "start": 46.4, 
+            "end": 46.61, 
+            "word": "guess"
+        }, 
+        {
+            "start": 47.01, 
+            "end": 47.08, 
+            "word": "i"
+        }, 
+        {
+            "start": 47.08, 
+            "end": 47.41, 
+            "word": "started"
+        }, 
+        {
+            "start": 47.41, 
+            "end": 47.5, 
+            "word": "my"
+        }, 
+        {
+            "start": 47.5, 
+            "end": 47.88, 
+            "word": "career"
+        }, 
+        {
+            "start": 47.88, 
+            "end": 48.18, 
+            "word": "in"
+        }, 
+        {
+            "start": 48.18, 
+            "end": 48.75, 
+            "word": "of"
+        }, 
+        {
+            "start": 48.86, 
+            "end": 49.16, 
+            "word": "audio"
+        }, 
+        {
+            "start": 49.16, 
+            "end": 49.63, 
+            "word": "processing"
+        }, 
+        {
+            "start": 49.63, 
+            "end": 49.73, 
+            "word": "of"
+        }, 
+        {
+            "start": 49.73, 
+            "end": 50.13, 
+            "word": "sonar"
+        }, 
+        {
+            "start": 50.13, 
+            "end": 50.56, 
+            "word": "sounds"
+        }, 
+        {
+            "start": 50.56, 
+            "end": 50.67, 
+            "word": "and"
+        }, 
+        {
+            "start": 50.67, 
+            "end": 50.78, 
+            "word": "i've"
+        }, 
+        {
+            "start": 50.78, 
+            "end": 50.99, 
+            "word": "kind"
+        }, 
+        {
+            "start": 50.99, 
+            "end": 51.08, 
+            "word": "of"
+        }, 
+        {
+            "start": 51.08, 
+            "end": 51.42, 
+            "word": "stayed"
+        }, 
+        {
+            "start": 51.42, 
+            "end": 51.66, 
+            "word": "in"
+        }, 
+        {
+            "start": 51.66, 
+            "end": 52.04, 
+            "word": "audio"
+        }, 
+        {
+            "start": 52.04, 
+            "end": 52.38, 
+            "word": "theme"
+        }, 
+        {
+            "start": 52.38, 
+            "end": 52.5, 
+            "word": "my"
+        }, 
+        {
+            "start": 52.5, 
+            "end": 52.81, 
+            "word": "entire"
+        }, 
+        {
+            "start": 52.81, 
+            "end": 53.12, 
+            "word": "life"
+        }, 
+        {
+            "start": 53.48, 
+            "end": 53.96, 
+            "word": "always"
+        }, 
+        {
+            "start": 53.96, 
+            "end": 54.12, 
+            "word": "with"
+        }, 
+        {
+            "start": 54.12, 
+            "end": 54.26, 
+            "word": "this"
+        }, 
+        {
+            "start": 54.26, 
+            "end": 54.96, 
+            "word": "background"
+        }, 
+        {
+            "start": 54.96, 
+            "end": 55.56, 
+            "word": "passion"
+        }, 
+        {
+            "start": 56.09, 
+            "end": 56.46, 
+            "word": "around"
+        }, 
+        {
+            "start": 56.46, 
+            "end": 58.85, 
+            "word": "unfortunately"
+        }, 
+        {
+            "start": 58.85, 
+            "end": 58.95, 
+            "word": "my"
+        }, 
+        {
+            "start": 58.95, 
+            "end": 59.33, 
+            "word": "abilities"
+        }, 
+        {
+            "start": 59.33, 
+            "end": 59.64, 
+            "word": "aren't"
+        }, 
+        {
+            "start": 59.86, 
+            "end": 59.98, 
+            "word": "the"
+        }, 
+        {
+            "start": 60.15, 
+            "end": 60.6, 
+            "word": "same"
+        }, 
+        {
+            "start": 60.6, 
+            "end": 60.7, 
+            "word": "as"
+        }, 
+        {
+            "start": 60.7, 
+            "end": 60.81, 
+            "word": "my"
+        }, 
+        {
+            "start": 60.81, 
+            "end": 61.15, 
+            "word": "passion"
+        }, 
+        {
+            "start": 61.15, 
+            "end": 61.34, 
+            "word": "for"
+        }, 
+        {
+            "start": 61.34, 
+            "end": 61.8, 
+            "word": "music"
+        }, 
+        {
+            "start": 61.83, 
+            "end": 62.26, 
+            "word": "so"
+        }, 
+        {
+            "start": 62.26, 
+            "end": 62.51, 
+            "word": "uh"
+        }, 
+        {
+            "start": 62.51, 
+            "end": 62.68, 
+            "word": "that's"
+        }, 
+        {
+            "start": 62.68, 
+            "end": 62.98, 
+            "word": "why"
+        }, 
+        {
+            "start": 62.98, 
+            "end": 63.06, 
+            "word": "i'm"
+        }, 
+        {
+            "start": 63.39, 
+            "end": 63.5, 
+            "word": "a"
+        }, 
+        {
+            "start": 63.5, 
+            "end": 64.05, 
+            "word": "practicing"
+        }, 
+        {
+            "start": 64.05, 
+            "end": 64.68, 
+            "word": "mathematician"
+        }, 
+        {
+            "start": 65.41, 
+            "end": 65.67, 
+            "word": "an"
+        }, 
+        {
+            "start": 65.67, 
+            "end": 66.19, 
+            "word": "interest"
+        }, 
+        {
+            "start": 66.19, 
+            "end": 66.27, 
+            "word": "in"
+        }, 
+        {
+            "start": 66.27, 
+            "end": 66.52, 
+            "word": "music"
+        }, 
+        {
+            "start": 66.52, 
+            "end": 66.61, 
+            "word": "than"
+        }, 
+        {
+            "start": 66.61, 
+            "end": 66.87, 
+            "word": "the"
+        }, 
+        {
+            "start": 67.07, 
+            "end": 67.19, 
+            "word": "other"
+        }, 
+        {
+            "start": 67.19, 
+            "end": 67.3, 
+            "word": "way"
+        }, 
+        {
+            "start": 67.3, 
+            "end": 67.62, 
+            "word": "around"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Text Area Testing Grounds</title>
+</head>
+
+<script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
+<script src="/static/script/soundmanager2-jsmin.js" type="text/javascript"></script>
+<script src="/static/script/textinputs.jquery.js" type="text/javascript"></script>
+<script src="/static/script/textareatest.js" type="text/javascript"></script>
+
+<style>
+.container {
+    position: relative;
+}
+
+textarea {
+    font-size: 24px;
+    background-color: transparent;
+    margin: 0;
+    padding: 5px;
+    width: 1000px;
+    height: 800px;
+    resize: none;
+    font-family: Helvetica;
+}
+
+.hlContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px dashed #ff0000;
+    width: 1000px;
+    height: 800px;
+}
+
+.taContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #000000;
+}
+
+.highlights {
+    font-size: 24px;
+    padding: 6px;
+    color: #fff;
+    background: #fff;
+    margin: 0;
+    width: 1000px;
+    height: 800px;
+    font-family: Helvetica;
+}
+
+.hl {
+    background-color: #C5E3BF;
+}
+
+</style>
+
+<body>
+<div class="container">
+<div class="hlContainer"><div class="highlights"></div></div>
+<div class="taContainer"><textarea id="txtArea" name="area1"></textarea></div>
+
+</div>
+ 
+</body>
+</html>

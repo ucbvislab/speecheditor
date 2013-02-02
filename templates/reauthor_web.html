@@ -1,0 +1,52 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Speech reauthoring demo</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
+  <script src="/static/script/soundmanager2-jsmin.js" type="text/javascript"></script>
+  <script src="/static/script/speechtexteditor.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css" /> -->
+  <style>
+  h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 1.4em;
+      border-bottom: 2px solid purple;
+  }
+  #sortable { 
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+  }
+  #sortable li { 
+      margin: 3px 3px 3px 0;
+      padding: 1px;
+      float: left;
+      height: 40px;
+      font-size: 2em;
+      text-align: center;
+      cursor: move;
+  }
+  #sortable li.pause {
+      font-size: .9em;
+      line-height: 40px;
+  }
+  .ui-state-focus {
+      background: #BCED91; 
+  }
+  </style>
+</head>
+<body>
+ 
+<h1>Re-order words. Shift click to delete a word. Option/alt click to copy a word. Press enter/return to generate and play the result. Press 'p' to pause/play.</h1>
+
+<p>Drag pauses into the speech <span class="ui-state-default">{pause}</li></p>
+
+<ul id="sortable"></ul>
+ 
+</body>
+</html>

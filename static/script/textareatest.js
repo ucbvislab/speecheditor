@@ -37,8 +37,10 @@ soundManager.setup({
 TAAPP.state = {
     // speechText: "/static/scorerickard_first.json",
     // speechAudio: "/static/scorerickard_first.wav",
-    speechText: "/static/sedaris.json",
-    speechAudio: "/static/sedaris44mono.wav",
+    // speechText: "/static/sedaris.json",
+    // speechAudio: "/static/sedaris44mono.wav",
+    speechText: "bullw.json",
+    speechAudio: "bullw44.wav",
     speechReauthor: {},
     speechSampleRate: 44100
 };

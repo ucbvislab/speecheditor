@@ -20,7 +20,7 @@ Object.prototype.clone = function() {
 };
 
 soundManager.setup({
-    url: '/static/swf/soundmanager2_flash9.swf',
+    url: 'swf/soundmanager2_flash9.swf',
     flashVersion: 9,
     useFlashBlock: false,
     onready: function () {
@@ -37,10 +37,8 @@ soundManager.setup({
 TAAPP.state = {
     // speechText: "/static/scorerickard_first.json",
     // speechAudio: "/static/scorerickard_first.wav",
-    // speechText: "/static/sedaris.json",
-    // speechAudio: "/static/sedaris44mono.wav",
-    speechText: "bullw.json",
-    speechAudio: "bullw44.wav",
+    speechText: "sedaris.json",
+    speechAudio: "sedaris44mono.wav",
     speechReauthor: {},
     speechSampleRate: 44100
 };
@@ -318,7 +316,7 @@ TAAPP.generateAudio = function () {
 
 
     $.ajax({
-        url: '/reauthor',
+        url: '../reauthor',
         type: 'POST',
         dataType: 'json',
         contentType: 'json',

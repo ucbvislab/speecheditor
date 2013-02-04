@@ -350,7 +350,9 @@ TAAPP.generateAudio = function () {
             TAAPP.sound = TAAPP.createSound(data);
             $(spinner).remove();
         },
-        error: undefined
+        error: function (data) {
+            $(spinner).remove();
+        }
     });
 };
 
@@ -459,6 +461,7 @@ TAAPP.loadSite = function () {
     });
     
     TAAPP.speech = $('select[name=speechSelect]').val();
+    TAAPP.state.outfile = Math.random().toString(36).substring(12);
     TAAPP.reset();
     
     TAAPP.ta = $("#txtArea");

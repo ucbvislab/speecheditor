@@ -5,6 +5,7 @@ try:
 except:
     import json
 import urllib
+import subprocess
 
 import web
 from web.contrib.template import render_mako
@@ -50,10 +51,12 @@ class reauthor:
             out_file="static/out-zc",
             samplerate=dat["speechSampleRate"]
         )
+        
+        subprocess.call('lame -f -b 128 --nohist static/out-zc.wav', shell=True)
 
         web.header('Content-type', 'application/json')
         return json.dumps( {
-            "url": 'out-zc.wav',
+            "url": 'out-zc.mp3',
             "timing": timing
         } )
 

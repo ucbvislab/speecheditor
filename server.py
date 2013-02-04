@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 try:
     import simplejson as json
 except:
@@ -7,6 +9,8 @@ import urllib
 import web
 from web.contrib.template import render_mako
 
+import sys
+sys.path.append("/home/ubuntu/speecheditor")
 from reauthor_speech import rebuild_audio, find_breaths
 
 urls = (
@@ -16,7 +20,7 @@ urls = (
 	'/ping', 'ping',
 )
 
-#app = web.application(urls, globals())
+
 
 render = render_mako(
     directories=['templates'],
@@ -26,7 +30,7 @@ render = render_mako(
 
 class ping:
 	def GET(self):
-		return "pong"
+		return sys.path
 
 class home:
     def GET(self):
@@ -61,8 +65,8 @@ class breaths:
         result = find_breaths(params.speechAudio, af)
         return json.dumps(result)
 
-app = web.application(urls, globals(), autoreload=False)
+app = web.application(urls, globals())
 application = app.wsgifunc()
 
-if __name__ == '__main__':
+if __name__=="__main__":
     app.run()

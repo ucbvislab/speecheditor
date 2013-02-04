@@ -5,7 +5,6 @@ try:
 except:
     import json
 import sys
-print >> sys.stderr, "TEST WTF COMPOSER YO"
 
 from radiotool.composer import Composition, Speech, Segment
 print >> sys.stderr, "Composer imported"
@@ -89,6 +88,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
     # new reauthoring loop
     for i, eg in enumerate(edit_groups):
+        print "sPEEEEEECH", speech
         s = Speech(speech, "s" + str(i))
         c.add_track(s)
 
@@ -149,7 +149,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     # for i in range(len(segments) - 1):
     #     c.cross_fade(segments[i], segments[i + 1], .05)
     #     #c.fade_out(segments[i], 1.0)
-    
+  
     c.output_score(
         adjust_dynamics=False,
         filename=out_file,

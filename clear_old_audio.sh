@@ -1,0 +1,1 @@
+find static/tmp/*.mp3 -type f -mmin +60 -exec rm {} \;

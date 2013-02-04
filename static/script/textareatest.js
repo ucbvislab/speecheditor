@@ -35,8 +35,8 @@ soundManager.setup({
 });
 
 TAAPP.state = {
-    speechText: "scorerickard.json",
-    speechAudio: "scorerickard44.wav",
+    // speechText: "scorerickard.json",
+    // speechAudio: "scorerickard44.wav",
     // speechText: "sedaris.json",
     // speechAudio: "sedaris44mono.wav",
     // speechText: "bullw.json",
@@ -425,9 +425,18 @@ TAAPP.playFromSelection = function () {
     TAAPP.sound.stop();
     TAAPP.sound.setPosition(TAAPP.timing[startIndex][1] * 1000);
     TAAPP.sound.play();
-}
+};
 
-TAAPP.loadSite = function () {
+TAAPP.reset = function () {
+    TAAPP.state.speechText = TAAPP.speech + ".json";
+    TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
+    if (TAAPP.sound) {
+        TAAPP.sound.destruct();
+        TAAPP.sound = undefined;
+    }
+    TAAPP.current = undefined;
+    TAAPP.timing = undefined;
+    
     $.getJSON(TAAPP.state.speechText, function (data) {
         var words = data.words;
         TAAPP.words = words;
@@ -440,7 +449,18 @@ TAAPP.loadSite = function () {
         
         TAAPP.adjustHeight();
     });
+};  
 
+TAAPP.loadSite = function () {
+    $('select[name=speechSelect]').change(function() {
+        console.log("Changing to " + $(this).val());
+        TAAPP.speech = $(this).val();
+        TAAPP.reset();
+    });
+    
+    TAAPP.speech = $('select[name=speechSelect]').val();
+    TAAPP.reset();
+    
     TAAPP.ta = $("#txtArea");
     TAAPP.updateText();
     $("#txtArea").bind('copy', function (e) {

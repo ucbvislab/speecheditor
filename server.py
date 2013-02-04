@@ -54,17 +54,21 @@ class reauthor:
             af = json.loads(f.read())["words"]
         ef = dat["speechReauthor"]["words"]
         
-        timing = reauthor_speech.rebuild_audio(APP_PATH + 'static/' + dat["speechAudio"], af, ef,
+        timing = reauthor_speech.rebuild_audio(APP_PATH + 'static/' +
+            dat["speechAudio"], af, ef,
             cut_to_zc=True,
-            out_file=APP_PATH + "static/out-zc",
+            out_file=APP_PATH + "static/tmp/" + dat["outfile"],
             samplerate=dat["speechSampleRate"]
         )
         
-        subprocess.call('lame -f -b 128 --nohist ' + APP_PATH + 'static/out-zc.wav', shell=True)
+        subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
+            + dat["outfile"] + '.wav', shell=True)
+        subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
+            dat["outfile"] + '.wav', shell=True)
 
         web.header('Content-type', 'application/json')
         return json.dumps( {
-            "url": 'out-zc.mp3',
+            "url": 'tmp/' + dat["outfile"] + '.mp3',
             "timing": timing
         } )
 

@@ -438,6 +438,7 @@ TAAPP.reset = function () {
     }
     TAAPP.current = undefined;
     TAAPP.timing = undefined;
+    TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     
     $.getJSON(TAAPP.state.speechText, function (data) {
         var words = data.words;
@@ -461,7 +462,7 @@ TAAPP.loadSite = function () {
     });
     
     TAAPP.speech = $('select[name=speechSelect]').val();
-    TAAPP.state.outfile = Math.random().toString(36).substring(12);
+    TAAPP.outfile = Math.random().toString(36).substring(12);
     TAAPP.reset();
     
     TAAPP.ta = $("#txtArea");
@@ -518,6 +519,11 @@ TAAPP.loadSite = function () {
         if (e.keyCode === 80) {
             TAAPP.sound.togglePause();
         }
+    });
+    
+    $('.dlLink').click(function () {
+       $.get('/download/' + TAAPP.state.outfile);
+       return false;
     });
 };
 

@@ -6,7 +6,7 @@ except:
     import json
 import urllib
 import subprocess
-
+import os
 import web
 from web.contrib.template import render_mako
 
@@ -27,6 +27,7 @@ urls = (
     '/reauthor', 'reauthor',
     '/breaths', 'breaths',
 	'/ping', 'ping',
+    '/download/(.*)', 'download',
 )
 
 
@@ -34,12 +35,25 @@ urls = (
 render = render_mako(
     directories=['templates'],
     input_encoding='utf-8',
-    output_encoding='utf-8',
+    output_encoding='utf-8'
 )
 
 class ping:
 	def GET(self):
 		return sys.path
+
+class download:
+    def GET(self, name):
+        web.header('Content-Type','audio/mpeg')
+        web.header('Pragma', 'public')
+        web.header('Expires', '0')
+        web.header('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+        web.header('Cache-Control', 'public')
+        web.header('Content-Description', 'File Transfer')
+        web.header('Content-Disposition', 'attachment; filename=' + name + '.mp3;')
+        web.header('Content-Transfer-Encoding', 'binary')
+        web.header('Content-Length', os.stat(APP_PATH + 'static/tmp/' + name + '.mp3').st_size)
+        return open(APP_PATH + 'static/tmp/' + name + '.mp3', 'r').read()
 
 class home:
     def GET(self):

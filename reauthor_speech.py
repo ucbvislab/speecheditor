@@ -4,9 +4,12 @@ try:
     import simplejson as json
 except:
     import json
+import sys
+print >> sys.stderr, "TEST WTF COMPOSER YO"
 
+from radiotool.composer import Composition, Speech, Segment
+print >> sys.stderr, "Composer imported"
 
-from radiotool.composer import Composition, Speech, Segment, TimeStretchSegment
 
 class EditGroup:
     def __init__(self, start, end, edit_index):
@@ -105,8 +108,8 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                 except:
                     pass
 
-            seg = TimeStretchSegment(s, composition_loc, start, 
-                end - start, pause_len)
+            #seg = TimeStretchSegment(s, composition_loc, start, 
+            #    end - start, pause_len)
             c.add_score_segment(seg)
             start_times.append(composition_loc)
             if crossfades:

@@ -12,7 +12,15 @@ from web.contrib.template import render_mako
 
 import sys
 sys.path.append("/home/ubuntu/speecheditor")
-from reauthor_speech import rebuild_audio, find_breaths
+import reauthor_speech
+
+try:
+    from app_path import APP_PATH
+except:
+    APP_PATH = ''
+
+#import imp
+#reauthor_speech = imp.load_source('reauthor_speech', '/home/ubuntu/speecheditor/reauthor_speech.py')
 
 urls = (
     '/', 'home',
@@ -42,17 +50,17 @@ class reauthor:
         post_data = urllib.unquote(web.data())
         dat = json.loads(post_data)
         
-        with open('static/' + dat["speechText"], 'r') as f:
+        with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
             af = json.loads(f.read())["words"]
         ef = dat["speechReauthor"]["words"]
         
-        timing = rebuild_audio('static/' + dat["speechAudio"], af, ef,
+        timing = reauthor_speech.rebuild_audio(APP_PATH + 'static/' + dat["speechAudio"], af, ef,
             cut_to_zc=True,
-            out_file="static/out-zc",
+            out_file=APP_PATH + "static/out-zc",
             samplerate=dat["speechSampleRate"]
         )
         
-        subprocess.call('lame -f -b 128 --nohist static/out-zc.wav', shell=True)
+        subprocess.call('lame -f -b 128 --nohist ' + APP_PATH + 'static/out-zc.wav', shell=True)
 
         web.header('Content-type', 'application/json')
         return json.dumps( {

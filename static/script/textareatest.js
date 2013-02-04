@@ -439,6 +439,7 @@ TAAPP.reset = function () {
     TAAPP.current = undefined;
     TAAPP.timing = undefined;
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
+    $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
     
     $.getJSON(TAAPP.state.speechText, function (data) {
         var words = data.words;
@@ -521,10 +522,6 @@ TAAPP.loadSite = function () {
         }
     });
     
-    $('.dlLink').click(function () {
-       $.get('/download/' + TAAPP.state.outfile);
-       return false;
-    });
 };
 
 $(function () {

@@ -1,0 +1,1276 @@
+{
+    "words": [
+        {
+            "start": 0.01247, 
+            "end": 0.16213, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 0.16213, 
+            "end": 0.31179, 
+            "word": "I", 
+            "alignedWord": "I"
+        }, 
+        {
+            "start": 0.31179, 
+            "end": 0.60113, 
+            "word": "first", 
+            "alignedWord": "FIRST"
+        }, 
+        {
+            "start": 0.60113, 
+            "end": 0.78073, 
+            "word": "heard", 
+            "alignedWord": "HEARD"
+        }, 
+        {
+            "start": 0.78073, 
+            "end": 1.06009, 
+            "word": "about", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 1.06009, 
+            "end": 1.49909, 
+            "word": "Professor", 
+            "alignedWord": "PROFESSOR"
+        }, 
+        {
+            "start": 1.49909, 
+            "end": 2.05782, 
+            "word": "Ricard", 
+            "alignedWord": "RICARD"
+        }, 
+        {
+            "start": 2.05782, 
+            "end": 2.22744, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 2.22744, 
+            "end": 2.52676, 
+            "word": "because", 
+            "alignedWord": "BECAUSE"
+        }, 
+        {
+            "start": 2.52676, 
+            "end": 2.60658, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 2.60658, 
+            "end": 2.65646, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 2.65646, 
+            "end": 3.01565, 
+            "word": "video", 
+            "alignedWord": "VIDEO"
+        }, 
+        {
+            "start": 3.01565, 
+            "end": 3.16531, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 3.16531, 
+            "end": 3.22517, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 3.22517, 
+            "end": 3.51451, 
+            "word": "TED", 
+            "alignedWord": "TED"
+        }, 
+        {
+            "start": 3.51451, 
+            "end": 3.7839, 
+            "word": "X", 
+            "alignedWord": "X"
+        }, 
+        {
+            "start": 3.7839, 
+            "end": 4.06327, 
+            "word": "talk", 
+            "alignedWord": "TALK"
+        }, 
+        {
+            "start": 4.06327, 
+            "end": 4.18299, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 4.18299, 
+            "end": 4.3127, 
+            "word": "he", 
+            "alignedWord": "HE"
+        }, 
+        {
+            "start": 4.3127, 
+            "end": 4.61202, 
+            "word": "gave", 
+            "alignedWord": "GAVE"
+        }, 
+        {
+            "start": 4.61202, 
+            "end": 4.79161, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 4.79161, 
+            "end": 5.07098, 
+            "word": "found", 
+            "alignedWord": "FOUND"
+        }, 
+        {
+            "start": 5.07098, 
+            "end": 5.48005, 
+            "word": "itself", 
+            "alignedWord": "ITSELF"
+        }, 
+        {
+            "start": 5.48005, 
+            "end": 5.89909, 
+            "word": "rather", 
+            "alignedWord": "RATHER"
+        }, 
+        {
+            "start": 5.89909, 
+            "end": 6.3381, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 6.3381, 
+            "end": 7.19615, 
+            "word": "rapidly", 
+            "alignedWord": "RAPIDLY"
+        }, 
+        {
+            "start": 7.19615, 
+            "end": 7.5254, 
+            "word": "spread", 
+            "alignedWord": "SPREAD"
+        }, 
+        {
+            "start": 7.5254, 
+            "end": 7.92449, 
+            "word": "around", 
+            "alignedWord": "AROUND"
+        }, 
+        {
+            "start": 7.92449, 
+            "end": 8.20385, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 8.20385, 
+            "end": 8.26372, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 8.26372, 
+            "end": 8.91224, 
+            "word": "mathematical", 
+            "alignedWord": "MATHEMATICAL"
+        }, 
+        {
+            "start": 8.91224, 
+            "end": 9.49093, 
+            "word": "community", 
+            "alignedWord": "COMMUNITY"
+        }, 
+        {
+            "start": 9.49093, 
+            "end": 9.63061, 
+            "word": "on", 
+            "alignedWord": "ON"
+        }, 
+        {
+            "start": 9.63061, 
+            "end": 9.72041, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 9.72041, 
+            "end": 10.22925, 
+            "word": "internet.", 
+            "alignedWord": "INTERNET"
+        }, 
+        {
+            "start": 10.22925, 
+            "end": 10.62834, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 10.62834, 
+            "end": 10.91769, 
+            "word": "This", 
+            "alignedWord": "THIS"
+        }, 
+        {
+            "start": 10.91769, 
+            "end": 11.34671, 
+            "word": "talk", 
+            "alignedWord": "TALK"
+        }, 
+        {
+            "start": 11.34671, 
+            "end": 11.63605, 
+            "word": "had", 
+            "alignedWord": "HAD"
+        }, 
+        {
+            "start": 11.63605, 
+            "end": 11.86553, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 11.86553, 
+            "end": 12.32449, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 12.32449, 
+            "end": 12.78345, 
+            "word": "rather", 
+            "alignedWord": "RATHER"
+        }, 
+        {
+            "start": 12.78345, 
+            "end": 13.76122, 
+            "word": "unique", 
+            "alignedWord": "UNIQUE"
+        }, 
+        {
+            "start": 13.76122, 
+            "end": 14.29002, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 14.29002, 
+            "end": 14.8288, 
+            "word": "topic.", 
+            "alignedWord": "TOPIC"
+        }, 
+        {
+            "start": 14.8288, 
+            "end": 14.87868, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 14.87868, 
+            "end": 15.02834, 
+            "word": "It", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 15.02834, 
+            "end": 15.21791, 
+            "word": "was", 
+            "alignedWord": "WAS"
+        }, 
+        {
+            "start": 15.21791, 
+            "end": 15.59705, 
+            "word": "about,", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 15.59705, 
+            "end": 16.22562, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 16.22562, 
+            "end": 16.5449, 
+            "word": "well", 
+            "alignedWord": "WELL"
+        }, 
+        {
+            "start": 16.5449, 
+            "end": 17.35306, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 17.35306, 
+            "end": 17.49274, 
+            "word": "you", 
+            "alignedWord": "YOU"
+        }, 
+        {
+            "start": 17.49274, 
+            "end": 17.65238, 
+            "word": "know", 
+            "alignedWord": "KNOW"
+        }, 
+        {
+            "start": 17.65238, 
+            "end": 17.97166, 
+            "word": "what,", 
+            "alignedWord": "WHAT"
+        }, 
+        {
+            "start": 17.97166, 
+            "end": 18.4805, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 18.4805, 
+            "end": 18.57029, 
+            "word": "it", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 18.57029, 
+            "end": 18.77982, 
+            "word": "might", 
+            "alignedWord": "MIGHT"
+        }, 
+        {
+            "start": 18.77982, 
+            "end": 18.9195, 
+            "word": "be", 
+            "alignedWord": "BE"
+        }, 
+        {
+            "start": 18.9195, 
+            "end": 19.29864, 
+            "word": "better", 
+            "alignedWord": "BETTER"
+        }, 
+        {
+            "start": 19.29864, 
+            "end": 19.3585, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 19.3585, 
+            "end": 19.4483, 
+            "word": "let", 
+            "alignedWord": "LET"
+        }, 
+        {
+            "start": 19.4483, 
+            "end": 20.60567, 
+            "word": "him", 
+            "alignedWord": "HIM"
+        }, 
+        {
+            "start": 20.60567, 
+            "end": 20.79524, 
+            "word": "tell", 
+            "alignedWord": "TELL"
+        }, 
+        {
+            "start": 20.79524, 
+            "end": 20.98481, 
+            "word": "you", 
+            "alignedWord": "YOU"
+        }, 
+        {
+            "start": 20.98481, 
+            "end": 21.2941, 
+            "word": "about", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 21.2941, 
+            "end": 21.39388, 
+            "word": "it.", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 21.39388, 
+            "end": 22.40159, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 22.40159, 
+            "end": 23.05011, 
+            "word": "So", 
+            "alignedWord": "SO"
+        }, 
+        {
+            "start": 23.05011, 
+            "end": 23.36939, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 23.36939, 
+            "end": 23.69864, 
+            "word": "you", 
+            "alignedWord": "YOU"
+        }, 
+        {
+            "start": 23.69864, 
+            "end": 23.88821, 
+            "word": "you", 
+            "alignedWord": "YOU"
+        }, 
+        {
+            "start": 23.88821, 
+            "end": 24.39705, 
+            "word": "do", 
+            "alignedWord": "DO"
+        }, 
+        {
+            "start": 24.39705, 
+            "end": 24.61655, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 24.61655, 
+            "end": 25.6542, 
+            "word": "electronic", 
+            "alignedWord": "ELECTRONIC"
+        }, 
+        {
+            "start": 25.6542, 
+            "end": 26.08322, 
+            "word": "engineering.", 
+            "alignedWord": "ENGINEERING"
+        }, 
+        {
+            "start": 26.08322, 
+            "end": 26.36259, 
+            "word": "I'm", 
+            "alignedWord": "I'M"
+        }, 
+        {
+            "start": 26.36259, 
+            "end": 26.57211, 
+            "word": "not", 
+            "alignedWord": "NOT"
+        }, 
+        {
+            "start": 26.57211, 
+            "end": 26.7517, 
+            "word": "here", 
+            "alignedWord": "HERE"
+        }, 
+        {
+            "start": 26.7517, 
+            "end": 26.82154, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 26.82154, 
+            "end": 27.10091, 
+            "word": "talk", 
+            "alignedWord": "TALK"
+        }, 
+        {
+            "start": 27.10091, 
+            "end": 27.12086, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 27.12086, 
+            "end": 27.18073, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 27.18073, 
+            "end": 27.29048, 
+            "word": "you", 
+            "alignedWord": "YOU"
+        }, 
+        {
+            "start": 27.29048, 
+            "end": 27.56984, 
+            "word": "about", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 27.56984, 
+            "end": 27.79932, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 27.79932, 
+            "end": 28.4678, 
+            "word": "technically.", 
+            "alignedWord": "TECHNICALLY"
+        }, 
+        {
+            "start": 28.4678, 
+            "end": 28.71723, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 28.71723, 
+            "end": 29.29592, 
+            "word": "{LG}", 
+            "alignedWord": "{LG}"
+        }, 
+        {
+            "start": 29.29592, 
+            "end": 29.73492, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 29.73492, 
+            "end": 29.92449, 
+            "word": "My", 
+            "alignedWord": "MY"
+        }, 
+        {
+            "start": 29.92449, 
+            "end": 30.32358, 
+            "word": "ph", 
+            "alignedWord": "PH"
+        }, 
+        {
+            "start": 30.32358, 
+            "end": 30.4932, 
+            "word": "d", 
+            "alignedWord": "D"
+        }, 
+        {
+            "start": 30.4932, 
+            "end": 30.70272, 
+            "word": "is", 
+            "alignedWord": "IS"
+        }, 
+        {
+            "start": 30.70272, 
+            "end": 31.11179, 
+            "word": "actually", 
+            "alignedWord": "ACTUALLY"
+        }, 
+        {
+            "start": 31.11179, 
+            "end": 31.461, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 31.461, 
+            "end": 32.45873, 
+            "word": "applied", 
+            "alignedWord": "APPLIED"
+        }, 
+        {
+            "start": 32.45873, 
+            "end": 33.23696, 
+            "word": "mathematics", 
+            "alignedWord": "MATHEMATICS"
+        }, 
+        {
+            "start": 33.23696, 
+            "end": 33.78571, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 33.78571, 
+            "end": 34.07506, 
+            "word": "applied", 
+            "alignedWord": "APPLIED"
+        }, 
+        {
+            "start": 34.07506, 
+            "end": 34.16485, 
+            "word": "and", 
+            "alignedWord": "AND"
+        }, 
+        {
+            "start": 34.16485, 
+            "end": 34.70363, 
+            "word": "computational", 
+            "alignedWord": "COMPUTATIONAL"
+        }, 
+        {
+            "start": 34.70363, 
+            "end": 35.28231, 
+            "word": "mathematics", 
+            "alignedWord": "MATHEMATICS"
+        }, 
+        {
+            "start": 35.28231, 
+            "end": 35.422, 
+            "word": "but", 
+            "alignedWord": "BUT"
+        }, 
+        {
+            "start": 35.422, 
+            "end": 35.53175, 
+            "word": "i've", 
+            "alignedWord": "I'VE"
+        }, 
+        {
+            "start": 35.53175, 
+            "end": 35.91088, 
+            "word": "always", 
+            "alignedWord": "ALWAYS"
+        }, 
+        {
+            "start": 35.91088, 
+            "end": 36.00068, 
+            "word": "had", 
+            "alignedWord": "HAD"
+        }, 
+        {
+            "start": 36.00068, 
+            "end": 36.04059, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 36.04059, 
+            "end": 36.31995, 
+            "word": "very", 
+            "alignedWord": "VERY"
+        }, 
+        {
+            "start": 36.31995, 
+            "end": 36.66916, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 36.66916, 
+            "end": 36.97846, 
+            "word": "keen", 
+            "alignedWord": "KEEN"
+        }, 
+        {
+            "start": 36.97846, 
+            "end": 37.53719, 
+            "word": "interest", 
+            "alignedWord": "INTEREST"
+        }, 
+        {
+            "start": 37.53719, 
+            "end": 37.56712, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 37.56712, 
+            "end": 38.11587, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 38.11587, 
+            "end": 38.58481, 
+            "word": "music", 
+            "alignedWord": "MUSIC"
+        }, 
+        {
+            "start": 38.58481, 
+            "end": 39.00385, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 39.00385, 
+            "end": 39.35306, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 39.35306, 
+            "end": 39.61247, 
+            "word": "and", 
+            "alignedWord": "AND"
+        }, 
+        {
+            "start": 39.61247, 
+            "end": 39.78209, 
+            "word": "my", 
+            "alignedWord": "MY"
+        }, 
+        {
+            "start": 39.78209, 
+            "end": 40.34082, 
+            "word": "undergraduate", 
+            "alignedWord": "UNDERGRADUATE"
+        }, 
+        {
+            "start": 40.34082, 
+            "end": 40.72993, 
+            "word": "degrees", 
+            "alignedWord": "DEGREES"
+        }, 
+        {
+            "start": 40.72993, 
+            "end": 40.89955, 
+            "word": "were", 
+            "alignedWord": "WERE"
+        }, 
+        {
+            "start": 40.89955, 
+            "end": 41.17891, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 41.17891, 
+            "end": 41.63787, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 41.63787, 
+            "end": 42.04694, 
+            "word": "electronic", 
+            "alignedWord": "ELECTRONIC"
+        }, 
+        {
+            "start": 42.04694, 
+            "end": 42.51587, 
+            "word": "engineering", 
+            "alignedWord": "ENGINEERING"
+        }, 
+        {
+            "start": 42.51587, 
+            "end": 43.09456, 
+            "word": "specifically", 
+            "alignedWord": "SPECIFICALLY"
+        }, 
+        {
+            "start": 43.09456, 
+            "end": 43.15442, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 43.15442, 
+            "end": 43.80295, 
+            "word": "sonar", 
+            "alignedWord": "SONAR"
+        }, 
+        {
+            "start": 43.80295, 
+            "end": 44.31179, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 44.31179, 
+            "end": 44.98027, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 44.98027, 
+            "end": 45.39932, 
+            "word": "sound", 
+            "alignedWord": "SOUND"
+        }, 
+        {
+            "start": 45.39932, 
+            "end": 45.99796, 
+            "word": "processing", 
+            "alignedWord": "PROCESSING"
+        }, 
+        {
+            "start": 45.99796, 
+            "end": 46.33719, 
+            "word": "so", 
+            "alignedWord": "SO"
+        }, 
+        {
+            "start": 46.33719, 
+            "end": 46.44694, 
+            "word": "i", 
+            "alignedWord": "I"
+        }, 
+        {
+            "start": 46.44694, 
+            "end": 46.68639, 
+            "word": "guess", 
+            "alignedWord": "GUESS"
+        }, 
+        {
+            "start": 46.68639, 
+            "end": 47.00567, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 47.00567, 
+            "end": 47.08549, 
+            "word": "i", 
+            "alignedWord": "I"
+        }, 
+        {
+            "start": 47.08549, 
+            "end": 47.42472, 
+            "word": "started", 
+            "alignedWord": "STARTED"
+        }, 
+        {
+            "start": 47.42472, 
+            "end": 47.52449, 
+            "word": "my", 
+            "alignedWord": "MY"
+        }, 
+        {
+            "start": 47.52449, 
+            "end": 47.93356, 
+            "word": "career", 
+            "alignedWord": "CAREER"
+        }, 
+        {
+            "start": 47.93356, 
+            "end": 48.19297, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 48.19297, 
+            "end": 48.47234, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 48.47234, 
+            "end": 48.68186, 
+            "word": "kind", 
+            "alignedWord": "KIND"
+        }, 
+        {
+            "start": 48.68186, 
+            "end": 48.79161, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 48.79161, 
+            "end": 49.16077, 
+            "word": "audio", 
+            "alignedWord": "AUDIO"
+        }, 
+        {
+            "start": 49.16077, 
+            "end": 49.63968, 
+            "word": "processing", 
+            "alignedWord": "PROCESSING"
+        }, 
+        {
+            "start": 49.63968, 
+            "end": 49.70952, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 49.70952, 
+            "end": 50.12857, 
+            "word": "sonar", 
+            "alignedWord": "SONAR"
+        }, 
+        {
+            "start": 50.12857, 
+            "end": 50.59751, 
+            "word": "sounds", 
+            "alignedWord": "SOUNDS"
+        }, 
+        {
+            "start": 50.59751, 
+            "end": 50.6873, 
+            "word": "and", 
+            "alignedWord": "AND"
+        }, 
+        {
+            "start": 50.6873, 
+            "end": 50.79705, 
+            "word": "i've", 
+            "alignedWord": "I'VE"
+        }, 
+        {
+            "start": 50.79705, 
+            "end": 51.00658, 
+            "word": "kind", 
+            "alignedWord": "KIND"
+        }, 
+        {
+            "start": 51.00658, 
+            "end": 51.06644, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 51.06644, 
+            "end": 51.42562, 
+            "word": "stayed", 
+            "alignedWord": "STAYED"
+        }, 
+        {
+            "start": 51.42562, 
+            "end": 51.55533, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 51.55533, 
+            "end": 51.6551, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 51.6551, 
+            "end": 52.0542, 
+            "word": "audio", 
+            "alignedWord": "AUDIO"
+        }, 
+        {
+            "start": 52.0542, 
+            "end": 52.4034, 
+            "word": "theme", 
+            "alignedWord": "THEME"
+        }, 
+        {
+            "start": 52.4034, 
+            "end": 52.52313, 
+            "word": "my", 
+            "alignedWord": "MY"
+        }, 
+        {
+            "start": 52.52313, 
+            "end": 52.81247, 
+            "word": "entire", 
+            "alignedWord": "ENTIRE"
+        }, 
+        {
+            "start": 52.81247, 
+            "end": 53.34127, 
+            "word": "life", 
+            "alignedWord": "LIFE"
+        }, 
+        {
+            "start": 53.34127, 
+            "end": 53.57075, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 53.57075, 
+            "end": 53.97982, 
+            "word": "always", 
+            "alignedWord": "ALWAYS"
+        }, 
+        {
+            "start": 53.97982, 
+            "end": 54.13946, 
+            "word": "with", 
+            "alignedWord": "WITH"
+        }, 
+        {
+            "start": 54.13946, 
+            "end": 54.31905, 
+            "word": "this", 
+            "alignedWord": "THIS"
+        }, 
+        {
+            "start": 54.31905, 
+            "end": 54.91769, 
+            "word": "background", 
+            "alignedWord": "BACKGROUND"
+        }, 
+        {
+            "start": 54.91769, 
+            "end": 54.98753, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 54.98753, 
+            "end": 55.53628, 
+            "word": "passion", 
+            "alignedWord": "PASSION"
+        }, 
+        {
+            "start": 55.53628, 
+            "end": 56.12494, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 56.12494, 
+            "end": 57.20249, 
+            "word": "around", 
+            "alignedWord": "AROUND"
+        }, 
+        {
+            "start": 57.20249, 
+            "end": 57.58163, 
+            "word": "music.", 
+            "alignedWord": "MUSIC"
+        }, 
+        {
+            "start": 57.58163, 
+            "end": 57.94082, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 57.94082, 
+            "end": 58.43968, 
+            "word": "um", 
+            "alignedWord": "UM"
+        }, 
+        {
+            "start": 58.43968, 
+            "end": 59.31769, 
+            "word": "Unfortunately", 
+            "alignedWord": "UNFORTUNATELY"
+        }, 
+        {
+            "start": 59.31769, 
+            "end": 59.34762, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 59.34762, 
+            "end": 59.50726, 
+            "word": "my", 
+            "alignedWord": "MY"
+        }, 
+        {
+            "start": 59.50726, 
+            "end": 59.67687, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 59.67687, 
+            "end": 59.99615, 
+            "word": "abilities", 
+            "alignedWord": "ABILITIES"
+        }, 
+        {
+            "start": 59.99615, 
+            "end": 60.22562, 
+            "word": "aren't", 
+            "alignedWord": "AREN'T"
+        }, 
+        {
+            "start": 60.22562, 
+            "end": 60.36531, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 60.36531, 
+            "end": 60.61474, 
+            "word": "same", 
+            "alignedWord": "SAME"
+        }, 
+        {
+            "start": 60.61474, 
+            "end": 60.71451, 
+            "word": "as", 
+            "alignedWord": "AS"
+        }, 
+        {
+            "start": 60.71451, 
+            "end": 60.82426, 
+            "word": "my", 
+            "alignedWord": "MY"
+        }, 
+        {
+            "start": 60.82426, 
+            "end": 61.16349, 
+            "word": "passion", 
+            "alignedWord": "PASSION"
+        }, 
+        {
+            "start": 61.16349, 
+            "end": 61.34308, 
+            "word": "for", 
+            "alignedWord": "FOR"
+        }, 
+        {
+            "start": 61.34308, 
+            "end": 61.70227, 
+            "word": "music.", 
+            "alignedWord": "MUSIC"
+        }, 
+        {
+            "start": 61.70227, 
+            "end": 61.84195, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 61.84195, 
+            "end": 62.22109, 
+            "word": "So", 
+            "alignedWord": "SO"
+        }, 
+        {
+            "start": 62.22109, 
+            "end": 62.50045, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 62.50045, 
+            "end": 62.7, 
+            "word": "that's", 
+            "alignedWord": "THAT'S"
+        }, 
+        {
+            "start": 62.7, 
+            "end": 62.86961, 
+            "word": "why", 
+            "alignedWord": "WHY"
+        }, 
+        {
+            "start": 62.86961, 
+            "end": 63.07914, 
+            "word": "i'm", 
+            "alignedWord": "I'M"
+        }, 
+        {
+            "start": 63.07914, 
+            "end": 63.40839, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 63.40839, 
+            "end": 63.51814, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 63.51814, 
+            "end": 64.06689, 
+            "word": "practicing", 
+            "alignedWord": "PRACTICING"
+        }, 
+        {
+            "start": 64.06689, 
+            "end": 64.73537, 
+            "word": "mathematician", 
+            "alignedWord": "MATHEMATICIAN"
+        }, 
+        {
+            "start": 64.73537, 
+            "end": 65.45374, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 65.45374, 
+            "end": 65.63333, 
+            "word": "uh", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 65.63333, 
+            "end": 65.78299, 
+            "word": "with", 
+            "alignedWord": "WITH"
+        }, 
+        {
+            "start": 65.78299, 
+            "end": 65.84286, 
+            "word": "an", 
+            "alignedWord": "AN"
+        }, 
+        {
+            "start": 65.84286, 
+            "end": 66.20204, 
+            "word": "interest", 
+            "alignedWord": "INTEREST"
+        }, 
+        {
+            "start": 66.20204, 
+            "end": 66.28186, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 66.28186, 
+            "end": 66.56122, 
+            "word": "music", 
+            "alignedWord": "MUSIC"
+        }, 
+        {
+            "start": 66.56122, 
+            "end": 66.67098, 
+            "word": "as", 
+            "alignedWord": "AS"
+        }, 
+        {
+            "start": 66.67098, 
+            "end": 66.94036, 
+            "word": "opposed", 
+            "alignedWord": "OPPOSED"
+        }, 
+        {
+            "start": 66.94036, 
+            "end": 67.00023, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 67.00023, 
+            "end": 67.09002, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 67.09002, 
+            "end": 67.19977, 
+            "word": "other", 
+            "alignedWord": "OTHER"
+        }, 
+        {
+            "start": 67.19977, 
+            "end": 67.29955, 
+            "word": "way", 
+            "alignedWord": "WAY"
+        }, 
+        {
+            "start": 67.29955, 
+            "end": 67.6288, 
+            "word": "around.", 
+            "alignedWord": "AROUND"
+        }, 
+        {
+            "start": 67.6288, 
+            "end": 67.81837, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }
+    ]
+}

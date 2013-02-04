@@ -23,6 +23,8 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     cut_to_zc = kwargs.pop('cut_to_zc', True)
     out_file = kwargs.pop('out_file', 'out')
     samplerate = kwargs.pop('samplerate', 16000)
+    crossfades = kwargs.pop('crossfades', True)
+    fade_duration = 0.005
 
     cuts = []
     for i, word in enumerate(edits):
@@ -79,11 +81,14 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     tracks = []
     
     start_times = []
+    
+    c = Composition(channels=1)
 
     # new reauthoring loop
     for i, eg in enumerate(edit_groups):
         s = Speech(speech, "s" + str(i))
-        
+        c.add_track(s)
+
         if isinstance(eg, Pause):
             pause = eg
             start = pause.start
@@ -91,16 +96,25 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             pause_len = pause.new_length
 
             if cut_to_zc:
-                start = s.zero_crossing_before(start)
-                end = s.zero_crossing_after(end)
+                try:
+                    start = s.zero_crossing_before(start)
+                except:
+                    pass
+                try:
+                    end = s.zero_crossing_after(end)
+                except:
+                    pass
 
-            segments.append(
-                TimeStretchSegment(s, composition_loc, start, 
-                                   end - start, pause_len))
-            tracks.append(s)
+            seg = TimeStretchSegment(s, composition_loc, start, 
+                end - start, pause_len)
+            c.add_score_segment(seg)
             start_times.append(composition_loc)
+            if crossfades:
+                c.fade_in(seg, fade_duration)
+                c.fade_out(seg, fade_duration)
+                composition_loc -= fade_duration
             composition_loc += pause_len
-        else:        
+        else:
             start = eg.start
             if i + 1 < len(edit_groups):
                 end = cuts[edit_groups[i + 1].edit_index - 1].end
@@ -108,19 +122,27 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                 end = cuts[-1].end
 
             if cut_to_zc:
-                start = s.zero_crossing_before(start)
-                end = s.zero_crossing_after(end)
+                try:
+                    start = s.zero_crossing_before(start)
+                except:
+                    pass
+                try:
+                    end = s.zero_crossing_after(end)
+                except:
+                    pass
 
-            segments.append(
-                Segment(s, composition_loc, start,
-                        end - start))
-            tracks.append(s)
+            seg = Segment(s, composition_loc, start, end - start)
+            c.add_score_segment(seg)
             start_times.append(composition_loc)
+            if crossfades:
+                c.fade_in(seg, fade_duration)
+                c.fade_out(seg, fade_duration)
+                composition_loc -= fade_duration
             composition_loc += end - start
 
-    c = Composition(tracks=tracks, channels=1)
-    c.add_score_segments(segments)
-
+    
+    # c.add_score_segments(segments)
+    
     # for i in range(len(segments) - 1):
     #     c.cross_fade(segments[i], segments[i + 1], .05)
     #     #c.fade_out(segments[i], 1.0)
@@ -129,8 +151,10 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
         adjust_dynamics=False,
         filename=out_file,
         channels=1,
+        filetype='wav',
         samplerate=samplerate,
         separate_tracks=False)
+    
         
     # return the start of each block w/ start time
     return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]

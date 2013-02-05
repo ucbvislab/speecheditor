@@ -1,1 +1,1 @@
-sudo find static/tmp/*.mp3 -type f -mmin +60 -exec rm {} \;
+sudo find /home/ubuntu/speecheditor/static/tmp/*.mp3 -type f -mmin +60 -exec rm {} \;

@@ -2,14 +2,10 @@
 @textAreaFontSize: 18px;
 @textAreaLineHeight: 22px;
 
-body {
-    padding-bottom: 40px;
-}
-
 .hlBox {
     font-size: @textAreaFontSize;
     line-height: @textAreaLineHeight;
-    padding: 6px;
+    padding: 1px ;
     color: transparent;
     background: transparent;
     margin: 0;
@@ -19,14 +15,16 @@ body {
 
 .contr {
     position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 textarea {
     font-size: @textAreaFontSize;
     line-height: @textAreaLineHeight;
     background-color: transparent;
-    margin: 0;
-    padding: 5px;
+    margin: 0px;
+    padding: 0px;
     width: @textAreaWidth;
     height: 800px;
     resize: none;
@@ -69,4 +67,13 @@ textarea {
 
 .scriptLineText {
     margin-left: 4px;
+}
+
+.input-prepend,
+.input-append {
+    margin-bottom: 0;
+}
+
+.dupeList {
+    overflow: auto;
 }

@@ -40,18 +40,24 @@
     
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
-            <h2>Timeline</h2>
-            <div class="timeline">
-                
+        <div class="btn-toolbar">
+            <div class="btn-group">
+                <button class="btn btn-success playBtn">
+                    <i class="icon-play icon-white"></i>
+                </button>
             </div>
-        </div>
-    </div>
-    
-    <div class="row-fluid">
-        <div class="span12">
-
-            <div class="input-prepend">
+            <div class="btn-group">
+                <button class="btn btn-success genLink">Generate audio</button>
+                <a href="" class="btn btn-primary dlLink">Download current audio</a>
+            </div>
+            
+            <div class="btn-group input-append input-prepend">
+                <button href="" class="btn btn-info gPause">Insert pause of length</button>
+                <input type="text" class="gpLen input-mini" value="1.0">seconds</input>
+                <span class="add-on">seconds</span>
+            </div>
+            
+            <div class="btn-group input-prepend">
                 <span class="add-on">Select speech:</span>
                 <select name="speechSelect">
                     <option value="sedaris">David Sedaris - "Go Carolina"</option>
@@ -59,23 +65,21 @@
                     <option value="bullw" selected>Studio 360 - "Rocky & Bullwinkle and the Cuban Missile Crisis"</option>
                 </select>
             </div>
-        </div>    
-    </div>
-
-    <p class="lead">
-    Copy/paste/delete as usual. Press enter to generate and play audio. Press 'p' to pause/play.
-    </p>
-
-    <div class="input-append input-prepend">
-        <button href="" class="btn btn-primary gPause">Insert pause of length</button>
-        <input type="text" class="gpLen input-mini" value="1.0">seconds</input>
-        <span class="add-on">seconds</span>
+            
+        </div>
     </div>
     
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Timeline</h2>
+            <div class="timeline">
+            </div>
+        </div>
+    </div>
 
     <div class="row-fluid">
         <div class="span6">
-            <h2>New Speech <button href="" class="btn btn-primary dlLink">Download current audio</button></h2>
+            <h2>New Speech</h2>
             <div class="contr">
                 <div class="emContainer">
                     <div class="emphasis"></div>

@@ -78,8 +78,7 @@ class reauthor:
         )
         create_png('static/tmp/' + dat["outfile"] + '.wav',
             'static/tmp/' + dat["outfile"] + '.png',
-            dat["timelineWidth"],
-            150
+            dat["timelineWidth"], dat["timelineHeight"]
         )   
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
             dat["outfile"] + '.wav', shell=True

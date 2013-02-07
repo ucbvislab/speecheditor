@@ -26,7 +26,9 @@ soundManager.setup({
 
 TAAPP.state = {
     speechReauthor: {},
-    speechSampleRate: 44100
+    speechSampleRate: 44100,
+    timelineHeight: 100,
+    timelineWidth: 2000
 };
 
 TAAPP.processPaste = function (a, b) {
@@ -335,18 +337,21 @@ TAAPP.generateAudio = function () {
     });
 };
 
-TAAPP.updateTimeline = function (data) {
-    var waveform = document.createElement('img');
-    waveform.src = data.img;
-    $('.timeline').html("").append(waveform);
-};
-
 TAAPP.createSound = function (data) {
     return soundManager.createSound({
         id: 'speech',
         url: data.url,
         autoPlay: false,
         autoLoad: true,
+        onplay: function () {
+            $('.playBtn').html('<i class="icon-pause icon-white"></i>');
+        },
+        onresume: function () {
+            $('.playBtn').html('<i class="icon-pause icon-white"></i>');
+        },
+        onpause: function () {
+            $('.playBtn').html('<i class="icon-play icon-white"></i>');
+        },
         onload: function () {
             _.each(data.timing, function (elt, idx, list) {
                 var cwTiming = elt * 1000.0;
@@ -359,9 +364,10 @@ TAAPP.createSound = function (data) {
 
             $('.timeline').timeline('destroy')
                 .timeline({
-                    height: 150,
+                    height: TAAPP.state.timelineHeight,
                     img: data.img,
-                    sound: this
+                    sound: this,
+                    callback: TAAPP.adjustHeight
             });
         },
         onfinish: function () {
@@ -412,12 +418,18 @@ TAAPP.highlightWords = function (start, end) {
 TAAPP.adjustHeight = function () {
     TAAPP.ta.height("100px");
     var scrHeight = TAAPP.ta.prop("scrollHeight") + 'px';
+    
+    var eltHeight = window.innerHeight - TAAPP.ta.offset().top - 50;
+    
     TAAPP.ta.height(scrHeight);
     $('.highlights').height(scrHeight);
     $('.hlContainer').height(scrHeight);
     $('.emContainer').height(scrHeight);
     $('.emphasis').height(scrHeight);
-    TAAPP.state.timelineWidth = $('.timeline').width();
+    
+    // constrain the boxes for scrollbar usage
+    $('.contr').height(eltHeight);
+    $('.dupeList').height(eltHeight);
 };
 
 // TODO: fix this in wake of new timing data
@@ -546,12 +558,21 @@ TAAPP.drawScript = function () {
             .prop("type", "button");
         $(insert).html('<i class="icon-plus icon-white"></i>')
             .addClass('btn btn-primary');
+        $(div).addClass('scriptLine');
         if (elt.length === 1) {
             $(play).click(function () {
                 TAAPP.origSound.play({
                     from: 1000.0 * TAAPP.words[elt[0][0][0]].start,
                     to: 1000.0 * TAAPP.words[elt[0][0][1]].end
                 });
+            });
+            $(insert).click(function () {
+                var indices = elt[0][0],
+                    taSel = TAAPP.ta.getSelection();
+                TAAPP.insertWords(
+                    _.range(indices[0], indices[1] + 1),
+                    taSel.start
+                );
             });
             var btnGroup = document.createElement('div');
             $(btnGroup).addClass('btn-group')
@@ -560,8 +581,7 @@ TAAPP.drawScript = function () {
             var span = document.createElement('span');
             $(span).text(elt[0][1])
                 .addClass("scriptLineText");
-            $(div).addClass('scriptLine')
-                .append(btnGroup)
+            $(div).append(btnGroup)
                 .append(span);
             $('.dupeList').append(div);
             
@@ -601,6 +621,22 @@ TAAPP.drawScript = function () {
             $('.dupeList').append(div);
         }
     });
+};
+
+TAAPP.reauthor = function () {
+    if (TAAPP.sound) {
+        TAAPP.sound.pause();
+    }
+    TAAPP.highlightWords(-1);
+    TAAPP.generateAudio();
+};
+
+TAAPP.togglePlay = function () {
+    if (TAAPP.sound) {
+        TAAPP.sound.togglePause();
+    } else {
+        TAAPP.reauthor();
+    }
 };
 
 TAAPP.loadSite = function () {
@@ -658,14 +694,10 @@ TAAPP.loadSite = function () {
             TAAPP.processDelete("forward");
             // _.defer(TAAPP.cleanTextArea);
         } else if ([37, 38, 39, 40].indexOf(e.which) !== -1) {
-            // can fix this later to allow better shift-based text selection
+            // TODO: fix this later to allow better shift-based text selection
             _.defer(TAAPP.snapSelectionToWord);
         } else if (e.which === 13) {
-            if (TAAPP.sound) {
-                TAAPP.sound.pause();
-            }
-            TAAPP.highlightWords(-1);
-            TAAPP.generateAudio();
+            TAAPP.reauthor();
             return false;
         } else if (e.which === 90) {
             // prevent undo for now
@@ -678,9 +710,12 @@ TAAPP.loadSite = function () {
 
     }).bind('mouseup', TAAPP.snapSelectionToWord);
     
+    $('.genLink').click(TAAPP.reauthor);
+    $('.playBtn').click(TAAPP.togglePlay);
+    
     $("body").keyup(function (e) {
         if (e.keyCode === 80) {
-            TAAPP.sound.togglePause();
+            TAAPP.togglePlay();
         }
     });
     

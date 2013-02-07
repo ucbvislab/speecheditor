@@ -11,7 +11,9 @@
                'width': this.width(),
                'height': this.height(),
                'barColor': '#000000',
-               'barWidth': 3
+               'barWidth': 3,
+               'callback': undefined,
+               'resizeToFit': true
             }, options),
                 duration = settings.sound.duration,
                 tmpCanvas,
@@ -22,8 +24,7 @@
                 moveCanvas,
                 updateVis,
                 scrub,
-                updatePlayhead,
-                msPerPixel = parseFloat(duration) / parseFloat(settings.width);
+                updatePlayhead;
         
             console.log("TIMELINE START");
             console.log(settings);
@@ -34,12 +35,10 @@
         
             settings.sound.options.whileloading = function () {
                 duration = settings.sound.durationEstimate;
-                msPerPixel = parseFloat(duration) / parseFloat(settings.width);
             };
         
             settings.sound.options.onload = function () {
                 duration = settings.sound.duration; 
-                msPerPixel = parseFloat(duration) / parseFloat(settings.width);
             };
         
             tmpCanvas = document.createElement('canvas');
@@ -79,8 +78,12 @@
             	clearCanvas(tmpCanvas, tmpCtx);	
             	var waveform = new Image();
             	waveform.onload = function() {
-            		tmpCtx.drawImage(waveform, 0, 0);
+            		tmpCtx.drawImage(waveform, 0, 0, settings.width, settings.height);
+                    tmpCtx.strokeRect(0, 0, settings.width, settings.height);
             		moveCanvas(tmpCanvas, mainCanvas);
+                    if (settings.callback) {
+                        settings.callback();
+                    }
             	}
             	waveform.src = settings.img;
             }
@@ -90,17 +93,19 @@
                 var x = event.pageX - mainCanvas.offsetLeft;
                 if (x <= 0) x = 0;
                 if (settings.sound !== undefined) {
-                    settings.sound.setPosition(x * msPerPixel);
+                    settings.sound.setPosition(x * parseFloat(duration) / 
+                        parseFloat(settings.width));
                 }
                 console.log("scrubbed to", x)
-                updatePlayhead(x * msPerPixel);
+                updatePlayhead(x * parseFloat(duration) / parseFloat(settings.width));
             };
 
             updatePlayhead = function(pos) {
                 // pos is in milliseconds
                 moveCanvas(tmpCanvas, mainCanvas);
                 mainCtx.fillStyle = settings.barColor;
-                mainCtx.fillRect(pos / msPerPixel, 0, 
+                mainCtx.fillRect(pos / parseFloat(duration) *
+                    parseFloat(settings.width), 0, 
                     settings.barWidth, settings.height);
             };
         
@@ -110,7 +115,20 @@
             
             $(mainCanvas).click(scrub);
             
-            updateVis();
+            var timelineThis = this;
+            $(window).bind('resize.timeline', function () {
+                if (settings.resizeToFit) {
+                    settings.height = timelineThis.height();
+                    settings.width = timelineThis.width();
+                    $(tmpCanvas).attr("width", settings.width)
+                        .attr("height", settings.height);
+                    $(mainCanvas).attr("width", settings.width)
+                        .attr("height", settings.height);
+                    updateVis();
+                }
+            });
+            
+            updateVis(settings.width, settings.height);
             if (settings.play) {
                 settings.sound.play();
             }
@@ -118,6 +136,9 @@
         },
         destroy: function () {
             this.html("");
+            return this.each(function(){
+                $(window).unbind('.tooltip');
+            })
             return this;
         }
     };

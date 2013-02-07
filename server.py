@@ -13,14 +13,12 @@ from web.contrib.template import render_mako
 import sys
 sys.path.append("/home/ubuntu/speecheditor")
 import reauthor_speech
+import duplicate_lines
 
 try:
     from app_path import APP_PATH
 except:
     APP_PATH = ''
-
-#import imp
-#reauthor_speech = imp.load_source('reauthor_speech', '/home/ubuntu/speecheditor/reauthor_speech.py')
 
 urls = (
     '/', 'home',
@@ -28,9 +26,8 @@ urls = (
     '/breaths', 'breaths',
 	'/ping', 'ping',
     '/download/(.*)', 'download',
+    '/dupes', 'dupes',
 )
-
-
 
 render = render_mako(
     directories=['templates'],
@@ -85,6 +82,15 @@ class reauthor:
             "url": 'tmp/' + dat["outfile"] + '.mp3',
             "timing": timing
         } )
+
+class dupes:
+    def POST(self):
+        post_data = urllib.unquote(web.data())
+        dat = json.loads(post_data)
+        with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
+            af = json.load(f)["words"]
+        web.header('Content-type', 'application/json')
+        return json.dumps(duplicate_lines.get_dupes(af))
 
 class breaths:
     def GET(self):

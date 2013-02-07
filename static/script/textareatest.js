@@ -9,13 +9,12 @@
 var TAAPP = {};
 
 // http://my.opera.com/GreyWyvern/blog/show.dml/1725165
-Object.prototype.clone = function() {
-  var newObj = (this instanceof Array) ? [] : {};
-  for (i in this) {
-    if (i == 'clone') continue;
-    if (this[i] && typeof this[i] == "object") {
-      newObj[i] = this[i].clone();
-    } else newObj[i] = this[i]
+var clone = function (t) {
+  var newObj = (t instanceof Array) ? [] : {};
+  for (i in t) {
+    if (t[i] && typeof t[i] == "object") {
+      newObj[i] = clone(t[i]);
+    } else newObj[i] = t[i]
   } return newObj;
 };
 
@@ -23,89 +22,39 @@ soundManager.setup({
     url: 'swf/soundmanager2_flash9.swf',
     flashVersion: 9,
     useFlashBlock: false
-    // onready: function () {
-    //     TAAPP.sound = soundManager.createSound({
-    //         id: 'speech',
-    //         url: TAAPP.state.speechAudio,
-    //         autoPlay: false,
-    //         autoLoad: true,
-    //         volume: 100
-    //     });
-    // }
 });
 
 TAAPP.state = {
-    // speechText: "scorerickard.json",
-    // speechAudio: "scorerickard44.wav",
-    // speechText: "sedaris.json",
-    // speechAudio: "sedaris44mono.wav",
-    // speechText: "bullw.json",
-    // speechAudio: "bullw44.wav",
     speechReauthor: {},
     speechSampleRate: 44100
 };
 
 TAAPP.processPaste = function (a, b) {
-    var parse_paste = /(?:\[(\d+)\]([^|]+)\|)/g,
-        result,
-        newOut = b,
-        nRemoved = 0,
-        nRemove,
+    var parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g,
         bRes = false,
-        firstWord = true,
         sel = TAAPP.ta.getSelection(),
         pastedWords = [];
     // don't allow paste in the middle of a word
     if (a.length - b.length + sel.start !== 0 &&
         a.charAt(a.length - b.length + sel.start) !== ' ' &&
         a.charAt(a.length - b.length + sel.start - 1) !== ' ') {
-            console.log("Can't insert here!");
-            console.log(sel);
-            return [a, a.length - b.length + sel.start];
+            console.log("Can't insert here (middle of word)!");
+            TAAPP.ta.val(a);
+            return
     }
-    
     while (result = parse_paste.exec(b)) {
-        nRemove = 2 + result[1].length;
-
-        // ugly!
-        newOut = newOut.slice(0, result.index - nRemoved) +
-            newOut.slice(result.index + nRemove - nRemoved,
-                result.index + nRemove - nRemoved + result[2].length) +
-            newOut.slice(result.index + nRemove - nRemoved + result[2].length + 1);
-        nRemove++;
-        
-        // space before first word
-        if (firstWord) {
-            firstWord = false;
-            if (a.length - b.length + sel.start !== 0 &&
-                newOut.charAt(result.index - 1) !== ' ') {
-                    newOut = newOut.slice(0, result.index) + ' ' +
-                        newOut.slice(result.index);
-                    nRemoved--;
-            }
-        }
-        
-        // insert space at end of each word
-        var wordEndIdx = result.index + result[2].length - nRemoved;
-        var wordEnd = newOut.charAt(wordEndIdx);
-
-        if (wordEnd !== ' ') {
-            newOut = newOut.slice(0, wordEndIdx) + ' ' +
-                newOut.slice(wordEndIdx);
-            nRemoved--;
-        }
-        
-        nRemoved += nRemove;
         bRes = true;
-        pastedWords.push(parseInt(result[1]));
+        if (result[1] === 'gp') {
+            pastedWords.push(result[2]);
+        } else {
+            pastedWords.push(parseInt(result[1]));
+        }
     }
     if (bRes) {
-        _.defer(function () {
-           TAAPP.insertWords(pastedWords, a.length - b.length + sel.start);
-        });
-        return [newOut, wordEndIdx];
+        TAAPP.insertWords(pastedWords, a.length - b.length + sel.start);
+        return
     }
-    return [a, a.length - b.length + sel.start];
+    TAAPP.ta.val(a);
 };
 
 TAAPP.processCopy = function () {
@@ -114,9 +63,12 @@ TAAPP.processCopy = function () {
         sel = TAAPP.ta.getSelection(),
         wrds = TAAPP.currentRange(sel.start, sel.end),
         mod;
-
     mod = _.reduce(wrds, function(memo, wrd) {
         var j;
+        if (wrd.alignedWord === "gp") {
+            console.log("copying gp");
+            return memo + '[gp]' + wrd.word + '|';
+        }
         for (j = 0; j < TAAPP.words.length; j++) {
             if (TAAPP.words[j].start === wrd.start &&
                 TAAPP.words[j].end === wrd.end) {
@@ -187,6 +139,7 @@ TAAPP.currentRange = function (start, end) {
         }
         return [first, i];
     }
+    console.log("currentrange", start, end);
     return _.filter(TAAPP.current, function (word) {
        return word.taPos >= start && word.taPos < end; 
     });
@@ -210,13 +163,37 @@ TAAPP.insertWords = function (indices, pos) {
         }
     }
     // copy words
+    var ctx = {
+        "first": undefined,
+        "last": undefined
+    }
     words = _.map(indices, function (idx) {
-        return TAAPP.words[idx].clone() 
-    });
+        if (idx.toString().split('-')[0] === '{gp') {
+            var tmp = clone(TAAPP.roomTone[TAAPP.speech]);
+            tmp.word = idx;
+            tmp.pauseLength = parseFloat(idx.split('-')[1]);
+            if (ctx.first === undefined) {
+                this.first = tmp;
+            }
+            this.last = tmp;
+            return tmp;
+        }
+        var tmp = clone(TAAPP.words[idx]);
+        if (ctx.first === undefined) {
+            this.first = tmp;
+        }
+        this.last = tmp;
+        return tmp;
+    }, ctx);
     // insert them
     args = [i, 0].concat(words);
     Array.prototype.splice.apply(TAAPP.current, args);
+    TAAPP.updateTextArea();
     TAAPP.updatePos();
+    var newStart = ctx.first.taPos;
+    var newEnd = ctx.last.taPos + ctx.last.word.length;
+    TAAPP.ta.setSelection(newEnd, newEnd);
+    return [newStart, newEnd];
 };
 
 TAAPP.selectWord = function (direction) {
@@ -315,6 +292,8 @@ TAAPP.snapSelectionToWord = function () {
 
 TAAPP.updateText = function () {
     TAAPP.text = TAAPP.ta.val();
+    // and redraw emphasis
+    TAAPP.emphasizeWords();
 };
 
 TAAPP.updatePos = function () {
@@ -363,16 +342,12 @@ TAAPP.createSound = function (data) {
         autoPlay: true,
         onload: function () {
             _.each(data.timing, function (elt, idx, list) {
-                var cwTime = elt[1] * 1000.0,
-                    first = elt[0],
-                    last = TAAPP.current.length;
-                if (idx < list.length - 1) {
-                    last = list[idx + 1][0];
-                }
-                TAAPP.timing = data.timing;
-                this.onPosition(cwTime, function () {
-                    TAAPP.highlightWords(first, last);
+                var cwTiming = elt * 1000.0;
+                TAAPP.timing = data.timing
+                this.onPosition(cwTiming, function () {
+                    TAAPP.highlightWords(idx); 
                 });
+                
             }, this);
         },
         onfinish: function () {
@@ -381,15 +356,31 @@ TAAPP.createSound = function (data) {
     });
 };
 
+TAAPP.emphasizeWords = function () {
+    // emphasizes words that have the "emph" attribute in TAAPP.current
+    var emphHTML = _.reduce(TAAPP.current, function (memo, word, idx) {
+        if (word.emph !== undefined && word.emph === true) {
+            return memo + '<span class="emph">' + word.word + '</span> ';
+        }
+        return memo + word.word + ' ';
+    }, "");
+    $(".emphasis").html(emphHTML);  
+};
+
 TAAPP.highlightWords = function (start, end) {
     TAAPP.updateText();
     if (start === -1) {
+        TAAPP.currentHighlight = undefined;
         $(".highlights").html("");
         return;
     }
-    
+    if (TAAPP.currentHighlight !== undefined &&
+        TAAPP.currentHighlight[0] > start) {
+            return;
+    }
+    TAAPP.currentHighlight = [start, end];
     var hlHTML = _.reduce(TAAPP.current, function (memo, word, idx) {
-        if (idx === start && idx === end - 1) {
+        if (idx === start && (idx === end - 1 || end === undefined)) {
             return memo + '<span class="hl">' + word.word + '</span> ';
         }
         if (idx === start) {
@@ -404,12 +395,16 @@ TAAPP.highlightWords = function (start, end) {
 };
 
 TAAPP.adjustHeight = function () {
+    TAAPP.ta.height("100px");
     var scrHeight = TAAPP.ta.prop("scrollHeight") + 'px';
     TAAPP.ta.height(scrHeight);
     $('.highlights').height(scrHeight);
     $('.hlContainer').height(scrHeight);
+    $('.emContainer').height(scrHeight);
+    $('.emphasis').height(scrHeight);
 };
 
+// TODO: fix this in wake of new timing data
 TAAPP.playFromSelection = function () {
     var sel = TAAPP.ta.getSelection(),
         cur = TAAPP.currentRange(sel.start),
@@ -429,6 +424,46 @@ TAAPP.playFromSelection = function () {
     TAAPP.sound.play();
 };
 
+TAAPP.roomTone = {
+    "sedaris": {
+        "start": 32.837, 
+        "end": 34.118, 
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "bullw": {
+        "start": 123.0,
+        "end": 124.266,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "scorerickard": {
+        "start": 19.530,
+        "end": 19.851,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    }
+};
+
+TAAPP.loadOriginal = function () {
+    var args = {
+        url: TAAPP.speech + '.mp3',
+        id: 'orig',
+        onLoad: function () {
+            console.log("loaded original sound");
+        },
+        autoPlay: false,
+    };
+    if (TAAPP.origSound === undefined) {
+        soundManager.onready(function () {
+            TAAPP.origSound = soundManager.createSound(args);
+        });
+    } else {
+        TAAPP.origSound.destruct();
+        TAAPP.origSound = soundManager.createSound(args);
+    }
+};
+
 TAAPP.reset = function () {
     TAAPP.state.speechText = TAAPP.speech + ".json";
     TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
@@ -438,22 +473,118 @@ TAAPP.reset = function () {
     }
     TAAPP.current = undefined;
     TAAPP.timing = undefined;
+    TAAPP.currentHighlight = undefined;
+    TAAPP.dupes = undefined;
+    $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
     
+    // create the orignal sound, for sound "spriting"
+    TAAPP.loadOriginal();
+
     $.getJSON(TAAPP.state.speechText, function (data) {
         var words = data.words;
         TAAPP.words = words;
-        TAAPP.current = TAAPP.words.clone();
+        TAAPP.current = clone(TAAPP.words);
         TAAPP.updatePos();
+        TAAPP.updateTextArea();
+        TAAPP.updateDupes();
+    });    
+};
 
-        TAAPP.ta.val(_.reduce(words, function (memo, word) {
-            return memo + word.word + ' ';
-        }, ""));
-        
-        TAAPP.adjustHeight();
+TAAPP.updateDupes = function () {
+    $.ajax({
+        url: '../dupes',
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'json',
+        data: JSON.stringify(TAAPP.state),
+        success: function (data) {
+            TAAPP.dupes = data;
+            TAAPP.drawScript();
+        }
     });
-};  
+};
+
+TAAPP.updateTextArea = function () {
+    // draw textarea according to TAAPP.current
+    TAAPP.ta.val(_.reduce(TAAPP.current, function (memo, word) {
+        if (word.alignedWord === "UH" ||
+            word.alignedWord === "UM") {
+            word.emph = true;
+        }
+        return memo + word.word + ' ';
+    }, ""));
+    TAAPP.emphasizeWords();
+    TAAPP.adjustHeight();
+}
+
+TAAPP.drawScript = function () {
+    _.each(TAAPP.dupes, function (elt, idx, list) {
+        var play = document.createElement('button'),
+            insert = document.createElement('button'),
+            div = document.createElement('div');
+        $(play).html('<i class="icon-play icon-white"></i>')
+            .addClass('btn btn-success')
+            .prop("type", "button");
+        $(insert).html('<i class="icon-plus icon-white"></i>')
+            .addClass('btn btn-primary');
+        if (elt.length === 1) {
+            $(play).click(function () {
+                TAAPP.origSound.play({
+                    from: 1000.0 * TAAPP.words[elt[0][0][0]].start,
+                    to: 1000.0 * TAAPP.words[elt[0][0][1]].end
+                });
+            });
+            var btnGroup = document.createElement('div');
+            $(btnGroup).addClass('btn-group')
+                .append(play)
+                .append(insert);
+            var span = document.createElement('span');
+            $(span).text(elt[0][1])
+                .addClass("scriptLineText");
+            $(div).addClass('scriptLine')
+                .append(btnGroup)
+                .append(span);
+            $('.dupeList').append(div);
+            
+        } else {
+            var opts = _.map(elt, function (e, i) {
+                var opt = document.createElement('option');
+                $(opt).val(i).text(e[1]);
+                return opt;
+            }),
+                sel = document.createElement('select');
+            $(play).click(function () {
+                var playIdx = $(sel).val(),
+                    indices = elt[playIdx][0],
+                    start = TAAPP.words[indices[0]].start,
+                    end = TAAPP.words[indices[1]].end;
+                TAAPP.origSound.play({
+                    from: start * 1000.0,
+                    to: end * 1000.0
+                });
+            });
+            $(insert).click(function () {
+                var insertIdx = $(sel).val(),
+                    indices = elt[insertIdx][0],
+                    taSel = TAAPP.ta.getSelection();
+                TAAPP.insertWords(
+                    _.range(indices[0], indices[1] + 1),
+                    taSel.start
+                );
+            });
+            $(sel).append(opts)
+                .prop("name", 'dupe' + idx)
+                .addClass("span10");
+            $(div).addClass("input-prepend")
+                .append(play)
+                .append(insert)
+                .append(sel);
+            $('.dupeList').append(div);
+        }
+    });
+};
 
 TAAPP.loadSite = function () {
     $('select[name=speechSelect]').change(function() {
@@ -465,6 +596,18 @@ TAAPP.loadSite = function () {
     TAAPP.speech = $('select[name=speechSelect]').val();
     TAAPP.outfile = Math.random().toString(36).substring(12);
     TAAPP.reset();
+    
+    $('.gPause').click(function () {
+        TAAPP.updateText();
+        var txt = TAAPP.text;
+        var gp = clone(TAAPP.roomTone[TAAPP.speech]);
+        gp.word = '{gp-' + parseFloat($('.gpLen').val()) + '}';
+        gp.pauseLength = parseFloat($('.gpLen').val());
+        TAAPP.current.push(gp);
+        TAAPP.ta.val(txt + gp.word + ' ');
+        TAAPP.updatePos();
+        return false;
+    })
     
     TAAPP.ta = $("#txtArea");
     TAAPP.updateText();
@@ -479,8 +622,8 @@ TAAPP.loadSite = function () {
         TAAPP.text = TAAPP.ta.val();
         _.defer(function () {
             var res = TAAPP.processPaste(TAAPP.text, TAAPP.ta.val());
-            TAAPP.ta.val(res[0]);
-            TAAPP.ta.setSelection(res[1], res[1]);
+            // TAAPP.ta.val(res[0]);
+            // TAAPP.ta.setSelection(res[1], res[1]);
             TAAPP.updateText();
             TAAPP.adjustHeight();
         });
@@ -520,6 +663,10 @@ TAAPP.loadSite = function () {
         if (e.keyCode === 80) {
             TAAPP.sound.togglePause();
         }
+    });
+    
+    $(window).resize(function () {
+        TAAPP.adjustHeight();
     });
     
 };

@@ -17,9 +17,10 @@ class EditGroup:
         self.edit_index = edit_index
 
 class Pause(EditGroup):
-    def __init__(self, start, end, new_length, edit_index):
+    def __init__(self, start, end, new_length, edit_index, generic=False):
         EditGroup.__init__(self, start, end, edit_index)
         self.new_length = new_length
+        self.generic = generic
 
 def rebuild_audio(speech, alignment, edits, **kwargs):
     cut_to_zc = kwargs.pop('cut_to_zc', True)
@@ -36,6 +37,11 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
         if word["alignedWord"] == "sp" and "modifiedPause" in word:
             pause_len = round(word["pauseLength"], 5)
             cuts.append(Pause(start, end, pause_len, i))
+        elif word["alignedWord"] == "gp":
+            # handle generic pauses (room tone)
+            print word
+            pause_len = round(word["pauseLength"], 5)
+            cuts.append(Pause(start, end, pause_len, i, generic=True))
         else:
             cuts.append(EditGroup(start, end, i))
     for i in range(len(alignment)):
@@ -88,7 +94,6 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
     # new reauthoring loop
     for i, eg in enumerate(edit_groups):
-        print "sPEEEEEECH", speech
         s = Speech(speech, "s" + str(i))
         c.add_track(s)
 
@@ -108,14 +113,23 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                 except:
                     pass
 
-            #seg = TimeStretchSegment(s, composition_loc, start, 
-            #    end - start, pause_len)
-            c.add_score_segment(seg)
             start_times.append(composition_loc)
-            if crossfades:
-                c.fade_in(seg, fade_duration)
-                c.fade_out(seg, fade_duration)
-                composition_loc -= fade_duration
+            
+            gp_fade_dur = .2
+            
+            while pause_len > end - start:
+                seg = Segment(s, composition_loc, start, end - start)
+                c.add_score_segment(seg)
+                c.fade_in(seg, gp_fade_dur)
+                c.fade_out(seg, gp_fade_dur)
+                composition_loc += (end - start) - gp_fade_dur 
+                pause_len -= (end - start) - gp_fade_dur
+
+            seg = Segment(s, composition_loc, start, pause_len)            
+            c.add_score_segment(seg)
+            c.fade_in(seg, fade_duration)
+            c.fade_out(seg, fade_duration)
+            composition_loc -= fade_duration
             composition_loc += pause_len
         else:
             start = eg.start
@@ -159,8 +173,18 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
         separate_tracks=False)
     
         
-    # return the start of each block w/ start time
-    return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]
+    # return the start time of each word
+    eg_idx = 0
+    elapsed = 0.0
+    timings = []
+    for i, cut in enumerate(cuts):
+        if eg_idx < len(edit_groups):
+            if edit_groups[eg_idx].edit_index == cut.edit_index:
+                elapsed = start_times[i]
+        timings.append(round(elapsed, 5))
+        elapsed += cut.end - cut.start
+    return timings
+    # return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]
 
 
 def find_breaths(speech, alignment):

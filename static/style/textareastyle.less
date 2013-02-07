@@ -1,0 +1,72 @@
+@textAreaWidth: 100%;
+@textAreaFontSize: 18px;
+@textAreaLineHeight: 22px;
+
+body {
+    padding-bottom: 40px;
+}
+
+.hlBox {
+    font-size: @textAreaFontSize;
+    line-height: @textAreaLineHeight;
+    padding: 6px;
+    color: transparent;
+    background: transparent;
+    margin: 0;
+    width: @textAreaWidth;
+    height: 800px;
+}
+
+.contr {
+    position: relative;
+}
+
+textarea {
+    font-size: @textAreaFontSize;
+    line-height: @textAreaLineHeight;
+    background-color: transparent;
+    margin: 0;
+    padding: 5px;
+    width: @textAreaWidth;
+    height: 800px;
+    resize: none;
+}
+
+.hlContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: @textAreaWidth;
+}
+
+.taContainer {
+    .hlContainer;
+}
+
+.highlights {
+    .hlBox;
+}
+
+.emContainer {
+    .hlContainer
+}
+
+.emphasis {
+    .hlBox
+}
+
+.emph {
+    background-color: #EEB4B4;
+}
+
+.hl {
+    background-color: #C5E3BF;
+}
+
+.scriptLine {
+    margin: 4px 0px;
+}
+
+.scriptLineText {
+    margin-left: 4px;
+}

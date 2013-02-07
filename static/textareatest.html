@@ -1,65 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
     <title>Text Area Testing Grounds</title>
 </head>
 
 <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
-<script src="script/soundmanager2-jsmin.js" type="text/javascript"></script>
-<script src="script/textinputs.jquery.js" type="text/javascript"></script>
-<script src="script/textareatest.js" type="text/javascript"></script>
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" type="text/javascript"></script> -->
 
-<style>
-.container {
-    position: relative;
-}
 
-textarea {
-    font-size: 24px;
-    background-color: transparent;
-    margin: 0;
-    padding: 5px;
-    width: 1000px;
-    height: 800px;
-    resize: none;
-    font-family: Helvetica;
-}
+<link href="style/bootstrap.min.spruce.css" rel="stylesheet" media="screen">
 
-.hlContainer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    border: 1px dashed #ff0000;
-    width: 1000px;
-    height: 800px;
-}
 
-.taContainer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    border: 1px solid #000000;
-}
+<link rel="stylesheet/less" type="text/css" href="style/textareastyle.less" />
 
-.highlights {
-    font-size: 24px;
-    padding: 6px;
-    color: #fff;
-    background: #fff;
-    margin: 0;
-    width: 1000px;
-    height: 800px;
-    font-family: Helvetica;
-}
 
-.hl {
-    background-color: #C5E3BF;
-}
-
-</style>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -74,26 +29,79 @@ textarea {
 
 </script>
 <body>
-<div>    
-    Select speech:
-    <select name="speechSelect">
-        <option value="sedaris">David Sedaris - "Go Carolina"</option>
-        <option value="scorerickard" selected>Relatively Prime podcast - "The Score"</option>
-        <option value="bullw">Studio 360 - "Rocky & Bullwinkle and the Cuban Missile Crisis"</option>
-    </select>
-    
-    <a href="" class="dlLink">Download current audio</a>
-</div>
 
-<div>
-Copy/paste/delete as usual. Press enter to generate and play audio. Press 'p' to pause/play. Press space to start play from beginning of current block.
+<div class="navbar navbar-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="brand" href="#">Text-based Speech Editor</a>
+    </div>
+  </div>
 </div>
     
-<div class="container">
-<div class="hlContainer"><div class="highlights"></div></div>
-<div class="taContainer"><textarea id="txtArea" name="area1"></textarea></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Timeline</h2>
+        </div>
+    </div>
+    
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div class="input-prepend">
+                <span class="add-on">Select speech:</span>
+                <select name="speechSelect">
+                    <option value="sedaris">David Sedaris - "Go Carolina"</option>
+                    <option value="scorerickard">Relatively Prime podcast - "The Score"</option>
+                    <option value="bullw" selected>Studio 360 - "Rocky & Bullwinkle and the Cuban Missile Crisis"</option>
+                </select>
+            </div>
+        </div>    
+    </div>
+
+    <p class="lead">
+    Copy/paste/delete as usual. Press enter to generate and play audio. Press 'p' to pause/play.
+    </p>
+
+    <div class="input-append input-prepend">
+        <button href="" class="btn btn-primary gPause">Insert pause of length</button>
+        <input type="text" class="gpLen input-mini" value="1.0">seconds</input>
+        <span class="add-on">seconds</span>
+    </div>
+    
+
+    <div class="row-fluid">
+        <div class="span6">
+            <h2>New Speech <button href="" class="btn btn-primary dlLink">Download current audio</button></h2>
+            <div class="contr">
+                <div class="emContainer">
+                    <div class="emphasis"></div>
+                </div>
+                <div class="hlContainer">
+                    <div class="highlights"></div>
+                </div>
+                <div class="taContainer">
+                    <textarea id="txtArea" name="area1"></textarea>
+                </div>
+            </div>
+        </div>
+    
+        <div class="span6">
+            <h2>Original Speech</h2>
+            <div class="dupeList"></div>
+        </div>
+    </div>
+</div>
 
 </div>
+ 
+<script src="script/underscore-min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
+<script src="script/soundmanager2-jsmin.js" type="text/javascript"></script>
+<script src="script/textinputs.jquery.js" type="text/javascript"></script>
+<script src="script/textareatest.js" type="text/javascript"></script>
+<script src="script/bootstrap.min.js"></script>
+<script src="script/less.js" type="text/javascript"></script>
  
 </body>
 </html>

@@ -12,8 +12,10 @@ from web.contrib.template import render_mako
 
 import sys
 sys.path.append("/home/ubuntu/speecheditor")
+
 import reauthor_speech
 import duplicate_lines
+from wav2png import create_png
 
 try:
     from app_path import APP_PATH
@@ -71,15 +73,21 @@ class reauthor:
             out_file=APP_PATH + "static/tmp/" + dat["outfile"],
             samplerate=dat["speechSampleRate"]
         )
-        
         subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
-            + dat["outfile"] + '.wav', shell=True)
+            + dat["outfile"] + '.wav', shell=True
+        )
+        create_png('static/tmp/' + dat["outfile"] + '.wav',
+            'static/tmp/' + dat["outfile"] + '.png',
+            dat["timelineWidth"],
+            150
+        )   
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
-            dat["outfile"] + '.wav', shell=True)
-
+            dat["outfile"] + '.wav', shell=True
+        )
         web.header('Content-type', 'application/json')
         return json.dumps( {
             "url": 'tmp/' + dat["outfile"] + '.mp3',
+            "img": 'tmp/' + dat["outfile"] + '.png',
             "timing": timing
         } )
 

@@ -182,7 +182,10 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             if edit_groups[eg_idx].edit_index == cut.edit_index:
                 elapsed = start_times[i]
         timings.append(round(elapsed, 5))
-        elapsed += cut.end - cut.start
+        if isinstance(cut, Pause):
+            elapsed += cut.new_length
+        else:
+            elapsed += cut.end - cut.start
     return timings
     # return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]
 

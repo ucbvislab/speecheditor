@@ -322,11 +322,11 @@ TAAPP.generateAudio = function () {
         contentType: 'json',
         data: JSON.stringify(TAAPP.state),
         success: function (data) {
-
             if (TAAPP.sound !== undefined) {
                 TAAPP.sound.destruct();
             }
             TAAPP.sound = TAAPP.createSound(data);
+
             $(spinner).remove();
         },
         error: function (data) {
@@ -335,11 +335,18 @@ TAAPP.generateAudio = function () {
     });
 };
 
+TAAPP.updateTimeline = function (data) {
+    var waveform = document.createElement('img');
+    waveform.src = data.img;
+    $('.timeline').html("").append(waveform);
+};
+
 TAAPP.createSound = function (data) {
     return soundManager.createSound({
         id: 'speech',
         url: data.url,
-        autoPlay: true,
+        autoPlay: false,
+        autoLoad: true,
         onload: function () {
             _.each(data.timing, function (elt, idx, list) {
                 var cwTiming = elt * 1000.0;
@@ -349,6 +356,13 @@ TAAPP.createSound = function (data) {
                 });
                 
             }, this);
+
+            $('.timeline').timeline('destroy')
+                .timeline({
+                    height: 150,
+                    img: data.img,
+                    sound: this
+            });
         },
         onfinish: function () {
             TAAPP.highlightWords(-1);
@@ -375,7 +389,8 @@ TAAPP.highlightWords = function (start, end) {
         return;
     }
     if (TAAPP.currentHighlight !== undefined &&
-        TAAPP.currentHighlight[0] > start) {
+        TAAPP.currentHighlight[0] > start &&
+        TAAPP.currentHighlight[0] < start + 3) {
             return;
     }
     TAAPP.currentHighlight = [start, end];
@@ -402,6 +417,7 @@ TAAPP.adjustHeight = function () {
     $('.hlContainer').height(scrHeight);
     $('.emContainer').height(scrHeight);
     $('.emphasis').height(scrHeight);
+    TAAPP.state.timelineWidth = $('.timeline').width();
 };
 
 // TODO: fix this in wake of new timing data
@@ -475,6 +491,7 @@ TAAPP.reset = function () {
     TAAPP.timing = undefined;
     TAAPP.currentHighlight = undefined;
     TAAPP.dupes = undefined;
+    $('.timeline').timeline('destroy');
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
@@ -601,11 +618,13 @@ TAAPP.loadSite = function () {
         TAAPP.updateText();
         var txt = TAAPP.text;
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
+        var sel = TAAPP.ta.getSelection();
         gp.word = '{gp-' + parseFloat($('.gpLen').val()) + '}';
         gp.pauseLength = parseFloat($('.gpLen').val());
-        TAAPP.current.push(gp);
-        TAAPP.ta.val(txt + gp.word + ' ');
-        TAAPP.updatePos();
+        TAAPP.insertWords([gp.word], sel.start)
+        // TAAPP.current.push(gp);
+        // TAAPP.ta.val(txt + gp.word + ' ');
+        // TAAPP.updatePos();
         return false;
     })
     

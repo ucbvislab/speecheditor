@@ -127,7 +127,8 @@ TAAPP.processDelete = function (direction) {
         end++;
     }
     TAAPP.ta.setSelection(sel.start, end);
-    TAAPP.pruneCurrent(sel.start, end);
+    TAAPP.pruneCurrentByTAPos(sel.start, end);
+    TAAPP.updateText();
 };
 
 TAAPP.currentRange = function (start, end) {
@@ -148,6 +149,13 @@ TAAPP.currentRange = function (start, end) {
 }
 
 TAAPP.pruneCurrent = function (start, end) {
+    TAAPP.current = _.filter(TAAPP.current, function (word, idx) {
+        return idx < start || idx >= end;
+    });
+    TAAPP.updatePos();
+}
+
+TAAPP.pruneCurrentByTAPos = function (start, end) {
     TAAPP.current = _.filter(TAAPP.current, function (word) {
         return word.taPos < start || word.taPos >= end;
     });
@@ -240,12 +248,12 @@ TAAPP.selectWord = function (direction) {
 // }
 
 TAAPP.snapSelectionToWord = function () {
-    TAAPP.updateText();
     var sel = TAAPP.ta.getSelection(),
         oldLen,
         doneEnd = false,
         doneStart = false;
-
+    if (sel.length === 0) return;        
+    TAAPP.updateText();        
     // is it all spaces?
     if (/^\s+$/.exec(sel.text)) {
         TAAPP.ta.collapseSelection();
@@ -266,6 +274,7 @@ TAAPP.snapSelectionToWord = function () {
         while (TAAPP.text.charAt(sel.start - 1) !== ' ' &&
                 TAAPP.text.charAt(sel.start - 1) !== '' &&
                 oldLen !== sel.length && !doneStart) {
+                    console.log("in move start left");
             oldLen = sel.length;
             TAAPP.ta.setSelection(sel.start - 1, sel.end);
             sel = TAAPP.ta.getSelection();
@@ -296,6 +305,9 @@ TAAPP.updateText = function () {
     TAAPP.text = TAAPP.ta.val();
     // and redraw emphasis
     TAAPP.emphasizeWords();
+    
+    // turn it off for now for testing
+    TAAPP.insertDupeOverlays();
 };
 
 TAAPP.updatePos = function () {
@@ -311,11 +323,8 @@ TAAPP.generateAudio = function () {
     
     // loading
     var spinner = document.createElement('img');
-    spinner.src = 'img/spin.gif';
-    $('.hlContainer').prepend(spinner);
-    $(spinner).css('position', 'absolute')
-        .css('left', '436px')
-        .css('top', '200px');
+    spinner.src = 'img/smallgear.gif';
+    $('.spinner').prepend(spinner);
 
     $.ajax({
         url: '../reauthor',
@@ -388,7 +397,6 @@ TAAPP.emphasizeWords = function () {
 };
 
 TAAPP.highlightWords = function (start, end) {
-    TAAPP.updateText();
     if (start === -1) {
         TAAPP.currentHighlight = undefined;
         $(".highlights").html("");
@@ -514,6 +522,10 @@ TAAPP.reset = function () {
     $.getJSON(TAAPP.state.speechText, function (data) {
         var words = data.words;
         TAAPP.words = words;
+        // keep track of each word's position in TAAPP.words
+        _.each(TAAPP.words, function (word, idx) {
+           word.origPos = idx; 
+        });
         TAAPP.current = clone(TAAPP.words);
         TAAPP.updatePos();
         TAAPP.updateTextArea();
@@ -530,7 +542,9 @@ TAAPP.updateDupes = function () {
         data: JSON.stringify(TAAPP.state),
         success: function (data) {
             TAAPP.dupes = data;
+            TAAPP._preprocessDupes();
             TAAPP.drawScript();
+            TAAPP.insertDupeOverlays();
         }
     });
 };
@@ -545,8 +559,149 @@ TAAPP.updateTextArea = function () {
         return memo + word.word + ' ';
     }, ""));
     TAAPP.emphasizeWords();
+    TAAPP.insertDupeOverlays();
     TAAPP.adjustHeight();
 }
+
+TAAPP.replaceWords = function (c1, c2, w1, w2) {
+    // replace words from c1 to c2 in .current
+    // with words w1 through w2 in the original words
+    console.log("in replace words");
+    var pos = TAAPP.current[c1].taPos;
+    TAAPP.pruneCurrent(c1, c2 + 1);
+    return TAAPP.insertWords(_.range(w1, w2 + 1), pos);
+};
+
+TAAPP._buildDupeDropdown = function (word, dupeIdx, currentStart, currentEnd) {
+    // builds dropdown for picking similar sentences
+    // word: the word (string)
+    // dupeIdx: index of sentence in TAAPP.dupes
+    // currentStart: index of first word of sentence in current
+    // currentEnd: index of last word of sentence in current
+    var outer = document.createElement('span'),
+        triggerSpan = document.createElement('span'),
+        ul = document.createElement('ul'),
+        firstli = document.createElement('li'),
+        aDesc = document.createElement('a');
+    $(outer).addClass("dropdown overlay");
+    $(triggerSpan).addClass("dropdown-toggle").text(word);
+    $(firstli).addClass("disabled").append(aDesc);
+    $(aDesc).text("Similar sentences");
+    $(ul).addClass("dropdown-menu")
+        .attr("role", "menu")
+        .attr("aria-labelledby", "dLabel")
+        .append(firstli);
+    _.each(TAAPP.dupes[dupeIdx], function (elt) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        $(a).attr("tabindex", "-1")
+            .attr("href", null)
+            .addClass("dupeOpt")
+            .html('<i class="icon-play dupePlayButton"></i>' + elt[1]);
+        $(li).append(a);
+        $(ul).append(li);
+    });
+    $(outer).append(triggerSpan)
+        .append(ul);
+    return outer;
+};
+
+TAAPP._preprocessDupes = function () {
+    // just do this once to build the necessary data structures for
+    // insertDupeOverlays
+    var dupeStarts = _.flatten(_.compact(
+        _.map(TAAPP.dupes, function (elt, idx, list) {
+            if (elt.length !== 1) {
+                return _.map(elt, function (e, i) {
+                   return {
+                       firstWord: e[0][0],
+                       dupe: elt,
+                       dElt: e,
+                       idxInDupes: idx
+                   };
+                });
+            }
+            return false;
+        })
+    ));
+    var dupeStartsFirsts = _.pluck(dupeStarts, "firstWord");
+    TAAPP.dupeInfo = {
+        starts: dupeStarts,
+        firsts: dupeStartsFirsts
+    };
+};
+
+TAAPP.insertDupeOverlays = function () {
+    console.log("In insertDupeOverlays");
+    if (TAAPP.dupes === undefined) return;
+    var box = $('.overlays');
+    var context = {
+            dupeOrder: [],
+            bounds: []
+    };
+    var dupeOrder = [];
+    var dupeStartsFirsts = TAAPP.dupeInfo.firsts;
+    var dupeStarts = TAAPP.dupeInfo.starts;
+    var boxHTML = _.reduce(TAAPP.current, function (memo, word, idx) {
+        var dupeIdx = dupeStartsFirsts.indexOf(word.origPos);
+        var allIdx;
+        var sentenceEnd;
+        var d;
+        if (dupeIdx !== -1) {
+            sentenceEnd = idx;
+            d = dupeStarts[dupeIdx];
+            allIdx = d.idxInDupes;
+            while (sentenceEnd < TAAPP.current.length &&
+                   TAAPP.current[sentenceEnd].origPos >= d.dElt[0][0] &&
+                   TAAPP.current[sentenceEnd].origPos <= d.dElt[0][1]) {
+                       sentenceEnd++;
+            }
+            context.dupeOrder.push(allIdx);
+            context.bounds.push([idx, sentenceEnd - 1]);
+            return memo + TAAPP._buildDupeDropdown(word.word, allIdx,
+                idx, sentenceEnd - 1).outerHTML + ' ';
+        }
+        return memo + word.word + ' ';
+    }, "", context);
+
+    box.html(boxHTML);
+
+    // add bootstrap dropdown hook
+    // and add event handlers because we were copying the raw html above
+    var taWidth = TAAPP.ta.width();
+    $('.dropdown-toggle').each(function (i) {
+        var pos = $(this).offset(),
+            dupe = TAAPP.dupes[context.dupeOrder[i]],
+            start = context.bounds[i][0],
+            end = context.bounds[i][1];
+        $(this).click(function () {
+            TAAPP.ta.setSelection(TAAPP.current[start].taPos,
+                TAAPP.current[end].taPos + TAAPP.current[end].word.length);
+        }).next('.dropdown-menu').css({
+            "left": -pos.left + 30 + "px",
+            "width": taWidth - 20 + "px"
+        }).find('a.dupeOpt').each(function (j) {
+            var $this = $(this);
+            $this.click(function (event) {
+                var newPos = TAAPP.replaceWords(start, end,
+                    dupe[j][0][0], dupe[j][0][1]);
+                TAAPP.ta.setSelection(newPos[0], newPos[1]);
+                return false;
+            }).find('.dupePlayButton').click(function (event) {
+                var start = TAAPP.words[dupe[j][0][0]].start;
+                var end = TAAPP.words[dupe[j][0][1]].end;
+                TAAPP.origSound.play({
+                    from: start * 1000.0,
+                    to: end * 1000.0,
+                    onstop: function () {
+                        TAAPP.ta.focus();
+                    }
+                });
+                event.stopPropagation();
+            });
+        });
+    }).dropdown();
+};
 
 TAAPP.drawScript = function () {
     _.each(TAAPP.dupes, function (elt, idx, list) {
@@ -672,7 +827,6 @@ TAAPP.loadSite = function () {
     }).bind('cut', function (e) {
         console.log('cut', e);
         TAAPP.processCut();
-        
     }).bind('paste', function (e) {
         TAAPP.text = TAAPP.ta.val();
         _.defer(function () {
@@ -695,7 +849,9 @@ TAAPP.loadSite = function () {
             // _.defer(TAAPP.cleanTextArea);
         } else if ([37, 38, 39, 40].indexOf(e.which) !== -1) {
             // TODO: fix this later to allow better shift-based text selection
-            _.defer(TAAPP.snapSelectionToWord);
+            if (e.shiftKey) {
+                _.defer(TAAPP.snapSelectionToWord);   
+            }
         } else if (e.which === 13) {
             TAAPP.reauthor();
             return false;
@@ -707,7 +863,6 @@ TAAPP.loadSite = function () {
                 TAAPP.playFromSelection();                
             }
         }
-
     }).bind('mouseup', TAAPP.snapSelectionToWord);
     
     $('.genLink').click(TAAPP.reauthor);
@@ -721,6 +876,7 @@ TAAPP.loadSite = function () {
     
     $(window).resize(function () {
         TAAPP.adjustHeight();
+        TAAPP.insertDupeOverlays();
     });
     
 };

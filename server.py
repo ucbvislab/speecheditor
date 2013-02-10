@@ -76,8 +76,8 @@ class reauthor:
         subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True
         )
-        create_png('static/tmp/' + dat["outfile"] + '.wav',
-            'static/tmp/' + dat["outfile"] + '.png',
+        create_png(APP_PATH + 'static/tmp/' + dat["outfile"] + '.wav',
+            APP_PATH + 'static/tmp/' + dat["outfile"] + '.png',
             dat["timelineWidth"], dat["timelineHeight"]
         )   
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +

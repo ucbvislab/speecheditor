@@ -149,17 +149,22 @@ TAAPP.currentRange = function (start, end) {
 }
 
 TAAPP.pruneCurrent = function (start, end) {
-    TAAPP.current = _.filter(TAAPP.current, function (word, idx) {
-        return idx < start || idx >= end;
-    });
+    TAAPP.current.splice(start, end - start);
+    // we need to keep TAAPP intact
+    // TAAPP.current = _.filter(TAAPP.current, function (word, idx) {
+    //     return idx < start || idx >= end;
+    // });
     TAAPP.updatePos();
 }
 
 TAAPP.pruneCurrentByTAPos = function (start, end) {
-    TAAPP.current = _.filter(TAAPP.current, function (word) {
-        return word.taPos < start || word.taPos >= end;
-    });
-    TAAPP.updatePos();
+    var ctx = [];
+    _.each(TAAPP.current, function (word, idx) {
+         if (word.taPos >= start && word.taPos < end) {
+             ctx.push(idx);   
+         }
+    }, ctx);
+    TAAPP.pruneCurrent(ctx[0], _.last(ctx) + 1);
 };
 
 TAAPP.insertWords = function (indices, pos) {
@@ -374,9 +379,12 @@ TAAPP.createSound = function (data) {
             $('.timeline').timeline('destroy')
                 .timeline({
                     height: TAAPP.state.timelineHeight,
-                    img: data.img,
+                    reauthoredWaveform: data.img,
                     sound: this,
-                    callback: TAAPP.adjustHeight
+                    callback: TAAPP.adjustHeight,
+                    current: TAAPP.current,
+                    origSound: TAAPP.origSound,
+                    origWaveform: TAAPP.speech + '.png'
             });
         },
         onfinish: function () {
@@ -434,6 +442,8 @@ TAAPP.adjustHeight = function () {
     $('.hlContainer').height(scrHeight);
     $('.emContainer').height(scrHeight);
     $('.emphasis').height(scrHeight);
+    $('.overlayContainer').height(scrHeight);
+    $('.overlays').height(scrHeight);
     
     // constrain the boxes for scrollbar usage
     $('.contr').height(eltHeight);
@@ -485,8 +495,19 @@ TAAPP.loadOriginal = function () {
     var args = {
         url: TAAPP.speech + '.mp3',
         id: 'orig',
-        onLoad: function () {
+        autoLoad: true,
+        onload: function () {
             console.log("loaded original sound");
+            $('.timeline').timeline({
+                height: TAAPP.state.timelineHeight,
+                reauthoredWaveform: TAAPP.speech + '.png',
+                sound: this,
+                callback: TAAPP.adjustHeight,
+                current: TAAPP.current,
+                origSound: this,
+                origWaveform: TAAPP.speech + '.png',
+                play: false
+            });
         },
         autoPlay: false,
     };
@@ -515,9 +536,6 @@ TAAPP.reset = function () {
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
-    
-    // create the orignal sound, for sound "spriting"
-    TAAPP.loadOriginal();
 
     $.getJSON(TAAPP.state.speechText, function (data) {
         var words = data.words;
@@ -530,6 +548,9 @@ TAAPP.reset = function () {
         TAAPP.updatePos();
         TAAPP.updateTextArea();
         TAAPP.updateDupes();
+
+        // create the orignal sound, for sound "spriting"
+        TAAPP.loadOriginal();
     });    
 };
 

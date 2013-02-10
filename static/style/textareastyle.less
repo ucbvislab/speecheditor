@@ -1,11 +1,15 @@
 @textAreaWidth: 100%;
 @textAreaFontSize: 18px;
 @textAreaLineHeight: 22px;
+@textAreaFont: Helvetica;
+@textAreaFontWeight: normal;
 
 .hlBox {
     font-size: @textAreaFontSize;
     line-height: @textAreaLineHeight;
-    padding: 1px ;
+    font-family: @textAreaFont;
+    font-weight: @textAreaFontWeight;
+    padding: 0;
     color: transparent;
     background: transparent;
     margin: 0;
@@ -13,13 +17,25 @@
     height: 800px;
 }
 
+.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
 .contr {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 0;
+    margin: 0;
 }
 
 textarea {
+    font-weight: @textAreaFontWeight;
+    font-family: @textAreaFont;
     font-size: @textAreaFontSize;
     line-height: @textAreaLineHeight;
     background-color: transparent;
@@ -34,6 +50,9 @@ textarea {
     position: absolute;
     left: 0;
     top: 0;
+    line-height: @textAreaLineHeight;
+    font-size: @textAreaFontSize;
+    font-family: @textAreaFont;
     width: @textAreaWidth;
 }
 
@@ -46,11 +65,38 @@ textarea {
 }
 
 .emContainer {
-    .hlContainer
+    .hlContainer;
 }
 
+/* OVERLAYS */
+.overlayContainer {
+    .hlContainer;
+    pointer-events: none;
+}
+
+.overlays {
+    .hlBox;
+    pointer-events: none;
+}
+
+.overlay {
+    pointer-events: auto;
+    border-bottom: 2px dotted purple;
+    cursor: pointer;
+}
+
+.dropdown-menu li {
+    font-size: 14px;
+}
+
+.dropdown-menu li.disabled a,
+.dropdown-menu li.disabled a:hover {
+    color: #007FFF;
+}
+
+/* EMPHASIS */
 .emphasis {
-    .hlBox
+    .hlBox;
 }
 
 .emph {
@@ -76,4 +122,8 @@ textarea {
 
 .dupeList {
     overflow: auto;
+}
+
+.spinner {
+    margin-top: -5px;
 }

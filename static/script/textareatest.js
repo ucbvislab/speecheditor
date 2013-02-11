@@ -490,8 +490,10 @@ TAAPP.roomTone = {
 TAAPP.origSoundURL = function () {
     if (TAAPP.env !== undefined) {
         if (TAAPP.env === "production") {
-            return "https://s3.amazonaws.com/speecheditor/mp3s/" +
+            return "http://d1qv8gm47dmlns.cloudfront.net/mp3s/" +
                 TAAPP.speech + ".mp3";
+            // return "https://s3.amazonaws.com/speecheditor/mp3s/" +
+            //     TAAPP.speech + ".mp3";
         }
     }
     return TAAPP.speech + ".mp3";

@@ -3,6 +3,7 @@ module.exports = function (grunt) {
         min: {
             dist: {
                 src: [
+                    'static/script/setProductionEnv.js',
                     'static/script/underscore-min.js',
                     'static/script/underscore.observable.js',
                     'static/script/soundmanager2-jsmin.js',

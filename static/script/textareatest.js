@@ -6,7 +6,7 @@
 
 // requires textinputs.jquery.js, found
 // http://code.google.com/p/rangyinputs/wiki/Documentation
-var TAAPP = {};
+var TAAPP = TAAPP || {};
 
 // http://my.opera.com/GreyWyvern/blog/show.dml/1725165
 var clone = function (t) {
@@ -487,9 +487,19 @@ TAAPP.roomTone = {
     }
 };
 
+TAAPP.origSoundURL = function () {
+    if (TAAPP.env !== undefined) {
+        if (TAAPP.env === "production") {
+            return "https://s3.amazonaws.com/speecheditor/mp3s/" +
+                TAAPP.speech + ".mp3";
+        }
+    }
+    return TAAPP.speech + ".mp3";
+};
+
 TAAPP.loadOriginal = function () {
     var args = {
-        url: TAAPP.speech + '.mp3',
+        url: TAAPP.origSoundURL(),
         id: 'orig',
         autoLoad: true,
         onload: function () {

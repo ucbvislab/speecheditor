@@ -126,9 +126,9 @@ TAAPP.processDelete = function (direction) {
     while (TAAPP.text.charAt(end) === ' ') {
         end++;
     }
-    TAAPP.ta.setSelection(sel.start, end);
     TAAPP.pruneCurrentByTAPos(sel.start, end);
-    TAAPP.updateText();
+    TAAPP.updateTextArea();
+    TAAPP.ta.setSelection(sel.start, sel.start);
 };
 
 TAAPP.currentRange = function (start, end) {
@@ -150,10 +150,6 @@ TAAPP.currentRange = function (start, end) {
 
 TAAPP.pruneCurrent = function (start, end) {
     TAAPP.current.splice(start, end - start);
-    // we need to keep TAAPP intact
-    // TAAPP.current = _.filter(TAAPP.current, function (word, idx) {
-    //     return idx < start || idx >= end;
-    // });
     TAAPP.updatePos();
 }
 
@@ -163,7 +159,7 @@ TAAPP.pruneCurrentByTAPos = function (start, end) {
          if (word.taPos >= start && word.taPos < end) {
              ctx.push(idx);   
          }
-    }, ctx);
+    });
     TAAPP.pruneCurrent(ctx[0], _.last(ctx) + 1);
 };
 
@@ -233,25 +229,6 @@ TAAPP.selectWord = function (direction) {
     TAAPP.snapSelectionToWord();
 };
 
-// TAAPP.cleanTextArea = function () {
-//     var start = TAAPP.ta[0].selectionStart,
-//         a = start,
-//         b = start;
-//     TAAPP.updateText();
-//     
-//     // spaces to the left
-//     while (TAAPP.text.charAt(a - 1) === ' ') {
-//         a--;
-//     }
-//     // spaces to the right
-//     while (TAAPP.text.charAt(b) === ' ') {
-//         b++;
-//     }
-//     
-//     TAAPP.ta.val(TAAPP.text.slice(0, a + 1) + TAAPP.text.slice(b));
-//     TAAPP.ta[0].setSelectionRange(a,a)
-// }
-
 TAAPP.snapSelectionToWord = function () {
     var sel = TAAPP.ta.getSelection(),
         oldLen,
@@ -308,11 +285,6 @@ TAAPP.snapSelectionToWord = function () {
 
 TAAPP.updateText = function () {
     TAAPP.text = TAAPP.ta.val();
-    // and redraw emphasis
-    TAAPP.emphasizeWords();
-    
-    // turn it off for now for testing
-    TAAPP.insertDupeOverlays();
 };
 
 TAAPP.updatePos = function () {
@@ -391,12 +363,19 @@ TAAPP.createSound = function (data) {
 
 TAAPP.emphasizeWords = function () {
     // emphasizes words that have the "emph" attribute in TAAPP.current
+    // and notes edits with the "editLocation" class
+    var ctx = [-1];
     var emphHTML = _.reduce(TAAPP.current, function (memo, word, idx) {
-        if (word.emph !== undefined && word.emph === true) {
-            return memo + '<span class="emph">' + word.word + '</span> ';
+        var out = word.word;
+        if (word.origPos !== undefined && word.origPos - 1 !== this[0]) {
+            out = '<span class="editLocation">' + out + "</span>";
         }
-        return memo + word.word + ' ';
-    }, "");
+        if (word.emph !== undefined && word.emph === true) {
+            out = '<span class="emph">' + out + '</span> ';
+        }
+        this[0] = word.origPos;
+        return memo + out + ' ';
+    }, "", ctx);
     $(".emphasis").html(emphHTML);  
 };
 
@@ -601,40 +580,6 @@ TAAPP.replaceWords = function (c1, c2, w1, w2) {
     return TAAPP.insertWords(_.range(w1, w2 + 1), pos);
 };
 
-TAAPP._buildDupeDropdown = function (word, dupeIdx, currentStart, currentEnd) {
-    // builds dropdown for picking similar sentences
-    // word: the word (string)
-    // dupeIdx: index of sentence in TAAPP.dupes
-    // currentStart: index of first word of sentence in current
-    // currentEnd: index of last word of sentence in current
-    var outer = document.createElement('span'),
-        triggerSpan = document.createElement('span'),
-        ul = document.createElement('ul'),
-        firstli = document.createElement('li'),
-        aDesc = document.createElement('a');
-    $(outer).addClass("dropdown overlay");
-    $(triggerSpan).addClass("dropdown-toggle").text(word);
-    $(firstli).addClass("disabled").append(aDesc);
-    $(aDesc).text("Similar sentences");
-    $(ul).addClass("dropdown-menu")
-        .attr("role", "menu")
-        .attr("aria-labelledby", "dLabel")
-        .append(firstli);
-    _.each(TAAPP.dupes[dupeIdx], function (elt) {
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        $(a).attr("tabindex", "-1")
-            .attr("href", null)
-            .addClass("dupeOpt")
-            .html('<i class="icon-play dupePlayButton"></i>' + elt[1]);
-        $(li).append(a);
-        $(ul).append(li);
-    });
-    $(outer).append(triggerSpan)
-        .append(ul);
-    return outer;
-};
-
 TAAPP._preprocessDupes = function () {
     // just do this once to build the necessary data structures for
     // insertDupeOverlays
@@ -662,6 +607,7 @@ TAAPP._preprocessDupes = function () {
 
 TAAPP.insertDupeOverlays = function () {
     console.log("In insertDupeOverlays");
+    
     if (TAAPP.dupes === undefined) return;
     var box = $('.overlays');
     var context = {
@@ -671,6 +617,7 @@ TAAPP.insertDupeOverlays = function () {
     var dupeOrder = [];
     var dupeStartsFirsts = TAAPP.dupeInfo.firsts;
     var dupeStarts = TAAPP.dupeInfo.starts;
+    var dupeDropdownTemplate = $('#dupeDropdown').html();
     var boxHTML = _.reduce(TAAPP.current, function (memo, word, idx) {
         var dupeIdx = dupeStartsFirsts.indexOf(word.origPos);
         var allIdx;
@@ -687,8 +634,8 @@ TAAPP.insertDupeOverlays = function () {
             }
             context.dupeOrder.push(allIdx);
             context.bounds.push([idx, sentenceEnd - 1]);
-            return memo + TAAPP._buildDupeDropdown(word.word, allIdx,
-                idx, sentenceEnd - 1).outerHTML + ' ';
+            return memo + _.template(dupeDropdownTemplate,
+                {word: word.word, dupeIdx: allIdx}) + ' ';
         }
         return memo + word.word + ' ';
     }, "", context);
@@ -872,10 +819,10 @@ TAAPP.loadSite = function () {
     }).keydown(function (e) {
         if (e.which === 8) {
             TAAPP.processDelete("backward");
-            // _.defer(TAAPP.cleanTextArea);
+            return false;
         } else if (e.which === 46) {
             TAAPP.processDelete("forward");
-            // _.defer(TAAPP.cleanTextArea);
+            return false;
         } else if ([37, 38, 39, 40].indexOf(e.which) !== -1) {
             // TODO: fix this later to allow better shift-based text selection
             if (e.shiftKey) {

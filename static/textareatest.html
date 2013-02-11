@@ -115,6 +115,25 @@
 <script src="script/textareatest.js" type="text/javascript"></script>
 <script src="script/bootstrap.min.js"></script>
 <script src="script/less.js" type="text/javascript"></script>
+
+<script id="dupeDropdown" type="text/template">
+    <span class="dropdown overlay">
+        <span class="dropdown-toggle">
+            <%= word %>
+        </span>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li class="disabled"><a>Similar sentences</a></li>
+            <% _.each(TAAPP.dupes[dupeIdx], function (elt) { %>
+                <li><a href="javascript:void(0)" 
+                       class="dupeOpt"
+                       tabindex="-1">
+                       <i class="icon-play dupePlayButton"></i><%= elt[1] %>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+    </span>
+</script>
  
 </body>
 </html>

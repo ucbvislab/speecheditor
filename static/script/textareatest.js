@@ -376,16 +376,12 @@ TAAPP.createSound = function (data) {
                 
             }, this);
 
-            $('.timeline').timeline('destroy')
-                .timeline({
-                    height: TAAPP.state.timelineHeight,
-                    reauthoredWaveform: data.img,
-                    sound: this,
+            $('.timeline').timeline('updateRendered',
+                data.img, {
                     callback: TAAPP.adjustHeight,
-                    current: TAAPP.current,
-                    origSound: TAAPP.origSound,
-                    origWaveform: TAAPP.speech + '.png'
-            });
+                    sound: this,
+                    play: true
+                });
         },
         onfinish: function () {
             TAAPP.highlightWords(-1);

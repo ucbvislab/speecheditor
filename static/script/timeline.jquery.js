@@ -20,11 +20,80 @@
         'current': undefined
     };
     
+    var clearCanvas = function (canvas, ctx) {
+    	// Store the current transformation matrix
+    	ctx.save();
+
+    	// Use the identity matrix while clearing the canvas
+    	ctx.setTransform(1, 0, 0, 1, 0, 0);
+    	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    	// Restore the transform
+    	ctx.restore();
+    };
+
+    var moveCanvas = function (fromCanvas, toCanvas) {
+        var toContext = toCanvas.getContext('2d');
+        clearCanvas(toCanvas, toContext);
+        toContext.drawImage(fromCanvas, 0, 0);
+    };
+    
+    var drawSeparators = function (ctx) {
+        var settings = $(this).data('timeline');
+        var seps = [];
+        if (settings !== undefined) {
+            seps = settings.seps;
+        }
+        _.each(seps, function (s) {
+            ctx.save();
+            ctx.strokeStyle = "blue";
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 1;
+            ctx.beginPath();
+            ctx.moveTo(s, 0);
+            ctx.lineTo(s, settings.height);
+            ctx.stroke();
+            ctx.restore();  
+        });
+    };
+    
+    var updatePlayhead = function (pos) {
+        // pos is in milliseconds
+        console.log("in update playhead");
+        var $this = $(this);
+        var settings = $this.data('timeline');
+        var tmpCanvas = $this.find('.timelineTmpCanvas')[0];
+        var mainCanvas = $this.find('.timelineMainCanvas')[0];
+        var mainCtx = mainCanvas.getContext('2d');
+        moveCanvas(tmpCanvas, mainCanvas);
+        mainCtx.fillStyle = settings.barColor;
+        mainCtx.fillRect(pos /
+            parseFloat(settings.sound.duration) *
+            parseFloat(settings.width), 0, 
+            settings.barWidth, settings.height);
+    };
+    
+    var scrub = function (event) {
+        event = event || window.event;
+        var $this = $(this);
+        var settings = $this.data('timeline');
+        var mainCanvas = $this.find('.timelineMainCanvas')[0];
+        var x = event.pageX - mainCanvas.offsetLeft;
+        if (x <= 0) x = 0;
+        if (settings.sound !== undefined) {
+            settings.sound.setPosition(x * 
+                parseFloat(settings.sound.duration) / 
+                parseFloat(settings.width));
+        }
+        console.log("scrubbed to", x)
+        updatePlayhead.apply(this, [x *
+            parseFloat(settings.sound.duration) /
+            parseFloat(settings.width)]);
+    };
+    
     var methods = {
         init: function (options) {
             var settings = $.extend({}, defaults, options);
-            var duration = settings.sound.duration;
-            var origDuration = settings.origSound.duration;
             var tmpCanvas;
             var mainCanvas;
             var tmpCtx;
@@ -46,10 +115,12 @@
             tmpCanvas = document.createElement('canvas');
             $(tmpCanvas).attr("width", settings.width)
                 .attr("height", settings.height)
+                .addClass('timelineTmpCanvas')
                 .css("display", "none");
 
             mainCanvas = document.createElement('canvas');
             $(mainCanvas).attr("width", settings.width)
+                .addClass('timelineMainCanvas')
                 .attr("height", settings.height);
             
             origCanvas = document.createElement('canvas');
@@ -77,46 +148,11 @@
                     this.width, this.height);
                 _.observe(settings.current, function () {
                     console.log("TL observed change");
-                    drawCurrentWaveform();
+                    $(mainCanvas).unbind('click.timelineScrub');
+                    drawCurrentWaveform.apply($this[0]);
                 });
             };
             origWaveformImg.src = settings.origWaveform;
-        
-            // all of the functions we need to work our magic
-            var clearCanvas = function (canvas, ctx) {
-            	// Store the current transformation matrix
-            	ctx.save();
-
-            	// Use the identity matrix while clearing the canvas
-            	ctx.setTransform(1, 0, 0, 1, 0, 0);
-            	ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            	// Restore the transform
-            	ctx.restore();
-            };
-
-            var moveCanvas = function (fromCanvas, toCanvas) {
-                var toContext = toCanvas.getContext('2d');
-                clearCanvas(toCanvas, toContext);
-                toContext.drawImage(fromCanvas, 0, 0);
-            };
-        
-            var drawReauthoredWaveform = function () {
-                console.log("draw reauthored waveform");
-            	clearCanvas(tmpCanvas, tmpCtx);	
-            	var waveform = new Image();
-            	waveform.onload = function() {
-            		tmpCtx.drawImage(waveform, 0, 0, settings.width,
-                         settings.height);
-                    tmpCtx.strokeRect(0, 0, settings.width, settings.height);
-                    drawSeparators(tmpCtx);
-            		moveCanvas(tmpCanvas, mainCanvas);
-                    if (settings.callback) {
-                        settings.callback();
-                    }
-            	}
-            	waveform.src = settings.reauthoredWaveform;
-            };
             
             var drawCurrentWaveform = function () {
                 console.log("in draw current waveform");
@@ -124,7 +160,8 @@
                 var canv = origTmpCanvas;
                 var w = $(origCanvas).width();
                 var h = settings.height;
-                var pixPerMS = parseFloat(w) / parseFloat(origDuration);
+                var pixPerMS = parseFloat(w) /
+                    parseFloat(settings.origSound.duration);
                 clearCanvas(canv, ctx);
                 var i, start, end, delta, word;
                 
@@ -140,6 +177,7 @@
                 }, 0);
                 if (totalPixels === 0) {
                     clearCanvas(mainCanvas, mainCtx);
+                    clearCanvas(tmpCanvas, tmpCtx);
                     return;
                 }
                 
@@ -149,7 +187,6 @@
                 var currentPixel = 0;
                 var prevWordOrigPos = 0;
                 var seps = [];
-                console.log(settings.current);
                 for (i = 0; i < settings.current.length; i++) {
                     word = settings.current[i];
                     if (word.alignedWord !== "gp") {
@@ -183,54 +220,11 @@
                 $this.data('timeline').seps = _.map(seps, function(s) {
                     return s * diffFactor;
                 });
-                drawSeparators(mainCtx);
+                drawSeparators.apply(this, [mainCtx]);
 
                 // draw box around the whole thing
                 mainCtx.strokeRect(0, 0, settings.width, settings.height);
             };
-            
-            var drawSeparators = function (ctx) {
-                var seps = $this.data('timeline').seps;
-                _.each(seps, function (s) {
-                    ctx.save();
-                    ctx.strokeStyle = "blue";
-                    ctx.lineWidth = 2;
-                    ctx.globalAlpha = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(s, 0);
-                    ctx.lineTo(s, settings.height);
-                    ctx.stroke();
-                    ctx.restore();  
-                });
-            };
-        
-            var scrub = function (event) {
-                event = event || window.event;
-                var x = event.pageX - mainCanvas.offsetLeft;
-                if (x <= 0) x = 0;
-                if (settings.sound !== undefined) {
-                    settings.sound.setPosition(x * parseFloat(duration) / 
-                        parseFloat(settings.width));
-                }
-                console.log("scrubbed to", x)
-                updatePlayhead(x * parseFloat(duration) /
-                     parseFloat(settings.width));
-            };
-
-            var updatePlayhead = function (pos) {
-                // pos is in milliseconds
-                moveCanvas(tmpCanvas, mainCanvas);
-                mainCtx.fillStyle = settings.barColor;
-                mainCtx.fillRect(pos / parseFloat(duration) *
-                    parseFloat(settings.width), 0, 
-                    settings.barWidth, settings.height);
-            };
-        
-            settings.sound.options.whileplaying = function () {
-                 updatePlayhead(this.position);
-            };
-            
-            $(mainCanvas).click(scrub);
             
             var timelineThis = this;
             $(window).bind('resize.timeline', function () {
@@ -240,21 +234,67 @@
                         .attr("height", settings.height);
                     $(mainCanvas).attr("width", settings.width)
                         .attr("height", settings.height);
-                    drawReauthoredWaveform();
+                    methods.updateRendered.apply(
+                        timelineThis, [settings.reauthoredWaveform]);
                 }
             });
             
             console.log("am i here?", settings.width, settings.height);
-            drawReauthoredWaveform(settings.width, settings.height);
+            methods.updateRendered.apply(this, [settings.reauthoredWaveform]);
             if (settings.play) {
                 settings.sound.play();
             }
             return this;
         },
+        updateRendered: function (imgUrl, options) {
+            console.log("update reauthored waveform");
+            var $this = $(this);
+            var that = this;
+            var tmpCanvas = $this.find('.timelineTmpCanvas')[0];
+            var mainCanvas = $this.find('.timelineMainCanvas')[0];
+            var tmpCtx = tmpCanvas.getContext('2d');
+            var settings = $this.data('timeline');
+        	var waveform = new Image();
+            
+        	clearCanvas(tmpCanvas, tmpCtx);
+            
+        	waveform.onload = function() {
+        		tmpCtx.drawImage(waveform, 0, 0, settings.width,
+                     settings.height);
+                tmpCtx.strokeRect(0, 0, settings.width, settings.height);
+                drawSeparators.apply(that, [tmpCtx]);
+        		moveCanvas(tmpCanvas, mainCanvas);
+                if (settings.callback) {
+                    settings.callback();
+                }
+        	}
+            settings.reauthoredWaveform = imgUrl;
+        	waveform.src = settings.reauthoredWaveform;
+            
+            // process other options (will only exist if it's a new sound)
+            settings = $.extend(settings, options);            
+            if (options !== undefined) {
+                if (settings.sound !== undefined) {
+                    $(mainCanvas).bind('click.timelineScrub', 
+                        function (event) {
+                            scrub.apply($this[0], [event]);
+                        });
+                    settings.sound.options.whileplaying = function () {
+                         updatePlayhead.apply($this[0], [this.position]);
+                    };
+                    if (options.play === true) {
+                        settings.sound.play();
+                    }
+                }
+                if (options.callback !== undefined) {
+                    options.callback();
+                }
+            }
+        },
         destroy: function () {
             this.html("");
             return this.each(function(){
-                $(window).unbind('.tooltip');
+                $(window).unbind('.timeline');
             })
             var $this = $(this);
             $this.removeData('timeline');

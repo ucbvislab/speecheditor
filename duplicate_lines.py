@@ -20,7 +20,7 @@ def get_dupes(words):
             tmp_sentence = ''
             sentence_idx.append((sentence_start, i))
             sentence_start = i + 1
-        elif word["alignedWord"] == "sp":
+        elif word["alignedWord"] == "sp" or word["alignedWord"] == "{BR}":
             if i == sentence_start:
                 sentence_start += 1
             continue

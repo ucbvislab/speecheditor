@@ -1,5 +1,6 @@
 import sys
 import os
+import subprocess
 try:
     import simplejson as json
 except:
@@ -9,6 +10,8 @@ import sys
 from radiotool.composer import Composition, Speech, Segment
 print >> sys.stderr, "Composer imported"
 
+from breath_classifier import breath_classifier
+print >> sys.stderr, "Breath classifier imported"
 
 class EditGroup:
     def __init__(self, start, end, edit_index):
@@ -190,6 +193,104 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     # return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]
 
 
+def render_pauses(speech_file, alignment):
+    """and reauthor the alignment json"""
+    pause_idx = 0
+    subprocess.call('rm tmp/pauses/*.wav', shell=True)
+    new_alignment = []
+    for x in alignment:
+        if x["alignedWord"] == "sp":
+            comp = Composition(channels=1)
+            speech = Speech(speech_file, "p")
+            comp.add_track(speech)
+            start = x["start"]
+            end = x["end"]
+            # ignore super-short pauses
+            if end - start <= .05:
+                new_alignment.append(x)
+                pause_idx += 1
+                continue
+            # print "pause", pause_idx-1, "start:", start, "end", end
+            # print "len", end - start
+            seg = Segment(speech, 0.0, start, end - start)
+            comp.add_score_segment(seg)
+            comp.output_score(
+                adjust_dynamics=False,
+                filename="tmp/pauses/p%02d" % pause_idx,
+                channels=1,
+                filetype='wav',
+                samplerate=speech.samplerate(),
+                separate_tracks=False)
+            print "# classifying p%02d.wav" % pause_idx
+            print "# segment length:", x["end"] - x["start"]
+            cls = breath_classifier.classify(
+                'tmp/pauses/p%02d.wav' % pause_idx)
+            for word in cls:
+                word["start"] += x["start"]
+                word["end"] += x["start"]
+            cls[-1]["end"] = x["end"]
+            new_alignment.extend(cls)
+            pause_idx += 1
+        else:
+            new_alignment.append(x)
+    return new_alignment
+
+
+def render_pauses_as_one_track(speech_file, alignment):
+    comp = Composition(channels=1)
+    speech = Speech(speech_file, "p")
+    comp.add_track(speech)
+    comp_loc = 0.0
+    fname = os.path.basename(speech_file)
+    # subprocess.call('rm tmp/pauses/*.wav', shell=True)
+    for x in alignment:
+        if x["alignedWord"] == "sp":
+            start = x["start"]
+            end = x["end"]
+            seg = Segment(speech, comp_loc, start, end - start)
+            comp.add_score_segment(seg)
+            comp_loc += (end - start)
+    comp.output_score(
+        adjust_dynamics=False,
+        filename="tmp/pauses-%s" % fname.split('.')[0],
+        channels=1,
+        filetype='wav',
+        samplerate=speech.samplerate(),
+        separate_tracks=False)
+
+def render_breaths_and_pauses(audio_file, alignment):
+    comp = Composition(channels=1)
+    comp_loc = 0
+    pause_idx = 0
+    breath_idx = 0
+    for x in alignment:
+        if x["alignedWord"] == "sp":
+            audio = Speech(audio_file, "pause%02d" % pause_idx)
+            pause_idx += 1
+            comp.add_track(audio)
+            start = x["start"]
+            end = x["end"]
+            seg = Segment(audio, comp_loc, start, end - start)
+            comp.add_score_segment(seg)
+            comp_loc += end - start
+        elif x["alignedWord"] == "{BR}":
+            audio = Speech(audio_file, "breath%02d" % breath_idx)
+            breath_idx += 1
+            comp.add_track(audio)
+            start = x["start"]
+            end = x["end"]
+            seg = Segment(audio, comp_loc, start, end - start)
+            comp.add_score_segment(seg)
+            comp_loc += end - start
+    comp.output_score(
+        adjust_dynamics=False,
+        filename="tmp/pb",
+        channels=1,
+        filetype='wav',
+        samplerate=audio.samplerate(),
+        separate_tracks=True)
+
+
 def find_breaths(speech, alignment):
     breaths = []
 
@@ -248,9 +349,28 @@ if __name__ == '__main__':
     # rebuild_audio(speech_file, alignment, edits,
     #               cut_to_zc=False, out_file="out-nzc")
     
-    speech_file = sys.argv[1]
-    alignment = sys.argv[2]
-    af = open(alignment, "r").read()
-    alignment = json.loads(af)["words"]
+    # speech_file = sys.argv[1]
+    # alignment = sys.argv[2]
+    # af = open(alignment, "r").read()
+    # alignment = json.loads(af)["words"]
+    # 
+    # find_breaths(speech_file, alignment)
     
-    find_breaths(speech_file, alignment)
+    if sys.argv[1] == "write_breaths":
+        speech_file = sys.argv[2]
+        alignment = sys.argv[3]
+        af = open(alignment, "r").read()
+        alignment = json.loads(af)["words"]
+        render_breaths_and_pauses(speech_file, alignment)
+    elif sys.argv[1] == "pauses_sep":
+        speech_file = sys.argv[2]
+        alignment = sys.argv[3]
+        af = open(alignment, "r").read()
+        alignment = json.loads(af)["words"]
+        render_pauses(speech_file, alignment)
+    elif sys.argv[1] == "pauses":
+        speech_file = sys.argv[2]
+        alignment = sys.argv[3]
+        af = open(alignment, "r").read()
+        alignment = json.loads(af)["words"]
+        render_pauses_as_one_track(speech_file, alignment)

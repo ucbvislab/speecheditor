@@ -524,7 +524,11 @@ TAAPP.reset = function () {
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
 
-    $.getJSON(TAAPP.state.speechText, function (data) {
+    // mod for now to do on-the-fly classification of breaths
+    $.getJSON('/alignment/' + TAAPP.speech, function (data) {
+        // for now... (quick fix to work with breaths)
+        TAAPP.state.words = data.words
+        
         var words = data.words;
         TAAPP.words = words;
         // keep track of each word's position in TAAPP.words

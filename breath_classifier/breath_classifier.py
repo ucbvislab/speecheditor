@@ -123,6 +123,8 @@ def classify(audio_file):
             )
     pred = (mf_pred > .5).astype(N.int8)
     
+    best_breath = N.argmax(mf_pred)
+    
     start = 0
     labels = ['sp', '{BR}']
     words = ['{pause}', '{breath}']
@@ -138,6 +140,8 @@ def classify(audio_file):
                 "alignedWord": labels[lab_idx],
                 "word": words[lab_idx]
             })
+            if best_breath < i and best_breath >= start:
+                results[-1]["bestBreath"] = True
             start = i
     return results
         

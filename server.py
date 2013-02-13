@@ -55,32 +55,42 @@ class download:
         web.header('Content-Length', os.stat(APP_PATH + 'static/tmp/' + name + '.mp3').st_size)
         return open(APP_PATH + 'static/tmp/' + name + '.mp3', 'r').read()
 
+
 class home:
     def GET(self):
         return render.reauthor_web()
 
+
 class alignment:
     def GET(self, name):
-        algn = json.load(
-            open("%sstatic/%s.json" % (APP_PATH, name), 'r')
-        )["words"]
-        new_alignment = reauthor_speech.render_pauses(
-            "%sstatic/%s44.wav" % (APP_PATH, name), algn)
-        web.header("Content-type", 'application/json')
-        return json.dumps({
-            "words": new_alignment
-        })
+        try:
+            out = json.load(
+                open("%sstatic/%s-breaths.json" % (APP_PATH, name), 'r')
+            )
+        except:
+            algn = json.load(
+                open("%sstatic/%s.json" % (APP_PATH, name), 'r')
+            )["words"]
+            new_alignment = reauthor_speech.render_pauses(
+                "%sstatic/%s44.wav" % (APP_PATH, name), algn)
+            out = {
+                "words": new_alignment
+            }
+            json.dump(out,
+                open('%sstatic/%s-breaths.json' % (APP_PATH, name), 'w'))
+        finally:
+            web.header("Content-type", 'application/json')
+            out["speechText"] = '%s-breaths.json' % name
+            return json.dumps(out)
+
 
 class reauthor:
     def POST(self):
         post_data = urllib.unquote(web.data())
         dat = json.loads(post_data)
         
-        # with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
-        #     af = json.loads(f.read())["words"]
-        # update for breaths, for now at least
-        af = dat["words"]
-        
+        with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
+            af = json.loads(f.read())["words"]
             
         ef = dat["speechReauthor"]["words"]
         
@@ -110,12 +120,11 @@ class reauthor:
 
 class dupes:
     def POST(self):
-        # modified to read json straight from the post data
         post_data = urllib.unquote(web.data())
         dat = json.loads(post_data)
-        # with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
-        #     af = json.load(f)["words"]
-        af = dat["words"]
+        with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
+            af = json.load(f)["words"]
+
         web.header('Content-type', 'application/json')
         return json.dumps(duplicate_lines.get_dupes(af))
 

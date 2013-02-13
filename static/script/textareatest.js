@@ -509,7 +509,6 @@ TAAPP.loadOriginal = function () {
 };
 
 TAAPP.reset = function () {
-    TAAPP.state.speechText = TAAPP.speech + ".json";
     TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
     if (TAAPP.sound) {
         TAAPP.sound.destruct();
@@ -526,10 +525,9 @@ TAAPP.reset = function () {
 
     // mod for now to do on-the-fly classification of breaths
     $.getJSON('/alignment/' + TAAPP.speech, function (data) {
-        // for now... (quick fix to work with breaths)
-        TAAPP.state.words = data.words
-        
         var words = data.words;
+        // filename of the new json
+        TAAPP.state.speechText = data.speechText;
         TAAPP.words = words;
         // keep track of each word's position in TAAPP.words
         _.each(TAAPP.words, function (word, idx) {

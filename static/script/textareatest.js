@@ -21,7 +21,8 @@ var clone = function (t) {
 soundManager.setup({
     url: 'swf/soundmanager2_flash9.swf',
     flashVersion: 9,
-    useFlashBlock: false
+    useFlashBlock: false,
+    useHighPerformance: true
 });
 
 TAAPP.state = {
@@ -179,6 +180,10 @@ TAAPP.insertWords = function (indices, pos) {
         "first": undefined,
         "last": undefined
     }
+    // just in case we're passed a lone index
+    if (!_.isArray(indices)) {
+        indices = [indices];
+    }
     words = _.map(indices, function (idx) {
         if (idx.toString().split('-')[0] === '{gp') {
             var tmp = clone(TAAPP.roomTone[TAAPP.speech]);
@@ -206,6 +211,23 @@ TAAPP.insertWords = function (indices, pos) {
     var newEnd = ctx.last.taPos + ctx.last.word.length;
     TAAPP.ta.setSelection(newEnd, newEnd);
     return [newStart, newEnd];
+};
+
+TAAPP.insertBreath = function () {
+    TAAPP.updateText();
+    var sel = TAAPP.ta.getSelection();
+    var bestBreath = _.min(
+        _.filter(TAAPP.words, function (word) {
+            return (word.hasOwnProperty("breathLen"));
+        }),
+        function (breath) {
+            return breath.breathLen;
+    });
+    indices = [bestBreath.origPos];
+    if (TAAPP.words[bestBreath.origPos + 1].alignedWord === "sp") {
+        indices.push(bestBreath.origPos + 1);
+    }
+    TAAPP.insertWords(indices, sel.start);
 };
 
 TAAPP.selectWord = function (direction) {
@@ -294,10 +316,20 @@ TAAPP.updatePos = function () {
         TAAPP.current[i].taPos = this.total;
         this.total += elt.word.length + 1;
     }, {"total": 0});
+    
+    // update the waveform in the timeline
+    if (TAAPP.currentWaveform !== undefined) {
+        $(TAAPP.currentWaveform).textAlignedWaveform({
+            currentWords: TAAPP.current
+        })
+    }
 }
 
 TAAPP.generateAudio = function () {
     TAAPP.state.speechReauthor = { "words": TAAPP.current };
+    TAAPP.state.exportedTimeline = TAAPP.$timeline.timeline("export");
+    
+    console.log("exported timeline", TAAPP.state.exportedTimeline);
     
     // loading
     var spinner = document.createElement('img');
@@ -328,7 +360,7 @@ TAAPP.createSound = function (data) {
     return soundManager.createSound({
         id: 'speech',
         url: data.url,
-        autoPlay: false,
+        autoPlay: true,
         autoLoad: true,
         onplay: function () {
             $('.playBtn').html('<i class="icon-pause icon-white"></i>');
@@ -340,24 +372,27 @@ TAAPP.createSound = function (data) {
             $('.playBtn').html('<i class="icon-play icon-white"></i>');
         },
         onload: function () {
+            TAAPP.timing = data.timing
             _.each(data.timing, function (elt, idx, list) {
                 var cwTiming = elt * 1000.0;
-                TAAPP.timing = data.timing
                 this.onPosition(cwTiming, function () {
                     TAAPP.highlightWords(idx); 
                 });
-                
             }, this);
-
-            $('.timeline').timeline('updateRendered',
-                data.img, {
-                    callback: TAAPP.adjustHeight,
-                    sound: this,
-                    play: true
-                });
+            var speechEnd = (_.last(data.timing) + 2) * 1000.0;
+            this.onPosition(speechEnd, function () {
+                TAAPP.highlightWords(-1);
+            });
+            TAAPP.$timeline.timeline({
+                sound: this
+            });
         },
         onfinish: function () {
             TAAPP.highlightWords(-1);
+            TAAPP.$timeline.timeline("option", "position", 0.0);
+        },
+        whileplaying: function (position) {
+            TAAPP.$timeline.timeline("option", "position", this.position);
         }
     });
 };
@@ -467,6 +502,38 @@ TAAPP.roomTone = {
     }
 };
 
+TAAPP.buildWaveform = function (sound, kind) {
+    var wf = document.createElement("div");
+    if (kind === "textaligned") {
+        console.log("creating text aligned waveform");
+        $(wf).textAlignedWaveform({
+            dur: sound.duration,
+            len: sound.duration,
+            filename: sound.url,
+            name: "Speech",
+            currentWords: TAAPP.current
+        });
+        TAAPP.currentWaveform = wf;
+    } else {
+        $(wf).waveform({
+            dur: sound.duration,
+            len: sound.duration,
+            name: sound.id
+        });
+    }
+
+    console.log("in buildWaveform", wf);
+    // get the waveform data
+    // from:
+    // wav2json -p 2 -s 2000 --channels mid -n FILENAME.wav 
+    $.getJSON('wfData/' + TAAPP.speech + '44.wav.json', function (data) {
+        $(wf).wf({
+            data: data.mid
+        });
+    });
+    return wf;
+};
+
 TAAPP.origSoundURL = function () {
     if (TAAPP.env !== undefined) {
         if (TAAPP.env === "production") {
@@ -486,16 +553,29 @@ TAAPP.loadOriginal = function () {
         autoLoad: true,
         onload: function () {
             console.log("loaded original sound");
-            $('.timeline').timeline({
-                height: TAAPP.state.timelineHeight,
-                reauthoredWaveform: TAAPP.speech + '.png',
-                sound: this,
-                callback: TAAPP.adjustHeight,
-                current: TAAPP.current,
-                origSound: this,
-                origWaveform: TAAPP.speech + '.png',
-                play: false
+            
+            // initialize timeline
+            var wf = TAAPP.buildWaveform(this, "textaligned");
+            
+            TAAPP.$timeline.timeline({
+                tracks: 3,
+                pxPerMs: .005,
+                width: "100%",
+                wf: [{ elt: wf, track: 0, pos: 0 }]
             });
+            
+            TAAPP.adjustHeight();
+            
+            // $('.timeline').timeline({
+            //     height: TAAPP.state.timelineHeight,
+            //     reauthoredWaveform: TAAPP.speech + '.png',
+            //     sound: this,
+            //     callback: TAAPP.adjustHeight,
+            //     current: TAAPP.current,
+            //     origSound: this,
+            //     origWaveform: TAAPP.speech + '.png',
+            //     play: false
+            // });
         },
         autoPlay: false
     };
@@ -519,7 +599,16 @@ TAAPP.reset = function () {
     TAAPP.timing = undefined;
     TAAPP.currentHighlight = undefined;
     TAAPP.dupes = undefined;
-    $('.timeline').timeline('destroy');
+    TAAPP.currentWaveform = undefined;
+    
+    // destroy timeline
+    try {
+        $('.timeline').timeline('destroy');  
+    } catch (e) {
+        "woop";
+    }
+    TAAPP.$timeline = $('.timeline');
+
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
@@ -773,6 +862,47 @@ TAAPP.togglePlay = function () {
     }
 };
 
+TAAPP._zoom = function (factor) {
+    var currentZoom = TAAPP.$timeline.timeline("option", "pxPerMs");
+    TAAPP.$timeline.timeline({
+        pxPerMs: currentZoom * factor
+    });
+};
+
+TAAPP.zoomIn = function () {
+    TAAPP._zoom(2);
+};
+
+TAAPP.zoomOut = function () {
+    TAAPP._zoom(.5);
+};
+
+TAAPP.uploadSong = function (form) {
+    var formData = new FormData(form);
+    $.ajax({
+        url: '/uploadSong',
+        type: 'POST',
+        success: function (data) {
+            $(form).find('[data-dismiss="fileupload"]').trigger("click");
+            var wf = document.createElement('div');
+            $(wf).waveform({
+                data: data.wfData,
+                name: data.name,
+                filename: data.path,
+                dur: data.dur,
+                len: data.dur
+            });
+            TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0});
+            console.log(data);
+        },
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+    return false;
+};
+
 TAAPP.loadSite = function () {
     $("select[name=speechSelect]").change(function() {
         console.log("Changing to " + $(this).val());
@@ -796,7 +926,9 @@ TAAPP.loadSite = function () {
         // TAAPP.ta.val(txt + gp.word + ' ');
         // TAAPP.updatePos();
         return false;
-    })
+    });
+    
+    $('.insBreath').click(TAAPP.insertBreath);
     
     TAAPP.ta = $("#txtArea");
     TAAPP.updateText();
@@ -848,6 +980,12 @@ TAAPP.loadSite = function () {
     
     $('.genLink').click(TAAPP.reauthor);
     $('.playBtn').click(TAAPP.togglePlay);
+    $('.zoomInBtn').click(TAAPP.zoomIn);
+    $('.zoomOutBtn').click(TAAPP.zoomOut);
+    $('#songUploadForm').submit(function () {
+        TAAPP.uploadSong($("#songUploadForm")[0]);
+        return false;
+    });
     
     $("body").keyup(function (e) {
         if (e.keyCode === 80) {

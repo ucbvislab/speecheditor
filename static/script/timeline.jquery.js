@@ -3,8 +3,8 @@
 // ok, way fancier than that now
 
 // also requires underscore-observable. some plugin, eh?
-(function ($) {
-    
+;(function ($, window, document, undefined) {
+    var pluginName = "timeline";
     var defaults = {
         'reauthoredWaveform':  undefined,
         'sound': undefined,
@@ -37,7 +37,7 @@
         clearCanvas(toCanvas, toContext);
         toContext.drawImage(fromCanvas, 0, 0);
     };
-    
+
     var drawSeparators = function (ctx) {
         var settings = $(this).data('timeline');
         var seps = [];
@@ -56,7 +56,7 @@
             ctx.restore();  
         });
     };
-    
+
     var updatePlayhead = function (pos) {
         // pos is in milliseconds
         console.log("in update playhead");
@@ -72,7 +72,7 @@
             parseFloat(settings.width), 0, 
             settings.barWidth, settings.height);
     };
-    
+
     var scrub = function (event) {
         event = event || window.event;
         var $this = $(this);
@@ -90,7 +90,7 @@
             parseFloat(settings.sound.duration) /
             parseFloat(settings.width)]);
     };
-    
+
     var methods = {
         init: function (options) {
             var settings = $.extend({}, defaults, options);
@@ -107,11 +107,11 @@
             
             settings.width = settings.width || this.width();
             settings.height = settings.height || this.height();
-            
+
             if (!data) {
                 $this.data('timeline', settings);
             }
-        
+
             tmpCanvas = document.createElement('canvas');
             $(tmpCanvas).attr("width", settings.width)
                 .attr("height", settings.height)
@@ -122,10 +122,10 @@
             $(mainCanvas).attr("width", settings.width)
                 .addClass('timelineMainCanvas')
                 .attr("height", settings.height);
-            
+
             origCanvas = document.createElement('canvas');
             $(origCanvas).css("display", "none");
-            
+
             origTmpCanvas = document.createElement('canvas');
             $(origTmpCanvas).css("display", "none");
 
@@ -133,12 +133,12 @@
             mainCtx = mainCanvas.getContext('2d');
             origCtx = origCanvas.getContext('2d');
             origTmpCtx = origTmpCanvas.getContext('2d');
-        
+
             this.append(mainCanvas)
                 .append(tmpCanvas)
                 .append(origCanvas)
                 .append(origTmpCanvas);
-                
+
             // init origCanvas with orignal waveform
             var origWaveformImg = new Image();
             origWaveformImg.onload = function () {
@@ -311,4 +311,4 @@
         }
         $.error('Method ' + method + 'does not exist on jQuery.timeline');
     }
-})(jQuery);
+})(jQuery, window, document);

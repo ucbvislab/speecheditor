@@ -22,7 +22,6 @@ def svm_grid_search(features, labels, samples="all", feat=39):
         idx = range(len(labels))
     else:
         idx = permutation(N.shape(features)[0])[:samples]
-    
     C_range = 10.0 ** N.arange(-3, 4)
     gamma_range = 10.0 ** N.arange(-4, 3)
     param_grid = dict(gamma=gamma_range, C=C_range)
@@ -44,11 +43,9 @@ def train_svm():
 
 def store_svm():
     clf, mu, sigma = train_svm()
-    out = {
-        "clf": clf,
-        "mu": mu,
-        "sigma": sigma
-    }
+    out = {"clf": clf,
+           "mu": mu,
+           "sigma": sigma}
     cwd = os.getcwd()
     os.chdir(os.path.dirname(os.path.realpath(__file__)))
     pickle.dump(out, open('pickled/svm', 'w'))
@@ -61,10 +58,9 @@ def get_mfcc(filename):
     resample_factor = 11025.0 / audio.samplerate()
     src = AudioSource(filename)
     pipe = Pipeline(
-        src, 
+        src,
         Resample(resample_factor),
-        MFCC(11025, 441, nhop=441, nmel=40, ndct=13, fmin=133.3333)
-    )  
+        MFCC(11025, 441, nhop=441, nmel=40, ndct=13, fmin=133.3333))
     return pipe.toarray()
 
 
@@ -72,20 +68,20 @@ def deltas(x, window_size=9):
     # define window shape
     h_len = int(window_size / 2)
     w = 2 * h_len + 1
-    win = N.arange(h_len, -h_len, -1)
-    
+    win = N.arange(h_len, - h_len, -1)
+
     # pad data by repeating first and last columns
     shape = N.shape(x)
     xx = N.zeros((shape[0] + 2 * h_len, shape[1]))
-    xx[h_len:-h_len, :] = x
+    xx[h_len: - h_len, :] = x
     xx[:h_len, :] = N.tile(x[0, :], (h_len, 1))
-    xx[-h_len:, :] = N.tile(x[-1, :], (h_len, 1))
+    xx[ - h_len:, :] = N.tile(x[-1, :], (h_len, 1))
 
     # apply the delta filter
     d = lfilter(win, 1, xx, zi=None, axis=0)
-    
+
     # trim edges
-    d = d[h_len:-h_len, :]
+    d = d[h_len: - h_len, :]
     return d
 
 
@@ -112,19 +108,20 @@ def classify(audio_file):
     features = get_features(audio_file)
     features = (features - svm["mu"]) / svm["sigma"]
     pred = svm["clf"].predict_proba(features)
-    
+
     # median filter on the resulting classification
     mf_pred = N.zeros(pred.shape[0])
     f_size = 5
     for i, x in enumerate(pred):
         if i - f_size / 2 >= 0 and i + f_size / 2 < len(pred):
             mf_pred[i] = N.median(
-                [x[1] for x in pred[i - f_size / 2:i + f_size / 2 + 1]]
-            )
+                [x[1] for x in pred[i - f_size / 2:i + f_size / 2 + 1]])
     pred = (mf_pred > .5).astype(N.int8)
-    
+
     best_breath = N.argmax(mf_pred)
-    
+    if mf_pred[best_breath] <= .5:
+        best_breath = -1
+
     start = 0
     labels = ['sp', '{BR}']
     words = ['{pause}', '{breath}']
@@ -134,15 +131,12 @@ def classify(audio_file):
             lab_idx = pred[i - 1]
             if i == len(pred) - 1:
                 lab_idx = pred[i]
-            results.append({
-                "start": start * 441. / 11025.,
-                "end": i * 441. / 11025.,
-                "alignedWord": labels[lab_idx],
-                "word": words[lab_idx]
-            })
+            results.append({"start": start * 441. / 11025.,
+                            "end": i * 441. / 11025.,
+                            "alignedWord": labels[lab_idx],
+                            "word": words[lab_idx]})
             if best_breath < i and best_breath >= start:
-                results[-1]["bestBreath"] = True
+                results[-1]["breathProb"] = mf_pred[best_breath]
+                results[-1]["breathLen"] = i - start
             start = i
     return results
-        
-    

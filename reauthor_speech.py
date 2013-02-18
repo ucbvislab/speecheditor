@@ -30,6 +30,8 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     out_file = kwargs.pop('out_file', 'out')
     samplerate = kwargs.pop('samplerate', 16000)
     crossfades = kwargs.pop('crossfades', True)
+    tracks_and_segments = kwargs.pop('tracks_and_segments', False)
+    score_start = kwargs.pop('score_start', 0.0)
     fade_duration = 0.005
 
     cuts = []
@@ -88,7 +90,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
     # build the segments that correspond to the uncut segments of the speech
     segments = []
-    composition_loc = 0.0
+    composition_loc = score_start
     tracks = []
     
     start_times = []
@@ -166,14 +168,22 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     # for i in range(len(segments) - 1):
     #     c.cross_fade(segments[i], segments[i + 1], .05)
     #     #c.fade_out(segments[i], 1.0)
-  
-    c.output_score(
-        adjust_dynamics=False,
-        filename=out_file,
-        channels=1,
-        filetype='wav',
-        samplerate=samplerate,
-        separate_tracks=False)
+    
+    out = {}
+    
+    if not tracks_and_segments:
+        c.output_score(
+            adjust_dynamics=False,
+            filename=out_file,
+            channels=1,
+            filetype='wav',
+            samplerate=samplerate,
+            separate_tracks=False)
+    else:
+        out["tracks"] = c.tracks
+        out["segments"] = c.score
+        out["samplerate"] = samplerate
+        out["channels"] = 1
     
         
     # return the start time of each word
@@ -189,7 +199,8 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             elapsed += cut.new_length
         else:
             elapsed += cut.end - cut.start
-    return timings
+    out["timing"] = timings
+    return out
     # return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]
 
 

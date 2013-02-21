@@ -1,3 +1,6 @@
 [submodule "numpy"]
 	path = numpy
 	url = git://github.com/numpy/numpy.git
+[submodule "radiotool"]
+	path = radiotool
+	url = git@bitbucket.org:srubin/radiotool.git

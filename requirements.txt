@@ -1,0 +1,10 @@
+Mako==0.7.3
+MarkupSafe==0.15
+distribute==0.6.31
+networkx==1.7
+numpy==1.8.0.dev-665a00a
+python-Levenshtein==0.10.2
+scikit-learn==0.13
+scipy==0.11.0
+simplejson==3.0.9
+wsgiref==0.1.2

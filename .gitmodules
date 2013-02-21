@@ -1,0 +1,3 @@
+[submodule "numpy"]
+	path = numpy
+	url = git://github.com/numpy/numpy.git

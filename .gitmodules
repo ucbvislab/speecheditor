@@ -4,3 +4,6 @@
 [submodule "radiotool"]
 	path = radiotool
 	url = git@bitbucket.org:srubin/radiotool.git
+[submodule "static/edible"]
+	path = static/edible
+	url = git@bitbucket.org:srubin/edible.git

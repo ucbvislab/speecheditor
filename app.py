@@ -8,6 +8,7 @@ import os
 
 import sys
 sys.path.append("/home/ubuntu/speecheditor")
+sys.path.append("/var/www/html/srubin/speecheditor")
 
 import reauthor_speech
 import duplicate_lines

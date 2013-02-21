@@ -11,7 +11,6 @@ sys.path.append("/home/ubuntu/speecheditor")
 
 import reauthor_speech
 import duplicate_lines
-from wav2png import create_png
 
 from radiotool.composer import Track, Song, Speech, Composition, Segment
 
@@ -38,7 +37,6 @@ def reauthor():
         for t in tracks:
             if t["waveformClass"] == "textAlignedWaveform":
                 score_start = t["scoreStart"]
-                
                 with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
                     af = json.loads(f.read())["words"]
                 ef = dat["speechReauthor"]["words"]

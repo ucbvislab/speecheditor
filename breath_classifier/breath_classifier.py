@@ -2,20 +2,33 @@ import pickle
 import sys
 import os
 
+print >> sys.stderr, "system stuff"
+
 import numpy as N
-from sklearn.svm import SVC, LinearSVC
+print >> sys.stderr, "numpy"
+print >> sys.stderr, "sys.path", sys.path
+from sklearn import svm
+print >> sys.stderr, "svc"
 from numpy.random import permutation
+print >> sys.stderr, "permutation"
 from sklearn.cross_validation import StratifiedKFold
+print >> sys.stderr, "strat kfold"
 from sklearn.grid_search import GridSearchCV
+print >> sys.stderr, "grid search"
 from scipy.signal import lfilter
+
+print >> sys.stderr, "sk-stuff"
 
 sys.path.append(os.path.join('/Users/srubin/code/'))
 from frontend import *
 from frontend import Pipeline
 
+print >> sys.stderr, "Pipeline"
+
 from radiotool import composer as C
 import all_features
 
+print >> sys.stderr, "Succeeded in all the imports in breath_classifier"
 
 def svm_grid_search(features, labels, samples="all", feat=39):
     if samples == "all":
@@ -26,7 +39,7 @@ def svm_grid_search(features, labels, samples="all", feat=39):
     gamma_range = 10.0 ** N.arange(-4, 3)
     param_grid = dict(gamma=gamma_range, C=C_range)
     cv = StratifiedKFold(labels[idx], 3)
-    grid = GridSearchCV(SVC(kernel='rbf', probability=True),
+    grid = GridSearchCV(svm.SVC(kernel='rbf', probability=True),
         param_grid=param_grid, cv=cv)
     grid.fit(features[:, :feat][idx], labels[idx])
     return grid

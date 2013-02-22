@@ -92,7 +92,6 @@ def reauthor():
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
             dat["outfile"] + '.wav', shell=True)
         return jsonify(url='tmp/' + dat["outfile"] + '.mp3',
-                       img='tmp/' + dat["outfile"] + '.png',
                        timing=result["timing"])
 
 
@@ -178,7 +177,6 @@ def upload_song():
 
 @app.route('/alignment/<name>')
 def alignment(name):
-    print "HERE"
     try:
         out = json.load(
             open("%sstatic/%s-breaths.json" % (APP_PATH, name), 'r'))

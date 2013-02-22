@@ -880,7 +880,7 @@ TAAPP.zoomOut = function () {
 TAAPP.uploadSong = function (form) {
     var formData = new FormData(form);
     $.ajax({
-        url: '/uploadSong',
+        url: '../uploadSong',
         type: 'POST',
         success: function (data) {
             $(form).find('[data-dismiss="fileupload"]').trigger("click");

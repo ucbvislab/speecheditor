@@ -5,25 +5,16 @@ import os
 print >> sys.stderr, "system stuff"
 
 import numpy as N
-print >> sys.stderr, "numpy"
-print >> sys.stderr, "sys.path", sys.path
 from sklearn import svm
 print >> sys.stderr, "svc"
 from numpy.random import permutation
-print >> sys.stderr, "permutation"
 from sklearn.cross_validation import StratifiedKFold
-print >> sys.stderr, "strat kfold"
 from sklearn.grid_search import GridSearchCV
-print >> sys.stderr, "grid search"
 from scipy.signal import lfilter
-
-print >> sys.stderr, "sk-stuff"
 
 sys.path.append(os.path.join('/Users/srubin/code/'))
 from frontend import *
 from frontend import Pipeline
-
-print >> sys.stderr, "Pipeline"
 
 from radiotool import composer as C
 import all_features

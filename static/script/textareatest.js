@@ -611,10 +611,10 @@ TAAPP.reset = function () {
 
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
-    $('.dlLink').prop('href', '/download/' + TAAPP.state.outfile);
+    $('.dlLink').prop('href', '../download/' + TAAPP.state.outfile);
 
     // mod for now to do on-the-fly classification of breaths
-    $.getJSON('/alignment/' + TAAPP.speech, function (data) {
+    $.getJSON('../alignment/' + TAAPP.speech, function (data) {
         var words = data.words;
         // filename of the new json
         TAAPP.state.speechText = data.speechText;

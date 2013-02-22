@@ -82,9 +82,13 @@ def reauthor():
         
         subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True)
-        create_png(APP_PATH + 'static/tmp/' + dat["outfile"] + '.wav',
-            APP_PATH + 'static/tmp/' + dat["outfile"] + '.png',
-            dat["timelineWidth"], dat["timelineHeight"])
+        
+        # get the new wav2json data, maybe
+
+        # create_png(APP_PATH + 'static/tmp/' + dat["outfile"] + '.wav',
+        #     APP_PATH + 'static/tmp/' + dat["outfile"] + '.png',
+        #     dat["timelineWidth"], dat["timelineHeight"])
+
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
             dat["outfile"] + '.wav', shell=True)
         return jsonify(url='tmp/' + dat["outfile"] + '.mp3',

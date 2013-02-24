@@ -84,17 +84,26 @@ def save_plot(graph, name="graph.png"):
     A.layout()
     A.draw(name)
     
-def make_graph(paths, markers):
+def make_graph(paths, markers, string_names=False):
     DG = nx.DiGraph()
     # add nodes
     for i in xrange(len(paths)):
-        DG.add_node(markers[i].start)
+        if string_names:
+            DG.add_node(str(markers[i].start))
+        else:
+            DG.add_node(markers[i].start)
     # add edges
     edges = []
     for i in xrange(len(paths)):
         if i != len(paths)-1:
-            edges.append((markers[i].start, markers[i+1].start, {'distance':0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
-        edges.extend([(markers[i].start, markers[l[0]+1].start, {'distance':l[1], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
+            if string_names:
+                edges.append((str(markers[i].start), str(markers[i+1].start), {'distance':0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
+            else:
+                edges.append((markers[i].start, markers[i+1].start, {'distance':0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
+        if string_names:
+            edges.extend([(str(markers[i].start), str(markers[l[0]+1].start), {'distance':l[1], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
+        else:
+            edges.extend([(markers[i].start, markers[l[0]+1].start, {'distance':l[1], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
     DG.add_edges_from(edges)
     return DG
 
@@ -430,7 +439,8 @@ def terminate(dur_intro, middle, dur_outro, duration, lgh):
 
 def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
                    infinite=False, pickle=False, graph=False, plot=False,
-                   force=True, shortest=False, longest=False, verbose=True):
+                   force=True, shortest=False, longest=False, verbose=True,
+                   string_names=False):
     dur = float(duration)
     mlp = int(minimum)
     lgh = bool(length)
@@ -471,7 +481,7 @@ def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
             print_screen(paths)
         # make graph
         markers = getattr(track.analysis, timbre['rate'])[timbre['index']:timbre['index']+len(paths)]
-        graph = make_graph(paths, markers)
+        graph = make_graph(paths, markers, string_names=string_names)
         
     # remove smaller loops for quality results
     if 0 < mlp:
@@ -485,7 +495,7 @@ def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
     if gml == True:
         save_graph(graph, mp3+".graph.gml")
     if graph_only == True:
-        save_graph(graph, mp3+".graph.gml")
+        # save_graph(graph, mp3+".graph.gml")
         return graph
         
     # single loops

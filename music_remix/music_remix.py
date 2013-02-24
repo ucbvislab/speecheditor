@@ -1,13 +1,12 @@
 import sys
 import copy
 import os
+import subprocess
 
-# import echonest.remix as remix
 from echonest.remix.audio import LocalAudioFile
 import networkx as nx
 
 import earworm
-
 from radiotool import composer as C
 
 
@@ -40,16 +39,26 @@ class MusicGraph(object):
 
         track = LocalAudioFile(self.filename, verbose=self.verbose)
 
-        self._graph = earworm.do_work(track, graph_only=True,
-            verbose=self.verbose, force=True)
+        graph = earworm.do_work(track, graph_only=True,
+            verbose=self.verbose, force=True, string_names=True)
+        
+        # convert floats to strings in node and edge labels
+        
+        self._graph = graph
         try:
             path = os.path.join(self.cache_path, gml_filename)
             print path
             nx.write_gml(self._graph, path)
+            self._graph = nx.read_gml(path, relabel=True)
         except Exception, e:
             print e
             pass
         return self._graph
+
+    def json_graph(self):
+        G = self.graph
+        return dict(nodes=[[n, G.node[n]] for n in G.nodes()],
+                   edges=[[u, v, G.edge[u][v]] for u, v in G.edges()])
 
     def find_loop(self, start_time, end_time):
         graph = self.graph
@@ -69,6 +78,14 @@ class MusicGraph(object):
 
         # compose the audio
         wav_fn = ".".join(self.filename.split('.')[:-1]) + '.wav'
+        
+        try:
+           with open(wav_fn) as f: pass
+        except IOError as e:
+           # convert to wav
+           subprocess.call(
+               'lame --decode "%s"' % self.filename, shell=True)
+        
         track = C.Track(wav_fn, "song to remix")
         c = C.Composition(tracks=[track])
 

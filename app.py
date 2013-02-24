@@ -12,6 +12,7 @@ sys.path.append("/var/www/html/srubin/speecheditor")
 
 import reauthor_speech
 import duplicate_lines
+from music_remix.music_remix import MusicGraph
 
 from radiotool.composer import Track, Song, Speech, Composition, Segment
 
@@ -53,6 +54,30 @@ def reauthor():
                 
                 c.add_tracks(result["tracks"])
                 c.add_score_segments(result["segments"])
+            
+            elif t["waveformClass"] == "musicWaveform":
+                # handle music authored per beat
+                starts = t["extra"]["starts"]
+                durs = t["extra"]["durations"]
+                    
+                score_start = t["scoreStart"]
+                filename = APP_PATH + "static/" + t["filename"]
+                
+                if filename.lower().endswith('.mp3'):
+                    wav_fn = ".".join(filename.split('.')[:-1]) + ".wav"
+                    if not os.path.isfile(wav_fn):
+                        subprocess.call('lame --decode "%s"'
+                            % filename, shell=True)
+                
+                track = Track(wav_fn, t["name"])
+                c.add_track(track)
+                current_loc = score_start
+                
+                for i, start in enumerate(starts):
+                    dur = durs[i]
+                    segment = Segment(track, current_loc, start, dur)
+                    current_loc += dur
+                    c.add_score_segment(segment)
             
             elif t["waveformClass"] == "waveform":
                 score_start = t["scoreStart"]
@@ -163,6 +188,10 @@ def upload_song():
         # get length of song upload
         track = Track(wav_name, "track")
         out["dur"] = track.total_frames() / float(track.sr()) * 1000.0
+
+        # get song graph
+        mg = MusicGraph(full_name, cache_path=upload_path)
+        out["graph"] = mg.json_graph()
 
         # delete wav
         subprocess.call('rm "%s"' % wav_name, shell=True)

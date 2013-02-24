@@ -561,21 +561,10 @@ TAAPP.loadOriginal = function () {
                 tracks: 3,
                 pxPerMs: .005,
                 width: "100%",
-                wf: [{ elt: wf, track: 0, pos: 0 }]
+                wf: [{ elt: wf, track: 0, pos: 0.0 }]
             });
             
             TAAPP.adjustHeight();
-            
-            // $('.timeline').timeline({
-            //     height: TAAPP.state.timelineHeight,
-            //     reauthoredWaveform: TAAPP.speech + '.png',
-            //     sound: this,
-            //     callback: TAAPP.adjustHeight,
-            //     current: TAAPP.current,
-            //     origSound: this,
-            //     origWaveform: TAAPP.speech + '.png',
-            //     play: false
-            // });
         },
         autoPlay: false
     };
@@ -885,14 +874,15 @@ TAAPP.uploadSong = function (form) {
         success: function (data) {
             $(form).find('[data-dismiss="fileupload"]').trigger("click");
             var wf = document.createElement('div');
-            $(wf).waveform({
+            $(wf).musicWaveform({
                 data: data.wfData,
                 name: data.name,
                 filename: data.path,
                 dur: data.dur,
-                len: data.dur
+                len: data.dur,
+                musicGraph: data.graph
             });
-            TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0});
+            TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
             console.log(data);
         },
         data: formData,

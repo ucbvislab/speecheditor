@@ -7,6 +7,7 @@
 </head>
 
 <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
 <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" type="text/javascript"></script> -->
 
 
@@ -139,13 +140,13 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 </div>
 
 </div>
+
+
  
 <script src="script/underscore-min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
-<script src="script/underscore.observable.js" type="text/javascript"></script>
+
 <script src="script/soundmanager2-jsmin.js" type="text/javascript"></script>
 <script src="script/textinputs.jquery.js" type="text/javascript"></script>
-<!-- <script src="script/timeline.jquery.js" type="text/javascript"></script> -->
 <script src="script/textareatest.js" type="text/javascript"></script>
 <script src="script/bootstrap.min.js"></script>
 <script src="script/bootstrap-fileupload.min.js"></script>
@@ -162,6 +163,8 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 <!-- end edible includes -->
 
 <script src="script/less.js" type="text/javascript"></script>
+
+<!-- <script src="script/textarea-dev.min.js"></script> -->
 
 <script id="dupeDropdown" type="text/template">
     <span class="dropdown overlay">
@@ -195,6 +198,16 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
     
 <script type="text/template" id="trackTemplate">
 <div class="track"></div>
+</script>
+
+<script id="cycleWorker" type="javascript/worker">
+// this isn't going to work for now... grumble
+importScripts("edible/js/lib/jsnetworkx.js");
+
+self.onmessage = function (e) {
+    var cycles = jsnx.simple_cycles(e.data.graph);
+    self.postMessage(cycles);
+};
 </script>
 
 <!-- end templates for edible -->

@@ -59,6 +59,7 @@ def reauthor():
                 # handle music authored per beat
                 starts = t["extra"]["starts"]
                 durs = t["extra"]["durations"]
+                dists = t["extra"]["distances"]
                     
                 score_start = t["scoreStart"]
                 filename = APP_PATH + "static/" + t["filename"]
@@ -71,13 +72,26 @@ def reauthor():
                 
                 track = Track(wav_fn, t["name"])
                 c.add_track(track)
-                current_loc = score_start
+                current_loc = float(score_start)
+                prev_segment = None
                 
                 for i, start in enumerate(starts):
-                    dur = durs[i]
-                    segment = Segment(track, current_loc, start, dur)
-                    current_loc += dur
-                    c.add_score_segment(segment)
+                    if i == 0 or dists[i - 1] == 0:
+                        dur = durs[i]
+                        segment = Segment(track, current_loc, start, dur)
+                        current_loc += dur
+                        c.add_score_segment(segment)
+                        prev_segment = segment
+                    else:
+                        track = Track(wav_fn, t["name"])
+                        c.add_track(track)
+                        dur = durs[i]
+                        segment = Segment(track, current_loc, start, dur)
+                        current_loc += dur
+                        c.add_score_segment(segment)
+                        c.cross_fade(prev_segment, segment, .005)
+                        prev_segment = segment
+                        
             
             elif t["waveformClass"] == "waveform":
                 score_start = t["scoreStart"]

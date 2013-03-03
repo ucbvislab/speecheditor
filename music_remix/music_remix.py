@@ -10,6 +10,9 @@ import earworm
 from radiotool import composer as C
 
 
+from pyechonest import config
+config.ECHO_NEST_API_KEY = "0KJK6BQUW0BV6XX3I"
+
 class MusicGraph(object):
 
     def __init__(self, filename, cache_path=None,

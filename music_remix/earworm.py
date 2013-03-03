@@ -46,11 +46,13 @@ from utils import rows, tuples, flatten
 DEF_DUR = 600
 MAX_SIZE = 800
 MIN_RANGE = 16
-MIN_JUMP = 16
+
 MIN_ALIGN = 16
 MAX_EDGES = 8
 FADE_OUT = 3
+
 RATE = 'beats'
+MIN_JUMP = 16
 
 def read_graph(name="graph.gpkl"):
     if os.path.splitext(name)[1] == ".gml": 

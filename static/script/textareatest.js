@@ -851,6 +851,22 @@ TAAPP.togglePlay = function () {
     }
 };
 
+TAAPP._timelineClickMode = "marker";
+
+
+TAAPP.toggleMode = function (mode) {
+    if (mode === "split" && TAAPP._timelineClickMode === "split") {
+        TAAPP._timelineClickMode = "marker";
+    } else if (mode === "split" && TAAPP._timelineClickMode !== "split") {
+        TAAPP._timelineClickMode = "split";
+    }
+    
+    // alert the timeline to respond to clicks appropriately
+    TAAPP.$timeline.timeline({
+        clickMode: TAAPP._timelineClickMode
+    });
+}
+
 TAAPP._zoom = function (factor) {
     var currentZoom = TAAPP.$timeline.timeline("option", "pxPerMs");
     TAAPP.$timeline.timeline({
@@ -868,6 +884,11 @@ TAAPP.zoomOut = function () {
 
 TAAPP.uploadSong = function (form) {
     var formData = new FormData(form);
+    
+    var spinner = document.createElement('img');
+    spinner.src = 'img/smallgear.gif';
+    $('.spinner').prepend(spinner);
+    
     $.ajax({
         url: '../uploadSong',
         type: 'POST',
@@ -884,6 +905,10 @@ TAAPP.uploadSong = function (form) {
             });
             TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
             console.log(data);
+            $('.spinner').remove();
+        },
+        error: function (data) {
+            $('.spinner').remove();
         },
         data: formData,
         cache: false,
@@ -972,6 +997,10 @@ TAAPP.loadSite = function () {
     $('.playBtn').click(TAAPP.togglePlay);
     $('.zoomInBtn').click(TAAPP.zoomIn);
     $('.zoomOutBtn').click(TAAPP.zoomOut);
+    $('.razorBtn').click(function () {
+        $(this).toggleClass("buttonActive");
+        TAAPP.toggleMode("split");
+    });
     $('#songUploadForm').submit(function () {
         TAAPP.uploadSong($("#songUploadForm")[0]);
         return false;

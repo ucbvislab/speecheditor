@@ -73,25 +73,39 @@ def reauthor():
                 track = Track(wav_fn, t["name"])
                 c.add_track(track)
                 current_loc = float(score_start)
-                prev_segment = None
+                
+                segments = []
+                cf_durations = []
+                seg_start = starts[0]
+                seg_start_loc = current_loc
                 
                 for i, start in enumerate(starts):
                     if i == 0 or dists[i - 1] == 0:
                         dur = durs[i]
-                        segment = Segment(track, current_loc, start, dur)
                         current_loc += dur
-                        c.add_score_segment(segment)
-                        prev_segment = segment
                     else:
+                        seg = Segment(track, seg_start_loc, seg_start,
+                            current_loc - seg_start_loc)
+                        c.add_score_segment(seg)
+                        segments.append(seg)
+                        
                         track = Track(wav_fn, t["name"])
                         c.add_track(track)
                         dur = durs[i]
-                        segment = Segment(track, current_loc, start, dur)
-                        current_loc += dur
-                        c.add_score_segment(segment)
-                        c.cross_fade(prev_segment, segment, .005)
-                        prev_segment = segment
+                        cf_durations.append(dur)
                         
+                        seg_start_loc = current_loc
+                        seg_start = start
+                        
+                        current_loc += dur
+                        
+                last_seg = Segment(track, seg_start_loc, seg_start,
+                    current_loc - seg_start_loc)
+                c.add_score_segment(last_seg)
+                segments.append(last_seg)
+                
+                for i, seg in enumerate(segments[:-1]):
+                    c.cross_fade(seg, segments[i + 1], cf_durations[i])
             
             elif t["waveformClass"] == "waveform":
                 score_start = t["scoreStart"]
@@ -102,8 +116,11 @@ def reauthor():
                 wav_fn = filename
                 
                 if filename.lower().endswith('.mp3'):
-                    subprocess.call('lame --decode "%s"' % filename, shell=True)
                     wav_fn = ".".join(filename.split('.')[:-1]) + ".wav"
+                    if not os.path.isfile(wav_fn):
+                        subprocess.call('lame --decode "%s"'
+                            % filename, shell=True)
+
                     
                 track = Track(wav_fn, t["name"])
                 segment = Segment(track, score_start, track_start, duration)
@@ -208,7 +225,9 @@ def upload_song():
         out["graph"] = mg.json_graph()
 
         # delete wav
-        subprocess.call('rm "%s"' % wav_name, shell=True)
+        #
+        # actually, don't delete the wav for now.
+        # subprocess.call('rm "%s"' % wav_name, shell=True)
 
         # read waveform data json
         with open(upload_path + 'wfData/' + filename + '.json', 'r') as wf:

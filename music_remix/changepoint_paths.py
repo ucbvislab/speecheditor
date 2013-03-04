@@ -35,7 +35,7 @@ def changepoint_path(wav_fn, graph, length):
     for pair in itertools.permutations(closest_nodes, r=2):
         print "Finding path for pair", pair, "of length", node_count
         
-        avoid_nodes = [cn for cn in closest_nodes if cn not in pair]
+        avoid_nodes = [cn for cn in closest_nodes if cn != pair[1]]
         
         try:
             shortest_path = nx.astar_path_length(graph,
@@ -73,19 +73,19 @@ if __name__ == '__main__':
                 for i in range(len(best) - 1)]
 
         # for post-padding
-        durs.append(5.0)
+        durs.append(12.0)
 
         dists = [graph[best[i]][best[i + 1]]["distance"]
                  for i in range(len(best) - 1)]
 
         dists.append(0)
 
-        score_start = 5.0
+        score_start = 12.0
         track = Track(wav_fn, wav_fn)
         c = Composition(channels=2)
         c.add_track(track)
         c.add_score_segment(
-            Segment(track, 0.0, starts[0] - 5.0, 5.0))
+            Segment(track, 0.0, starts[0] - 12.0, 12.0))
         current_loc = float(score_start)
 
         seg_start = starts[0]
@@ -124,7 +124,7 @@ if __name__ == '__main__':
         
         # handle the case where there's a jump before the final frame
         if len(cf_durations) > 0:
-            if (cf_durations[-1] == 5.0):
+            if (cf_durations[-1] == 12.0):
                 if len(cf_durations) > 1:
                     cf_durations[-1] = cf_durations[-2]
                 else:

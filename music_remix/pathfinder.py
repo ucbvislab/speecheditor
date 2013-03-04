@@ -74,7 +74,7 @@ class PathFinder(object):
         # create transition cost table
         # note: nodes are sorted in music-chronological order
         trans_cost = N.array(nx.adjacency_matrix(self.graph,
-            36.66nodelist=self.nodes))
+            nodelist=self.nodes))
 
         # cost for no transition: infinity
         trans_cost[N.where(trans_cost == 0)] = N.inf
@@ -87,7 +87,7 @@ class PathFinder(object):
 
         # cost for bad nodes: inf
         for node in bad_nodes:
-            trans_cost[node, :] = N.inf
+            # trans_cost[node, :] = N.inf
             trans_cost[:, node] = N.inf
 
         print "Avoiding nodes", bad_nodes

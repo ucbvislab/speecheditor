@@ -120,21 +120,16 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
             start_times.append(composition_loc)
             
-            gp_fade_dur = .2
-            
             while pause_len > end - start:
                 seg = Segment(s, composition_loc, start, end - start)
                 c.add_score_segment(seg)
-                c.fade_in(seg, gp_fade_dur)
-                c.fade_out(seg, gp_fade_dur)
-                composition_loc += (end - start) - gp_fade_dur 
-                pause_len -= (end - start) - gp_fade_dur
+                composition_loc += (end - start) 
+                pause_len -= (end - start)
+                segments.append(seg)
 
             seg = Segment(s, composition_loc, start, pause_len)            
             c.add_score_segment(seg)
-            c.fade_in(seg, fade_duration)
-            c.fade_out(seg, fade_duration)
-            composition_loc -= fade_duration
+            segments.append(seg)
             composition_loc += pause_len
         else:
             start = eg.start
@@ -156,18 +151,13 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             seg = Segment(s, composition_loc, start, end - start)
             c.add_score_segment(seg)
             start_times.append(composition_loc)
-            if crossfades:
-                c.fade_in(seg, fade_duration)
-                c.fade_out(seg, fade_duration)
-                composition_loc -= fade_duration
-            composition_loc += end - start
+            segments.append(seg)
 
+            composition_loc += end - start
     
-    # c.add_score_segments(segments)
-    
-    # for i in range(len(segments) - 1):
-    #     c.cross_fade(segments[i], segments[i + 1], .05)
-    #     #c.fade_out(segments[i], 1.0)
+    if crossfades:
+        for i in range(len(segments) - 1):
+            c.cross_fade(segments[i], segments[i + 1], .005)
     
     out = {}
     

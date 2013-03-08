@@ -90,6 +90,7 @@ def deltas(x, window_size=9):
 
 
 def get_features(audio_file):
+    print "Getting features of", audio_file
     cc = get_mfcc(audio_file)
     audio = C.Track(audio_file, 'woop')
     n_frames = audio.total_frames()

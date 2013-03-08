@@ -43,14 +43,19 @@ def reauthor():
                     af = json.loads(f.read())["words"]
                 ef = dat["speechReauthor"]["words"]
 
-                result = reauthor_speech.rebuild_audio(APP_PATH + 'static/' +
-                    dat["speechAudio"], af, ef,
+                crossfades = True
+                if "crossfades" in dat:
+                    crossfades = dat["crossfades"]
+
+                result = reauthor_speech.rebuild_audio(
+                    APP_PATH + 'static/' + dat["speechAudio"],
+                    af, ef,
                     cut_to_zc=True,
                     tracks_and_segments=True,
-                    # out_file=APP_PATH + "static/tmp/" + dat["outfile"],
                     samplerate=dat["speechSampleRate"],
-                    score_start=score_start
-                    )
+                    score_start=score_start,
+                    crossfades=crossfades
+                )
                 
                 c.add_tracks(result["tracks"])
                 c.add_score_segments(result["segments"])
@@ -141,10 +146,6 @@ def reauthor():
         
         # get the new wav2json data, maybe
 
-        # create_png(APP_PATH + 'static/tmp/' + dat["outfile"] + '.wav',
-        #     APP_PATH + 'static/tmp/' + dat["outfile"] + '.png',
-        #     dat["timelineWidth"], dat["timelineHeight"])
-
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
             dat["outfile"] + '.wav', shell=True)
         return jsonify(url='tmp/' + dat["outfile"] + '.mp3',
@@ -221,8 +222,10 @@ def upload_song():
         out["dur"] = track.total_frames() / float(track.sr()) * 1000.0
 
         # get song graph
-        mg = MusicGraph(full_name, cache_path=upload_path)
+        mg = MusicGraph(full_name, cache_path=upload_path, verbose=True)        
         out["graph"] = mg.json_graph()
+        
+        print "Got music graph"
 
         # delete wav
         #

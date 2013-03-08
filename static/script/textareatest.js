@@ -32,6 +32,24 @@ TAAPP.state = {
     timelineWidth: 2000
 };
 
+TAAPP.spinner = new Spinner({
+    lines: 13, // The number of lines to draw
+    length: 26, // The length of each line
+    width: 9, // The line thickness
+    radius: 35, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    color: '#0f82f5', // #rgb or #rrggbb
+    speed: 0.8, // Rounds per second
+    trail: 52, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: '200px', // Top position relative to parent in px
+    left: 'auto' // Left position relative to parent in px
+});
+
 TAAPP.processPaste = function (a, b) {
     var parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g;
     var bRes = false;
@@ -213,9 +231,7 @@ TAAPP.insertWords = function (indices, pos) {
     return [newStart, newEnd];
 };
 
-TAAPP.insertBreath = function () {
-    TAAPP.updateText();
-    var sel = TAAPP.ta.getSelection();
+TAAPP.bestBreathIndices = function () {
     var bestBreath = _.min(
         _.filter(TAAPP.words, function (word) {
             return (word.hasOwnProperty("breathLen"));
@@ -223,11 +239,66 @@ TAAPP.insertBreath = function () {
         function (breath) {
             return breath.breathLen;
     });
-    indices = [bestBreath.origPos];
+    var indices = [bestBreath.origPos];
     if (TAAPP.words[bestBreath.origPos + 1].alignedWord === "sp") {
         indices.push(bestBreath.origPos + 1);
     }
+    return indices;
+};
+
+TAAPP.randomBreathIndices = function () {
+    var breaths = _.filter(TAAPP.words, function (word) {
+        return (word.hasOwnProperty("breathLen"));
+    });
+    var breath = breaths[Math.floor(Math.random()*breaths.length)];
+    var indices = [breath.origPos];
+    if (TAAPP.words[breath.origPos + 1].alignedWord === "sp") {
+        indices.push(breath.origPos + 1);
+    }
+    return indices;
+
+}
+
+TAAPP.insertBreath = function () {
+    TAAPP.updateText();
+    var sel = TAAPP.ta.getSelection();
+    var indices = TAAPP.bestBreathIndices();
     TAAPP.insertWords(indices, sel.start);
+};
+
+TAAPP.globalBreathFill = function () {
+    TAAPP.updateText();
+    var punc = /[\.:!\?]$/;
+    var newBreathInds = [];
+    _.each(TAAPP.current, function (word, i, cur) {
+        if (punc.exec(word.word) !== null) {
+            while (++i < cur.length) {
+                if (cur[i].alignedWord === "{BR}") {
+                    break;
+                }
+                if (cur[i].alignedWord !== "gp" &&
+                    cur[i].alignedWord !== "sp") {
+                    newBreathInds.push(i);
+                    break;
+                }
+            }
+        }
+    });
+    
+    var offset = 0;
+
+    _.each(newBreathInds, function(i) {
+        var breathInd = TAAPP.randomBreathIndices();
+        var words = _.map(breathInd, function (bi) {
+            return TAAPP.words[bi];
+        });
+        var args = [i + offset, 0].concat(words);
+        offset += words.length;
+        Array.prototype.splice.apply(TAAPP.current, args);
+    });
+
+    TAAPP.updateTextArea();
+    TAAPP.updatePos();
 };
 
 TAAPP.selectWord = function (direction) {
@@ -331,10 +402,7 @@ TAAPP.generateAudio = function () {
     
     console.log("exported timeline", TAAPP.state.exportedTimeline);
     
-    // loading
-    var spinner = document.createElement('img');
-    spinner.src = 'img/smallgear.gif';
-    $('.spinner').prepend(spinner);
+    TAAPP.spinner.spin($("body")[0]);
 
     $.ajax({
         url: '../reauthor',
@@ -348,10 +416,10 @@ TAAPP.generateAudio = function () {
             }
             TAAPP.sound = TAAPP.createSound(data);
 
-            $(spinner).remove();
+            TAAPP.spinner.stop();
         },
         error: function (data) {
-            $(spinner).remove();
+            TAAPP.spinner.stop();
         }
     });
 };
@@ -359,7 +427,7 @@ TAAPP.generateAudio = function () {
 TAAPP.createSound = function (data) {
     return soundManager.createSound({
         id: 'speech',
-        url: data.url,
+        url: data.url + "?r=" + parseInt(Math.random() * 10000),
         autoPlay: true,
         autoLoad: true,
         onplay: function () {
@@ -497,6 +565,12 @@ TAAPP.roomTone = {
     "scorerickard": {
         "start": 19.530,
         "end": 19.851,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "teleclip": {
+        "start": 0.044,
+        "end": 0.476,
         "word": "{gpause}",
         "alignedWord": "gp"
     }
@@ -885,9 +959,7 @@ TAAPP.zoomOut = function () {
 TAAPP.uploadSong = function (form) {
     var formData = new FormData(form);
     
-    var spinner = document.createElement('img');
-    spinner.src = 'img/smallgear.gif';
-    $('.spinner').prepend(spinner);
+    TAAPP.spinner.spin($("body")[0]);
     
     $.ajax({
         url: '../uploadSong',
@@ -905,10 +977,12 @@ TAAPP.uploadSong = function (form) {
             });
             TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
             console.log(data);
-            $('.spinner').remove();
+            
+            TAAPP.spinner.stop();
+            
         },
         error: function (data) {
-            $('.spinner').remove();
+            TAAPP.spinner.stop();
         },
         data: formData,
         cache: false,

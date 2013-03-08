@@ -19,25 +19,37 @@ def memoize(obj):
 
 class PathFinder(object):
 
-    def __init__(self, graph=None, start=None, end=None, length=None):
+    def __init__(self, sim_mat=None, graph=None,
+        start=None, end=None, length=None, nodes=None):
 
         self.graph = graph
+        self.sim_mat = sim_mat
         self.start = start
         self.end = end
         self.length = length
-        self.nodes = sorted(graph.nodes(), key=float)
+        if nodes is not None:
+            self.nodes = nodes
+        else:
+            self.nodes = sorted(graph.nodes(), key=float)
 
     def find(self, length_padding=5, avoid=None):
         self.build_table(length_padding=length_padding, bad_nodes=avoid)
         res = self.C[self.end,
                      self.length - 1 - length_padding:
                      self.length + length_padding]
+                     
+        if self.graph is None:
+            res -= N.arange(len(res))
+            
+        print "COSTS: ", [[i, res[i]] for i in range(len(res))]
+            
         best_idx = N.argmin(res)
+        
         print "best_idx", best_idx
         if N.isfinite(res[best_idx]):
             return self.reconstruct_path(self.end,
                 self.length - 1 - length_padding + best_idx), res[best_idx]
-        return None
+        return None, None
 
     def reconstruct_path(self, end, length):
         path = []
@@ -73,24 +85,39 @@ class PathFinder(object):
 
         # create transition cost table
         # note: nodes are sorted in music-chronological order
-        trans_cost = N.array(nx.adjacency_matrix(self.graph,
-            nodelist=self.nodes))
+        
+        if self.sim_mat is None:
+        
+            trans_cost = N.array(nx.adjacency_matrix(self.graph,
+                nodelist=self.nodes))
 
-        # cost for no transition: infinity
-        trans_cost[N.where(trans_cost == 0)] = N.inf
+            # cost for no transition: infinity
+            trans_cost[N.where(trans_cost == 0)] = N.inf
 
-        # cost for perfect transition (next frame): 0
-        for i in range(len(self.nodes) - 1):
-            trans_cost[i, i + 1] = 0
+            # cost for perfect transition (next frame): 0
+            for i in range(len(self.nodes) - 1):
+                trans_cost[i, i + 1] = 0
 
-        # cost for other transition: 1
+            # cost for other transition: 1
+
+
+        else:
+            trans_cost = self.sim_mat
+            
+            # shift it over
+            trans_cost[:, 1:] = trans_cost[:, :-1]
+            trans_cost[:, 0] = N.inf
+
 
         # cost for bad nodes: inf
         for node in bad_nodes:
             # trans_cost[node, :] = N.inf
             trans_cost[:, node] = N.inf
-
+            
         print "Avoiding nodes", bad_nodes
+        
+        # no self-jumps
+        N.fill_diagonal(trans_cost, N.inf)
 
         # define the table dimensions
         C = N.zeros((len(self.nodes), self.length + length_padding))
@@ -105,6 +132,10 @@ class PathFinder(object):
             for n_i in xrange(len(self.nodes)):
 
                 costs = trans_cost[:, n_i] + C[:, l - 1]
+                
+                if l not in range(self.length - length_padding,
+                    self.length + length_padding):
+                    costs[self.end] = N.inf
 
                 # oh man, this was SO slow
                 # costs = [trans_cost[k, n_i] + C[k, l - 1] for k in ks]

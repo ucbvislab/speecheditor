@@ -11,6 +11,10 @@ Creates an optimal loop if specified for looping.
 Created by Tristan Jehan and Jason Sundram.
 """
 
+"""
+to get this back to normal, change get_loop_points and the constants
+"""
+
 from copy import deepcopy
 from optparse import OptionParser
 import numpy as np
@@ -52,7 +56,7 @@ MAX_EDGES = 8
 FADE_OUT = 3
 
 RATE = 'beats'
-MIN_JUMP = 16
+MIN_JUMP = 0
 
 def read_graph(name="graph.gpkl"):
     if os.path.splitext(name)[1] == ".gml": 
@@ -96,16 +100,19 @@ def make_graph(paths, markers, string_names=False):
             DG.add_node(markers[i].start)
     # add edges
     edges = []
+    
     for i in xrange(len(paths)):
+    
         if i != len(paths)-1:
             if string_names:
-                edges.append((str(markers[i].start), str(markers[i+1].start), {'distance':0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
+                edges.append((str(markers[i].start), str(markers[i+1].start), {'distance':0, 'timbredist': 0, 'pitchdist': 0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
             else:
-                edges.append((markers[i].start, markers[i+1].start, {'distance':0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
+                edges.append((markers[i].start, markers[i+1].start, {'distance':0, 'timbredist': 0, 'pitchdist': 0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
+
         if string_names:
-            edges.extend([(str(markers[i].start), str(markers[l[0]+1].start), {'distance':l[1], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
+            edges.extend([(str(markers[i].start), str(markers[l[0]+1].start), {'distance':l[1], 'timbredist': l[2], 'pitchdist': l[3], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
         else:
-            edges.extend([(markers[i].start, markers[l[0]+1].start, {'distance':l[1], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
+            edges.extend([(markers[i].start, markers[l[0]+1].start, {'distance':l[1], 'timbredist': l[2], 'pitchdist': l[3], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
     DG.add_edges_from(edges)
     return DG
 
@@ -113,11 +120,18 @@ def make_similarity_matrix(matrix, size=MIN_ALIGN):
     singles = matrix.tolist()
     points = [flatten(t) for t in tuples(singles, size)]
     numPoints = len(points)
-    distMat = sqrt(np.sum((repmat(points, numPoints, 1) - repeat(points, numPoints, axis=0))**2, axis=1, dtype=np.float32))
+    distMat = sqrt(
+        np.sum(
+            (
+                repmat(points, numPoints, 1) -
+                repeat(points, numPoints, axis=0)
+            )**2, axis=1, dtype=np.float32)
+    )
     return distMat.reshape((numPoints, numPoints))
 
 def get_paths(matrix, size=MIN_RANGE):
     mat = make_similarity_matrix(matrix, size=MIN_ALIGN)
+    
     paths = []
     for i in xrange(rows(mat)):
         paths.append(get_loop_points(mat[i,:], size))
@@ -140,13 +154,20 @@ def get_loop_points(vector, size=MIN_RANGE, max_edges=MAX_EDGES):
     for i in xrange(vector.size-size):
         sub = vector[i:i+size]
         j = np.argmin(sub)
-        if sub[j] < m-s and j != 0 and j != size-1 and sub[j] < sub[j-1] and sub[j] < sub[j+1] and sub[j] != 0:
+        if sub[j] < m - s and\
+            j != 0 and\
+            j != size-1 and\
+            sub[j] < sub[j-1] and\
+            sub[j] < sub[j+1] and\
+            sub[j] != 0:
+
             res.add((i+j, sub[j]))
             i = i+j # we skip a few steps
     # let's remove clusters of minima
     res = sorted(res, key=operator.itemgetter(0))
     out = set()
     i = 0
+    
     while i < len(res):
         tmp = [res[i]]
         j = 1
@@ -159,10 +180,16 @@ def get_loop_points(vector, size=MIN_RANGE, max_edges=MAX_EDGES):
         tmp = sorted(tmp, key=operator.itemgetter(1))
         out.add(tmp[0])
         i = i+j
+
+    
     out = sorted(out, key=operator.itemgetter(1))
-    return out[:max_edges]
+    if max_edges:
+        return out[:max_edges]
+    else:
+        return out
 
 def path_intersect(timbre_paths, pitch_paths):
+
     assert(len(timbre_paths) == len(pitch_paths))
     paths = []
     for i in xrange(len(timbre_paths)):
@@ -171,7 +198,8 @@ def path_intersect(timbre_paths, pitch_paths):
         t = [l[0] for l in t_list]
         p = [l[0] for l in p_list]
         r = filter(lambda x:x in t,p)
-        res = [(v, t_list[t.index(v)][1] + p_list[p.index(v)][1]) for v in r]
+        res = [(v, t_list[t.index(v)][1] + p_list[p.index(v)][1],
+                t_list[t.index(v)][1], p_list[p.index(v)][1]) for v in r]
         paths.append(res)
     return paths
 
@@ -442,7 +470,7 @@ def terminate(dur_intro, middle, dur_outro, duration, lgh):
 def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
                    infinite=False, pickle=False, graph=False, plot=False,
                    force=True, shortest=False, longest=False, verbose=True,
-                   string_names=False):
+                   string_names=False, dense_result=False):
     dur = float(duration)
     mlp = int(minimum)
     lgh = bool(length)
@@ -467,6 +495,15 @@ def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
         pitch = resample_features(track, rate=RATE, feature='pitches')
         
         # pick a tradeoff between speed and memory size
+        dense_mats = None
+        if dense_result:
+            timmat = make_similarity_matrix(timbre['matrix'], size=1)
+            pitmat = make_similarity_matrix(pitch['matrix'], size=1)
+            dense_mats = {
+                "timbre": timmat,
+                "pitch": pitmat
+            }
+            
         if rows(timbre['matrix']) < MAX_SIZE:
             # faster but memory hungry. For euclidean distances only.
             t_paths = get_paths(timbre['matrix'])
@@ -481,8 +518,12 @@ def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
         # TEMPORARY -- check that the data looks good
         if vbs == True:
             print_screen(paths)
+
         # make graph
         markers = getattr(track.analysis, timbre['rate'])[timbre['index']:timbre['index']+len(paths)]
+        
+        print "MARKER COUNT:", len(markers)
+        
         graph = make_graph(paths, markers, string_names=string_names)
         
     # remove smaller loops for quality results
@@ -498,7 +539,16 @@ def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
         save_graph(graph, mp3+".graph.gml")
     if graph_only == True:
         # save_graph(graph, mp3+".graph.gml")
-        return graph
+        print "Done with earworm"
+        if dense_mats is None:
+            return graph
+        dense_mats["markers"] = [
+            m.start 
+            for m in getattr(track.analysis, timbre['rate'])[timbre['index'] :
+                timbre['index'] + len(dense_mats['timbre']
+            )]
+        ]
+        return graph, dense_mats
         
     # single loops
     if sho == True:

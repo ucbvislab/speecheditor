@@ -128,18 +128,7 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
         <div class="span6">
             <h2>New Speech</h2>
             <div class="contr">
-                <div class="emContainer">
-                    <div class="emphasis"></div>
-                </div>
-                <div class="hlContainer">
-                    <div class="highlights"></div>
-                </div>
-                <div class="taContainer">
-                    <textarea id="txtArea" name="area1"></textarea>
-                </div>
-                <div class="overlayContainer">
-                    <div class="overlays"></div>
-                </div>
+
             </div>
         </div>
     
@@ -194,6 +183,23 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 
 <!-- <script src="script/textarea-dev.min.js"></script> -->
 
+<!-- Template for text area -->
+<script id="textAreaTemplate" type="text/template">
+<div class="emContainer">
+    <div class="emphasis"></div>
+</div>
+<div class="hlContainer">
+    <div class="highlights"></div>
+</div>
+<div class="taContainer">
+    <textarea id="txtArea" name="area1"></textarea>
+</div>
+<div class="overlayContainer">
+    <div class="overlays"></div>
+</div>
+</script>
+<!-- End template for text area -->
+
 <script id="dupeDropdown" type="text/template">
     <span class="dropdown overlay">
         <span class="dropdown-toggle">
@@ -227,17 +233,6 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 <script type="text/template" id="trackTemplate">
 <div class="track"></div>
 </script>
-
-<script id="cycleWorker" type="javascript/worker">
-// this isn't going to work for now... grumble
-importScripts("edible/js/lib/jsnetworkx.js");
-
-self.onmessage = function (e) {
-    var cycles = jsnx.simple_cycles(e.data.graph);
-    self.postMessage(cycles);
-};
-</script>
-
 <!-- end templates for edible -->
  
 </body>

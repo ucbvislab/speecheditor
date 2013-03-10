@@ -71,7 +71,8 @@
     }
 
     ScriptArea.prototype.updateWords = function(words) {
-      var content;
+      var content,
+        _this = this;
       this.words = words;
       content = _.reduce(words, (function(memo, word) {
         if (word.alignedWord === "UH" || word.alignedWord === "UM") {
@@ -80,7 +81,12 @@
         return memo + word.word + ' ';
       }), "");
       this.val(content);
-      return this.refresh();
+      this.refresh();
+      if (this.words.length === 0) {
+        return _.defer(function() {
+          return _this.tam.removeTA(_this);
+        });
+      }
     };
 
     ScriptArea.prototype.height = function() {
@@ -270,15 +276,16 @@
       self = this;
       taWidth = this.area.width();
       return box.find('.dropdown-toggle').each(function(i) {
-        var dupe, end, pos, start;
+        var dupe, eltPos, end, pos, start;
         pos = $(this).offset();
+        eltPos = self.area.offset();
         dupe = dupes[context.dupeOrder[i]];
         start = context.bounds[i][0];
         end = context.bounds[i][1];
         return $(this).click(function() {
           return self.area.setSelection(self.words[start].taPos, self.words[end].taPos + self.words[end].word.length);
         }).next('.dropdown-menu').css({
-          left: "" + (-pos.left + 30) + "px",
+          left: "" + (-pos.left + eltPos.left + 10) + "px",
           width: "" + (taWidth - 20) + "px"
         }).find('a.dupeOpt').each(function(j) {
           return $(this).click(function(event) {
@@ -303,9 +310,7 @@
     };
 
     ScriptArea.prototype.replaceWords = function(c1, c2, w1, w2) {
-      var offset;
-      offset = this.tam.taIndexSpan[this.tam.tas.indexOf(this)];
-      return this.tam.replaceWords(c1 + offset, c2 + offset, w1, w2, this, this.words[c1].taPos);
+      return this.tam.replaceWords(c1, c2, w1, w2, this, this.words[c1].taPos);
     };
 
     return ScriptArea;
@@ -321,8 +326,13 @@
       this.speakers = speakers;
       this.words = words;
       this.current = current;
-      this.table = $(document.createElement('table')).attr("width", "100%").appendTo(this.el);
-      tr = $(document.createElement('tr')).appendTo(this.table);
+      this.headerTable = $(document.createElement('table')).attr("width", "100%").appendTo(this.el);
+      this.container = $(document.createElement('div')).css({
+        "overflow-x": "hidden",
+        "overflow-y": "auto"
+      }).appendTo(this.el);
+      this.table = $(document.createElement('table')).attr("width", "100%").appendTo(this.container);
+      tr = $(document.createElement('tr')).appendTo(this.headerTable);
       _.each(this.speakers, function(speaker) {
         var th;
         th = document.createElement('th');
@@ -379,16 +389,17 @@
         ta.adjustHeight();
       }
       for (i = _j = 0, _ref1 = this.tas.length - 1; 0 <= _ref1 ? _j <= _ref1 : _j >= _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
-        this.table.find('tr').eq(i + 1).height(this.tas[i].height());
+        this.table.find('tr').eq(i).height(this.tas[i].height());
       }
       console.log("innerheight", window.innerHeight, "offset", this.el.offset().top);
+      this.container.height(window.innerHeight - this.el.offset().top - 50);
       return this.el.height(window.innerHeight - this.el.offset().top - 50);
     };
 
     TextAreaManager.prototype.draw = function() {
       var count, lastSpeaker,
         _this = this;
-      this.table.find("tr:not(:first)").remove();
+      this.table.find("tr").remove();
       lastSpeaker = this.speakers[0];
       count = 0;
       this.taIndexSpan = [0];
@@ -545,7 +556,7 @@
         if (tai === this.tas.length - 1) {
           console.log("New row");
           col = this.speakers.indexOf(speakers[1]);
-          tr = this._tr(this.table.find('tr').eq(tai + 1));
+          tr = this._tr(this.table.find('tr').eq(tai));
           tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1]));
           ta.updateWords(ta.words.slice(0, +(segments[1] - 1) + 1 || 9e9));
           this.tas[this.tas.length - 1].updateWords(words);
@@ -572,7 +583,7 @@
         if (tai === 0) {
           console.log("New row (wrong right)");
           col = this.speakers.indexOf(speakers[0]);
-          tr = this._tr(this.table.find('tr').eq(tai + 1));
+          tr = this._tr(this.table.find('tr').eq(tai));
           tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[0], 0));
           ta.updateWords(ta.words.slice(segments[1]));
           this.tas[0].updateWords(words);
@@ -592,10 +603,10 @@
       if (pattern.length === 3) {
         words = ta.words.slice(0);
         col = this.speakers.indexOf(speakers[1]);
-        tr = this._tr(this.table.find('tr').eq(tai + 1));
+        tr = this._tr(this.table.find('tr').eq(tai));
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1], tai + 1));
         col = this.speakers.indexOf(speakers[2]);
-        tr = this._tr(this.table.find('tr').eq(tai + 2));
+        tr = this._tr(this.table.find('tr').eq(tai + 1));
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[2], tai + 2));
         ta.updateWords(words.slice(0, +(segments[1] - 1) + 1 || 9e9));
         this.tas[tai + 1].updateWords(words.slice(segments[1], +(segments[2] - 1) + 1 || 9e9));
@@ -794,6 +805,20 @@
     TextAreaManager.prototype.replaceWords = function(c1, c2, w1, w2, ta, pos) {
       this.pruneCurrent(c1, c2 + 1, ta);
       return this.insertWords(_.range(w1, w2 + 1), pos, ta);
+    };
+
+    TextAreaManager.prototype.removeTA = function(ta) {
+      var taIndex;
+      this.log("in remove TA", ta);
+      taIndex = this.tas.indexOf(ta);
+      this.tas.splice(taIndex, 1);
+      this.taIndexSpan.splice(taIndex, 1);
+      this.table.find("tr").eq(taIndex).remove();
+      if (taIndex !== 0 && taIndex < this.tas.length && this.tas[taIndex - 1].speaker === this.tas[taIndex].speaker) {
+        this.tas[taIndex - 1].updateWords(this.tas[taIndex - 1].words.concat(this.tas[taIndex].words));
+        this.removeTA(this.tas[taIndex]);
+      }
+      return this.refresh();
     };
 
     TextAreaManager.prototype.log = function() {

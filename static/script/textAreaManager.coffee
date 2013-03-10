@@ -71,6 +71,7 @@ class ScriptArea
 
     updateWords: (words) ->
         @words = words
+
         content = _.reduce words, ((memo, word) ->
             if word.alignedWord is "UH"\
             or word.alignedWord is "UM"
@@ -78,6 +79,9 @@ class ScriptArea
             return memo + word.word + ' '), ""
         @val(content)
         @refresh()
+
+        if @words.length is 0
+            _.defer => @tam.removeTA @
     
     height: ->
         @area.height()
@@ -267,16 +271,17 @@ class ScriptArea
         self = @
         taWidth = @area.width()
         box.find('.dropdown-toggle').each((i) ->
-            pos = $(@).offset()
+            pos = $(this).offset()
+            eltPos = self.area.offset()
             dupe = dupes[context.dupeOrder[i]]
             start = context.bounds[i][0]
             end = context.bounds[i][1]
-            $(@).click( ->
+            $(this).click( ->
                 self.area.setSelection self.words[start].taPos,
                     self.words[end].taPos + self.words[end].word.length
             )
             .next('.dropdown-menu').css(
-                left: "#{-pos.left + 30}px"
+                left: "#{-pos.left + eltPos.left + 10}px"
                 width: "#{taWidth - 20}px"
             )
             .find('a.dupeOpt')
@@ -306,18 +311,26 @@ class ScriptArea
     replaceWords: (c1, c2, w1, w2) ->
         # replace words from c1 to c2 in @words
         # with words w1 through w2 in the original words
-        offset = @tam.taIndexSpan[@tam.tas.indexOf @]
-        @tam.replaceWords c1 + offset, c2 + offset, w1, w2, @, @words[c1].taPos
+        @tam.replaceWords c1, c2, w1, w2, @, @words[c1].taPos
 
 class TextAreaManager
     constructor: (@el, @speakers, @words, @current) ->
-        @table = $(document.createElement 'table')
+        @headerTable = $(document.createElement 'table')
             .attr("width", "100%")
             .appendTo(@el)
+        @container = $(document.createElement 'div')
+            .css(
+                "overflow-x": "hidden"
+                "overflow-y": "auto"
+            )
+            .appendTo(@el)
+        @table = $(document.createElement 'table')
+            .attr("width", "100%")
+            .appendTo(@container)
         
         # create a column for each speaker
         tr = $(document.createElement 'tr')
-            .appendTo(@table)
+            .appendTo(@headerTable)
         _.each @speakers, (speaker) =>
             th = document.createElement 'th'
             $(th).html(speaker)
@@ -367,15 +380,16 @@ class TextAreaManager
 
         # update height of row
         for i in [0..@tas.length - 1]
-            @table.find('tr').eq(i + 1)
+            @table.find('tr').eq(i)
                 .height(@tas[i].height())
 
         # update height of outer element
         console.log "innerheight", window.innerHeight, "offset", @el.offset().top
+        @container.height(window.innerHeight - @el.offset().top - 50)
         @el.height(window.innerHeight - @el.offset().top - 50)
 
     draw: ->
-        @table.find("tr:not(:first)").remove()
+        @table.find("tr").remove()
         lastSpeaker = @speakers[0]
         count = 0
         @taIndexSpan = [0]
@@ -510,7 +524,7 @@ class TextAreaManager
                 console.log "New row"
                 # new row
                 col = @speakers.indexOf(speakers[1])
-                tr = @_tr(@table.find('tr').eq(tai + 1))
+                tr = @_tr(@table.find('tr').eq(tai))
                 tr.find("td").eq(col)
                     .append(@_newScriptArea(@tas.length, speakers[1]))
                 
@@ -544,7 +558,7 @@ class TextAreaManager
             if tai is 0
                 console.log "New row (wrong right)"
                 col = @speakers.indexOf speakers[0]
-                tr = @_tr(@table.find('tr').eq(tai + 1))
+                tr = @_tr(@table.find('tr').eq(tai))
                 tr.find("td").eq(col)
                     .append(@_newScriptArea(@tas.length, speakers[0], 0))
                 
@@ -569,12 +583,12 @@ class TextAreaManager
             words = ta.words[..]
             
             col = @speakers.indexOf speakers[1]
-            tr = @_tr(@table.find('tr').eq(tai + 1))
+            tr = @_tr(@table.find('tr').eq(tai))
             tr.find("td").eq(col)
                 .append(@_newScriptArea(@tas.length, speakers[1], tai + 1))
             
             col = @speakers.indexOf speakers[2]
-            tr = @_tr(@table.find('tr').eq(tai + 2))
+            tr = @_tr(@table.find('tr').eq(tai + 1))
             tr.find("td").eq(col)
                 .append(@_newScriptArea(@tas.length, speakers[2], tai + 2))
             
@@ -762,6 +776,22 @@ class TextAreaManager
         # with words w1 through w2 in the original words
         @pruneCurrent c1, c2 + 1, ta
         return @insertWords _.range(w1, w2 + 1), pos, ta
+    
+    removeTA: (ta) ->
+        @log "in remove TA", ta
+        taIndex = @tas.indexOf ta
+        @tas.splice taIndex, 1
+        @taIndexSpan.splice taIndex, 1
+        @table.find("tr").eq(taIndex).remove()
+        
+        if taIndex isnt 0 and taIndex < @tas.length\
+        and @tas[taIndex - 1].speaker is @tas[taIndex].speaker
+            # combine the two
+            @tas[taIndex - 1].updateWords(
+                @tas[taIndex - 1].words.concat @tas[taIndex].words
+            )
+            @removeTA @tas[taIndex]
+        @refresh()
     
     log: (statements...) ->
         args = ["[TAM]"].concat statements

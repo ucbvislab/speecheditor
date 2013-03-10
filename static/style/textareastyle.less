@@ -1,6 +1,6 @@
 @textAreaWidth: 100%;
-@textAreaFontSize: 18px;
-@textAreaLineHeight: 22px;
+@textAreaFontSize: 14px;
+@textAreaLineHeight: 18px;
 @textAreaFont: Helvetica;
 @textAreaFontWeight: normal;
 
@@ -17,6 +17,11 @@
     height: 800px;
 }
 
+.hlBoxTAM {
+    .hlBox;
+    width: 100%
+}
+
 .rounded-corners (@radius: 5px) {
     -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
@@ -25,12 +30,31 @@
     border-radius: @radius;
 }
 
-.contr {
+.contr, .TAManager {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0;
     margin: 0;
+}
+
+.TAManager table {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.TAManager td {
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.TAManager th {
+    color: rgb(0, 127, 255);
+    font-size: 1.3em;
 }
 
 textarea {
@@ -39,14 +63,23 @@ textarea {
     font-size: @textAreaFontSize;
     line-height: @textAreaLineHeight;
     background-color: transparent;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: @textAreaWidth;
     height: 800px;
+    border-style: none;
+    border-color: Transparent;
     resize: none;
+    box-shadow: none;
+    vertical-align: top;
 }
 
-.hlContainer {
+.TAManager textarea {
+    width: 100%;
+}
+
+
+.hlContainer, .hlContainerTAM {
     position: absolute;
     left: 0;
     top: 0;
@@ -54,18 +87,39 @@ textarea {
     font-size: @textAreaFontSize;
     font-family: @textAreaFont;
     width: @textAreaWidth;
+    white-space: normal;
+    word-wrap: break-word;
 }
+
+.hlContainerTAM {
+    .hlContainer;
+    width: 100%
+}
+
 
 .taContainer {
     .hlContainer;
+}
+
+.taContainerTAM {
+    .hlContainerTAM;
+    font-weight: @textAreaFontWeight;
 }
 
 .highlights {
     .hlBox;
 }
 
+.highlightsTAM {
+    .hlBoxTAM;
+}
+
 .emContainer {
     .hlContainer;
+}
+
+.emContainerTAM {
+    .hlContainerTAM;
 }
 
 .icon-razor {
@@ -79,12 +133,12 @@ textarea {
 }
 
 /* OVERLAYS */
-.overlayContainer {
+.overlayContainer, .overlayContainerTAM {
     .hlContainer;
     pointer-events: none;
 }
 
-.overlays {
+.overlays, .overlaysTAM {
     .hlBox;
     pointer-events: none;
 }
@@ -105,7 +159,7 @@ textarea {
 }
 
 /* EMPHASIS */
-.emphasis {
+.emphasis, .emphasisTAM {
     .hlBox;
 }
 

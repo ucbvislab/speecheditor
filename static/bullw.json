@@ -1,3259 +1,3802 @@
 {
     "words": [
         {
-            "start": 0.01247, 
+            "start": 0.01247,
+            "speaker": "Speaker", 
             "end": 0.29184, 
             "word": "ok", 
             "alignedWord": "OK"
         }, 
         {
-            "start": 0.29184, 
+            "start": 0.29184,
+            "speaker": "Speaker", 
             "end": 3.07551, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 3.07551, 
+            "start": 3.07551,
+            "speaker": "Speaker", 
             "end": 3.33492, 
             "word": "ok", 
             "alignedWord": "OK"
         }, 
         {
-            "start": 3.33492, 
+            "start": 3.33492,
+            "speaker": "Speaker", 
             "end": 5.78934, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 5.78934, 
+            "start": 5.78934,
+            "speaker": "Speaker", 
             "end": 5.97891, 
             "word": "Um", 
             "alignedWord": "UM"
         }, 
         {
-            "start": 5.97891, 
+            "start": 5.97891,
+            "speaker": "Speaker", 
             "end": 7.36576, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 7.36576, 
+            "start": 7.36576,
+            "speaker": "Speaker", 
             "end": 7.47551, 
             "word": "Uh", 
             "alignedWord": "UH"
         }, 
         {
-            "start": 7.47551, 
+            "start": 7.47551,
+            "speaker": "Speaker", 
             "end": 7.60522, 
             "word": "I", 
             "alignedWord": "I"
         }, 
         {
-            "start": 7.60522, 
+            "start": 7.60522,
+            "speaker": "Speaker", 
             "end": 11.37664, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 11.37664, 
+            "start": 11.37664,
+            "speaker": "Speaker", 
             "end": 12.00522, 
             "word": "don't", 
             "alignedWord": "DON'T"
         }, 
         {
-            "start": 12.00522, 
+            "start": 12.00522,
+            "speaker": "Speaker", 
             "end": 12.37438, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 12.37438, 
+            "start": 12.37438,
+            "speaker": "Speaker", 
             "end": 12.44422, 
             "word": "know", 
             "alignedWord": "KNOW"
         }, 
         {
-            "start": 12.44422, 
+            "start": 12.44422,
+            "speaker": "Speaker", 
             "end": 12.62381, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 12.62381, 
+            "start": 12.62381,
+            "speaker": "Speaker", 
             "end": 12.74354, 
             "word": "if", 
             "alignedWord": "IF"
         }, 
         {
-            "start": 12.74354, 
+            "start": 12.74354,
+            "speaker": "Speaker", 
             "end": 13.45193, 
             "word": "I'm", 
             "alignedWord": "I'M"
         }, 
         {
-            "start": 13.45193, 
+            "start": 13.45193,
+            "speaker": "Speaker", 
             "end": 13.71134, 
             "word": "going", 
             "alignedWord": "GOING"
         }, 
         {
-            "start": 13.71134, 
+            "start": 13.71134,
+            "speaker": "Speaker", 
             "end": 13.80113, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 13.80113, 
+            "start": 13.80113,
+            "speaker": "Speaker", 
             "end": 13.96077, 
             "word": "be", 
             "alignedWord": "BE"
         }, 
         {
-            "start": 13.96077, 
+            "start": 13.96077,
+            "speaker": "Speaker", 
             "end": 14.26009, 
             "word": "able", 
             "alignedWord": "ABLE"
         }, 
         {
-            "start": 14.26009, 
+            "start": 14.26009,
+            "speaker": "Speaker", 
             "end": 14.76893, 
             "word": "to.", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 14.76893, 
+            "start": 14.76893,
+            "speaker": "Speaker", 
             "end": 16.1458, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 16.1458, 
+            "start": 16.1458,
+            "speaker": "Speaker", 
             "end": 16.36531, 
             "word": "My", 
             "alignedWord": "MY"
         }, 
         {
-            "start": 16.36531, 
+            "start": 16.36531,
+            "speaker": "Speaker", 
             "end": 16.82426, 
             "word": "nose", 
             "alignedWord": "NOSE"
         }, 
         {
-            "start": 16.82426, 
+            "start": 16.82426,
+            "speaker": "Speaker", 
             "end": 16.9839, 
             "word": "just", 
             "alignedWord": "JUST"
         }, 
         {
-            "start": 16.9839, 
+            "start": 16.9839,
+            "speaker": "Speaker", 
             "end": 17.30317, 
             "word": "like", 
             "alignedWord": "LIKE"
         }, 
         {
-            "start": 17.30317, 
+            "start": 17.30317,
+            "speaker": "Speaker", 
             "end": 17.43288, 
             "word": "got", 
             "alignedWord": "GOT"
         }, 
         {
-            "start": 17.43288, 
+            "start": 17.43288,
+            "speaker": "Speaker", 
             "end": 17.85193, 
             "word": "plugged", 
             "alignedWord": "PLUGGED"
         }, 
         {
-            "start": 17.85193, 
+            "start": 17.85193,
+            "speaker": "Speaker", 
             "end": 17.99161, 
             "word": "up", 
             "alignedWord": "UP"
         }, 
         {
-            "start": 17.99161, 
+            "start": 17.99161,
+            "speaker": "Speaker", 
             "end": 18.38073, 
             "word": "overnight.", 
             "alignedWord": "OVERNIGHT"
         }, 
         {
-            "start": 18.38073, 
+            "start": 18.38073,
+            "speaker": "Speaker", 
             "end": 18.68005, 
             "word": "Allright.", 
             "alignedWord": "ALLRIGHT"
         }, 
         {
-            "start": 18.68005, 
+            "start": 18.68005,
+            "speaker": "Speaker", 
             "end": 18.83968, 
             "word": "I'll", 
             "alignedWord": "I'LL"
         }, 
         {
-            "start": 18.83968, 
+            "start": 18.83968,
+            "speaker": "Speaker", 
             "end": 19.10907, 
             "word": "try", 
             "alignedWord": "TRY"
         }, 
         {
-            "start": 19.10907, 
+            "start": 19.10907,
+            "speaker": "Speaker", 
             "end": 19.33855, 
             "word": "though.", 
             "alignedWord": "THOUGH"
         }, 
         {
-            "start": 19.33855, 
+            "start": 19.33855,
+            "speaker": "Speaker", 
             "end": 19.58798, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 19.58798, 
+            "start": 19.58798,
+            "speaker": "Speaker", 
             "end": 19.84739, 
             "word": "ok.", 
             "alignedWord": "OK"
         }, 
         {
-            "start": 19.84739, 
+            "start": 19.84739,
+            "speaker": "Speaker", 
             "end": 21.0746, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 21.0746, 
+            "start": 21.0746,
+            "speaker": "Speaker", 
             "end": 21.79297, 
             "word": "Um.", 
             "alignedWord": "UM"
         }, 
         {
-            "start": 21.79297, 
+            "start": 21.79297,
+            "speaker": "Speaker", 
             "end": 22.93039, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 22.93039, 
+            "start": 22.93039,
+            "speaker": "Speaker", 
             "end": 22.99025, 
             "word": "Oh", 
             "alignedWord": "OH"
         }, 
         {
-            "start": 22.99025, 
+            "start": 22.99025,
+            "speaker": "Speaker", 
             "end": 23.57891, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 23.57891, 
+            "start": 23.57891,
+            "speaker": "Speaker", 
             "end": 24.08776, 
             "word": "god.", 
             "alignedWord": "GOD"
         }, 
         {
-            "start": 24.08776, 
+            "start": 24.08776,
+            "speaker": "Speaker", 
             "end": 24.3771, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 24.3771, 
+            "start": 24.3771,
+            "speaker": "Speaker", 
             "end": 24.40703, 
             "word": "Uh.", 
             "alignedWord": "UH"
         }, 
         {
-            "start": 24.40703, 
+            "start": 24.40703,
+            "speaker": "Speaker", 
             "end": 25.17528, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 25.17528, 
+            "start": 25.17528,
+            "speaker": "Speaker", 
             "end": 25.41474, 
             "word": "He's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 25.41474, 
+            "start": 25.41474,
+            "speaker": "Speaker", 
             "end": 25.6941, 
             "word": "not", 
             "alignedWord": "NOT"
         }, 
         {
-            "start": 25.6941, 
+            "start": 25.6941,
+            "speaker": "Speaker", 
             "end": 25.91361, 
             "word": "just", 
             "alignedWord": "JUST"
         }, 
         {
-            "start": 25.91361, 
+            "start": 25.91361,
+            "speaker": "Speaker", 
             "end": 25.95351, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 25.95351, 
+            "start": 25.95351,
+            "speaker": "Speaker", 
             "end": 26.60204, 
             "word": "fan.", 
             "alignedWord": "FAN"
         }, 
         {
-            "start": 26.60204, 
+            "start": 26.60204,
+            "speaker": "Speaker", 
             "end": 27.07098, 
             "word": "Whenever", 
             "alignedWord": "WHENEVER"
         }, 
         {
-            "start": 27.07098, 
+            "start": 27.07098,
+            "speaker": "Speaker", 
             "end": 27.54989, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 27.54989, 
+            "start": 27.54989,
+            "speaker": "Speaker", 
             "end": 27.76939, 
             "word": "makes", 
             "alignedWord": "MAKES"
         }, 
         {
-            "start": 27.76939, 
+            "start": 27.76939,
+            "speaker": "Speaker", 
             "end": 27.82925, 
             "word": "an", 
             "alignedWord": "AN"
         }, 
         {
-            "start": 27.82925, 
+            "start": 27.82925,
+            "speaker": "Speaker", 
             "end": 28.31814, 
             "word": "appearance", 
             "alignedWord": "APPEARANCE"
         }, 
         {
-            "start": 28.31814, 
+            "start": 28.31814,
+            "speaker": "Speaker", 
             "end": 28.56757, 
             "word": "these", 
             "alignedWord": "THESE"
         }, 
         {
-            "start": 28.56757, 
+            "start": 28.56757,
+            "speaker": "Speaker", 
             "end": 29.08639, 
             "word": "days", 
             "alignedWord": "DAYS"
         }, 
         {
-            "start": 29.08639, 
+            "start": 29.08639,
+            "speaker": "Speaker", 
             "end": 29.24603, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 29.24603, 
+            "start": 29.24603,
+            "speaker": "Speaker", 
             "end": 29.55533, 
             "word": "that's", 
             "alignedWord": "THAT'S"
         }, 
         {
-            "start": 29.55533, 
+            "start": 29.55533,
+            "speaker": "Speaker", 
             "end": 29.81474, 
             "word": "Keith", 
             "alignedWord": "KEITH"
         }, 
         {
-            "start": 29.81474, 
+            "start": 29.81474,
+            "speaker": "Speaker", 
             "end": 30.21383, 
             "word": "Scott", 
             "alignedWord": "SCOTT"
         }, 
         {
-            "start": 30.21383, 
+            "start": 30.21383,
+            "speaker": "Speaker", 
             "end": 30.25374, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 30.25374, 
+            "start": 30.25374,
+            "speaker": "Speaker", 
             "end": 30.55306, 
             "word": "behind", 
             "alignedWord": "BEHIND"
         }, 
         {
-            "start": 30.55306, 
+            "start": 30.55306,
+            "speaker": "Speaker", 
             "end": 30.68277, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 30.68277, 
+            "start": 30.68277,
+            "speaker": "Speaker", 
             "end": 31.32132, 
             "word": "antlers.", 
             "alignedWord": "ANTLERS"
         }, 
         {
-            "start": 31.32132, 
+            "start": 31.32132,
+            "speaker": "Speaker", 
             "end": 31.8102, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 31.8102, 
+            "start": 31.8102,
+            "speaker": "Speaker", 
             "end": 31.96984, 
             "word": "He", 
             "alignedWord": "HE"
         }, 
         {
-            "start": 31.96984, 
+            "start": 31.96984,
+            "speaker": "Speaker", 
             "end": 32.2093, 
             "word": "took", 
             "alignedWord": "TOOK"
         }, 
         {
-            "start": 32.2093, 
+            "start": 32.2093,
+            "speaker": "Speaker", 
             "end": 32.49864, 
             "word": "over", 
             "alignedWord": "OVER"
         }, 
         {
-            "start": 32.49864, 
+            "start": 32.49864,
+            "speaker": "Speaker", 
             "end": 32.66825, 
             "word": "as", 
             "alignedWord": "AS"
         }, 
         {
-            "start": 32.66825, 
+            "start": 32.66825,
+            "speaker": "Speaker", 
             "end": 32.76803, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 32.76803, 
+            "start": 32.76803,
+            "speaker": "Speaker", 
             "end": 33.16712, 
             "word": "official", 
             "alignedWord": "OFFICIAL"
         }, 
         {
-            "start": 33.16712, 
+            "start": 33.16712,
+            "speaker": "Speaker", 
             "end": 33.64603, 
             "word": "voiceover", 
             "alignedWord": "VOICEOVER"
         }, 
         {
-            "start": 33.64603, 
+            "start": 33.64603,
+            "speaker": "Speaker", 
             "end": 33.93537, 
             "word": "guy", 
             "alignedWord": "GUY"
         }, 
         {
-            "start": 33.93537, 
+            "start": 33.93537,
+            "speaker": "Speaker", 
             "end": 34.10499, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 34.10499, 
+            "start": 34.10499,
+            "speaker": "Speaker", 
             "end": 34.18481, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 34.18481, 
+            "start": 34.18481,
+            "speaker": "Speaker", 
             "end": 34.47415, 
             "word": "early", 
             "alignedWord": "EARLY"
         }, 
         {
-            "start": 34.47415, 
+            "start": 34.47415,
+            "speaker": "Speaker", 
             "end": 35.19252, 
             "word": "nineties.", 
             "alignedWord": "NINETIES"
         }, 
         {
-            "start": 35.19252, 
+            "start": 35.19252,
+            "speaker": "Speaker", 
             "end": 35.60159, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 35.60159, 
+            "start": 35.60159,
+            "speaker": "Speaker", 
             "end": 35.80113, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 35.80113, 
+            "start": 35.80113,
+            "speaker": "Speaker", 
             "end": 36.65918, 
             "word": "unofficially,", 
             "alignedWord": "UNOFFICIALLY"
         }, 
         {
-            "start": 36.65918, 
+            "start": 36.65918,
+            "speaker": "Speaker", 
             "end": 36.86871, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 36.86871, 
+            "start": 36.86871,
+            "speaker": "Speaker", 
             "end": 37.07823, 
             "word": "he's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 37.07823, 
+            "start": 37.07823,
+            "speaker": "Speaker", 
             "end": 37.178, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 37.178, 
+            "start": 37.178,
+            "speaker": "Speaker", 
             "end": 37.67687, 
             "word": "closest", 
             "alignedWord": "CLOSEST"
         }, 
         {
-            "start": 37.67687, 
+            "start": 37.67687,
+            "speaker": "Speaker", 
             "end": 37.95624, 
             "word": "thing", 
             "alignedWord": "THING"
         }, 
         {
-            "start": 37.95624, 
+            "start": 37.95624,
+            "speaker": "Speaker", 
             "end": 38.08594, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 38.08594, 
+            "start": 38.08594,
+            "speaker": "Speaker", 
             "end": 38.13583, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 38.13583, 
+            "start": 38.13583,
+            "speaker": "Speaker", 
             "end": 38.77438, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 38.77438, 
+            "start": 38.77438,
+            "speaker": "Speaker", 
             "end": 39.62245, 
             "word": "historian.", 
             "alignedWord": "HISTORIAN"
         }, 
         {
-            "start": 39.62245, 
+            "start": 39.62245,
+            "speaker": "Speaker", 
             "end": 40.1712, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 40.1712, 
+            "start": 40.1712,
+            "speaker": "Speaker", 
             "end": 40.36077, 
             "word": "He's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 40.36077, 
+            "start": 40.36077,
+            "speaker": "Speaker", 
             "end": 40.51043, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 40.51043, 
+            "start": 40.51043,
+            "speaker": "Speaker", 
             "end": 40.84966, 
             "word": "author", 
             "alignedWord": "AUTHOR"
         }, 
         {
-            "start": 40.84966, 
+            "start": 40.84966,
+            "speaker": "Speaker", 
             "end": 41.0093, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 41.0093, 
+            "start": 41.0093,
+            "speaker": "Speaker", 
             "end": 41.17891, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 41.17891, 
+            "start": 41.17891,
+            "speaker": "Speaker", 
             "end": 41.50816, 
             "word": "moose", 
             "alignedWord": "MOOSE"
         }, 
         {
-            "start": 41.50816, 
+            "start": 41.50816,
+            "speaker": "Speaker", 
             "end": 41.67778, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 41.67778, 
+            "start": 41.67778,
+            "speaker": "Speaker", 
             "end": 42.13673, 
             "word": "roared.", 
             "alignedWord": "ROARED"
         }, 
         {
-            "start": 42.13673, 
+            "start": 42.13673,
+            "speaker": "Speaker", 
             "end": 42.52585, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 42.52585, 
+            "start": 42.52585,
+            "speaker": "Speaker", 
             "end": 42.59569, 
             "word": "A", 
             "alignedWord": "A"
         }, 
         {
-            "start": 42.59569, 
+            "start": 42.59569,
+            "speaker": "Speaker", 
             "end": 42.81519, 
             "word": "book", 
             "alignedWord": "BOOK"
         }, 
         {
-            "start": 42.81519, 
+            "start": 42.81519,
+            "speaker": "Speaker", 
             "end": 42.96485, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 42.96485, 
+            "start": 42.96485,
+            "speaker": "Speaker", 
             "end": 43.21429, 
             "word": "tells", 
             "alignedWord": "TELLS"
         }, 
         {
-            "start": 43.21429, 
+            "start": 43.21429,
+            "speaker": "Speaker", 
             "end": 43.31406, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 43.31406, 
+            "start": 43.31406,
+            "speaker": "Speaker", 
             "end": 43.74308, 
             "word": "saga", 
             "alignedWord": "SAGA"
         }, 
         {
-            "start": 43.74308, 
+            "start": 43.74308,
+            "speaker": "Speaker", 
             "end": 44.06236, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 44.06236, 
+            "start": 44.06236,
+            "speaker": "Speaker", 
             "end": 44.14218, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 44.14218, 
+            "start": 44.14218,
+            "speaker": "Speaker", 
             "end": 44.49138, 
             "word": "Rocky", 
             "alignedWord": "ROCKY"
         }, 
         {
-            "start": 44.49138, 
+            "start": 44.49138,
+            "speaker": "Speaker", 
             "end": 44.61111, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 44.61111, 
+            "start": 44.61111,
+            "speaker": "Speaker", 
             "end": 45.04014, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 45.04014, 
+            "start": 45.04014,
+            "speaker": "Speaker", 
             "end": 45.43923, 
             "word": "show.", 
             "alignedWord": "SHOW"
         }, 
         {
-            "start": 45.43923, 
+            "start": 45.43923,
+            "speaker": "Speaker", 
             "end": 46.88594, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 46.88594, 
+            "start": 46.88594,
+            "speaker": "Speaker", 
             "end": 47.18526, 
             "word": "ok", 
             "alignedWord": "OK"
         }, 
         {
-            "start": 47.18526, 
+            "start": 47.18526,
+            "speaker": "Speaker", 
             "end": 47.46463, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 47.46463, 
+            "start": 47.46463,
+            "speaker": "Speaker", 
             "end": 47.88367, 
             "word": "uh", 
             "alignedWord": "UH"
         }, 
         {
-            "start": 47.88367, 
+            "start": 47.88367,
+            "speaker": "Speaker", 
             "end": 54.41882, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 54.41882, 
+            "start": 54.41882,
+            "speaker": "Speaker", 
             "end": 54.96757, 
             "word": "yeah", 
             "alignedWord": "YEAH"
         }, 
         {
-            "start": 54.96757, 
+            "start": 54.96757,
+            "speaker": "Speaker", 
             "end": 55.37664, 
             "word": "no", 
             "alignedWord": "NO"
         }, 
         {
-            "start": 55.37664, 
+            "start": 55.37664,
+            "speaker": "Speaker", 
             "end": 57.08277, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 57.08277, 
+            "start": 57.08277,
+            "speaker": "Speaker", 
             "end": 57.5517, 
             "word": "yeah", 
             "alignedWord": "YEAH"
         }, 
         {
-            "start": 57.5517, 
+            "start": 57.5517,
+            "speaker": "Speaker", 
             "end": 58.33991, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 58.33991, 
+            "start": 58.33991,
+            "speaker": "Speaker", 
             "end": 58.72902, 
             "word": "yeah", 
             "alignedWord": "YEAH"
         }, 
         {
-            "start": 58.72902, 
+            "start": 58.72902,
+            "speaker": "Speaker", 
             "end": 61.71224, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 61.71224, 
+            "start": 61.71224,
+            "speaker": "Speaker", 
             "end": 62.00159, 
             "word": "ok", 
             "alignedWord": "OK"
         }, 
         {
-            "start": 62.00159, 
+            "start": 62.00159,
+            "speaker": "Speaker", 
             "end": 64.5059, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 64.5059, 
+            "start": 64.5059,
+            "speaker": "Speaker", 
             "end": 64.83515, 
             "word": "He's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 64.83515, 
+            "start": 64.83515,
+            "speaker": "Speaker", 
             "end": 65.10454, 
             "word": "not", 
             "alignedWord": "NOT"
         }, 
         {
-            "start": 65.10454, 
+            "start": 65.10454,
+            "speaker": "Speaker", 
             "end": 65.36395, 
             "word": "just", 
             "alignedWord": "JUST"
         }, 
         {
-            "start": 65.36395, 
+            "start": 65.36395,
+            "speaker": "Speaker", 
             "end": 65.39388, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 65.39388, 
+            "start": 65.39388,
+            "speaker": "Speaker", 
             "end": 65.89274, 
             "word": "fan.", 
             "alignedWord": "FAN"
         }, 
         {
-            "start": 65.89274, 
+            "start": 65.89274,
+            "speaker": "Speaker", 
             "end": 66.39161, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 66.39161, 
+            "start": 66.39161,
+            "speaker": "Speaker", 
             "end": 66.84059, 
             "word": "Whenever", 
             "alignedWord": "WHENEVER"
         }, 
         {
-            "start": 66.84059, 
+            "start": 66.84059,
+            "speaker": "Speaker", 
             "end": 67.26961, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 67.26961, 
+            "start": 67.26961,
+            "speaker": "Speaker", 
             "end": 67.49909, 
             "word": "makes", 
             "alignedWord": "MAKES"
         }, 
         {
-            "start": 67.49909, 
+            "start": 67.49909,
+            "speaker": "Speaker", 
             "end": 67.55896, 
             "word": "an", 
             "alignedWord": "AN"
         }, 
         {
-            "start": 67.55896, 
+            "start": 67.55896,
+            "speaker": "Speaker", 
             "end": 68.05782, 
             "word": "appearance", 
             "alignedWord": "APPEARANCE"
         }, 
         {
-            "start": 68.05782, 
+            "start": 68.05782,
+            "speaker": "Speaker", 
             "end": 68.2873, 
             "word": "these", 
             "alignedWord": "THESE"
         }, 
         {
-            "start": 68.2873, 
+            "start": 68.2873,
+            "speaker": "Speaker", 
             "end": 68.73628, 
             "word": "days", 
             "alignedWord": "DAYS"
         }, 
         {
-            "start": 68.73628, 
+            "start": 68.73628,
+            "speaker": "Speaker", 
             "end": 69.07551, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 69.07551, 
+            "start": 69.07551,
+            "speaker": "Speaker", 
             "end": 69.33492, 
             "word": "that's", 
             "alignedWord": "THAT'S"
         }, 
         {
-            "start": 69.33492, 
+            "start": 69.33492,
+            "speaker": "Speaker", 
             "end": 69.5644, 
             "word": "Keith", 
             "alignedWord": "KEITH"
         }, 
         {
-            "start": 69.5644, 
+            "start": 69.5644,
+            "speaker": "Speaker", 
             "end": 69.58435, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 69.58435, 
+            "start": 69.58435,
+            "speaker": "Speaker", 
             "end": 69.99342, 
             "word": "Scott", 
             "alignedWord": "SCOTT"
         }, 
         {
-            "start": 69.99342, 
+            "start": 69.99342,
+            "speaker": "Speaker", 
             "end": 70.35261, 
             "word": "behind", 
             "alignedWord": "BEHIND"
         }, 
         {
-            "start": 70.35261, 
+            "start": 70.35261,
+            "speaker": "Speaker", 
             "end": 70.622, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 70.622, 
+            "start": 70.622,
+            "speaker": "Speaker", 
             "end": 70.89138, 
             "word": "uhh", 
             "alignedWord": "UHH"
         }, 
         {
-            "start": 70.89138, 
+            "start": 70.89138,
+            "speaker": "Speaker", 
             "end": 71.66961, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 71.66961, 
+            "start": 71.66961,
+            "speaker": "Speaker", 
             "end": 71.89909, 
             "word": "He's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 71.89909, 
+            "start": 71.89909,
+            "speaker": "Speaker", 
             "end": 72.11859, 
             "word": "not", 
             "alignedWord": "NOT"
         }, 
         {
-            "start": 72.11859, 
+            "start": 72.11859,
+            "speaker": "Speaker", 
             "end": 72.32812, 
             "word": "just", 
             "alignedWord": "JUST"
         }, 
         {
-            "start": 72.32812, 
+            "start": 72.32812,
+            "speaker": "Speaker", 
             "end": 72.35805, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 72.35805, 
+            "start": 72.35805,
+            "speaker": "Speaker", 
             "end": 72.82698, 
             "word": "fan.", 
             "alignedWord": "FAN"
         }, 
         {
-            "start": 72.82698, 
+            "start": 72.82698,
+            "speaker": "Speaker", 
             "end": 73.26599, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 73.26599, 
+            "start": 73.26599,
+            "speaker": "Speaker", 
             "end": 73.6551, 
             "word": "Whenever", 
             "alignedWord": "WHENEVER"
         }, 
         {
-            "start": 73.6551, 
+            "start": 73.6551,
+            "speaker": "Speaker", 
             "end": 74.15397, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 74.15397, 
+            "start": 74.15397,
+            "speaker": "Speaker", 
             "end": 74.35351, 
             "word": "makes", 
             "alignedWord": "MAKES"
         }, 
         {
-            "start": 74.35351, 
+            "start": 74.35351,
+            "speaker": "Speaker", 
             "end": 74.42336, 
             "word": "an", 
             "alignedWord": "AN"
         }, 
         {
-            "start": 74.42336, 
+            "start": 74.42336,
+            "speaker": "Speaker", 
             "end": 74.85238, 
             "word": "appearance", 
             "alignedWord": "APPEARANCE"
         }, 
         {
-            "start": 74.85238, 
+            "start": 74.85238,
+            "speaker": "Speaker", 
             "end": 75.07188, 
             "word": "these", 
             "alignedWord": "THESE"
         }, 
         {
-            "start": 75.07188, 
+            "start": 75.07188,
+            "speaker": "Speaker", 
             "end": 75.49093, 
             "word": "days", 
             "alignedWord": "DAYS"
         }, 
         {
-            "start": 75.49093, 
+            "start": 75.49093,
+            "speaker": "Speaker", 
             "end": 75.85011, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 75.85011, 
+            "start": 75.85011,
+            "speaker": "Speaker", 
             "end": 76.09955, 
             "word": "that's", 
             "alignedWord": "THAT'S"
         }, 
         {
-            "start": 76.09955, 
+            "start": 76.09955,
+            "speaker": "Speaker", 
             "end": 76.38889, 
             "word": "Keith", 
             "alignedWord": "KEITH"
         }, 
         {
-            "start": 76.38889, 
+            "start": 76.38889,
+            "speaker": "Speaker", 
             "end": 76.74807, 
             "word": "Scott", 
             "alignedWord": "SCOTT"
         }, 
         {
-            "start": 76.74807, 
+            "start": 76.74807,
+            "speaker": "Speaker", 
             "end": 77.04739, 
             "word": "behind", 
             "alignedWord": "BEHIND"
         }, 
         {
-            "start": 77.04739, 
+            "start": 77.04739,
+            "speaker": "Speaker", 
             "end": 77.10726, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 77.10726, 
+            "start": 77.10726,
+            "speaker": "Speaker", 
             "end": 77.69592, 
             "word": "antlers.", 
             "alignedWord": "ANTLERS"
         }, 
         {
-            "start": 77.69592, 
+            "start": 77.69592,
+            "speaker": "Speaker", 
             "end": 78.2746, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 78.2746, 
+            "start": 78.2746,
+            "speaker": "Speaker", 
             "end": 78.39433, 
             "word": "He", 
             "alignedWord": "HE"
         }, 
         {
-            "start": 78.39433, 
+            "start": 78.39433,
+            "speaker": "Speaker", 
             "end": 78.59388, 
             "word": "took", 
             "alignedWord": "TOOK"
         }, 
         {
-            "start": 78.59388, 
+            "start": 78.59388,
+            "speaker": "Speaker", 
             "end": 78.83333, 
             "word": "over", 
             "alignedWord": "OVER"
         }, 
         {
-            "start": 78.83333, 
+            "start": 78.83333,
+            "speaker": "Speaker", 
             "end": 78.98299, 
             "word": "as", 
             "alignedWord": "AS"
         }, 
         {
-            "start": 78.98299, 
+            "start": 78.98299,
+            "speaker": "Speaker", 
             "end": 79.1127, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 79.1127, 
+            "start": 79.1127,
+            "speaker": "Speaker", 
             "end": 79.50181, 
             "word": "official", 
             "alignedWord": "OFFICIAL"
         }, 
         {
-            "start": 79.50181, 
+            "start": 79.50181,
+            "speaker": "Speaker", 
             "end": 79.9907, 
             "word": "voiceover", 
             "alignedWord": "VOICEOVER"
         }, 
         {
-            "start": 79.9907, 
+            "start": 79.9907,
+            "speaker": "Speaker", 
             "end": 80.28005, 
             "word": "guy", 
             "alignedWord": "GUY"
         }, 
         {
-            "start": 80.28005, 
+            "start": 80.28005,
+            "speaker": "Speaker", 
             "end": 80.44966, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 80.44966, 
+            "start": 80.44966,
+            "speaker": "Speaker", 
             "end": 80.52948, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 80.52948, 
+            "start": 80.52948,
+            "speaker": "Speaker", 
             "end": 80.84875, 
             "word": "early", 
             "alignedWord": "EARLY"
         }, 
         {
-            "start": 80.84875, 
+            "start": 80.84875,
+            "speaker": "Speaker", 
             "end": 81.46735, 
             "word": "nineties.", 
             "alignedWord": "NINETIES"
         }, 
         {
-            "start": 81.46735, 
+            "start": 81.46735,
+            "speaker": "Speaker", 
             "end": 82.02608, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 82.02608, 
+            "start": 82.02608,
+            "speaker": "Speaker", 
             "end": 82.18571, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 82.18571, 
+            "start": 82.18571,
+            "speaker": "Speaker", 
             "end": 83.00385, 
             "word": "unofficially,", 
             "alignedWord": "UNOFFICIALLY"
         }, 
         {
-            "start": 83.00385, 
+            "start": 83.00385,
+            "speaker": "Speaker", 
             "end": 83.22336, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 83.22336, 
+            "start": 83.22336,
+            "speaker": "Speaker", 
             "end": 83.41293, 
             "word": "he's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 83.41293, 
+            "start": 83.41293,
+            "speaker": "Speaker", 
             "end": 83.50272, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 83.50272, 
+            "start": 83.50272,
+            "speaker": "Speaker", 
             "end": 84.0415, 
             "word": "closest", 
             "alignedWord": "CLOSEST"
         }, 
         {
-            "start": 84.0415, 
+            "start": 84.0415,
+            "speaker": "Speaker", 
             "end": 84.32086, 
             "word": "thing", 
             "alignedWord": "THING"
         }, 
         {
-            "start": 84.32086, 
+            "start": 84.32086,
+            "speaker": "Speaker", 
             "end": 84.46054, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 84.46054, 
+            "start": 84.46054,
+            "speaker": "Speaker", 
             "end": 84.51043, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 84.51043, 
+            "start": 84.51043,
+            "speaker": "Speaker", 
             "end": 85.139, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 85.139, 
+            "start": 85.139,
+            "speaker": "Speaker", 
             "end": 85.95714, 
             "word": "historian.", 
             "alignedWord": "HISTORIAN"
         }, 
         {
-            "start": 85.95714, 
+            "start": 85.95714,
+            "speaker": "Speaker", 
             "end": 86.87506, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 86.87506, 
+            "start": 86.87506,
+            "speaker": "Speaker", 
             "end": 87.04467, 
             "word": "He's", 
             "alignedWord": "HE'S"
         }, 
         {
-            "start": 87.04467, 
+            "start": 87.04467,
+            "speaker": "Speaker", 
             "end": 87.21429, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 87.21429, 
+            "start": 87.21429,
+            "speaker": "Speaker", 
             "end": 87.54354, 
             "word": "author", 
             "alignedWord": "AUTHOR"
         }, 
         {
-            "start": 87.54354, 
+            "start": 87.54354,
+            "speaker": "Speaker", 
             "end": 87.77302, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 87.77302, 
+            "start": 87.77302,
+            "speaker": "Speaker", 
             "end": 87.81293, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 87.81293, 
+            "start": 87.81293,
+            "speaker": "Speaker", 
             "end": 87.92268, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 87.92268, 
+            "start": 87.92268,
+            "speaker": "Speaker", 
             "end": 88.27188, 
             "word": "moose", 
             "alignedWord": "MOOSE"
         }, 
         {
-            "start": 88.27188, 
+            "start": 88.27188,
+            "speaker": "Speaker", 
             "end": 88.40159, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 88.40159, 
+            "start": 88.40159,
+            "speaker": "Speaker", 
             "end": 88.94036, 
             "word": "roared.", 
             "alignedWord": "ROARED"
         }, 
         {
-            "start": 88.94036, 
+            "start": 88.94036,
+            "speaker": "Speaker", 
             "end": 89.29955, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 89.29955, 
+            "start": 89.29955,
+            "speaker": "Speaker", 
             "end": 89.38934, 
             "word": "A", 
             "alignedWord": "A"
         }, 
         {
-            "start": 89.38934, 
+            "start": 89.38934,
+            "speaker": "Speaker", 
             "end": 89.60884, 
             "word": "book", 
             "alignedWord": "BOOK"
         }, 
         {
-            "start": 89.60884, 
+            "start": 89.60884,
+            "speaker": "Speaker", 
             "end": 89.76848, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 89.76848, 
+            "start": 89.76848,
+            "speaker": "Speaker", 
             "end": 90.03787, 
             "word": "tells", 
             "alignedWord": "TELLS"
         }, 
         {
-            "start": 90.03787, 
+            "start": 90.03787,
+            "speaker": "Speaker", 
             "end": 90.12766, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 90.12766, 
+            "start": 90.12766,
+            "speaker": "Speaker", 
             "end": 90.52676, 
             "word": "saga", 
             "alignedWord": "SAGA"
         }, 
         {
-            "start": 90.52676, 
+            "start": 90.52676,
+            "speaker": "Speaker", 
             "end": 90.86599, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 90.86599, 
+            "start": 90.86599,
+            "speaker": "Speaker", 
             "end": 90.95578, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 90.95578, 
+            "start": 90.95578,
+            "speaker": "Speaker", 
             "end": 91.31497, 
             "word": "Rocky", 
             "alignedWord": "ROCKY"
         }, 
         {
-            "start": 91.31497, 
+            "start": 91.31497,
+            "speaker": "Speaker", 
             "end": 91.43469, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 91.43469, 
+            "start": 91.43469,
+            "speaker": "Speaker", 
             "end": 91.91361, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 91.91361, 
+            "start": 91.91361,
+            "speaker": "Speaker", 
             "end": 92.30272, 
             "word": "show.", 
             "alignedWord": "SHOW"
         }, 
         {
-            "start": 92.30272, 
+            "start": 92.30272,
+            "speaker": "Speaker", 
             "end": 94.13855, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 94.13855, 
+            "start": 94.13855,
+            "speaker": "Speaker", 
             "end": 94.65737, 
             "word": "Plucky", 
             "alignedWord": "PLUCKY"
         }, 
         {
-            "start": 94.65737, 
+            "start": 94.65737,
+            "speaker": "Speaker", 
             "end": 94.83696, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 94.83696, 
+            "start": 94.83696,
+            "speaker": "Speaker", 
             "end": 95.4356, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 95.4356, 
+            "start": 95.4356,
+            "speaker": "Speaker", 
             "end": 95.90454, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 95.90454, 
+            "start": 95.90454,
+            "speaker": "Speaker", 
             "end": 96.1839, 
             "word": "That", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 96.1839, 
+            "start": 96.1839,
+            "speaker": "Speaker", 
             "end": 96.45329, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 96.45329, 
+            "start": 96.45329,
+            "speaker": "Speaker", 
             "end": 96.69274, 
             "word": "really", 
             "alignedWord": "REALLY"
         }, 
         {
-            "start": 96.69274, 
+            "start": 96.69274,
+            "speaker": "Speaker", 
             "end": 97.28141, 
             "word": "describe", 
             "alignedWord": "DESCRIBE"
         }, 
         {
-            "start": 97.28141, 
+            "start": 97.28141,
+            "speaker": "Speaker", 
             "end": 97.69048, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 97.69048, 
+            "start": 97.69048,
+            "speaker": "Speaker", 
             "end": 97.95986, 
             "word": "during", 
             "alignedWord": "DURING"
         }, 
         {
-            "start": 97.95986, 
+            "start": 97.95986,
+            "speaker": "Speaker", 
             "end": 98.02971, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 98.02971, 
+            "start": 98.02971,
+            "speaker": "Speaker", 
             "end": 98.339, 
             "word": "cold", 
             "alignedWord": "COLD"
         }, 
         {
-            "start": 98.339, 
+            "start": 98.339,
+            "speaker": "Speaker", 
             "end": 98.92766, 
             "word": "war,", 
             "alignedWord": "WAR"
         }, 
         {
-            "start": 98.92766, 
+            "start": 98.92766,
+            "speaker": "Speaker", 
             "end": 99.00748, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 99.00748, 
+            "start": 99.00748,
+            "speaker": "Speaker", 
             "end": 99.23696, 
             "word": "let", 
             "alignedWord": "LET"
         }, 
         {
-            "start": 99.23696, 
+            "start": 99.23696,
+            "speaker": "Speaker", 
             "end": 99.49637, 
             "word": "alone", 
             "alignedWord": "ALONE"
         }, 
         {
-            "start": 99.49637, 
+            "start": 99.49637,
+            "speaker": "Speaker", 
             "end": 100.00522, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 100.00522, 
+            "start": 100.00522,
+            "speaker": "Speaker", 
             "end": 100.60385, 
             "word": "today.", 
             "alignedWord": "TODAY"
         }, 
         {
-            "start": 100.60385, 
+            "start": 100.60385,
+            "speaker": "Speaker", 
             "end": 101.22245, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 101.22245, 
+            "start": 101.22245,
+            "speaker": "Speaker", 
             "end": 101.41202, 
             "word": "But", 
             "alignedWord": "BUT"
         }, 
         {
-            "start": 101.41202, 
+            "start": 101.41202,
+            "speaker": "Speaker", 
             "end": 101.68141, 
             "word": "Jay", 
             "alignedWord": "JAY"
         }, 
         {
-            "start": 101.68141, 
+            "start": 101.68141,
+            "speaker": "Speaker", 
             "end": 102.07052, 
             "word": "Ward", 
             "alignedWord": "WARD"
         }, 
         {
-            "start": 102.07052, 
+            "start": 102.07052,
+            "speaker": "Speaker", 
             "end": 102.42971, 
             "word": "tapped", 
             "alignedWord": "TAPPED"
         }, 
         {
-            "start": 102.42971, 
+            "start": 102.42971,
+            "speaker": "Speaker", 
             "end": 102.64921, 
             "word": "into", 
             "alignedWord": "INTO"
         }, 
         {
-            "start": 102.64921, 
+            "start": 102.64921,
+            "speaker": "Speaker", 
             "end": 102.74898, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 102.74898, 
+            "start": 102.74898,
+            "speaker": "Speaker", 
             "end": 103.1381, 
             "word": "things", 
             "alignedWord": "THINGS"
         }, 
         {
-            "start": 103.1381, 
+            "start": 103.1381,
+            "speaker": "Speaker", 
             "end": 103.2678, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 103.2678, 
+            "start": 103.2678,
+            "speaker": "Speaker", 
             "end": 103.66689, 
             "word": "most", 
             "alignedWord": "MOST"
         }, 
         {
-            "start": 103.66689, 
+            "start": 103.66689,
+            "speaker": "Speaker", 
             "end": 103.88639, 
             "word": "want", 
             "alignedWord": "WANT"
         }, 
         {
-            "start": 103.88639, 
+            "start": 103.88639,
+            "speaker": "Speaker", 
             "end": 103.95624, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 103.95624, 
+            "start": 103.95624,
+            "speaker": "Speaker", 
             "end": 104.30544, 
             "word": "believe", 
             "alignedWord": "BELIEVE"
         }, 
         {
-            "start": 104.30544, 
+            "start": 104.30544,
+            "speaker": "Speaker", 
             "end": 104.56485, 
             "word": "about", 
             "alignedWord": "ABOUT"
         }, 
         {
-            "start": 104.56485, 
+            "start": 104.56485,
+            "speaker": "Speaker", 
             "end": 105.08367, 
             "word": "ourselves", 
             "alignedWord": "OURSELVES"
         }, 
         {
-            "start": 105.08367, 
+            "start": 105.08367,
+            "speaker": "Speaker", 
             "end": 105.2034, 
             "word": "as", 
             "alignedWord": "AS"
         }, 
         {
-            "start": 105.2034, 
+            "start": 105.2034,
+            "speaker": "Speaker", 
             "end": 105.25329, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 105.25329, 
+            "start": 105.25329,
+            "speaker": "Speaker", 
             "end": 105.87188, 
             "word": "nation.", 
             "alignedWord": "NATION"
         }, 
         {
-            "start": 105.87188, 
+            "start": 105.87188,
+            "speaker": "Speaker", 
             "end": 106.37075, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 106.37075, 
+            "start": 106.37075,
+            "speaker": "Speaker", 
             "end": 106.58027, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 106.58027, 
+            "start": 106.58027,
+            "speaker": "Speaker", 
             "end": 106.92948, 
             "word": "maybe", 
             "alignedWord": "MAYBE"
         }, 
         {
-            "start": 106.92948, 
+            "start": 106.92948,
+            "speaker": "Speaker", 
             "end": 107.11905, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 107.11905, 
+            "start": 107.11905,
+            "speaker": "Speaker", 
             "end": 107.55805, 
             "word": "means", 
             "alignedWord": "MEANS"
         }, 
         {
-            "start": 107.55805, 
+            "start": 107.55805,
+            "speaker": "Speaker", 
             "end": 107.73764, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 107.73764, 
+            "start": 107.73764,
+            "speaker": "Speaker", 
             "end": 107.9771, 
             "word": "all", 
             "alignedWord": "ALL"
         }, 
         {
-            "start": 107.9771, 
+            "start": 107.9771,
+            "speaker": "Speaker", 
             "end": 108.11678, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 108.11678, 
+            "start": 108.11678,
+            "speaker": "Speaker", 
             "end": 108.18662, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 108.18662, 
+            "start": 108.18662,
+            "speaker": "Speaker", 
             "end": 108.25646, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 108.25646, 
+            "start": 108.25646,
+            "speaker": "Speaker", 
             "end": 108.69546, 
             "word": "country", 
             "alignedWord": "COUNTRY"
         }, 
         {
-            "start": 108.69546, 
+            "start": 108.69546,
+            "speaker": "Speaker", 
             "end": 108.9449, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 108.9449, 
+            "start": 108.9449,
+            "speaker": "Speaker", 
             "end": 109.22426, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 109.22426, 
+            "start": 109.22426,
+            "speaker": "Speaker", 
             "end": 109.83288, 
             "word": "exist.", 
             "alignedWord": "EXIST"
         }, 
         {
-            "start": 109.83288, 
+            "start": 109.83288,
+            "speaker": "Speaker", 
             "end": 112.36712, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 112.36712, 
+            "start": 112.36712,
+            "speaker": "Speaker", 
             "end": 112.93583, 
             "word": "Plucky", 
             "alignedWord": "PLUCKY"
         }, 
         {
-            "start": 112.93583, 
+            "start": 112.93583,
+            "speaker": "Speaker", 
             "end": 113.15533, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 113.15533, 
+            "start": 113.15533,
+            "speaker": "Speaker", 
             "end": 113.76395, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 113.76395, 
+            "start": 113.76395,
+            "speaker": "Speaker", 
             "end": 114.57211, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 114.57211, 
+            "start": 114.57211,
+            "speaker": "Speaker", 
             "end": 115.08095, 
             "word": "That", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 115.08095, 
+            "start": 115.08095,
+            "speaker": "Speaker", 
             "end": 117.90454, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 117.90454, 
+            "start": 117.90454,
+            "speaker": "Speaker", 
             "end": 118.17392, 
             "word": "does", 
             "alignedWord": "DOES"
         }, 
         {
-            "start": 118.17392, 
+            "start": 118.17392,
+            "speaker": "Speaker", 
             "end": 118.34354, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 118.34354, 
+            "start": 118.34354,
+            "speaker": "Speaker", 
             "end": 118.91224, 
             "word": "Yeah", 
             "alignedWord": "YEAH"
         }, 
         {
-            "start": 118.91224, 
+            "start": 118.91224,
+            "speaker": "Speaker", 
             "end": 119.16168, 
             "word": "Yeah.", 
             "alignedWord": "YEAH"
         }, 
         {
-            "start": 119.16168, 
+            "start": 119.16168,
+            "speaker": "Speaker", 
             "end": 119.22154, 
             "word": "I", 
             "alignedWord": "I"
         }, 
         {
-            "start": 119.22154, 
+            "start": 119.22154,
+            "speaker": "Speaker", 
             "end": 119.34127, 
             "word": "was", 
             "alignedWord": "WAS"
         }, 
         {
-            "start": 119.34127, 
+            "start": 119.34127,
+            "speaker": "Speaker", 
             "end": 119.55079, 
             "word": "wondering", 
             "alignedWord": "WONDERING"
         }, 
         {
-            "start": 119.55079, 
+            "start": 119.55079,
+            "speaker": "Speaker", 
             "end": 119.74036, 
             "word": "about", 
             "alignedWord": "ABOUT"
         }, 
         {
-            "start": 119.74036, 
+            "start": 119.74036,
+            "speaker": "Speaker", 
             "end": 119.89002, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 119.89002, 
+            "start": 119.89002,
+            "speaker": "Speaker", 
             "end": 120.00975, 
             "word": "too.", 
             "alignedWord": "TOO"
         }, 
         {
-            "start": 120.00975, 
+            "start": 120.00975,
+            "speaker": "Speaker", 
             "end": 120.49864, 
             "word": "Um", 
             "alignedWord": "UM"
         }, 
         {
-            "start": 120.49864, 
+            "start": 120.49864,
+            "speaker": "Speaker", 
             "end": 121.24694, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 121.24694, 
+            "start": 121.24694,
+            "speaker": "Speaker", 
             "end": 121.63605, 
             "word": "yeah", 
             "alignedWord": "YEAH"
         }, 
         {
-            "start": 121.63605, 
+            "start": 121.63605,
+            "speaker": "Speaker", 
             "end": 121.67596, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 121.67596, 
+            "start": 121.67596,
+            "speaker": "Speaker", 
             "end": 122.17483, 
             "word": "um.", 
             "alignedWord": "UM"
         }, 
         {
-            "start": 122.17483, 
+            "start": 122.17483,
+            "speaker": "Speaker", 
             "end": 124.61927, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 124.61927, 
+            "start": 124.61927,
+            "speaker": "Speaker", 
             "end": 125.25782, 
             "word": "Plucky", 
             "alignedWord": "PLUCKY"
         }, 
         {
-            "start": 125.25782, 
+            "start": 125.25782,
+            "speaker": "Speaker", 
             "end": 125.41746, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 125.41746, 
+            "start": 125.41746,
+            "speaker": "Speaker", 
             "end": 126.04603, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 126.04603, 
+            "start": 126.04603,
+            "speaker": "Speaker", 
             "end": 126.41519, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 126.41519, 
+            "start": 126.41519,
+            "speaker": "Speaker", 
             "end": 126.62472, 
             "word": "Does", 
             "alignedWord": "DOES"
         }, 
         {
-            "start": 126.62472, 
+            "start": 126.62472,
+            "speaker": "Speaker", 
             "end": 126.8941, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 126.8941, 
+            "start": 126.8941,
+            "speaker": "Speaker", 
             "end": 127.11361, 
             "word": "really", 
             "alignedWord": "REALLY"
         }, 
         {
-            "start": 127.11361, 
+            "start": 127.11361,
+            "speaker": "Speaker", 
             "end": 127.7322, 
             "word": "describe", 
             "alignedWord": "DESCRIBE"
         }, 
         {
-            "start": 127.7322, 
+            "start": 127.7322,
+            "speaker": "Speaker", 
             "end": 128.16122, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 128.16122, 
+            "start": 128.16122,
+            "speaker": "Speaker", 
             "end": 128.41066, 
             "word": "during", 
             "alignedWord": "DURING"
         }, 
         {
-            "start": 128.41066, 
+            "start": 128.41066,
+            "speaker": "Speaker", 
             "end": 128.4805, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 128.4805, 
+            "start": 128.4805,
+            "speaker": "Speaker", 
             "end": 128.75986, 
             "word": "cold", 
             "alignedWord": "COLD"
         }, 
         {
-            "start": 128.75986, 
+            "start": 128.75986,
+            "speaker": "Speaker", 
             "end": 129.28866, 
             "word": "war?", 
             "alignedWord": "WAR"
         }, 
         {
-            "start": 129.28866, 
+            "start": 129.28866,
+            "speaker": "Speaker", 
             "end": 129.73764, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 129.73764, 
+            "start": 129.73764,
+            "speaker": "Speaker", 
             "end": 129.91723, 
             "word": "Let", 
             "alignedWord": "LET"
         }, 
         {
-            "start": 129.91723, 
+            "start": 129.91723,
+            "speaker": "Speaker", 
             "end": 130.20658, 
             "word": "alone", 
             "alignedWord": "ALONE"
         }, 
         {
-            "start": 130.20658, 
+            "start": 130.20658,
+            "speaker": "Speaker", 
             "end": 130.3263, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 130.3263, 
+            "start": 130.3263,
+            "speaker": "Speaker", 
             "end": 130.89501, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 130.89501, 
+            "start": 130.89501,
+            "speaker": "Speaker", 
             "end": 131.02472, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 131.02472, 
+            "start": 131.02472,
+            "speaker": "Speaker", 
             "end": 131.28413, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 131.28413, 
+            "start": 131.28413,
+            "speaker": "Speaker", 
             "end": 131.46372, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 131.46372, 
+            "start": 131.46372,
+            "speaker": "Speaker", 
             "end": 131.93265, 
             "word": "now.", 
             "alignedWord": "NOW"
         }, 
         {
-            "start": 131.93265, 
+            "start": 131.93265,
+            "speaker": "Speaker", 
             "end": 133.00023, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 133.00023, 
+            "start": 133.00023,
+            "speaker": "Speaker", 
             "end": 133.13991, 
             "word": "But", 
             "alignedWord": "BUT"
         }, 
         {
-            "start": 133.13991, 
+            "start": 133.13991,
+            "speaker": "Speaker", 
             "end": 133.39932, 
             "word": "Jay", 
             "alignedWord": "JAY"
         }, 
         {
-            "start": 133.39932, 
+            "start": 133.39932,
+            "speaker": "Speaker", 
             "end": 133.74853, 
             "word": "Ward", 
             "alignedWord": "WARD"
         }, 
         {
-            "start": 133.74853, 
+            "start": 133.74853,
+            "speaker": "Speaker", 
             "end": 134.07778, 
             "word": "tapped", 
             "alignedWord": "TAPPED"
         }, 
         {
-            "start": 134.07778, 
+            "start": 134.07778,
+            "speaker": "Speaker", 
             "end": 134.27732, 
             "word": "into", 
             "alignedWord": "INTO"
         }, 
         {
-            "start": 134.27732, 
+            "start": 134.27732,
+            "speaker": "Speaker", 
             "end": 134.3771, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 134.3771, 
+            "start": 134.3771,
+            "speaker": "Speaker", 
             "end": 134.8161, 
             "word": "things", 
             "alignedWord": "THINGS"
         }, 
         {
-            "start": 134.8161, 
+            "start": 134.8161,
+            "speaker": "Speaker", 
             "end": 134.98571, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 134.98571, 
+            "start": 134.98571,
+            "speaker": "Speaker", 
             "end": 135.35488, 
             "word": "most", 
             "alignedWord": "MOST"
         }, 
         {
-            "start": 135.35488, 
+            "start": 135.35488,
+            "speaker": "Speaker", 
             "end": 135.53447, 
             "word": "want", 
             "alignedWord": "WANT"
         }, 
         {
-            "start": 135.53447, 
+            "start": 135.53447,
+            "speaker": "Speaker", 
             "end": 135.62426, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 135.62426, 
+            "start": 135.62426,
+            "speaker": "Speaker", 
             "end": 136.0034, 
             "word": "believe", 
             "alignedWord": "BELIEVE"
         }, 
         {
-            "start": 136.0034, 
+            "start": 136.0034,
+            "speaker": "Speaker", 
             "end": 136.24286, 
             "word": "about", 
             "alignedWord": "ABOUT"
         }, 
         {
-            "start": 136.24286, 
+            "start": 136.24286,
+            "speaker": "Speaker", 
             "end": 136.72177, 
             "word": "ourselves", 
             "alignedWord": "OURSELVES"
         }, 
         {
-            "start": 136.72177, 
+            "start": 136.72177,
+            "speaker": "Speaker", 
             "end": 136.8415, 
             "word": "as", 
             "alignedWord": "AS"
         }, 
         {
-            "start": 136.8415, 
+            "start": 136.8415,
+            "speaker": "Speaker", 
             "end": 136.89138, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 136.89138, 
+            "start": 136.89138,
+            "speaker": "Speaker", 
             "end": 137.48005, 
             "word": "nation.", 
             "alignedWord": "NATION"
         }, 
         {
-            "start": 137.48005, 
+            "start": 137.48005,
+            "speaker": "Speaker", 
             "end": 138.1585, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 138.1585, 
+            "start": 138.1585,
+            "speaker": "Speaker", 
             "end": 138.36803, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 138.36803, 
+            "start": 138.36803,
+            "speaker": "Speaker", 
             "end": 138.66735, 
             "word": "maybe", 
             "alignedWord": "MAYBE"
         }, 
         {
-            "start": 138.66735, 
+            "start": 138.66735,
+            "speaker": "Speaker", 
             "end": 138.86689, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 138.86689, 
+            "start": 138.86689,
+            "speaker": "Speaker", 
             "end": 139.28594, 
             "word": "means", 
             "alignedWord": "MEANS"
         }, 
         {
-            "start": 139.28594, 
+            "start": 139.28594,
+            "speaker": "Speaker", 
             "end": 139.4356, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 139.4356, 
+            "start": 139.4356,
+            "speaker": "Speaker", 
             "end": 139.60522, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 139.60522, 
+            "start": 139.60522,
+            "speaker": "Speaker", 
             "end": 139.79478, 
             "word": "all", 
             "alignedWord": "ALL"
         }, 
         {
-            "start": 139.79478, 
+            "start": 139.79478,
+            "speaker": "Speaker", 
             "end": 139.92449, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 139.92449, 
+            "start": 139.92449,
+            "speaker": "Speaker", 
             "end": 139.99433, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 139.99433, 
+            "start": 139.99433,
+            "speaker": "Speaker", 
             "end": 140.03424, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 140.03424, 
+            "start": 140.03424,
+            "speaker": "Speaker", 
             "end": 140.46327, 
             "word": "country", 
             "alignedWord": "COUNTRY"
         }, 
         {
-            "start": 140.46327, 
+            "start": 140.46327,
+            "speaker": "Speaker", 
             "end": 140.65283, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 140.65283, 
+            "start": 140.65283,
+            "speaker": "Speaker", 
             "end": 140.91224, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 140.91224, 
+            "start": 140.91224,
+            "speaker": "Speaker", 
             "end": 141.47098, 
             "word": "exist.", 
             "alignedWord": "EXIST"
         }, 
         {
-            "start": 141.47098, 
+            "start": 141.47098,
+            "speaker": "Speaker", 
             "end": 144.35442, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 144.35442, 
+            "start": 144.35442,
+            "speaker": "Speaker", 
             "end": 144.83333, 
             "word": "Plucky", 
             "alignedWord": "PLUCKY"
         }, 
         {
-            "start": 144.83333, 
+            "start": 144.83333,
+            "speaker": "Speaker", 
             "end": 145.0229, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 145.0229, 
+            "start": 145.0229,
+            "speaker": "Speaker", 
             "end": 145.62154, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 145.62154, 
+            "start": 145.62154,
+            "speaker": "Speaker", 
             "end": 146.14036, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 146.14036, 
+            "start": 146.14036,
+            "speaker": "Speaker", 
             "end": 146.31995, 
             "word": "Does", 
             "alignedWord": "DOES"
         }, 
         {
-            "start": 146.31995, 
+            "start": 146.31995,
+            "speaker": "Speaker", 
             "end": 146.55941, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 146.55941, 
+            "start": 146.55941,
+            "speaker": "Speaker", 
             "end": 146.77891, 
             "word": "really", 
             "alignedWord": "REALLY"
         }, 
         {
-            "start": 146.77891, 
+            "start": 146.77891,
+            "speaker": "Speaker", 
             "end": 147.29773, 
             "word": "describe", 
             "alignedWord": "DESCRIBE"
         }, 
         {
-            "start": 147.29773, 
+            "start": 147.29773,
+            "speaker": "Speaker", 
             "end": 147.69683, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 147.69683, 
+            "start": 147.69683,
+            "speaker": "Speaker", 
             "end": 147.94626, 
             "word": "during", 
             "alignedWord": "DURING"
         }, 
         {
-            "start": 147.94626, 
+            "start": 147.94626,
+            "speaker": "Speaker", 
             "end": 148.02608, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 148.02608, 
+            "start": 148.02608,
+            "speaker": "Speaker", 
             "end": 148.34535, 
             "word": "cold", 
             "alignedWord": "COLD"
         }, 
         {
-            "start": 148.34535, 
+            "start": 148.34535,
+            "speaker": "Speaker", 
             "end": 148.78435, 
             "word": "war?", 
             "alignedWord": "WAR"
         }, 
         {
-            "start": 148.78435, 
+            "start": 148.78435,
+            "speaker": "Speaker", 
             "end": 149.12358, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 149.12358, 
+            "start": 149.12358,
+            "speaker": "Speaker", 
             "end": 149.26327, 
             "word": "Let", 
             "alignedWord": "LET"
         }, 
         {
-            "start": 149.26327, 
+            "start": 149.26327,
+            "speaker": "Speaker", 
             "end": 149.56259, 
             "word": "alone", 
             "alignedWord": "ALONE"
         }, 
         {
-            "start": 149.56259, 
+            "start": 149.56259,
+            "speaker": "Speaker", 
             "end": 149.68231, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 149.68231, 
+            "start": 149.68231,
+            "speaker": "Speaker", 
             "end": 150.29093, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 150.29093, 
+            "start": 150.29093,
+            "speaker": "Speaker", 
             "end": 150.43061, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 150.43061, 
+            "start": 150.43061,
+            "speaker": "Speaker", 
             "end": 150.66009, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 150.66009, 
+            "start": 150.66009,
+            "speaker": "Speaker", 
             "end": 150.84966, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 150.84966, 
+            "start": 150.84966,
+            "speaker": "Speaker", 
             "end": 151.47823, 
             "word": "today.", 
             "alignedWord": "TODAY"
         }, 
         {
-            "start": 151.47823, 
+            "start": 151.47823,
+            "speaker": "Speaker", 
             "end": 154.84059, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 154.84059, 
+            "start": 154.84059,
+            "speaker": "Speaker", 
             "end": 155.39932, 
             "word": "Plucky", 
             "alignedWord": "PLUCKY"
         }, 
         {
-            "start": 155.39932, 
+            "start": 155.39932,
+            "speaker": "Speaker", 
             "end": 155.60884, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 155.60884, 
+            "start": 155.60884,
+            "speaker": "Speaker", 
             "end": 156.14762, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 156.14762, 
+            "start": 156.14762,
+            "speaker": "Speaker", 
             "end": 157.02562, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 157.02562, 
+            "start": 157.02562,
+            "speaker": "Speaker", 
             "end": 157.24512, 
             "word": "That", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 157.24512, 
+            "start": 157.24512,
+            "speaker": "Speaker", 
             "end": 157.48458, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 157.48458, 
+            "start": 157.48458,
+            "speaker": "Speaker", 
             "end": 157.72404, 
             "word": "really", 
             "alignedWord": "REALLY"
         }, 
         {
-            "start": 157.72404, 
+            "start": 157.72404,
+            "speaker": "Speaker", 
             "end": 158.28277, 
             "word": "describe", 
             "alignedWord": "DESCRIBE"
         }, 
         {
-            "start": 158.28277, 
+            "start": 158.28277,
+            "speaker": "Speaker", 
             "end": 158.68186, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 158.68186, 
+            "start": 158.68186,
+            "speaker": "Speaker", 
             "end": 158.94127, 
             "word": "during", 
             "alignedWord": "DURING"
         }, 
         {
-            "start": 158.94127, 
+            "start": 158.94127,
+            "speaker": "Speaker", 
             "end": 159.00113, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 159.00113, 
+            "start": 159.00113,
+            "speaker": "Speaker", 
             "end": 159.30045, 
             "word": "cold", 
             "alignedWord": "COLD"
         }, 
         {
-            "start": 159.30045, 
+            "start": 159.30045,
+            "speaker": "Speaker", 
             "end": 159.86916, 
             "word": "war,", 
             "alignedWord": "WAR"
         }, 
         {
-            "start": 159.86916, 
+            "start": 159.86916,
+            "speaker": "Speaker", 
             "end": 160.11859, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 160.11859, 
+            "start": 160.11859,
+            "speaker": "Speaker", 
             "end": 160.30816, 
             "word": "let", 
             "alignedWord": "LET"
         }, 
         {
-            "start": 160.30816, 
+            "start": 160.30816,
+            "speaker": "Speaker", 
             "end": 160.57755, 
             "word": "alone", 
             "alignedWord": "ALONE"
         }, 
         {
-            "start": 160.57755, 
+            "start": 160.57755,
+            "speaker": "Speaker", 
             "end": 160.69728, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 160.69728, 
+            "start": 160.69728,
+            "speaker": "Speaker", 
             "end": 161.2161, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 161.2161, 
+            "start": 161.2161,
+            "speaker": "Speaker", 
             "end": 161.3458, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 161.3458, 
+            "start": 161.3458,
+            "speaker": "Speaker", 
             "end": 161.55533, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 161.55533, 
+            "start": 161.55533,
+            "speaker": "Speaker", 
             "end": 161.7449, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 161.7449, 
+            "start": 161.7449,
+            "speaker": "Speaker", 
             "end": 162.31361, 
             "word": "today.", 
             "alignedWord": "TODAY"
         }, 
         {
-            "start": 162.31361, 
+            "start": 162.31361,
+            "speaker": "Speaker", 
             "end": 163.40113, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 163.40113, 
+            "start": 163.40113,
+            "speaker": "Speaker", 
             "end": 163.5907, 
             "word": "But", 
             "alignedWord": "BUT"
         }, 
         {
-            "start": 163.5907, 
+            "start": 163.5907,
+            "speaker": "Speaker", 
             "end": 163.67052, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 163.67052, 
+            "start": 163.67052,
+            "speaker": "Speaker", 
             "end": 163.9898, 
             "word": "Rocky", 
             "alignedWord": "ROCKY"
         }, 
         {
-            "start": 163.9898, 
+            "start": 163.9898,
+            "speaker": "Speaker", 
             "end": 164.07959, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 164.07959, 
+            "start": 164.07959,
+            "speaker": "Speaker", 
             "end": 164.45873, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 164.45873, 
+            "start": 164.45873,
+            "speaker": "Speaker", 
             "end": 164.70816, 
             "word": "show", 
             "alignedWord": "SHOW"
         }, 
         {
-            "start": 164.70816, 
+            "start": 164.70816,
+            "speaker": "Speaker", 
             "end": 165.09728, 
             "word": "tapped", 
             "alignedWord": "TAPPED"
         }, 
         {
-            "start": 165.09728, 
+            "start": 165.09728,
+            "speaker": "Speaker", 
             "end": 165.29683, 
             "word": "into", 
             "alignedWord": "INTO"
         }, 
         {
-            "start": 165.29683, 
+            "start": 165.29683,
+            "speaker": "Speaker", 
             "end": 165.3966, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 165.3966, 
+            "start": 165.3966,
+            "speaker": "Speaker", 
             "end": 165.85556, 
             "word": "things", 
             "alignedWord": "THINGS"
         }, 
         {
-            "start": 165.85556, 
+            "start": 165.85556,
+            "speaker": "Speaker", 
             "end": 166.01519, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 166.01519, 
+            "start": 166.01519,
+            "speaker": "Speaker", 
             "end": 166.3644, 
             "word": "most", 
             "alignedWord": "MOST"
         }, 
         {
-            "start": 166.3644, 
+            "start": 166.3644,
+            "speaker": "Speaker", 
             "end": 166.56395, 
             "word": "want", 
             "alignedWord": "WANT"
         }, 
         {
-            "start": 166.56395, 
+            "start": 166.56395,
+            "speaker": "Speaker", 
             "end": 166.63379, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 166.63379, 
+            "start": 166.63379,
+            "speaker": "Speaker", 
             "end": 167.03288, 
             "word": "believe", 
             "alignedWord": "BELIEVE"
         }, 
         {
-            "start": 167.03288, 
+            "start": 167.03288,
+            "speaker": "Speaker", 
             "end": 167.30227, 
             "word": "about", 
             "alignedWord": "ABOUT"
         }, 
         {
-            "start": 167.30227, 
+            "start": 167.30227,
+            "speaker": "Speaker", 
             "end": 167.78118, 
             "word": "ourselves", 
             "alignedWord": "OURSELVES"
         }, 
         {
-            "start": 167.78118, 
+            "start": 167.78118,
+            "speaker": "Speaker", 
             "end": 167.90091, 
             "word": "as", 
             "alignedWord": "AS"
         }, 
         {
-            "start": 167.90091, 
+            "start": 167.90091,
+            "speaker": "Speaker", 
             "end": 167.95079, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 167.95079, 
+            "start": 167.95079,
+            "speaker": "Speaker", 
             "end": 168.49955, 
             "word": "nation.", 
             "alignedWord": "NATION"
         }, 
         {
-            "start": 168.49955, 
+            "start": 168.49955,
+            "speaker": "Speaker", 
             "end": 169.14807, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 169.14807, 
+            "start": 169.14807,
+            "speaker": "Speaker", 
             "end": 169.3576, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 169.3576, 
+            "start": 169.3576,
+            "speaker": "Speaker", 
             "end": 169.68685, 
             "word": "maybe", 
             "alignedWord": "MAYBE"
         }, 
         {
-            "start": 169.68685, 
+            "start": 169.68685,
+            "speaker": "Speaker", 
             "end": 169.86644, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 169.86644, 
+            "start": 169.86644,
+            "speaker": "Speaker", 
             "end": 170.31542, 
             "word": "means", 
             "alignedWord": "MEANS"
         }, 
         {
-            "start": 170.31542, 
+            "start": 170.31542,
+            "speaker": "Speaker", 
             "end": 170.43515, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 170.43515, 
+            "start": 170.43515,
+            "speaker": "Speaker", 
             "end": 170.66463, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 170.66463, 
+            "start": 170.66463,
+            "speaker": "Speaker", 
             "end": 170.8941, 
             "word": "all", 
             "alignedWord": "ALL"
         }, 
         {
-            "start": 170.8941, 
+            "start": 170.8941,
+            "speaker": "Speaker", 
             "end": 171.06372, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 171.06372, 
+            "start": 171.06372,
+            "speaker": "Speaker", 
             "end": 171.13356, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 171.13356, 
+            "start": 171.13356,
+            "speaker": "Speaker", 
             "end": 171.17347, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 171.17347, 
+            "start": 171.17347,
+            "speaker": "Speaker", 
             "end": 171.63243, 
             "word": "country", 
             "alignedWord": "COUNTRY"
         }, 
         {
-            "start": 171.63243, 
+            "start": 171.63243,
+            "speaker": "Speaker", 
             "end": 171.80204, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 171.80204, 
+            "start": 171.80204,
+            "speaker": "Speaker", 
             "end": 172.03152, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 172.03152, 
+            "start": 172.03152,
+            "speaker": "Speaker", 
             "end": 172.29093, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 172.29093, 
+            "start": 172.29093,
+            "speaker": "Speaker", 
             "end": 172.9195, 
             "word": "exist.", 
             "alignedWord": "EXIST"
         }, 
         {
-            "start": 172.9195, 
+            "start": 172.9195,
+            "speaker": "Speaker", 
             "end": 176.61111, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 176.61111, 
+            "start": 176.61111,
+            "speaker": "Speaker", 
             "end": 177.17982, 
             "word": "Plucky", 
             "alignedWord": "PLUCKY"
         }, 
         {
-            "start": 177.17982, 
+            "start": 177.17982,
+            "speaker": "Speaker", 
             "end": 177.36939, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 177.36939, 
+            "start": 177.36939,
+            "speaker": "Speaker", 
             "end": 177.978, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 177.978, 
+            "start": 177.978,
+            "speaker": "Speaker", 
             "end": 178.71633, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 178.71633, 
+            "start": 178.71633,
+            "speaker": "Speaker", 
             "end": 178.88594, 
             "word": "That", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 178.88594, 
+            "start": 178.88594,
+            "speaker": "Speaker", 
             "end": 179.11542, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 179.11542, 
+            "start": 179.11542,
+            "speaker": "Speaker", 
             "end": 179.33492, 
             "word": "really", 
             "alignedWord": "REALLY"
         }, 
         {
-            "start": 179.33492, 
+            "start": 179.33492,
+            "speaker": "Speaker", 
             "end": 179.8737, 
             "word": "describe", 
             "alignedWord": "DESCRIBE"
         }, 
         {
-            "start": 179.8737, 
+            "start": 179.8737,
+            "speaker": "Speaker", 
             "end": 180.3127, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 180.3127, 
+            "start": 180.3127,
+            "speaker": "Speaker", 
             "end": 180.63197, 
             "word": "during", 
             "alignedWord": "DURING"
         }, 
         {
-            "start": 180.63197, 
+            "start": 180.63197,
+            "speaker": "Speaker", 
             "end": 180.69184, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 180.69184, 
+            "start": 180.69184,
+            "speaker": "Speaker", 
             "end": 181.01111, 
             "word": "cold", 
             "alignedWord": "COLD"
         }, 
         {
-            "start": 181.01111, 
+            "start": 181.01111,
+            "speaker": "Speaker", 
             "end": 181.03107, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 181.03107, 
+            "start": 181.03107,
+            "speaker": "Speaker", 
             "end": 181.51995, 
             "word": "war,", 
             "alignedWord": "WAR"
         }, 
         {
-            "start": 181.51995, 
+            "start": 181.51995,
+            "speaker": "Speaker", 
             "end": 181.77937, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 181.77937, 
+            "start": 181.77937,
+            "speaker": "Speaker", 
             "end": 182.01882, 
             "word": "let", 
             "alignedWord": "LET"
         }, 
         {
-            "start": 182.01882, 
+            "start": 182.01882,
+            "speaker": "Speaker", 
             "end": 182.40794, 
             "word": "alone", 
             "alignedWord": "ALONE"
         }, 
         {
-            "start": 182.40794, 
+            "start": 182.40794,
+            "speaker": "Speaker", 
             "end": 182.53764, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 182.53764, 
+            "start": 182.53764,
+            "speaker": "Speaker", 
             "end": 183.10635, 
             "word": "America", 
             "alignedWord": "AMERICA"
         }, 
         {
-            "start": 183.10635, 
+            "start": 183.10635,
+            "speaker": "Speaker", 
             "end": 183.31587, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 183.31587, 
+            "start": 183.31587,
+            "speaker": "Speaker", 
             "end": 183.5254, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 183.5254, 
+            "start": 183.5254,
+            "speaker": "Speaker", 
             "end": 183.66508, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 183.66508, 
+            "start": 183.66508,
+            "speaker": "Speaker", 
             "end": 184.16395, 
             "word": "now.", 
             "alignedWord": "NOW"
         }, 
         {
-            "start": 184.16395, 
+            "start": 184.16395,
+            "speaker": "Speaker", 
             "end": 184.26372, 
             "word": "But", 
             "alignedWord": "BUT"
         }, 
         {
-            "start": 184.26372, 
+            "start": 184.26372,
+            "speaker": "Speaker", 
             "end": 185.16168, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 185.16168, 
+            "start": 185.16168,
+            "speaker": "Speaker", 
             "end": 185.33129, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 185.33129, 
+            "start": 185.33129,
+            "speaker": "Speaker", 
             "end": 185.65057, 
             "word": "Rocky", 
             "alignedWord": "ROCKY"
         }, 
         {
-            "start": 185.65057, 
+            "start": 185.65057,
+            "speaker": "Speaker", 
             "end": 185.79025, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 185.79025, 
+            "start": 185.79025,
+            "speaker": "Speaker", 
             "end": 186.35896, 
             "word": "Bullwinkle", 
             "alignedWord": "BULLWINKLE"
         }, 
         {
-            "start": 186.35896, 
+            "start": 186.35896,
+            "speaker": "Speaker", 
             "end": 186.43878, 
             "word": "show", 
             "alignedWord": "SHOW"
         }, 
         {
-            "start": 186.43878, 
+            "start": 186.43878,
+            "speaker": "Speaker", 
             "end": 186.65828, 
             "word": "tapped", 
             "alignedWord": "TAPPED"
         }, 
         {
-            "start": 186.65828, 
+            "start": 186.65828,
+            "speaker": "Speaker", 
             "end": 186.8678, 
             "word": "into", 
             "alignedWord": "INTO"
         }, 
         {
-            "start": 186.8678, 
+            "start": 186.8678,
+            "speaker": "Speaker", 
             "end": 186.96757, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 186.96757, 
+            "start": 186.96757,
+            "speaker": "Speaker", 
             "end": 187.47642, 
             "word": "things", 
             "alignedWord": "THINGS"
         }, 
         {
-            "start": 187.47642, 
+            "start": 187.47642,
+            "speaker": "Speaker", 
             "end": 187.66599, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 187.66599, 
+            "start": 187.66599,
+            "speaker": "Speaker", 
             "end": 188.08503, 
             "word": "most", 
             "alignedWord": "MOST"
         }, 
         {
-            "start": 188.08503, 
+            "start": 188.08503,
+            "speaker": "Speaker", 
             "end": 188.37438, 
             "word": "want", 
             "alignedWord": "WANT"
         }, 
         {
-            "start": 188.37438, 
+            "start": 188.37438,
+            "speaker": "Speaker", 
             "end": 188.43424, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 188.43424, 
+            "start": 188.43424,
+            "speaker": "Speaker", 
             "end": 188.76349, 
             "word": "believe", 
             "alignedWord": "BELIEVE"
         }, 
         {
-            "start": 188.76349, 
+            "start": 188.76349,
+            "speaker": "Speaker", 
             "end": 189.03288, 
             "word": "about", 
             "alignedWord": "ABOUT"
         }, 
         {
-            "start": 189.03288, 
+            "start": 189.03288,
+            "speaker": "Speaker", 
             "end": 189.52177, 
             "word": "ourselves", 
             "alignedWord": "OURSELVES"
         }, 
         {
-            "start": 189.52177, 
+            "start": 189.52177,
+            "speaker": "Speaker", 
             "end": 189.65147, 
             "word": "as", 
             "alignedWord": "AS"
         }, 
         {
-            "start": 189.65147, 
+            "start": 189.65147,
+            "speaker": "Speaker", 
             "end": 189.69138, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 189.69138, 
+            "start": 189.69138,
+            "speaker": "Speaker", 
             "end": 190.3, 
             "word": "nation.", 
             "alignedWord": "NATION"
         }, 
         {
-            "start": 190.3, 
+            "start": 190.3,
+            "speaker": "Speaker", 
             "end": 191.09819, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 191.09819, 
+            "start": 191.09819,
+            "speaker": "Speaker", 
             "end": 191.29773, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 191.29773, 
+            "start": 191.29773,
+            "speaker": "Speaker", 
             "end": 191.5771, 
             "word": "maybe", 
             "alignedWord": "MAYBE"
         }, 
         {
-            "start": 191.5771, 
+            "start": 191.5771,
+            "speaker": "Speaker", 
             "end": 191.77664, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 191.77664, 
+            "start": 191.77664,
+            "speaker": "Speaker", 
             "end": 191.97619, 
             "word": "li", 
             "alignedWord": "LI"
         }, 
         {
-            "start": 191.97619, 
+            "start": 191.97619,
+            "speaker": "Speaker", 
             "end": 192.70454, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 192.70454, 
+            "start": 192.70454,
+            "speaker": "Speaker", 
             "end": 192.90408, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 192.90408, 
+            "start": 192.90408,
+            "speaker": "Speaker", 
             "end": 193.2034, 
             "word": "maybe", 
             "alignedWord": "MAYBE"
         }, 
         {
-            "start": 193.2034, 
+            "start": 193.2034,
+            "speaker": "Speaker", 
             "end": 193.36304, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 193.36304, 
+            "start": 193.36304,
+            "speaker": "Speaker", 
             "end": 193.89184, 
             "word": "means", 
             "alignedWord": "MEANS"
         }, 
         {
-            "start": 193.89184, 
+            "start": 193.89184,
+            "speaker": "Speaker", 
             "end": 194.10136, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 194.10136, 
+            "start": 194.10136,
+            "speaker": "Speaker", 
             "end": 194.31088, 
             "word": "all", 
             "alignedWord": "ALL"
         }, 
         {
-            "start": 194.31088, 
+            "start": 194.31088,
+            "speaker": "Speaker", 
             "end": 194.47052, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 194.47052, 
+            "start": 194.47052,
+            "speaker": "Speaker", 
             "end": 194.55034, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 194.55034, 
+            "start": 194.55034,
+            "speaker": "Speaker", 
             "end": 194.66009, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 194.66009, 
+            "start": 194.66009,
+            "speaker": "Speaker", 
             "end": 194.7, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 194.7, 
+            "start": 194.7,
+            "speaker": "Speaker", 
             "end": 195.02925, 
             "word": "nation", 
             "alignedWord": "NATION"
         }, 
         {
-            "start": 195.02925, 
+            "start": 195.02925,
+            "speaker": "Speaker", 
             "end": 195.2288, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 195.2288, 
+            "start": 195.2288,
+            "speaker": "Speaker", 
             "end": 195.38844, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 195.38844, 
+            "start": 195.38844,
+            "speaker": "Speaker", 
             "end": 195.64785, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 195.64785, 
+            "start": 195.64785,
+            "speaker": "Speaker", 
             "end": 196.29637, 
             "word": "exist.", 
             "alignedWord": "EXIST"
         }, 
         {
-            "start": 196.29637, 
+            "start": 196.29637,
+            "speaker": "Speaker", 
             "end": 197.97256, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 197.97256, 
+            "start": 197.97256,
+            "speaker": "Speaker", 
             "end": 198.19206, 
             "word": "And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 198.19206, 
+            "start": 198.19206,
+            "speaker": "Speaker", 
             "end": 198.51134, 
             "word": "maybe", 
             "alignedWord": "MAYBE"
         }, 
         {
-            "start": 198.51134, 
+            "start": 198.51134,
+            "speaker": "Speaker", 
             "end": 198.70091, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 198.70091, 
+            "start": 198.70091,
+            "speaker": "Speaker", 
             "end": 199.20975, 
             "word": "means", 
             "alignedWord": "MEANS"
         }, 
         {
-            "start": 199.20975, 
+            "start": 199.20975,
+            "speaker": "Speaker", 
             "end": 199.50907, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 199.50907, 
+            "start": 199.50907,
+            "speaker": "Speaker", 
             "end": 199.72857, 
             "word": "we", 
             "alignedWord": "WE"
         }, 
         {
-            "start": 199.72857, 
+            "start": 199.72857,
+            "speaker": "Speaker", 
             "end": 199.94807, 
             "word": "all", 
             "alignedWord": "ALL"
         }, 
         {
-            "start": 199.94807, 
+            "start": 199.94807,
+            "speaker": "Speaker", 
             "end": 200.07778, 
             "word": "live", 
             "alignedWord": "LIVE"
         }, 
         {
-            "start": 200.07778, 
+            "start": 200.07778,
+            "speaker": "Speaker", 
             "end": 200.1576, 
             "word": "in", 
             "alignedWord": "IN"
         }, 
         {
-            "start": 200.1576, 
+            "start": 200.1576,
+            "speaker": "Speaker", 
             "end": 200.19751, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 200.19751, 
+            "start": 200.19751,
+            "speaker": "Speaker", 
             "end": 200.5966, 
             "word": "place", 
             "alignedWord": "PLACE"
         }, 
         {
-            "start": 200.5966, 
+            "start": 200.5966,
+            "speaker": "Speaker", 
             "end": 200.74626, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 200.74626, 
+            "start": 200.74626,
+            "speaker": "Speaker", 
             "end": 201.02562, 
             "word": "doesn't", 
             "alignedWord": "DOESN'T"
         }, 
         {
-            "start": 201.02562, 
+            "start": 201.02562,
+            "speaker": "Speaker", 
             "end": 201.6542, 
             "word": "exist.", 
             "alignedWord": "EXIST"
         }, 
         {
-            "start": 201.6542, 
+            "start": 201.6542,
+            "speaker": "Speaker", 
             "end": 205.24603, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 205.24603, 
+            "start": 205.24603,
+            "speaker": "Speaker", 
             "end": 205.35578, 
             "word": "I", 
             "alignedWord": "I"
         }, 
         {
-            "start": 205.35578, 
+            "start": 205.35578,
+            "speaker": "Speaker", 
             "end": 206.06417, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 206.06417, 
+            "start": 206.06417,
+            "speaker": "Speaker", 
             "end": 206.41338, 
             "word": "think", 
             "alignedWord": "THINK"
         }, 
         {
-            "start": 206.41338, 
+            "start": 206.41338,
+            "speaker": "Speaker", 
             "end": 206.68277, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 206.68277, 
+            "start": 206.68277,
+            "speaker": "Speaker", 
             "end": 207.94989, 
             "word": "that's", 
             "alignedWord": "THAT'S"
         }, 
         {
-            "start": 207.94989, 
+            "start": 207.94989,
+            "speaker": "Speaker", 
             "end": 209.84558, 
             "word": "cause", 
             "alignedWord": "CAUSE"
         }, 
         {
-            "start": 209.84558, 
+            "start": 209.84558,
+            "speaker": "Speaker", 
             "end": 210.47415, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 210.47415, 
+            "start": 210.47415,
+            "speaker": "Speaker", 
             "end": 210.70363, 
             "word": "I'm", 
             "alignedWord": "I'M"
         }, 
         {
-            "start": 210.70363, 
+            "start": 210.70363,
+            "speaker": "Speaker", 
             "end": 211.70136, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 211.70136, 
+            "start": 211.70136,
+            "speaker": "Speaker", 
             "end": 212.67914, 
             "word": "sick", 
             "alignedWord": "SICK"
         }, 
         {
-            "start": 212.67914, 
+            "start": 212.67914,
+            "speaker": "Speaker", 
             "end": 213.60703, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 213.60703, 
+            "start": 213.60703,
+            "speaker": "Speaker", 
             "end": 214.17574, 
             "word": "Oh", 
             "alignedWord": "OH"
         }, 
         {
-            "start": 214.17574, 
+            "start": 214.17574,
+            "speaker": "Speaker", 
             "end": 214.6746, 
             "word": "man", 
             "alignedWord": "MAN"
         }, 
         {
-            "start": 214.6746, 
+            "start": 214.6746,
+            "speaker": "Speaker", 
             "end": 215.19342, 
             "word": "ok", 
             "alignedWord": "OK"
         }, 
         {
-            "start": 215.19342, 
+            "start": 215.19342,
+            "speaker": "Speaker", 
             "end": 215.36304, 
             "word": "I", 
             "alignedWord": "I"
         }, 
         {
-            "start": 215.36304, 
+            "start": 215.36304,
+            "speaker": "Speaker", 
             "end": 215.76213, 
             "word": "think", 
             "alignedWord": "THINK"
         }, 
         {
-            "start": 215.76213, 
+            "start": 215.76213,
+            "speaker": "Speaker", 
             "end": 215.97166, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 215.97166, 
+            "start": 215.97166,
+            "speaker": "Speaker", 
             "end": 216.31088, 
             "word": "that's", 
             "alignedWord": "THAT'S"
         }, 
         {
-            "start": 216.31088, 
+            "start": 216.31088,
+            "speaker": "Speaker", 
             "end": 216.60023, 
             "word": "it", 
             "alignedWord": "IT"
         }, 
         {
-            "start": 216.60023, 
+            "start": 216.60023,
+            "speaker": "Speaker", 
             "end": 217.21882, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 217.21882, 
+            "start": 217.21882,
+            "speaker": "Speaker", 
             "end": 217.33855, 
             "word": "for", 
             "alignedWord": "FOR"
         }, 
         {
-            "start": 217.33855, 
+            "start": 217.33855,
+            "speaker": "Speaker", 
             "end": 217.5381, 
             "word": "now.", 
             "alignedWord": "NOW"
         }, 
         {
-            "start": 217.5381, 
+            "start": 217.5381,
+            "speaker": "Speaker", 
             "end": 219.1644, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 219.1644, 
+            "start": 219.1644,
+            "speaker": "Speaker", 
             "end": 219.58345, 
             "word": "Thanks", 
             "alignedWord": "THANKS"
         }, 
         {
-            "start": 219.58345, 
+            "start": 219.58345,
+            "speaker": "Speaker", 
             "end": 219.89274, 
             "word": "Josh.", 
             "alignedWord": "JOSH"
         }, 
         {
-            "start": 219.89274, 
+            "start": 219.89274,
+            "speaker": "Speaker", 
             "end": 220.31179, 
             "word": "Sorry", 
             "alignedWord": "SORRY"
         }, 
         {
-            "start": 220.31179, 
+            "start": 220.31179,
+            "speaker": "Speaker", 
             "end": 220.39161, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 220.39161, 
+            "start": 220.39161,
+            "speaker": "Speaker", 
             "end": 220.59116, 
             "word": "there's", 
             "alignedWord": "THERE'S"
         }, 
         {
-            "start": 220.59116, 
+            "start": 220.59116,
+            "speaker": "Speaker", 
             "end": 221.08005, 
             "word": "so", 
             "alignedWord": "SO"
         }, 
         {
-            "start": 221.08005, 
+            "start": 221.08005,
+            "speaker": "Speaker", 
             "end": 221.81837, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 221.81837, 
+            "start": 221.81837,
+            "speaker": "Speaker", 
             "end": 222.0678, 
             "word": "much", 
             "alignedWord": "MUCH"
         }, 
         {
-            "start": 222.0678, 
+            "start": 222.0678,
+            "speaker": "Speaker", 
             "end": 222.17755, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 222.17755, 
+            "start": 222.17755,
+            "speaker": "Speaker", 
             "end": 222.9458, 
             "word": "strife.", 
             "alignedWord": "STRIFE"
         }, 
         {
-            "start": 222.9458, 
+            "start": 222.9458,
+            "speaker": "Speaker", 
             "end": 223.49456, 
             "word": "{pause}", 
             "alignedWord": "sp"

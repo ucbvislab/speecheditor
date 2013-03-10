@@ -444,7 +444,8 @@ TAAPP.createSound = function (data) {
             _.each(data.timing, function (elt, idx, list) {
                 var cwTiming = elt * 1000.0;
                 this.onPosition(cwTiming, function () {
-                    TAAPP.highlightWords(idx); 
+                    TAAPP.highlightWords(idx);
+                    TAAPP.TAManager.highlightWords(idx); 
                 });
             }, this);
             var speechEnd = (_.last(data.timing) + 2) * 1000.0;
@@ -457,6 +458,7 @@ TAAPP.createSound = function (data) {
         },
         onfinish: function () {
             TAAPP.highlightWords(-1);
+            TAAPP.TAManager.highlightWords(-1);
             TAAPP.$timeline.timeline("option", "position", 0.0);
         },
         whileplaying: function (position) {
@@ -527,6 +529,8 @@ TAAPP.adjustHeight = function () {
     // constrain the boxes for scrollbar usage
     $('.contr').height(eltHeight);
     $('.dupeList').height(eltHeight);
+    
+    TAAPP.TAManager.adjustHeight();
 };
 
 // TODO: fix this in wake of new timing data
@@ -632,7 +636,7 @@ TAAPP.loadOriginal = function () {
             var wf = TAAPP.buildWaveform(this, "textaligned");
             
             TAAPP.$timeline.timeline({
-                tracks: 3,
+                tracks: 2,
                 pxPerMs: .005,
                 width: "100%",
                 wf: [{ elt: wf, track: 0, pos: 0.0 }]
@@ -671,6 +675,11 @@ TAAPP.reset = function () {
         "woop";
     }
     TAAPP.$timeline = $('.timeline');
+    
+    // reset TextAreaManager
+    $(".TAManager").html("");
+    TAAPP.TAManager = undefined;
+    
 
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
@@ -687,12 +696,16 @@ TAAPP.reset = function () {
            word.origPos = idx; 
         });
         
+        TAAPP.current = clone(TAAPP.words);
+        
         TAAPP.speakers = _.chain(TAAPP.words)
             .map(function (word) { return word.speaker; })
+            .filter(function (word) { return !_.isUndefined(word); })
             .uniq()
             .value();
+        TAAPP.TAManager = new TextAreaManager($(".TAManager"),
+            TAAPP.speakers, TAAPP.words, clone(TAAPP.current));
         
-        TAAPP.current = clone(TAAPP.words);
         TAAPP.updatePos();
         TAAPP.updateTextArea();
         TAAPP.updateDupes();
@@ -714,6 +727,7 @@ TAAPP.updateDupes = function () {
             TAAPP._preprocessDupes();
             TAAPP.drawScript();
             TAAPP.insertDupeOverlays();
+            TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
         }
     });
 };
@@ -728,7 +742,9 @@ TAAPP.updateTextArea = function () {
         return memo + word.word + ' ';
     }, ""));
     TAAPP.emphasizeWords();
+    TAAPP.TAManager.emphasizeWords();
     TAAPP.insertDupeOverlays();
+    // TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
     TAAPP.adjustHeight();
 }
 
@@ -871,6 +887,10 @@ TAAPP.drawScript = function () {
                 TAAPP.insertWords(
                     _.range(indices[0], indices[1] + 1),
                     taSel.start
+                );
+                
+                TAAPP.TAManager.insertWords(
+                    _.range(indices[0], indices[1] + 1)
                 );
             });
             var btnGroup = document.createElement('div');
@@ -1109,6 +1129,9 @@ TAAPP.loadSite = function () {
     $(window).resize(function () {
         TAAPP.adjustHeight();
         TAAPP.insertDupeOverlays();
+        
+        TAAPP.adjustHeight();
+        TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
     });
 
 };

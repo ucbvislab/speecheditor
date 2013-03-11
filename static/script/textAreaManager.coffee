@@ -80,7 +80,7 @@ class ScriptArea
         @val(content)
         @refresh()
 
-        if @words.length is 0
+        if @words.length is 0 and @tam.tas.length isnt 1
             _.defer => @tam.removeTA @
     
     height: ->

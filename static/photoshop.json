@@ -76,36 +76,16 @@
         {
             "start": 6.63741, 
             "speaker": "Kurt", 
-            "end": 8.33356, 
+            "end": 8.53311, 
             "word": "Photoshop", 
             "alignedWord": "PHOTOSHOP"
         }, 
         {
-            "start": 8.33356, 
-            "end": 8.44331, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 8.44331, 
-            "speaker": "Kurt", 
-            "end": 9.09184, 
-            "word": "1", 
-            "alignedWord": "ONE"
-        }, 
-        {
-            "start": 9.09184, 
-            "speaker": "Kurt", 
-            "end": 9.36122, 
-            "word": "point", 
-            "alignedWord": "POINT"
-        }, 
-        {
-            "start": 9.36122, 
+            "start": 8.53311, 
             "speaker": "Kurt", 
             "end": 9.5907, 
-            "word": "oh", 
-            "alignedWord": "OH"
+            "word": "1.0", 
+            "alignedWord": "TEN"
         }, 
         {
             "start": 9.5907, 
@@ -549,47 +529,33 @@
         {
             "start": 32.34898, 
             "speaker": "Kurt", 
-            "end": 32.54853, 
-            "word": "1", 
-            "alignedWord": "ONE"
+            "end": 32.53855, 
+            "word": "1.0", 
+            "alignedWord": "TEN"
         }, 
         {
-            "start": 32.54853, 
+            "start": 32.53855, 
             "speaker": "Kurt", 
-            "end": 32.74807, 
-            "word": "point", 
-            "alignedWord": "POINT"
-        }, 
-        {
-            "start": 32.74807, 
-            "speaker": "Kurt", 
-            "end": 32.89773, 
-            "word": "oh", 
-            "alignedWord": "OH"
-        }, 
-        {
-            "start": 32.89773, 
-            "speaker": "Kurt", 
-            "end": 33.04739, 
+            "end": 32.72812, 
             "word": "could", 
             "alignedWord": "COULD"
         }, 
         {
-            "start": 33.04739, 
+            "start": 32.72812, 
             "speaker": "Kurt", 
-            "end": 33.21701, 
+            "end": 32.9576, 
             "word": "do", 
             "alignedWord": "DO"
         }, 
         {
-            "start": 33.21701, 
+            "start": 32.9576, 
             "speaker": "Kurt", 
-            "end": 33.31678, 
+            "end": 33.22698, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 33.31678, 
+            "start": 33.22698, 
             "speaker": "Kurt", 
             "end": 33.46644, 
             "word": "what", 
@@ -1047,33 +1013,19 @@
         {
             "start": 61.99161, 
             "speaker": "Maneesh", 
-            "end": 62.53039, 
+            "end": 62.55034, 
             "word": "Photoshop", 
             "alignedWord": "PHOTOSHOP"
         }, 
         {
-            "start": 62.53039, 
+            "start": 62.55034, 
             "speaker": "Maneesh", 
-            "end": 62.68005, 
-            "word": "1", 
-            "alignedWord": "ONE"
+            "end": 63.9771, 
+            "word": "1.0,", 
+            "alignedWord": "TEN"
         }, 
         {
-            "start": 62.68005, 
-            "speaker": "Maneesh", 
-            "end": 62.96939, 
-            "word": "point", 
-            "alignedWord": "POINT"
-        }, 
-        {
-            "start": 62.96939, 
-            "speaker": "Maneesh", 
-            "end": 63.31859, 
-            "word": "oh,", 
-            "alignedWord": "OH"
-        }, 
-        {
-            "start": 63.31859, 
+            "start": 63.9771, 
             "end": 64.16667, 
             "word": "{pause}", 
             "alignedWord": "sp"
@@ -5610,198 +5562,545 @@
         }, 
         {
             "start": 295.20159, 
-            "end": 295.65057, 
+            "end": 295.5907, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 295.65057, 
-            "speaker": "Kurt", 
-            "end": 295.89002, 
-            "word": "Well,", 
-            "alignedWord": "WELL"
+            "start": 295.5907, 
+            "speaker": "Maneesh", 
+            "end": 295.90998, 
+            "word": "Um,", 
+            "alignedWord": "UM"
         }, 
         {
-            "start": 295.89002, 
-            "end": 296.10952, 
+            "start": 295.90998, 
+            "end": 296.09955, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 296.10952, 
-            "speaker": "Kurt", 
-            "end": 296.98753, 
-            "word": "and,", 
-            "alignedWord": "AND"
+            "start": 296.09955, 
+            "speaker": "Maneesh", 
+            "end": 296.27914, 
+            "word": "There's", 
+            "alignedWord": "THERE'S"
         }, 
         {
-            "start": 296.98753, 
-            "speaker": "Kurt", 
-            "end": 297.79569, 
-            "word": "and,", 
-            "alignedWord": "AND"
+            "start": 296.27914, 
+            "speaker": "Maneesh", 
+            "end": 296.74807, 
+            "word": "also", 
+            "alignedWord": "ALSO"
         }, 
         {
-            "start": 297.79569, 
-            "speaker": "Kurt", 
+            "start": 296.74807, 
+            "speaker": "Maneesh", 
+            "end": 297.49637, 
+            "word": "advances", 
+            "alignedWord": "ADVANCES"
+        }, 
+        {
+            "start": 297.49637, 
+            "speaker": "Maneesh", 
+            "end": 297.73583, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 297.73583, 
+            "speaker": "Maneesh", 
+            "end": 298.11497, 
+            "word": "camera", 
+            "alignedWord": "CAMERA"
+        }, 
+        {
+            "start": 298.11497, 
+            "speaker": "Maneesh", 
+            "end": 298.90317, 
+            "word": "technologies,", 
+            "alignedWord": "TECHNOLOGIES"
+        }, 
+        {
+            "start": 298.90317, 
+            "speaker": "Maneesh", 
+            "end": 299.14263, 
+            "word": "so", 
+            "alignedWord": "SO"
+        }, 
+        {
+            "start": 299.14263, 
+            "speaker": "Maneesh", 
             "end": 299.28231, 
-            "word": "yet", 
-            "alignedWord": "YET"
+            "word": "you", 
+            "alignedWord": "YOU"
         }, 
         {
             "start": 299.28231, 
-            "end": 299.59161, 
+            "end": 299.56168, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 299.59161, 
-            "speaker": "Kurt", 
-            "end": 300.46961, 
-            "word": "again", 
-            "alignedWord": "AGAIN"
+            "start": 299.56168, 
+            "speaker": "Maneesh", 
+            "end": 299.62154, 
+            "word": "may", 
+            "alignedWord": "MAY"
         }, 
         {
-            "start": 300.46961, 
-            "end": 300.59932, 
+            "start": 299.62154, 
+            "speaker": "Maneesh", 
+            "end": 300.07052, 
+            "word": "have", 
+            "alignedWord": "HAVE"
+        }, 
+        {
+            "start": 300.07052, 
+            "end": 300.14036, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 300.59932, 
-            "speaker": "Kurt", 
-            "end": 302.56485, 
-            "word": "it,", 
-            "alignedWord": "IT"
+            "start": 300.14036, 
+            "speaker": "Maneesh", 
+            "end": 300.75896, 
+            "word": "heard", 
+            "alignedWord": "HEARD"
         }, 
         {
-            "start": 302.56485, 
-            "end": 302.70454, 
+            "start": 300.75896, 
+            "speaker": "Maneesh", 
+            "end": 300.91859, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 300.91859, 
+            "speaker": "Maneesh", 
+            "end": 301.11814, 
+            "word": "this", 
+            "alignedWord": "THIS"
+        }, 
+        {
+            "start": 301.11814, 
+            "speaker": "Maneesh", 
+            "end": 301.28776, 
+            "word": "new", 
+            "alignedWord": "NEW"
+        }, 
+        {
+            "start": 301.28776, 
+            "speaker": "Maneesh", 
+            "end": 301.65692, 
+            "word": "camera,", 
+            "alignedWord": "CAMERA"
+        }, 
+        {
+            "start": 301.65692, 
+            "speaker": "Maneesh", 
+            "end": 301.76667, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 301.76667, 
+            "speaker": "Maneesh", 
+            "end": 302.41519, 
+            "word": "Lightro?", 
+            "alignedWord": "LIGHTRO"
+        }, 
+        {
+            "start": 302.41519, 
+            "end": 302.68458, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 302.70454, 
-            "speaker": "Kurt", 
-            "end": 305.41837, 
-            "word": "it", 
-            "alignedWord": "IT"
+            "start": 302.68458, 
+            "speaker": "Maneesh", 
+            "end": 303.06372, 
+            "word": "Ah,", 
+            "alignedWord": "AH"
         }, 
         {
-            "start": 305.41837, 
-            "speaker": "Kurt", 
-            "end": 305.73764, 
-            "word": "means", 
-            "alignedWord": "MEANS"
+            "start": 303.06372, 
+            "speaker": "Maneesh", 
+            "end": 303.33311, 
+            "word": "it's", 
+            "alignedWord": "IT'S"
         }, 
         {
-            "start": 305.73764, 
+            "start": 303.33311, 
+            "speaker": "Maneesh", 
+            "end": 303.56259, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 303.56259, 
+            "speaker": "Maneesh", 
+            "end": 304.01156, 
+            "word": "camera", 
+            "alignedWord": "CAMERA"
+        }, 
+        {
+            "start": 304.01156, 
+            "speaker": "Maneesh", 
+            "end": 304.36077, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 304.36077, 
+            "speaker": "Maneesh", 
+            "end": 305.09909, 
+            "word": "takes", 
+            "alignedWord": "TAKES"
+        }, 
+        {
+            "start": 305.09909, 
+            "speaker": "Maneesh", 
+            "end": 305.28866, 
+            "word": "an", 
+            "alignedWord": "AN"
+        }, 
+        {
+            "start": 305.28866, 
+            "speaker": "Maneesh", 
+            "end": 305.84739, 
+            "word": "image,", 
+            "alignedWord": "IMAGE"
+        }, 
+        {
+            "start": 305.84739, 
             "end": 306.24649, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
             "start": 306.24649, 
-            "speaker": "Kurt", 
-            "end": 306.5059, 
+            "speaker": "Maneesh", 
+            "end": 306.42608, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 306.5059, 
-            "speaker": "Kurt", 
+            "start": 306.42608, 
+            "speaker": "Maneesh", 
+            "end": 306.59569, 
+            "word": "can", 
+            "alignedWord": "CAN"
+        }, 
+        {
+            "start": 306.59569, 
+            "speaker": "Maneesh", 
+            "end": 306.77528, 
+            "word": "then", 
+            "alignedWord": "THEN"
+        }, 
+        {
+            "start": 306.77528, 
+            "speaker": "Maneesh", 
             "end": 307.1644, 
+            "word": "be", 
+            "alignedWord": "BE"
+        }, 
+        {
+            "start": 307.1644, 
+            "end": 307.3839, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 307.3839, 
+            "speaker": "Maneesh", 
+            "end": 308.21202, 
+            "word": "refocused", 
+            "alignedWord": "REFOCUSED"
+        }, 
+        {
+            "start": 308.21202, 
+            "speaker": "Maneesh", 
+            "end": 308.51134, 
+            "word": "after", 
+            "alignedWord": "AFTER"
+        }, 
+        {
+            "start": 308.51134, 
+            "speaker": "Maneesh", 
+            "end": 308.67098, 
+            "word": "you've", 
+            "alignedWord": "YOU'VE"
+        }, 
+        {
+            "start": 308.67098, 
+            "speaker": "Maneesh", 
+            "end": 309.05011, 
+            "word": "taken", 
+            "alignedWord": "TAKEN"
+        }, 
+        {
+            "start": 309.05011, 
+            "speaker": "Maneesh", 
+            "end": 309.21973, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 307.1644, 
-            "end": 307.2542, 
+            "start": 309.21973, 
+            "speaker": "Maneesh", 
+            "end": 309.60884, 
+            "word": "image,", 
+            "alignedWord": "IMAGE"
+        }, 
+        {
+            "start": 309.60884, 
+            "end": 309.95805, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 307.2542, 
-            "speaker": "Kurt", 
-            "end": 309.539, 
-            "word": "moment", 
-            "alignedWord": "MOMENT"
+            "start": 309.95805, 
+            "speaker": "Maneesh", 
+            "end": 310.23741, 
+            "word": "um,", 
+            "alignedWord": "UM"
         }, 
         {
-            "start": 309.539, 
-            "end": 310.01791, 
+            "start": 310.23741, 
+            "end": 310.3771, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 310.01791, 
-            "speaker": "Kurt", 
-            "end": 310.92585, 
-            "word": "at", 
-            "alignedWord": "AT"
+            "start": 310.3771, 
+            "speaker": "Maneesh", 
+            "end": 310.5068, 
+            "word": "and", 
+            "alignedWord": "AND"
         }, 
         {
-            "start": 310.92585, 
-            "speaker": "Kurt", 
-            "end": 312.05329, 
-            "word": "which", 
-            "alignedWord": "WHICH"
+            "start": 310.5068, 
+            "speaker": "Maneesh", 
+            "end": 310.67642, 
+            "word": "that", 
+            "alignedWord": "THAT"
         }, 
         {
-            "start": 312.05329, 
-            "speaker": "Kurt", 
-            "end": 312.15306, 
-            "word": "your", 
-            "alignedWord": "YOUR"
+            "start": 310.67642, 
+            "speaker": "Maneesh", 
+            "end": 310.89592, 
+            "word": "might", 
+            "alignedWord": "MIGHT"
         }, 
         {
-            "start": 312.15306, 
-            "speaker": "Kurt", 
-            "end": 313.44014, 
-            "word": "photograph", 
-            "alignedWord": "PHOTOGRAPH"
+            "start": 310.89592, 
+            "speaker": "Maneesh", 
+            "end": 311.45465, 
+            "word": "change", 
+            "alignedWord": "CHANGE"
         }, 
         {
-            "start": 313.44014, 
+            "start": 311.45465, 
+            "speaker": "Maneesh", 
+            "end": 311.53447, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 311.53447, 
+            "speaker": "Maneesh", 
+            "end": 311.95351, 
+            "word": "way", 
+            "alignedWord": "WAY"
+        }, 
+        {
+            "start": 311.95351, 
+            "speaker": "Maneesh", 
+            "end": 312.43243, 
+            "word": "people", 
+            "alignedWord": "PEOPLE"
+        }, 
+        {
+            "start": 312.43243, 
+            "speaker": "Maneesh", 
+            "end": 312.89138, 
+            "word": "create", 
+            "alignedWord": "CREATE"
+        }, 
+        {
+            "start": 312.89138, 
+            "speaker": "Maneesh", 
             "end": 313.52993, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
+            "word": "photographs,", 
+            "alignedWord": "PHOTOGRAPHS"
         }, 
         {
             "start": 313.52993, 
-            "speaker": "Kurt", 
-            "end": 313.94898, 
-            "word": "is", 
-            "alignedWord": "IS"
+            "speaker": "Maneesh", 
+            "end": 313.5898, 
+            "word": "the", 
+            "alignedWord": "THE"
         }, 
         {
-            "start": 313.94898, 
-            "end": 314.08866, 
+            "start": 313.5898, 
+            "speaker": "Maneesh", 
+            "end": 313.90907, 
+            "word": "kinds", 
+            "alignedWord": "KINDS"
+        }, 
+        {
+            "start": 313.90907, 
+            "speaker": "Maneesh", 
+            "end": 313.96893, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 313.96893, 
+            "speaker": "Maneesh", 
+            "end": 314.49773, 
+            "word": "photographs", 
+            "alignedWord": "PHOTOGRAPHS"
+        }, 
+        {
+            "start": 314.49773, 
+            "speaker": "Maneesh", 
+            "end": 314.60748, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 314.60748, 
+            "speaker": "Maneesh", 
+            "end": 314.75714, 
+            "word": "they", 
+            "alignedWord": "THEY"
+        }, 
+        {
+            "start": 314.75714, 
+            "speaker": "Maneesh", 
+            "end": 315.27596, 
+            "word": "take,", 
+            "alignedWord": "TAKE"
+        }, 
+        {
+            "start": 315.27596, 
+            "end": 315.72494, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 314.08866, 
-            "speaker": "Kurt", 
-            "end": 315.38571, 
-            "word": "taken,", 
-            "alignedWord": "TAKEN"
+            "start": 315.72494, 
+            "speaker": "Maneesh", 
+            "end": 316.01429, 
+            "word": "ah,", 
+            "alignedWord": "AH"
         }, 
         {
-            "start": 315.38571, 
-            "end": 315.78481, 
+            "start": 316.01429, 
+            "speaker": "Maneesh", 
+            "end": 316.26372, 
+            "word": "how", 
+            "alignedWord": "HOW"
+        }, 
+        {
+            "start": 316.26372, 
+            "speaker": "Maneesh", 
+            "end": 316.46327, 
+            "word": "we", 
+            "alignedWord": "WE"
+        }, 
+        {
+            "start": 316.46327, 
+            "speaker": "Maneesh", 
+            "end": 316.91224, 
+            "word": "interact", 
+            "alignedWord": "INTERACT"
+        }, 
+        {
+            "start": 316.91224, 
+            "end": 316.95215, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 315.78481, 
-            "speaker": "Kurt", 
-            "end": 319.95533, 
-            "word": "which", 
-            "alignedWord": "WHICH"
+            "start": 316.95215, 
+            "speaker": "Maneesh", 
+            "end": 317.05193, 
+            "word": "with", 
+            "alignedWord": "WITH"
         }, 
         {
-            "start": 319.95533, 
+            "start": 317.05193, 
+            "end": 317.09184, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 317.09184, 
+            "speaker": "Maneesh", 
+            "end": 317.54082, 
+            "word": "photographs.", 
+            "alignedWord": "PHOTOGRAPHS"
+        }, 
+        {
+            "start": 317.54082, 
+            "end": 317.77029, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 317.77029, 
+            "speaker": "Kurt", 
+            "end": 318.12948, 
+            "word": "Well,", 
+            "alignedWord": "WELL"
+        }, 
+        {
+            "start": 318.12948, 
+            "speaker": "Kurt", 
+            "end": 318.44875, 
+            "word": "and,", 
+            "alignedWord": "AND"
+        }, 
+        {
+            "start": 318.44875, 
+            "speaker": "Kurt", 
+            "end": 318.91769, 
+            "word": "and,", 
+            "alignedWord": "AND"
+        }, 
+        {
+            "start": 318.91769, 
+            "speaker": "Kurt", 
+            "end": 319.20703, 
+            "word": "yet", 
+            "alignedWord": "YET"
+        }, 
+        {
+            "start": 319.20703, 
+            "speaker": "Kurt", 
+            "end": 319.7059, 
+            "word": "again", 
+            "alignedWord": "AGAIN"
+        }, 
+        {
+            "start": 319.7059, 
+            "end": 319.7458, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 319.7458, 
+            "speaker": "Kurt", 
+            "end": 319.97528, 
+            "word": "it,", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 319.97528, 
             "end": 320.52404, 
             "word": "{pause}", 
             "alignedWord": "sp"
@@ -5809,33 +6108,123 @@
         {
             "start": 320.52404, 
             "speaker": "Kurt", 
-            "end": 322.39977, 
+            "end": 320.84331, 
+            "word": "it", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 320.84331, 
+            "end": 321.14263, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 321.14263, 
+            "speaker": "Kurt", 
+            "end": 321.95079, 
+            "word": "means", 
+            "alignedWord": "MEANS"
+        }, 
+        {
+            "start": 321.95079, 
+            "speaker": "Kurt", 
+            "end": 322.25011, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 322.25011, 
+            "speaker": "Kurt", 
+            "end": 322.52948, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 322.52948, 
+            "speaker": "Kurt", 
+            "end": 322.94853, 
+            "word": "moment", 
+            "alignedWord": "MOMENT"
+        }, 
+        {
+            "start": 322.94853, 
+            "speaker": "Kurt", 
+            "end": 323.07823, 
+            "word": "at", 
+            "alignedWord": "AT"
+        }, 
+        {
+            "start": 323.07823, 
+            "speaker": "Kurt", 
+            "end": 323.27778, 
+            "word": "which", 
+            "alignedWord": "WHICH"
+        }, 
+        {
+            "start": 323.27778, 
+            "speaker": "Kurt", 
+            "end": 323.39751, 
+            "word": "your", 
+            "alignedWord": "YOUR"
+        }, 
+        {
+            "start": 323.39751, 
+            "speaker": "Kurt", 
+            "end": 324.06599, 
+            "word": "photograph", 
+            "alignedWord": "PHOTOGRAPH"
+        }, 
+        {
+            "start": 324.06599, 
+            "speaker": "Kurt", 
+            "end": 324.21565, 
+            "word": "is", 
+            "alignedWord": "IS"
+        }, 
+        {
+            "start": 324.21565, 
+            "speaker": "Kurt", 
+            "end": 324.56485, 
+            "word": "taken,", 
+            "alignedWord": "TAKEN"
+        }, 
+        {
+            "start": 324.56485, 
+            "speaker": "Kurt", 
+            "end": 324.91406, 
+            "word": "which", 
+            "alignedWord": "WHICH"
+        }, 
+        {
+            "start": 324.91406, 
+            "speaker": "Kurt", 
+            "end": 325.09365, 
             "word": "used", 
             "alignedWord": "USED"
         }, 
         {
-            "start": 322.39977, 
+            "start": 325.09365, 
             "speaker": "Kurt", 
-            "end": 323.00839, 
+            "end": 325.18345, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 323.00839, 
+            "start": 325.18345, 
             "speaker": "Kurt", 
-            "end": 323.22789, 
+            "end": 325.4229, 
             "word": "be", 
             "alignedWord": "BE"
         }, 
         {
-            "start": 323.22789, 
+            "start": 325.4229, 
             "speaker": "Kurt", 
-            "end": 325.53265, 
+            "end": 325.65238, 
             "word": "sort", 
             "alignedWord": "SORT"
         }, 
         {
-            "start": 325.53265, 
+            "start": 325.65238, 
             "speaker": "Kurt", 
             "end": 325.76213, 
             "word": "of", 
@@ -9271,64 +9660,203 @@
         }, 
         {
             "start": 495.25692, 
-            "end": 495.71587, 
+            "end": 495.67596, 
             "word": "{pause}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 495.71587, 
+            "start": 495.67596, 
+            "speaker": "Maneesh", 
+            "end": 496.07506, 
+            "word": "Um,", 
+            "alignedWord": "UM"
+        }, 
+        {
+            "start": 496.07506, 
+            "end": 496.29456, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 496.29456, 
+            "speaker": "Maneesh", 
+            "end": 496.47415, 
+            "word": "but", 
+            "alignedWord": "BUT"
+        }, 
+        {
+            "start": 496.47415, 
+            "speaker": "Maneesh", 
+            "end": 496.6737, 
+            "word": "there's", 
+            "alignedWord": "THERE'S"
+        }, 
+        {
+            "start": 496.6737, 
+            "speaker": "Maneesh", 
+            "end": 497.13265, 
+            "word": "always", 
+            "alignedWord": "ALWAYS"
+        }, 
+        {
+            "start": 497.13265, 
+            "speaker": "Maneesh", 
+            "end": 497.41202, 
+            "word": "ways", 
+            "alignedWord": "WAYS"
+        }, 
+        {
+            "start": 497.41202, 
+            "speaker": "Maneesh", 
+            "end": 497.49184, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 497.49184, 
+            "speaker": "Maneesh", 
+            "end": 497.69138, 
+            "word": "which", 
+            "alignedWord": "WHICH"
+        }, 
+        {
+            "start": 497.69138, 
+            "speaker": "Maneesh", 
+            "end": 497.79116, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 497.79116, 
+            "speaker": "Maneesh", 
+            "end": 498.28005, 
+            "word": "tools", 
+            "alignedWord": "TOOLS"
+        }, 
+        {
+            "start": 498.28005, 
+            "end": 498.35986, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 498.35986, 
+            "speaker": "Maneesh", 
+            "end": 498.54943, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 498.54943, 
+            "speaker": "Maneesh", 
+            "end": 498.70907, 
+            "word": "you're", 
+            "alignedWord": "YOU'RE"
+        }, 
+        {
+            "start": 498.70907, 
+            "speaker": "Maneesh", 
+            "end": 499.19796, 
+            "word": "developing", 
+            "alignedWord": "DEVELOPING"
+        }, 
+        {
+            "start": 499.19796, 
+            "speaker": "Maneesh", 
+            "end": 499.54717, 
+            "word": "can", 
+            "alignedWord": "CAN"
+        }, 
+        {
+            "start": 499.54717, 
+            "speaker": "Maneesh", 
+            "end": 499.64694, 
+            "word": "be", 
+            "alignedWord": "BE"
+        }, 
+        {
+            "start": 499.64694, 
+            "speaker": "Maneesh", 
+            "end": 500.07596, 
+            "word": "used", 
+            "alignedWord": "USED"
+        }, 
+        {
+            "start": 500.07596, 
+            "end": 500.1458, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 500.1458, 
+            "speaker": "Maneesh", 
+            "end": 500.46508, 
+            "word": "for", 
+            "alignedWord": "FOR"
+        }, 
+        {
+            "start": 500.46508, 
+            "end": 500.8941, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 500.8941, 
+            "speaker": "Maneesh", 
+            "end": 501.31315, 
+            "word": "uh,", 
+            "alignedWord": "UH"
+        }, 
+        {
+            "start": 501.31315, 
+            "end": 501.98163, 
+            "word": "{pause}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 501.98163, 
+            "speaker": "Maneesh", 
+            "end": 502.56032, 
+            "word": "unethical", 
+            "alignedWord": "UNETHICAL"
+        }, 
+        {
+            "start": 502.56032, 
+            "speaker": "Maneesh", 
+            "end": 502.84966, 
+            "word": "things.", 
+            "alignedWord": "THINGS"
+        }, 
+        {
+            "start": 502.84966, 
             "speaker": "Kurt", 
-            "end": 496.10499, 
+            "end": 503.01927, 
             "word": "Yes.", 
             "alignedWord": "YES"
         }, 
         {
-            "start": 496.10499, 
-            "end": 496.31451, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 496.31451, 
+            "start": 503.01927, 
             "speaker": "Kurt", 
-            "end": 500.05601, 
+            "end": 503.16893, 
             "word": "It's", 
             "alignedWord": "IT'S"
         }, 
         {
-            "start": 500.05601, 
-            "end": 500.16576, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 500.16576, 
+            "start": 503.16893, 
             "speaker": "Kurt", 
-            "end": 500.47506, 
+            "end": 503.32857, 
             "word": "good", 
             "alignedWord": "GOOD"
         }, 
         {
-            "start": 500.47506, 
-            "end": 502.07143, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 502.07143, 
+            "start": 503.32857, 
             "speaker": "Kurt", 
-            "end": 503.11905, 
+            "end": 503.38844, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 503.11905, 
-            "end": 503.15896, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 503.15896, 
+            "start": 503.38844, 
             "speaker": "Kurt", 
             "end": 503.56803, 
             "word": "get", 
@@ -14448,12 +14976,19 @@
         {
             "start": 743.35306, 
             "speaker": "Maneesh", 
-            "end": 743.8619, 
+            "end": 743.83197, 
             "word": "reliable", 
             "alignedWord": "RELIABLE"
         }, 
         {
-            "start": 743.8619, 
+            "start": 743.83197, 
+            "speaker": "Maneesh", 
+            "end": 744.16122, 
+            "word": "it", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 744.16122, 
             "end": 745.45828, 
             "word": "{pause}", 
             "alignedWord": "sp"
@@ -14461,19 +14996,19 @@
         {
             "start": 745.45828, 
             "speaker": "Maneesh", 
-            "end": 745.73764, 
-            "word": "it", 
-            "alignedWord": "IT"
-        }, 
-        {
-            "start": 745.73764, 
-            "speaker": "Maneesh", 
-            "end": 746.14671, 
+            "end": 745.67778, 
             "word": "is.", 
             "alignedWord": "IS"
         }, 
         {
-            "start": 746.14671, 
+            "start": 745.67778, 
+            "speaker": "Kurt", 
+            "end": 746.17664, 
+            "word": "David?", 
+            "alignedWord": "DAVID"
+        }, 
+        {
+            "start": 746.17664, 
             "end": 748.34172, 
             "word": "{pause}", 
             "alignedWord": "sp"

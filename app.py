@@ -10,11 +10,16 @@ import sys
 sys.path.append("/home/ubuntu/speecheditor")
 sys.path.append("/var/www/html/srubin/speecheditor")
 
+import numpy as N
+
 import reauthor_speech
 import duplicate_lines
 from music_remix.music_remix import MusicGraph
+from cubic_spline import MonotonicCubicSpline
 
-from radiotool.composer import Track, Song, Speech, Composition, Segment
+from radiotool.composer import\
+    Track, Song, Speech, Composition, Segment, RawVolume
+
 
 try:
     from app_path import APP_PATH
@@ -65,6 +70,8 @@ def reauthor():
                 starts = t["extra"]["starts"]
                 durs = t["extra"]["durations"]
                 dists = t["extra"]["distances"]
+                vx = N.array(t["extra"]["volume"]["x"])
+                vy = N.array(t["extra"]["volume"]["y"])
                     
                 score_start = t["scoreStart"]
                 filename = APP_PATH + "static/" + t["filename"]
@@ -79,6 +86,11 @@ def reauthor():
                 c.add_track(track)
                 current_loc = float(score_start)
                 
+                # create the spline interpolator
+                vx = vx / 1000.0 * track.sr()
+                # cdf = MonotonicCubicSpline(vx, vy)
+                
+                
                 segments = []
                 cf_durations = []
                 seg_start = starts[0]
@@ -91,6 +103,7 @@ def reauthor():
                     else:
                         seg = Segment(track, seg_start_loc, seg_start,
                             current_loc - seg_start_loc)
+                        
                         c.add_score_segment(seg)
                         segments.append(seg)
                         
@@ -109,8 +122,48 @@ def reauthor():
                 c.add_score_segment(last_seg)
                 segments.append(last_seg)
                 
+                all_segs = []
+                
+                # no repeated values
+                if vx[0] == vx[1]:
+                    vx = vx[1:]
+                    vy = vy[1:]
+                
                 for i, seg in enumerate(segments[:-1]):
-                    c.cross_fade(seg, segments[i + 1], cf_durations[i])
+                    rawseg = c.cross_fade(seg, segments[i + 1], cf_durations[i])
+                    
+                    all_segs.extend([seg, rawseg])
+                all_segs.append(segments[-1])
+
+                first_loc = all_segs[0].score_location
+                
+                vx[-1] = all_segs[-1].score_location -\
+                         first_loc + all_segs[-1].duration
+                
+                cdf = MonotonicCubicSpline(vx, vy)
+                
+                for seg in all_segs:
+                    vol_frames = N.empty(seg.duration)
+                    
+                    samplex = N.arange(seg.score_location - first_loc,
+                        seg.score_location - first_loc + seg.duration,
+                        10000)
+                        
+                    sampley = N.array([cdf.interpolate(x) for x in samplex])
+                    
+                    for i, sy in enumerate(sampley):
+                        print i, sy
+                        if i != len(samplex) - 1:
+                            vol_frames[i * 10000:(i + 1) * 10000] =\
+                                 N.linspace(sy, sampley[i + 1], num=10000)
+                        else:
+                            vol_frames[i * 10000:] =\
+                                N.linspace(sy, vy[-1],
+                                           num=seg.duration - i * 10000)
+                    
+                    vol = RawVolume(seg, vol_frames)
+                    c.add_dynamic(vol)
+
             
             elif t["waveformClass"] == "waveform":
                 score_start = t["scoreStart"]

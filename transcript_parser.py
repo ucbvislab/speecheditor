@@ -25,7 +25,7 @@ def parse(transcript):
     current_speaker = []
     current_line = []
 
-    for line in lines:
+    for i, line in enumerate(lines):
         match = speaker_name.match(line)
         if match:
             current_speaker.append(match.group(1))
@@ -34,7 +34,8 @@ def parse(transcript):
         if line_match:
             current_line.append(line_match.group(1))
 
-        if len(line) == 0:
+        if i + 1 == len(lines) or (
+            len(line) == 0 and speaker_name.match(lines[i + 1])):
             # construct the DialogLine
 
             if len(current_speaker) > 0:

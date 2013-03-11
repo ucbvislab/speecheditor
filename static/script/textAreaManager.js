@@ -82,7 +82,7 @@
       }), "");
       this.val(content);
       this.refresh();
-      if (this.words.length === 0) {
+      if (this.words.length === 0 && this.tam.tas.length !== 1) {
         return _.defer(function() {
           return _this.tam.removeTA(_this);
         });

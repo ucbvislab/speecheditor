@@ -8,11 +8,11 @@
         "speaker": "Maneesh"
     }, 
     {
-        "line": "So, Photoshop 1 point oh came out in nineteen ninety, just as I was involved in a magazine that spent many, many thousands of dollars we didn't have manipulating photographs with expensive computer time. It changed the world, obviously, and there's been a new version every couple of years since. But how, has there been much improvement from what Photoshop 1 point oh could do to what it can do today? What is the computer power and the computer changes behind that in the last 22 years?", 
+        "line": "So, Photoshop 1.0 came out in nineteen ninety, just as I was involved in a magazine that spent many, many thousands of dollars we didn't have manipulating photographs with expensive computer time. It changed the world, obviously, and there's been a new version every couple of years since. But how, has there been much improvement from what Photoshop 1.0 could do to what it can do today? What is the computer power and the computer changes behind that in the last 22 years?", 
         "speaker": "Kurt"
     }, 
     {
-        "line": "Photoshop has evolved quite a bit over the last 20, 25 years. It's become much more powerful in the sense that it's become easier and easier to manipulate images. Back when it was Photoshop 1 point oh, you could go in and touch every pixel in an image and change its color and create all kinds of effects that way. What's happened over the years is that they've built in a number of higher level tools, so at this point, you don't have to touch every single pixel.", 
+        "line": "Photoshop has evolved quite a bit over the last 20, 25 years. It's become much more powerful in the sense that it's become easier and easier to manipulate images. Back when it was Photoshop 1.0, you could go in and touch every pixel in an image and change its color and create all kinds of effects that way. What's happened over the years is that they've built in a number of higher level tools, so at this point, you don't have to touch every single pixel.", 
         "speaker": "Maneesh"
     }, 
     {
@@ -60,7 +60,7 @@
         "speaker": "Kurt"
     }, 
     {
-        "line": " Right, but um, but, but things have gotten disrupted. Ah, It was, you know, Photoshop first came out, and as I said, then the ubiquity of digital cameras, and the Web, and cell phone cameras. Each one of those, ah, disrupted the way we deal with digital photo...the way we deal with digital photographs. Um, and, ah, and I can imagine that kind of disruption may happen again. So, video is an obvious candidate. You're already seeing sites like YouTube, that are changing the way we distribute video, ah, people are becoming more, and more interested in taking video, and editing video. And so tools for making video are on the horizon, I think.", 
+        "line": " Right, but um, but, but things have gotten disrupted. Ah, It was, you know, Photoshop first came out, and as I said, then the ubiquity of digital cameras, and the Web, and cell phone cameras. Each one of those, ah, disrupted the way we deal with digital photo...the way we deal with digital photographs. Um, and, ah, and I can imagine that kind of disruption may happen again. So, video is an obvious candidate. You're already seeing sites like YouTube, that are changing the way we distribute video, ah, people are becoming more, and more interested in taking video, and editing video. And so tools for making video are on the horizon, I think. Um, There's also advances in camera technologies, so you may have heard of this new camera, the Lightro? Ah, it's a camera that takes an image, that can then be refocused after you've taken the image, um, and that might change the way people create photographs, the kinds of photographs that they take, ah, how we interact with photographs.", 
         "speaker": "Maneesh"
     }, 
     {
@@ -92,7 +92,7 @@
         "speaker": "Kurt"
     }, 
     {
-        "line": "Well, I think that we do think about the...you know I certainly think about the ethical issues. And as you say, there are a number of them around any technology that's being created. Or really any The results that you produce can be used in a good, in a positive way, in a negative way. Or maybe they won't have a real effect as you're suggesting. I think uh, it's important to think about where the balance lies. If there's, you know, a lot of good that can come from the tools that you're developing that's great.", 
+        "line": "Well, I think that we do think about the...you know I certainly think about the ethical issues. And as you say, there are a number of them around any technology that's being created. Or really any The results that you produce can be used in a good, in a positive way, in a negative way. Or maybe they won't have a real effect as you're suggesting. I think uh, it's important to think about where the balance lies. If there's, you know, a lot of good that can come from the tools that you're developing that's great. Um, but there's always ways in which the tools that you're developing can be used for uh, unethical things.", 
         "speaker": "Maneesh"
     }, 
     {
@@ -158,5 +158,9 @@
     {
         "line": "I think that it's reliable for certain kinds of manipulations. I don't know enough about it to know exactly how reliable it is.", 
         "speaker": "Maneesh"
+    }, 
+    {
+        "line": "David?", 
+        "speaker": "Kurt"
     }
 ]

@@ -232,7 +232,12 @@
           out = "<span class='editLocation'>" + out + "</span>";
         }
         if ((word.emph != null) && word.emph) {
-          out = "<span class='emph'>" + out + "</span> ";
+          out = "<span class='emph'>" + out + "</span>";
+        }
+        if (word.alignedWord === "sp") {
+          out = "<span class='pause'>" + out + "</span>";
+        } else if (word.alignedWord === "{BR}") {
+          out = "<span class='breath'>" + out + "</span>";
         }
         this[0] = word.origPos;
         return "" + memo + out + " ";
@@ -253,7 +258,7 @@
       offset = this.tam.taIndexSpan[this.tam.tas.indexOf(this)];
       dupeDropdownTemplate = "<span class=\"dropdown overlay\">\n    <span class=\"dropdown-toggle\">\n        <%= word %>\n    </span>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">\n        <li class=\"disabled\"><a>Similar sentences</a></li>\n        <% _.each(dupes[dupeIdx], function (elt) { %>\n            <li><a href=\"javascript:void(0)\" \n                   class=\"dupeOpt\"\n                   tabindex=\"-1\">\n                   <i class=\"icon-play dupePlayButton\"></i><%= elt[1] %>\n                </a>\n            </li>\n        <% }) %>\n    </ul>\n</span>";
       boxHTML = _.reduce(this.words, (function(memo, word, idx, words) {
-        var allIdx, d, dupeIdx, sentenceEnd;
+        var allIdx, d, dupeIdx, out, sentenceEnd;
         dupeIdx = dupeStartsFirsts.indexOf(word.origPos);
         if (dupeIdx !== -1) {
           sentenceEnd = idx;
@@ -270,7 +275,14 @@
             dupes: dupes
           }) + ' ';
         }
-        return "" + memo + word.word + " ";
+        out = word.word;
+        if (word.alignedWord === "sp") {
+          out = "<span class='pauseOverlay'>" + out + "</span>";
+        }
+        if (word.alignedWord === "{BR}") {
+          out = "<span class='breathOverlay'>" + out + "</span>";
+        }
+        return "" + memo + out + " ";
       }), "", context);
       box.html(boxHTML);
       self = this;

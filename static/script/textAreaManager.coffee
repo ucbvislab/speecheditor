@@ -206,7 +206,11 @@ class ScriptArea
             if word.origPos? and word.origPos - 1 isnt this[0]
                 out = "<span class='editLocation'>#{out}</span>"
             if word.emph? and word.emph
-                out = "<span class='emph'>#{out}</span> "
+                out = "<span class='emph'>#{out}</span>"
+            if word.alignedWord is "sp"
+                out = "<span class='pause'>#{out}</span>"
+            else if word.alignedWord is "{BR}"
+                out = "<span class='breath'>#{out}</span>"
             this[0] = word.origPos
             return "#{memo}#{out} "
             ), "", ctx
@@ -261,7 +265,12 @@ class ScriptArea
                     word: word.word
                     dupeIdx: allIdx,
                     dupes: dupes) + ' '
-            return "#{memo}#{word.word} "
+            out = word.word
+            if word.alignedWord is "sp"
+                out = "<span class='pauseOverlay'>#{out}</span>"
+            if word.alignedWord is "{BR}"
+                out = "<span class='breathOverlay'>#{out}</span>"
+            return "#{memo}#{out} "
             ), "", context
         
         box.html(boxHTML)

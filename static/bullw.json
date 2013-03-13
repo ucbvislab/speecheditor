@@ -11,7 +11,7 @@
             "start": 0.29184,
             "speaker": "Speaker", 
             "end": 3.07551, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -25,7 +25,7 @@
             "start": 3.33492,
             "speaker": "Speaker", 
             "end": 5.78934, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -39,7 +39,7 @@
             "start": 5.97891,
             "speaker": "Speaker", 
             "end": 7.36576, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -60,7 +60,7 @@
             "start": 7.60522,
             "speaker": "Speaker", 
             "end": 11.37664, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -74,7 +74,7 @@
             "start": 12.00522,
             "speaker": "Speaker", 
             "end": 12.37438, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -88,7 +88,7 @@
             "start": 12.44422,
             "speaker": "Speaker", 
             "end": 12.62381, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -144,7 +144,7 @@
             "start": 14.76893,
             "speaker": "Speaker", 
             "end": 16.1458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -235,7 +235,7 @@
             "start": 19.33855,
             "speaker": "Speaker", 
             "end": 19.58798, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -249,7 +249,7 @@
             "start": 19.84739,
             "speaker": "Speaker", 
             "end": 21.0746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -263,7 +263,7 @@
             "start": 21.79297,
             "speaker": "Speaker", 
             "end": 22.93039, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -277,7 +277,7 @@
             "start": 22.99025,
             "speaker": "Speaker", 
             "end": 23.57891, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -291,7 +291,7 @@
             "start": 24.08776,
             "speaker": "Speaker", 
             "end": 24.3771, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -305,7 +305,7 @@
             "start": 24.40703,
             "speaker": "Speaker", 
             "end": 25.17528, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -396,7 +396,7 @@
             "start": 29.08639,
             "speaker": "Speaker", 
             "end": 29.24603, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -424,7 +424,7 @@
             "start": 30.21383,
             "speaker": "Speaker", 
             "end": 30.25374, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -452,7 +452,7 @@
             "start": 31.32132,
             "speaker": "Speaker", 
             "end": 31.8102, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -543,7 +543,7 @@
             "start": 35.19252,
             "speaker": "Speaker", 
             "end": 35.60159, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -564,7 +564,7 @@
             "start": 36.65918,
             "speaker": "Speaker", 
             "end": 36.86871, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -627,7 +627,7 @@
             "start": 39.62245,
             "speaker": "Speaker", 
             "end": 40.1712, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -690,7 +690,7 @@
             "start": 42.13673,
             "speaker": "Speaker", 
             "end": 42.52585, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -781,7 +781,7 @@
             "start": 45.43923,
             "speaker": "Speaker", 
             "end": 46.88594, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -795,7 +795,7 @@
             "start": 47.18526,
             "speaker": "Speaker", 
             "end": 47.46463, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -809,7 +809,7 @@
             "start": 47.88367,
             "speaker": "Speaker", 
             "end": 54.41882, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -830,7 +830,7 @@
             "start": 55.37664,
             "speaker": "Speaker", 
             "end": 57.08277, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -844,7 +844,7 @@
             "start": 57.5517,
             "speaker": "Speaker", 
             "end": 58.33991, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -858,7 +858,7 @@
             "start": 58.72902,
             "speaker": "Speaker", 
             "end": 61.71224, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -872,7 +872,7 @@
             "start": 62.00159,
             "speaker": "Speaker", 
             "end": 64.5059, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -914,7 +914,7 @@
             "start": 65.89274,
             "speaker": "Speaker", 
             "end": 66.39161, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -970,7 +970,7 @@
             "start": 68.73628,
             "speaker": "Speaker", 
             "end": 69.07551, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -991,7 +991,7 @@
             "start": 69.5644,
             "speaker": "Speaker", 
             "end": 69.58435, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1012,7 +1012,7 @@
             "start": 70.35261,
             "speaker": "Speaker", 
             "end": 70.622, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1026,7 +1026,7 @@
             "start": 70.89138,
             "speaker": "Speaker", 
             "end": 71.66961, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1068,7 +1068,7 @@
             "start": 72.82698,
             "speaker": "Speaker", 
             "end": 73.26599, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1124,7 +1124,7 @@
             "start": 75.49093,
             "speaker": "Speaker", 
             "end": 75.85011, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1173,7 +1173,7 @@
             "start": 77.69592,
             "speaker": "Speaker", 
             "end": 78.2746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1264,7 +1264,7 @@
             "start": 81.46735,
             "speaker": "Speaker", 
             "end": 82.02608, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1285,7 +1285,7 @@
             "start": 83.00385,
             "speaker": "Speaker", 
             "end": 83.22336, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1348,7 +1348,7 @@
             "start": 85.95714,
             "speaker": "Speaker", 
             "end": 86.87506, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1383,7 +1383,7 @@
             "start": 87.77302,
             "speaker": "Speaker", 
             "end": 87.81293, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1418,7 +1418,7 @@
             "start": 88.94036,
             "speaker": "Speaker", 
             "end": 89.29955, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1509,7 +1509,7 @@
             "start": 92.30272,
             "speaker": "Speaker", 
             "end": 94.13855, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1537,7 +1537,7 @@
             "start": 95.4356,
             "speaker": "Speaker", 
             "end": 95.90454, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1607,7 +1607,7 @@
             "start": 98.92766,
             "speaker": "Speaker", 
             "end": 99.00748, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1642,7 +1642,7 @@
             "start": 100.60385,
             "speaker": "Speaker", 
             "end": 101.22245, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1768,7 +1768,7 @@
             "start": 105.87188,
             "speaker": "Speaker", 
             "end": 106.37075, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1866,7 +1866,7 @@
             "start": 109.83288,
             "speaker": "Speaker", 
             "end": 112.36712, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1894,7 +1894,7 @@
             "start": 113.76395,
             "speaker": "Speaker", 
             "end": 114.57211, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1908,7 +1908,7 @@
             "start": 115.08095,
             "speaker": "Speaker", 
             "end": 117.90454, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1922,7 +1922,7 @@
             "start": 118.17392,
             "speaker": "Speaker", 
             "end": 118.34354, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1992,7 +1992,7 @@
             "start": 120.49864,
             "speaker": "Speaker", 
             "end": 121.24694, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2006,7 +2006,7 @@
             "start": 121.63605,
             "speaker": "Speaker", 
             "end": 121.67596, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2020,7 +2020,7 @@
             "start": 122.17483,
             "speaker": "Speaker", 
             "end": 124.61927, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2048,7 +2048,7 @@
             "start": 126.04603,
             "speaker": "Speaker", 
             "end": 126.41519, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2118,7 +2118,7 @@
             "start": 129.28866,
             "speaker": "Speaker", 
             "end": 129.73764, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2181,7 +2181,7 @@
             "start": 131.93265,
             "speaker": "Speaker", 
             "end": 133.00023, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2307,7 +2307,7 @@
             "start": 137.48005,
             "speaker": "Speaker", 
             "end": 138.1585, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2342,7 +2342,7 @@
             "start": 139.28594,
             "speaker": "Speaker", 
             "end": 139.4356, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2412,7 +2412,7 @@
             "start": 141.47098,
             "speaker": "Speaker", 
             "end": 144.35442, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2440,7 +2440,7 @@
             "start": 145.62154,
             "speaker": "Speaker", 
             "end": 146.14036, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2510,7 +2510,7 @@
             "start": 148.78435,
             "speaker": "Speaker", 
             "end": 149.12358, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2573,7 +2573,7 @@
             "start": 151.47823,
             "speaker": "Speaker", 
             "end": 154.84059, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2601,7 +2601,7 @@
             "start": 156.14762,
             "speaker": "Speaker", 
             "end": 157.02562, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2671,7 +2671,7 @@
             "start": 159.86916,
             "speaker": "Speaker", 
             "end": 160.11859, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2734,7 +2734,7 @@
             "start": 162.31361,
             "speaker": "Speaker", 
             "end": 163.40113, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2881,7 +2881,7 @@
             "start": 168.49955,
             "speaker": "Speaker", 
             "end": 169.14807, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2916,7 +2916,7 @@
             "start": 170.31542,
             "speaker": "Speaker", 
             "end": 170.43515, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2972,7 +2972,7 @@
             "start": 171.80204,
             "speaker": "Speaker", 
             "end": 172.03152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2993,7 +2993,7 @@
             "start": 172.9195,
             "speaker": "Speaker", 
             "end": 176.61111, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3021,7 +3021,7 @@
             "start": 177.978,
             "speaker": "Speaker", 
             "end": 178.71633, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3084,7 +3084,7 @@
             "start": 181.01111,
             "speaker": "Speaker", 
             "end": 181.03107, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3098,7 +3098,7 @@
             "start": 181.51995,
             "speaker": "Speaker", 
             "end": 181.77937, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3168,7 +3168,7 @@
             "start": 184.26372,
             "speaker": "Speaker", 
             "end": 185.16168, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3308,7 +3308,7 @@
             "start": 190.3,
             "speaker": "Speaker", 
             "end": 191.09819, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3343,7 +3343,7 @@
             "start": 191.97619,
             "speaker": "Speaker", 
             "end": 192.70454, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3413,7 +3413,7 @@
             "start": 194.66009,
             "speaker": "Speaker", 
             "end": 194.7, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3434,7 +3434,7 @@
             "start": 195.2288,
             "speaker": "Speaker", 
             "end": 195.38844, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3455,7 +3455,7 @@
             "start": 196.29637,
             "speaker": "Speaker", 
             "end": 197.97256, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3490,7 +3490,7 @@
             "start": 199.20975,
             "speaker": "Speaker", 
             "end": 199.50907, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3560,7 +3560,7 @@
             "start": 201.6542,
             "speaker": "Speaker", 
             "end": 205.24603, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3574,7 +3574,7 @@
             "start": 205.35578,
             "speaker": "Speaker", 
             "end": 206.06417, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3588,7 +3588,7 @@
             "start": 206.41338,
             "speaker": "Speaker", 
             "end": 206.68277, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3609,7 +3609,7 @@
             "start": 209.84558,
             "speaker": "Speaker", 
             "end": 210.47415, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3623,7 +3623,7 @@
             "start": 210.70363,
             "speaker": "Speaker", 
             "end": 211.70136, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3637,7 +3637,7 @@
             "start": 212.67914,
             "speaker": "Speaker", 
             "end": 213.60703, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3700,7 +3700,7 @@
             "start": 216.60023,
             "speaker": "Speaker", 
             "end": 217.21882, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3721,7 +3721,7 @@
             "start": 217.5381,
             "speaker": "Speaker", 
             "end": 219.1644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3749,7 +3749,7 @@
             "start": 220.31179,
             "speaker": "Speaker", 
             "end": 220.39161, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3770,7 +3770,7 @@
             "start": 221.08005,
             "speaker": "Speaker", 
             "end": 221.81837, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3784,7 +3784,7 @@
             "start": 222.0678,
             "speaker": "Speaker", 
             "end": 222.17755, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3798,7 +3798,7 @@
             "start": 222.9458,
             "speaker": "Speaker", 
             "end": 223.49456, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }
     ]

@@ -129,7 +129,7 @@ def classify(audio_file):
 
     start = 0
     labels = ['sp', '{BR}']
-    words = ['{pause}', '{breath}']
+    words = ['{p}', '{br}']
     results = []
     for i in range(1, len(pred)):
         if pred[i] != pred[i - 1] or i == len(pred) - 1:

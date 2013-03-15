@@ -95,6 +95,9 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
                     <option value="teleclip">Telephone clip (Detroit)</option>
                     
                     <option value="photoshop">Studio 360 - Photoshop interview</option>
+                    <option value="obama">Barack Obama - 2nd Inauguration</option>
+                    
+                    <option value="memo">Steve voice memo</option>
                 </select>
             </div>
             
@@ -126,19 +129,51 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
         </div>
     </div>
 
-    <div class="row-fluid">
-        <div class="span8">
+    <div class="row-fluid" id="editorRow">
+        <div class="span9">
             <div class="TAManager">
 
             </div>
         </div>
-    
-        <div class="span4">
-            <h2>Original Speech</h2>
-            <div class="dupeList"></div>
+        
+        <div class="span3">
+            <div class="AddedMusic">
+
+            </div>
         </div>
+        
     </div>
 </div>
+
+</div>
+
+<div class="origSlider tabSlider">
+    <div class="origSliderHandle">Raw Speech</div>
+        <!-- <h2>Raw Speech</h2> -->
+        <div class="rawTAManager">
+            
+        </div>
+        <div class="dupeList" style="display:none"></div>
+</div>
+        
+<div class="browserSlider tabSlider">
+    <div class="browserSliderHandle">Music Browser</div>
+        <!-- <h2>Music Browser</h2> -->
+
+        <p>Donec fringilla vehicula quam, et scelerisque sapien
+        eleifend sed. Ut sit amet euismod risus. Maecenas ullamcorper
+        semper risus sed tristique. Mauris placerat gravida eros sed
+        commodo. Cum sociis natoque penatibus et magnis dis parturient
+        montes, nascetur ridiculus mus. Nulla pharetra libero et metus
+        congue pharetra ultricies massa laoreet. Sed hendrerit commodo
+        faucibus. Ut eleifend, mauris sagittis ullamcorper convallis,
+        arcu risus congue ante, sit amet ullamcorper nisi sem et ante.
+        Phasellus suscipit, urna at varius congue, purus mi aliquam
+        magna, sit amet eleifend sapien purus eu lacus. In hac
+        habitasse platea dictumst. Proin dignissim felis vitae est
+        feugiat sed mattis ligula ullamcorper. Etiam tincidunt volutpat
+        libero, id aliquam diam malesuada at. Nunc blandit purus
+        purus.</p>
 
 </div>
 
@@ -163,6 +198,9 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 <script src="script/soundmanager2-jsmin.js" type="text/javascript"></script>
 <script src="script/textinputs.jquery.js" type="text/javascript"></script>
 
+<script src="script/lib/ZeroClipboard.min.js"></script>
+
+<script src="script/jquery.tabSlideOut.js"></script>
 <script src="script/textAreaManager.js"></script>
 
 <script src="script/textareatest.js" type="text/javascript"></script>

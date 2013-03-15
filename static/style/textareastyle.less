@@ -30,25 +30,25 @@
     border-radius: @radius;
 }
 
-.contr, .TAManager {
+.contr, .TAManager, .rawTAManager {
     position: relative;
     padding: 0;
     margin: 0;
 }
 
-.TAManager table {
+.TAManager table, .rawTAManager table {
     position: relative;
     margin: 0;
     padding: 0;
 }
 
-.TAManager td {
+.TAManager td, .rawTAManager td {
     position: relative;
     padding: 0;
     margin: 0;
 }
 
-.TAManager th {
+.TAManager th, .rawTAManager th {
     color: rgb(0, 127, 255);
     font-size: 1.3em;
 }
@@ -70,7 +70,7 @@ textarea {
     vertical-align: top;
 }
 
-.TAManager textarea {
+.TAManager textarea, .rawTAManager textarea {
     width: 100%;
 }
 
@@ -205,7 +205,8 @@ textarea {
 }
 
 .dupeList {
-    overflow: auto;
+    overflow-x: none;
+    overflow-y: scroll;
 }
 
 .spinner {
@@ -223,3 +224,16 @@ textarea {
     border: 1px solid #666;
     cursor: move;
 }
+
+// sliding tabs
+.origSlider, .browserSlider {
+     padding: 5px;
+     width: 90%;
+     background-color: white;
+     border: 1px solid #29216d;
+ }
+ 
+ // zeroclipboard
+ .copyButton {
+     cursor: pointer;
+ }

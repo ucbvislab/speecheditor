@@ -188,9 +188,21 @@ TAAPP.createSound = function (data) {
 };
 
 TAAPP.adjustHeight = function () {
-    var eltHeight = window.innerHeight - $('.dupeList').offset().top - 50;
-    $('.dupeList').height(eltHeight);
+    var eltHeight = window.innerHeight - $('#editorRow').offset().top - 50;
+    // var eltHeight = window.innerHeight - $('.dupeList').offset().top - 50;
+
+    // $('.dupeList').height(eltHeight - 70 + "px");
+    // $('.rawTAManager').height(eltHeight - 70 + "px");
+    
     TAAPP.TAManager.adjustHeight();
+    
+    if (TAAPP.hasOwnProperty("sliders")) {
+        TAAPP.sliders.each(function () {
+           $(this).tabSlideOut("refresh");
+        });
+    }
+    
+    TAAPP.RawTAManager.adjustHeight();
 };
 
 // TODO: fix this in wake of new timing data
@@ -302,6 +314,7 @@ TAAPP.loadOriginal = function () {
                 wf: [{ elt: wf, track: 0, pos: 0.0 }]
             });
             
+            console.log("calling adjust height after timeline creation");
             TAAPP.adjustHeight();
         },
         autoPlay: false
@@ -338,6 +351,9 @@ TAAPP.reset = function () {
     // reset TextAreaManager
     $(".TAManager").html("");
     TAAPP.TAManager = undefined;
+    
+    $(".rawTAManager").html("");
+    TAAPP.RawTAManager = undefined;
     
 
     $('.dupeList').html("");
@@ -382,8 +398,14 @@ TAAPP.updateDupes = function () {
         success: function (data) {
             TAAPP.dupes = data;
             TAAPP._preprocessDupes();
-            TAAPP.drawScript();
+            
+            // TAAPP.drawScript();
+            
+            TAAPP.RawTAManager = new TextAreaManager($(".rawTAManager"),
+                TAAPP.speakers, TAAPP.words, TAAPP.current, true);
+            
             TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
+            TAAPP.RawTAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
         }
     });
 };
@@ -473,13 +495,11 @@ TAAPP.drawScript = function () {
                 });
             });
             $(insert).click(function () {
-                var insertIdx = $(sel).val(),
-                    indices = elt[insertIdx][0],
-                    taSel = TAAPP.ta.getSelection();
-                TAAPP.insertWords(
-                    _.range(indices[0], indices[1] + 1),
-                    taSel.start
-                );
+                var insertIdx = $(sel).val();
+                var indices = elt[insertIdx][0];
+                TAAPP.TAManager.insertWords(
+                    _.range(indices[0], indices[1] + 1)
+                ); 
             });
             $(sel).append(opts)
                 .prop("name", 'dupe' + idx)
@@ -621,6 +641,42 @@ TAAPP.loadSite = function () {
     $(window).resize(function () {    
         TAAPP.adjustHeight();
         TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
+    });
+    
+    var outerBox = $('#editorRow');
+
+    TAAPP.sliders = $('.tabSlider');
+
+    $('.origSlider').tabSlideOut({
+        tabHandle: '.origSliderHandle',
+        tabLocation: 'right',
+        speed: 300,
+        action: 'click',
+        topPos: '0px',
+        leftPos: '20px',
+        pathToTabImage: 'img/origSlider.png',
+        imageHeight: '200px',
+        imageWidth: '20px',
+        height: function () {
+            return $('#editorRow').height();
+        },
+        topReferenceElement: $("#editorRow")
+    });
+
+    $('.browserSlider').tabSlideOut({
+        tabHandle: '.browserSliderHandle',
+        tabLocation: 'right',
+        speed: 300,
+        action: 'click',
+        topPos: '220px',
+        leftPos: '20px',
+        pathToTabImage: 'img/musicBrowserSlider.png',
+        imageHeight: '200px',
+        imageWidth: '20px',
+        topReferenceElement: $("#editorRow"),
+        height: function (o) {
+            return $('#editorRow').height();
+        }
     });
 
 };

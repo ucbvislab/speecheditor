@@ -1,17 +1,19 @@
 (function() {
   var $, ScriptArea, TextAreaManager,
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __slice = [].slice;
 
   $ = jQuery;
 
   ScriptArea = (function() {
 
-    function ScriptArea(tam, name, speaker) {
+    function ScriptArea(tam, name, speaker, locked) {
       var containers,
         _this = this;
       this.tam = tam;
       this.name = name;
       this.speaker = speaker;
+      this.locked = locked;
       this.el = $("<div>\n<div class=\"emContainerTAM\">\n    <div class=\"emphasisTAM\"></div>\n</div>\n<div class=\"hlContainerTAM\">\n    <div class=\"highlightsTAM\"></div>\n</div>\n<div class=\"taContainerTAM\">\n    <textarea class=\"txtAreaTAM\" name=\"area" + name + "\"></textarea>\n</div>\n<div class=\"overlayContainerTAM\">\n    <div class=\"overlaysTAM\"></div>\n</div>\n</div>");
       this.hlContainer = this.el.find('.hlContainerTAM');
       this.highlights = this.el.find('.highlightsTAM');
@@ -33,7 +35,11 @@
         return false;
         return _this.tam.processCut(_this);
       }).bind('paste', function(e) {
-        return _this.tam.processPaste(_this, _this.area.val());
+        if (_this.locked) {
+          return e.preventDefault();
+        } else {
+          return _this.tam.processPaste(_this, _this.area.val());
+        }
       }).keypress(function(e) {
         var _this = this;
         if (e.which(function() {
@@ -45,11 +51,15 @@
         switch (e.which) {
           case 8:
             e.preventDefault();
-            _this.tam.processDelete(_this, "backward");
+            if (!_this.locked) {
+              _this.tam.processDelete(_this, "backward");
+            }
             return false;
           case 46:
             e.preventDefault();
-            _this.tam.processDelete(_this, "forward");
+            if (!_this.locked) {
+              _this.tam.processDelete(_this, "forward");
+            }
             return false;
           case 37:
           case 38:
@@ -60,9 +70,15 @@
             }
             break;
           case 13:
-            return "reauthor";
+            "reauthor";
+            return e.preventDefault();
           case 90:
             return false;
+          case 190:
+            e.preventDefault();
+            if (!_this.locked) {
+              return _this.addPeriod();
+            }
         }
       }).bind('mouseup', function() {
         _this.tam.lastFocused = _this;
@@ -70,17 +86,39 @@
       });
     }
 
+    ScriptArea.prototype._renderWord = function(word, isTextArea, wrapLeft, wrapRight) {
+      var ending, _ref;
+      if (wrapLeft == null) {
+        wrapLeft = "";
+      }
+      if (wrapRight == null) {
+        wrapRight = "";
+      }
+      ending = ['.', '?', '!'];
+      if (_ref = word.word[word.word.length - 1], __indexOf.call(ending, _ref) >= 0) {
+        if (isTextArea) {
+          return "" + wrapLeft + word.word + wrapRight + "\n";
+        }
+        return "" + wrapLeft + word.word + wrapRight + "<br />";
+      }
+      return "" + wrapLeft + word.word + wrapRight + " ";
+    };
+
     ScriptArea.prototype.updateWords = function(words) {
-      var content,
+      var content, rw,
         _this = this;
-      this.words = words;
-      content = _.reduce(words, (function(memo, word) {
+      if (words) {
+        this.words = words;
+      }
+      rw = this._renderWord;
+      content = _.reduce(this.words, (function(memo, word) {
         if (word.alignedWord === "UH" || word.alignedWord === "UM") {
           word.emph = true;
         }
-        return memo + word.word + ' ';
+        return "" + memo + (rw(word, true));
       }), "");
       this.val(content);
+      this.tam.dirtyTas.push(this);
       this.refresh();
       if (this.words.length === 0 && this.tam.tas.length !== 1) {
         return _.defer(function() {
@@ -110,7 +148,7 @@
     };
 
     ScriptArea.prototype.snapSelectionToWord = function() {
-      var doneEnd, doneStart, oldLen, sel, text, _results;
+      var doneEnd, doneStart, oldLen, sel, spaces, text, _ref, _ref1, _ref2, _ref3, _results;
       sel = this.area.getSelection();
       doneEnd = false;
       doneStart = false;
@@ -121,8 +159,9 @@
         this.area.collapseSelection();
       }
       text = this.area.val();
+      spaces = [" ", "\n"];
       if (sel.length > 0) {
-        while (text.charAt(sel.start) === " ") {
+        while (_ref = text.charAt(sel.start), __indexOf.call(spaces, _ref) >= 0) {
           doneStart = true;
           if (sel.start + 1 < sel.end) {
             this.area.setSelection(sel.start + 1, sel.end);
@@ -131,12 +170,12 @@
             break;
           }
         }
-        while (text.charAt(sel.start - 1) !== " " && text.charAt(sel.start - 1) !== "" && oldLen !== sel.length && !doneStart) {
+        while ((_ref1 = text.charAt(sel.start - 1), __indexOf.call(spaces, _ref1) < 0) && text.charAt(sel.start - 1) !== "" && oldLen !== sel.length && !doneStart) {
           oldLen = sel.length;
           this.area.setSelection(sel.start - 1, sel.end);
           sel = this.area.getSelection();
         }
-        while (text.charAt(sel.end - 1) === ' ') {
+        while (_ref2 = text.charAt(sel.end - 1), __indexOf.call(spaces, _ref2) >= 0) {
           doneEnd = true;
           if (sel.start < sel.end - 1) {
             this.area.setSelection(sel.start, sel.end - 1);
@@ -146,7 +185,7 @@
           }
         }
         _results = [];
-        while (text.charAt(sel.end) !== ' ' && text.charAt(sel.end) !== '' && oldLen !== sel.length && !doneEnd) {
+        while ((_ref3 = text.charAt(sel.end), __indexOf.call(spaces, _ref3) < 0) && text.charAt(sel.end) !== '' && oldLen !== sel.length && !doneEnd) {
           oldLen = sel.length;
           this.area.setSelection(sel.start, sel.end + 1);
           _results.push(sel = this.area.getSelection());
@@ -156,18 +195,19 @@
     };
 
     ScriptArea.prototype.selectWord = function(direction) {
-      var other, start, text;
+      var other, spaces, start, text, _ref, _ref1;
       start = this.area.getSelection().start;
       text = this.area.val();
+      spaces = [" ", "\n"];
       if (direction === "backward") {
         other = start - 1;
-        while (text.charAt(other) === ' ' && text.charAt(other) !== '') {
+        while ((_ref = text.charAt(other), __indexOf.call(spaces, _ref) >= 0) && text.charAt(other) !== '') {
           other -= 1;
         }
         this.area.setSelection(other, start);
       } else if (direction === "forward") {
         other = start + 2;
-        while (text.charAt(other) === ' ' && text.charAt(other) !== '') {
+        while ((_ref1 = text.charAt(other), __indexOf.call(spaces, _ref1) >= 0) && text.charAt(other) !== '') {
           other += 1;
         }
         this.area.setSelection(start, other);
@@ -205,48 +245,80 @@
       });
     };
 
+    ScriptArea.prototype.addPeriod = function() {
+      var addInds, breath, breathInds, i, range, sel;
+      console.log("Adding a period");
+      sel = this.area.getSelection();
+      range = this.range(sel.end);
+      if (range[1] === 0) {
+        return;
+      }
+      i = range[1] - 1;
+      console.log("adding period to word", this.words[i]);
+      this.words[i].word += '.';
+      breathInds = this.tam.breathInds[this.speaker];
+      breath = breathInds[Math.floor(Math.random() * breathInds.length)];
+      addInds = [breath];
+      if (this.tam.words[breath - 1].alignedWord === "sp") {
+        addInds = [breath - 1, breath];
+      }
+      if (this.tam.words[breath + 1].alignedWord === "sp") {
+        addInds.push(breath + 1);
+      }
+      return this.tam.insertWords(addInds, range.end, this);
+    };
+
     ScriptArea.prototype.highlightWords = function(start, end) {
-      var hlHTML;
+      var hlHTML, rw;
+      rw = this._renderWord;
       hlHTML = _.reduce(this.words, (function(memo, word, idx) {
+        var wrapLeft, wrapRight;
+        wrapLeft = "";
+        wrapRight = "";
         if (idx === start && (idx === end - 1 || (end == null))) {
-          return "" + memo + "<span class='hl'>" + word.word + "</span> ";
+          wrapLeft = "<span class='hl'>";
+          wrapRight = "</span>";
+        } else if (idx === start) {
+          wrapLeft = "<span class='hl'>";
+        } else if (idx === end - 1) {
+          wrapRight = "</span>";
         }
-        if (idx === start) {
-          return "" + memo + "<span class='hl'>" + word.word + " ";
-        }
-        if (idx === end - 1) {
-          return "" + memo + word.word + "</span> ";
-        }
-        return "" + memo + word.word + " ";
+        return "" + memo + (rw(word, false, wrapLeft, wrapRight));
       }), "");
       return this.highlights.html(hlHTML);
     };
 
     ScriptArea.prototype.emphasizeWords = function() {
-      var ctx, emphHTML;
+      var ctx, emphHTML, rw;
       ctx = [-1];
+      rw = this._renderWord;
       emphHTML = _.reduce(this.words, (function(memo, word, idx) {
-        var out;
-        out = word.word;
+        var wrapLeft, wrapRight;
+        wrapLeft = "";
+        wrapRight = "";
         if ((word.origPos != null) && word.origPos - 1 !== this[0]) {
-          out = "<span class='editLocation'>" + out + "</span>";
+          wrapLeft += "<span class='editLocation'>";
+          wrapRight += "</span>";
         }
         if ((word.emph != null) && word.emph) {
-          out = "<span class='emph'>" + out + "</span>";
+          wrapLeft += "<span class='emph'>";
+          wrapRight += "</span>";
         }
         if (word.alignedWord === "sp") {
-          out = "<span class='pause'>" + out + "</span>";
+          wrapLeft += "<span class='pause'>";
+          wrapRight += "</span>";
         } else if (word.alignedWord === "{BR}") {
-          out = "<span class='breath'>" + out + "</span>";
+          wrapLeft += "<span class='breath'>";
+          wrapRight += "</span>";
         }
         this[0] = word.origPos;
-        return "" + memo + out + " ";
+        return "" + memo + (rw(word, false, wrapLeft, wrapRight));
       }), "", ctx);
       return this.emphasis.html(emphHTML);
     };
 
     ScriptArea.prototype.insertDupeOverlays = function(dupes, dupeInfo) {
-      var box, boxHTML, context, dupeDropdownTemplate, dupeOrder, dupeStarts, dupeStartsFirsts, offset, self, taWidth;
+      var box, boxHTML, context, dupeDropdownWrapLeft, dupeDropdownWrapRight, dupeOrder, dupeStarts, dupeStartsFirsts, locked, offset, rw, self, taWidth;
       box = this.overlays;
       context = {
         dupeOrder: [],
@@ -256,10 +328,15 @@
       dupeStartsFirsts = dupeInfo.firsts;
       dupeStarts = dupeInfo.starts;
       offset = this.tam.taIndexSpan[this.tam.tas.indexOf(this)];
-      dupeDropdownTemplate = "<span class=\"dropdown overlay\">\n    <span class=\"dropdown-toggle\">\n        <%= word %>\n    </span>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">\n        <li class=\"disabled\"><a>Similar sentences</a></li>\n        <% _.each(dupes[dupeIdx], function (elt) { %>\n            <li><a href=\"javascript:void(0)\" \n                   class=\"dupeOpt\"\n                   tabindex=\"-1\">\n                   <i class=\"icon-play dupePlayButton\"></i><%= elt[1] %>\n                </a>\n            </li>\n        <% }) %>\n    </ul>\n</span>";
+      dupeDropdownWrapLeft = "<span class=\"dropdown overlay\">\n    <span class=\"dropdown-toggle\">";
+      dupeDropdownWrapRight = "    </span>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">\n        <li class=\"disabled\"><a><%= header %></a></li>\n        <% _.each(dupes[dupeIdx], function (elt) { %>\n            <li><a href=\"javascript:void(0)\" \n                   class=\"dupeOpt\"\n                   tabindex=\"-1\">\n                   <i class=\"icon-play dupePlayButton\"></i>\n                   <span class=\"copyButton\"><%= elt[1] %></span>\n                </a>\n            </li>\n        <% }) %>\n    </ul>\n</span>";
+      rw = this._renderWord;
+      locked = this.locked;
       boxHTML = _.reduce(this.words, (function(memo, word, idx, words) {
-        var allIdx, d, dupeIdx, out, sentenceEnd;
+        var allIdx, d, dupeIdx, header, sentenceEnd, wrapLeft, wrapRight;
         dupeIdx = dupeStartsFirsts.indexOf(word.origPos);
+        wrapLeft = "";
+        wrapRight = "";
         if (dupeIdx !== -1) {
           sentenceEnd = idx;
           d = dupeStarts[dupeIdx];
@@ -269,24 +346,31 @@
           }
           this.dupeOrder.push(allIdx);
           this.bounds.push([idx, sentenceEnd - 1]);
-          return memo + _.template(dupeDropdownTemplate, {
-            word: word.word,
+          wrapLeft = dupeDropdownWrapLeft;
+          header = locked ? "Similar sentences (click to copy)" : "Similar sentences";
+          wrapRight = _.template(dupeDropdownWrapRight, {
+            header: header,
             dupeIdx: allIdx,
             dupes: dupes
-          }) + ' ';
+          });
         }
-        out = word.word;
         if (word.alignedWord === "sp") {
-          out = "<span class='pauseOverlay'>" + out + "</span>";
+          wrapLeft += "<span class='pauseOverlay'>";
+          wrapRight += "</span>";
         }
         if (word.alignedWord === "{BR}") {
-          out = "<span class='breathOverlay'>" + out + "</span>";
+          wrapLeft += "<span class='breathOverlay'>";
+          wrapRight += "</span>";
         }
-        return "" + memo + out + " ";
+        return "" + memo + (rw(word, false, wrapLeft, wrapRight));
       }), "", context);
       box.html(boxHTML);
       self = this;
       taWidth = this.area.width();
+      this.area.unbind('.tam').bind('click.tam', function() {
+        console.log("clicked on the box");
+        return $('.dropdown.open').removeClass('open');
+      });
       return box.find('.dropdown-toggle').each(function(i) {
         var dupe, eltPos, end, pos, start;
         pos = $(this).offset();
@@ -295,24 +379,33 @@
         start = context.bounds[i][0];
         end = context.bounds[i][1];
         return $(this).click(function() {
+          console.log("start", start, "end", end);
           return self.area.setSelection(self.words[start].taPos, self.words[end].taPos + self.words[end].word.length);
         }).next('.dropdown-menu').css({
           left: "" + (-pos.left + eltPos.left + 10) + "px",
           width: "" + (taWidth - 20) + "px"
         }).find('a.dupeOpt').each(function(j) {
-          return $(this).click(function(event) {
-            var newPos;
-            newPos = self.replaceWords(start, end, dupe[j][0][0], dupe[j][0][1]);
-            self.area.setSelection(newPos[0], newPos[1]);
-            return false;
-          }).find('.dupePlayButton').click(function(event) {
-            start = self.tam.words[dupe[j][0][0]].start;
-            end = self.tam.words[dupe[j][0][1]].end;
+          if (locked) {
+            "zero clipboard is obnoxious for now";
+          } else {
+            $(this).click(function(event) {
+              var newPos;
+              newPos = self.replaceWords(start, end, dupe[j][0][0], dupe[j][0][1]);
+              self.area.setSelection(newPos[0], newPos[1]);
+              return false;
+            });
+          }
+          return $(this).find('.dupePlayButton').click(function(event) {
+            var audioend, audiostart;
+            audiostart = self.tam.words[dupe[j][0][0]].start;
+            audioend = self.tam.words[dupe[j][0][1]].end;
             TAAPP.origSound.play({
-              from: start * 1000.0,
-              to: end * 1000.0,
+              from: audiostart * 1000.0,
+              to: audioend * 1000.0,
               onstop: function() {
-                return self.area.focus();
+                if ($(this).closest('.dropdown').hasClass('open')) {
+                  return self.area.focus();
+                }
               }
             });
             return event.stopPropagation();
@@ -331,13 +424,17 @@
 
   TextAreaManager = (function() {
 
-    function TextAreaManager(el, speakers, words, current) {
-      var tr,
+    function TextAreaManager(el, speakers, words, current, locked) {
+      var speaker, tr, _i, _len, _ref, _ref1,
         _this = this;
       this.el = el;
       this.speakers = speakers;
       this.words = words;
       this.current = current;
+      this.locked = locked;
+      if ((_ref = this.locked) == null) {
+        this.locked = false;
+      }
       this.headerTable = $(document.createElement('table')).attr("width", "100%").appendTo(this.el);
       this.container = $(document.createElement('div')).css({
         "overflow-x": "hidden",
@@ -353,7 +450,33 @@
       this.tas = [];
       this.taIndexSpan = [];
       this.areas = [];
+      this.dirtyTas = [];
       this.draw();
+      this.breathInds = {};
+      _ref1 = this.speakers;
+      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+        speaker = _ref1[_i];
+        this.breathInds[speaker] = [];
+      }
+      _.each(this.words, function(word, i, cur) {
+        var j;
+        if (word.alignedWord === "{BR}") {
+          j = i;
+          while (j < _this.words.length) {
+            if (!("speaker" in _this.words[j])) {
+              j++;
+            } else {
+              break;
+            }
+          }
+          if (j === _this.words.length) {
+            return;
+          }
+          if ("speaker" in _this.words[j]) {
+            return _this.breathInds[_this.words[j].speaker].push(i);
+          }
+        }
+      });
     }
 
     TextAreaManager.prototype._tr = function(prev) {
@@ -375,7 +498,7 @@
 
     TextAreaManager.prototype._newScriptArea = function(name, speaker, index) {
       var ta;
-      ta = new ScriptArea(this, name, speaker);
+      ta = new ScriptArea(this, name, speaker, this.locked);
       if (index != null) {
         this.tas.splice(index, 0, ta);
         this.areas.splice(index, 0, ta.area);
@@ -387,10 +510,17 @@
     };
 
     TextAreaManager.prototype.refresh = function() {
+      this.dirtyTas = _.uniq(this.dirtyTas);
       this.updatePos();
       this.adjustHeight();
       this.emphasizeWords();
-      return this.insertDupeOverlays(this.dupes, this.dupeInfo);
+      this.insertDupeOverlays(this.dupes, this.dupeInfo);
+      if (TAAPP.currentWaveform != null) {
+        $(TAAPP.currentWaveform).textAlignedWaveform({
+          currentWords: this.current
+        });
+      }
+      return this.dirtyTas = [];
     };
 
     TextAreaManager.prototype.adjustHeight = function() {
@@ -400,11 +530,12 @@
         ta = _ref[_i];
         ta.adjustHeight();
       }
-      for (i = _j = 0, _ref1 = this.tas.length - 1; 0 <= _ref1 ? _j <= _ref1 : _j >= _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
+      for (i = _j = 0, _ref1 = this.tas.length; 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
         this.table.find('tr').eq(i).height(this.tas[i].height());
       }
-      console.log("innerheight", window.innerHeight, "offset", this.el.offset().top);
+      console.log("container height", window.innerHeight - this.el.offset().top - 50);
       this.container.height(window.innerHeight - this.el.offset().top - 50);
+      console.log("el height", window.innerHeight - this.el.offset().top - 50);
       return this.el.height(window.innerHeight - this.el.offset().top - 50);
     };
 
@@ -434,7 +565,7 @@
         if (i === _this.taIndexSpan.length - 1) {
           words = _this.current.slice(start);
         } else {
-          words = _this.current.slice(start, +(_this.taIndexSpan[i + 1] - 1) + 1 || 9e9);
+          words = _this.current.slice(start, _this.taIndexSpan[i + 1]);
         }
         return _this.tas[i].updateWords(words);
       });
@@ -446,11 +577,11 @@
       var match;
       match = [];
       _.each(ta.words, function(word, idx) {
-        console.log(word.word, word.taPos);
         if (word.taPos >= start && word.taPos < end) {
           return match.push(idx);
         }
       });
+      console.log("prune by TA", match[0], _.last(match));
       return this.pruneCurrent(match[0], _.last(match) + 1, ta);
     };
 
@@ -460,7 +591,6 @@
       offset = this.taIndexSpan[taIndex];
       this.current.splice(start + offset, end - start);
       console.log("offset", offset, "start", start, "end", end);
-      console.log("current", this.current);
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         txtarea = _ref[i];
@@ -471,7 +601,8 @@
       if (taIndex === this.tas.length - 1) {
         ta.updateWords(this.current.slice(this.taIndexSpan[taIndex]));
       } else {
-        ta.updateWords(this.current.slice(this.taIndexSpan[taIndex], +(this.taIndexSpan[taIndex + 1] - 1) + 1 || 9e9));
+        console.log("Prune current, updating ta with words", this.taIndexSpan[taIndex], this.taIndexSpan[taIndex + 1] - 1);
+        ta.updateWords(this.current.slice(this.taIndexSpan[taIndex], this.taIndexSpan[taIndex + 1]));
       }
       return this.refresh();
     };
@@ -528,18 +659,15 @@
     };
 
     TextAreaManager.prototype.updatePos = function() {
-      var ta, _i, _len, _ref;
+      var ta, _i, _len, _ref, _results;
       this.highlightWords(-1);
-      _ref = this.tas;
+      _ref = this.dirtyTas;
+      _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
-        ta.updatePos();
+        _results.push(ta.updatePos());
       }
-      if (TAAPP.currentWaveform != null) {
-        return $(TAAPP.currentWaveform).textAlignedWaveform({
-          currentWords: this.current
-        });
-      }
+      return _results;
     };
 
     TextAreaManager.prototype.clean = function(ta) {
@@ -570,7 +698,7 @@
           col = this.speakers.indexOf(speakers[1]);
           tr = this._tr(this.table.find('tr').eq(tai));
           tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1]));
-          ta.updateWords(ta.words.slice(0, +(segments[1] - 1) + 1 || 9e9));
+          ta.updateWords(ta.words.slice(0, segments[1]));
           this.tas[this.tas.length - 1].updateWords(words);
           this.taIndexSpan.push(offset + ta.words.length);
           this.tas[this.tas.length - 1].area.setSelection(0, 0);
@@ -579,7 +707,7 @@
           console.log("Inserting in next row");
           console.log(this.tas, tai);
           nextTa = this.tas[tai + 1];
-          ta.updateWords(ta.words.slice(0, +(segments[1] - 1) + 1 || 9e9));
+          ta.updateWords(ta.words.slice(0, segments[1]));
           nextTa.updateWords(words.concat(nextTa.words));
           this.taIndexSpan[tai + 1] -= words.length;
           nextTa.area.setSelection(0, 0);
@@ -591,7 +719,7 @@
         return;
       }
       if (pattern.length === 2 && pattern[1]) {
-        words = ta.words.slice(0, +(segments[1] - 1) + 1 || 9e9);
+        words = ta.words.slice(0, segments[1]);
         if (tai === 0) {
           console.log("New row (wrong right)");
           col = this.speakers.indexOf(speakers[0]);
@@ -620,8 +748,8 @@
         col = this.speakers.indexOf(speakers[2]);
         tr = this._tr(this.table.find('tr').eq(tai + 1));
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[2], tai + 2));
-        ta.updateWords(words.slice(0, +(segments[1] - 1) + 1 || 9e9));
-        this.tas[tai + 1].updateWords(words.slice(segments[1], +(segments[2] - 1) + 1 || 9e9));
+        ta.updateWords(words.slice(0, segments[1]));
+        this.tas[tai + 1].updateWords(words.slice(segments[1], segments[2]));
         this.tas[tai + 2].updateWords(words.slice(segments[2]));
         this.taIndexSpan.splice(tai + 1, 0, this.taIndexSpan[tai] + ta.words.length, this.taIndexSpan[tai] + ta.words.length + this.tas[tai + 1].words.length);
         this.refresh();
@@ -630,7 +758,7 @@
     };
 
     TextAreaManager.prototype.processDelete = function(ta, direction) {
-      var end, sel, text;
+      var end, sel, spaces, text, _ref;
       if (window.TAAPP.sound) {
         window.TAAPP.sound.stop();
       }
@@ -642,7 +770,8 @@
       sel = ta.area.getSelection();
       end = sel.end;
       text = ta.area.val();
-      while (text.charAt(end) === ' ') {
+      spaces = [" ", "\n"];
+      while (_ref = text.charAt(end), __indexOf.call(spaces, _ref) >= 0) {
         end += 1;
       }
       console.log("calling prune by ta pos with start", sel.start, "end", end);
@@ -652,7 +781,7 @@
     };
 
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {
-      var args, ctx, i, loc, offset, taIndex, word, words, _i, _j, _len, _ref, _ref1;
+      var args, ctx, i, loc, newEnd, offset, taIndex, word, words, _i, _j, _len, _ref, _ref1;
       if (ta == null) {
         ta = this.lastFocused;
       }
@@ -697,7 +826,7 @@
       }), ctx);
       args = [loc + offset, 0].concat(words);
       Array.prototype.splice.apply(this.current, args);
-      for (i = _j = 0, _ref1 = this.tas.length - 1; 0 <= _ref1 ? _j <= _ref1 : _j >= _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
+      for (i = _j = 0, _ref1 = this.tas.length; 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
         if (i > taIndex) {
           this.taIndexSpan[i] += words.length;
         }
@@ -705,22 +834,25 @@
       if (taIndex === this.tas.length - 1) {
         ta.updateWords(this.current.slice(this.taIndexSpan[taIndex]));
       } else {
-        ta.updateWords(this.current.slice(this.taIndexSpan[taIndex], +(this.taIndexSpan[taIndex + 1] - 1) + 1 || 9e9));
+        ta.updateWords(this.current.slice(this.taIndexSpan[taIndex], this.taIndexSpan[taIndex + 1]));
       }
       this.clean(ta);
-      return this.refresh();
+      this.refresh();
+      newEnd = ctx.last.taPos + ctx.last.word.length;
+      return ta.area.setSelection(newEnd, newEnd);
     };
 
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
       return _.defer(function() {
-        var b, bRes, parse_paste, pastedWords, result, sel;
+        var b, bRes, parse_paste, pastedWords, result, sel, spaces, _ref, _ref1;
         parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g;
         bRes = false;
         pastedWords = [];
         b = ta.area.val();
         sel = ta.area.getSelection();
-        if (a.length - b.length + sel.start !== 0 && a.charAt(a.length - b.length + sel.start) !== ' ' && a.charAt(a.length - b.length + sel.start - 1) !== ' ') {
+        spaces = [" ", "\n"];
+        if (a.length - b.length + sel.start !== 0 && (_ref = a.charAt(a.length - b.length + sel.start), __indexOf.call(spaces, _ref) < 0) && (_ref1 = a.charAt(a.length - b.length + sel.start - 1), __indexOf.call(spaces, _ref1) < 0)) {
           ta.area.val(a);
           _this.refresh();
           return;
@@ -741,6 +873,35 @@
         ta.area.val(a);
         return _this.refresh();
       });
+    };
+
+    TextAreaManager.prototype.generateCopyTextFromIndices = function(indices) {
+      var i, mod, wrds,
+        _this = this;
+      wrds = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = indices.length; _i < _len; _i++) {
+          i = indices[_i];
+          _results.push(this.current[i]);
+        }
+        return _results;
+      }).call(this);
+      mod = _.reduce(wrds, (function(memo, wrd) {
+        var j, w, _i, _len, _ref;
+        if (wrd.alignedWord === "gp") {
+          return memo + '[gp]' + wrd.word + '|';
+        }
+        _ref = _this.words;
+        for (j = _i = 0, _len = _ref.length; _i < _len; j = ++_i) {
+          w = _ref[j];
+          if (w.start === wrd.start && w.end === wrd.end) {
+            break;
+          }
+        }
+        return "" + memo + "[" + j + "]" + wrd.word + "|";
+      }), "");
+      return mod;
     };
 
     TextAreaManager.prototype.processCopy = function(ta) {
@@ -794,7 +955,7 @@
         }
         return "" + memo + "[" + j + "]" + wrd.word + "|";
       }), "");
-      newOut = newOut.slice(0, +(sel.start - 1) + 1 || 9e9) + mod + newOut.slice(sel.end + 1);
+      newOut = newOut.slice(0, sel.start) + mod + newOut.slice(sel.end + 1);
       return ta.area.val(newOut).setSelection(sel.start, sel.start + mod.length);
     };
 

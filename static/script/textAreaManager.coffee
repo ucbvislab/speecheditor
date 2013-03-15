@@ -3,7 +3,7 @@
 $ = jQuery
 
 class ScriptArea
-    constructor: (@tam, @name, @speaker) ->
+    constructor: (@tam, @name, @speaker, @locked) ->
         @el= $("""
         <div>
         <div class="emContainerTAM">
@@ -43,41 +43,75 @@ class ScriptArea
                 @tam.processCut(@)
             )
             .bind('paste', (e) =>
-                @tam.processPaste(@, @area.val())
+                if @locked
+                    e.preventDefault()
+                else
+                    @tam.processPaste(@, @area.val())
             )
             .keypress((e) -> e.preventDefault if e.which => 0x20)
             .keydown((e) =>
                 switch e.which
                     when 8
+                        # delete
                         e.preventDefault()
-                        @tam.processDelete(@, "backward")
+                        if not @locked
+                            @tam.processDelete(@, "backward")
                         return false
                     when 46
+                        # fwd delete
                         e.preventDefault()
-                        @tam.processDelete(@, "forward")
+                        if not @locked
+                            @tam.processDelete(@, "forward")
                         return false
                     when 37, 38, 39, 40
+                        # arrow keys
                         if e.shiftKey
                             _.defer @snapSelectionToWord
-                    when 13 then "reauthor"
+                    when 13
+                        # enter
+                        "reauthor"
+                        e.preventDefault()
                     when 90
+                        # z
                         # prevent undo for now...
-                        return false                    
+                        return false
+                    when 190
+                        e.preventDefault()
+                        if not @locked
+                            @addPeriod()
                 )
             .bind('mouseup', => 
                 @tam.lastFocused = @
                 @snapSelectionToWord()
             )
+            
+    _renderWord: (word, isTextArea, wrapLeft, wrapRight) ->
+        wrapLeft ?= ""
+        wrapRight ?= ""
+        
+        ending = ['.', '?', '!']
+        if word.word[word.word.length - 1] in ending
+            if isTextArea
+                return "#{wrapLeft}#{word.word}#{wrapRight}\n"
+            return "#{wrapLeft}#{word.word}#{wrapRight}<br />"
+        
+        "#{wrapLeft}#{word.word}#{wrapRight} "
 
     updateWords: (words) ->
-        @words = words
+        if words
+            @words = words
 
-        content = _.reduce words, ((memo, word) ->
+        rw = @_renderWord
+
+        content = _.reduce @words, ((memo, word) ->
             if word.alignedWord is "UH"\
             or word.alignedWord is "UM"
                 word.emph = true
-            return memo + word.word + ' '), ""
+            return "#{memo}#{rw(word, true)}"), ""
         @val(content)
+        
+        @tam.dirtyTas.push(@)
+        
         @refresh()
 
         if @words.length is 0 and @tam.tas.length isnt 1
@@ -109,10 +143,12 @@ class ScriptArea
             @area.collapseSelection()
 
         text = @area.val()
+        
+        spaces = [" ", "\n"]
 
         if sel.length > 0
             # move start right
-            while text.charAt(sel.start) is " "
+            while text.charAt(sel.start) in spaces
                 doneStart = true
                 if sel.start + 1 < sel.end
                     @area.setSelection(sel.start + 1, sel.end)
@@ -121,7 +157,7 @@ class ScriptArea
                     break
 
             # move start left
-            while text.charAt(sel.start - 1) isnt " "\
+            while text.charAt(sel.start - 1) not in spaces\
             and text.charAt(sel.start - 1) isnt ""\
             and oldLen isnt sel.length\
             and not doneStart
@@ -130,7 +166,7 @@ class ScriptArea
                 sel = @area.getSelection()
 
             # move end left
-            while text.charAt(sel.end - 1) is ' '
+            while text.charAt(sel.end - 1) in spaces
                 doneEnd = true
                 if sel.start < sel.end - 1
                     @area.setSelection sel.start, sel.end - 1
@@ -139,7 +175,7 @@ class ScriptArea
                     break
 
             # move end right
-            while text.charAt(sel.end) isnt ' '\
+            while text.charAt(sel.end) not in spaces\
             and text.charAt(sel.end) isnt ''\
             and oldLen isnt sel.length\
             and not doneEnd
@@ -150,16 +186,17 @@ class ScriptArea
     selectWord: (direction) ->
         start = @area.getSelection().start
         text = @area.val()
+        spaces = [" ", "\n"]
         if direction is "backward"
             other = start - 1
-            while text.charAt(other) is ' '\
+            while text.charAt(other) in spaces\
             and text.charAt(other) isnt ''
                 other -= 1
             @area.setSelection other, start
 
         else if direction is "forward"
             other = start + 2
-            while text.charAt(other) is ' '\
+            while text.charAt(other) in spaces\
             and text.charAt(other) isnt ''
                 other += 1
             @area.setSelection start, other
@@ -186,33 +223,71 @@ class ScriptArea
         return _.filter @words, (word) ->
             word.taPos >= start and word.taPos < end
     
-    highlightWords: (start, end) ->    
+    addPeriod: ->
+        console.log("Adding a period")
+        sel = @area.getSelection()
+        range = @range(sel.end)
+        if range[1] is 0
+            return
+        i = range[1] - 1
+        console.log("adding period to word", @words[i])
+        @words[i].word += '.'
+
+        # add breath
+        breathInds = @tam.breathInds[@speaker]
+        breath = breathInds[Math.floor(Math.random() * breathInds.length)]
+        addInds = [breath]
+        if @tam.words[breath - 1].alignedWord is "sp"
+            addInds = [breath - 1, breath]
+        if @tam.words[breath + 1].alignedWord is "sp"
+            addInds.push breath + 1
+        
+        @tam.insertWords addInds, range.end, @
+        
+    
+    highlightWords: (start, end) ->
+        rw = @_renderWord
         hlHTML = _.reduce @words, ((memo, word, idx) ->
+            wrapLeft = ""
+            wrapRight = ""
             if idx is start and (idx is end - 1 or not end?)
-                return "#{memo}<span class='hl'>#{word.word}</span> "
-            if idx is start
-                return "#{memo}<span class='hl'>#{word.word} "
-            if idx is end - 1
-                return "#{memo}#{word.word}</span> "
-            return "#{memo}#{word.word} "
+                wrapLeft = "<span class='hl'>"
+                wrapRight = "</span>"
+            else if idx is start
+                wrapLeft = "<span class='hl'>"
+            else if idx is end - 1
+                wrapRight = "</span>"
+            return "#{memo}#{rw(word, false, wrapLeft, wrapRight)}"
             ), ""
         
         @highlights.html(hlHTML)
     
     emphasizeWords: ->
         ctx = [-1]
+        
+        rw = @_renderWord
+        
         emphHTML = _.reduce @words, ((memo, word, idx) ->
-            out = word.word
+            wrapLeft = ""
+            wrapRight = ""
             if word.origPos? and word.origPos - 1 isnt this[0]
-                out = "<span class='editLocation'>#{out}</span>"
+                wrapLeft += "<span class='editLocation'>"
+                wrapRight += "</span>"
+                # out = "<span class='editLocation'>#{out}</span>"
             if word.emph? and word.emph
-                out = "<span class='emph'>#{out}</span>"
+                wrapLeft += "<span class='emph'>"
+                wrapRight += "</span>"
+                # out = "<span class='emph'>#{out}</span>"
             if word.alignedWord is "sp"
-                out = "<span class='pause'>#{out}</span>"
+                wrapLeft += "<span class='pause'>"
+                wrapRight += "</span>"
+                # out = "<span class='pause'>#{out}</span>"
             else if word.alignedWord is "{BR}"
-                out = "<span class='breath'>#{out}</span>"
+                wrapLeft += "<span class='breath'>"
+                wrapRight += "</span>"
+                # out = "<span class='breath'>#{out}</span>"
             this[0] = word.origPos
-            return "#{memo}#{out} "
+            return "#{memo}#{rw(word, false, wrapLeft, wrapRight)}"
             ), "", ctx
         @emphasis.html(emphHTML)
     
@@ -228,27 +303,33 @@ class ScriptArea
         
         offset = @tam.taIndexSpan[@tam.tas.indexOf @]
         
-        dupeDropdownTemplate = """
+        dupeDropdownWrapLeft = """
             <span class="dropdown overlay">
                 <span class="dropdown-toggle">
-                    <%= word %>
+        """
+        
+        dupeDropdownWrapRight = """
                 </span>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <li class="disabled"><a>Similar sentences</a></li>
+                    <li class="disabled"><a><%= header %></a></li>
                     <% _.each(dupes[dupeIdx], function (elt) { %>
                         <li><a href="javascript:void(0)" 
                                class="dupeOpt"
                                tabindex="-1">
-                               <i class="icon-play dupePlayButton"></i><%= elt[1] %>
+                               <i class="icon-play dupePlayButton"></i>
+                               <span class="copyButton"><%= elt[1] %></span>
                             </a>
                         </li>
                     <% }) %>
                 </ul>
             </span>
         """
-        
+        rw = @_renderWord
+        locked = @locked
         boxHTML = _.reduce @words, ((memo, word, idx, words) ->
             dupeIdx = dupeStartsFirsts.indexOf word.origPos
+            wrapLeft = ""
+            wrapRight = ""
             if dupeIdx isnt -1
                 sentenceEnd = idx
                 d = dupeStarts[dupeIdx]
@@ -261,16 +342,22 @@ class ScriptArea
                 this.dupeOrder.push allIdx
                 this.bounds.push [idx, sentenceEnd - 1]
                 
-                return memo + _.template(dupeDropdownTemplate,
-                    word: word.word
+                wrapLeft = dupeDropdownWrapLeft
+                header = if locked then\
+                    "Similar sentences (click to copy)" else\
+                    "Similar sentences"
+                wrapRight = _.template(dupeDropdownWrapRight,
+                    header: header,
                     dupeIdx: allIdx,
-                    dupes: dupes) + ' '
-            out = word.word
+                    dupes: dupes)
+
             if word.alignedWord is "sp"
-                out = "<span class='pauseOverlay'>#{out}</span>"
+                wrapLeft += "<span class='pauseOverlay'>"
+                wrapRight += "</span>"
             if word.alignedWord is "{BR}"
-                out = "<span class='breathOverlay'>#{out}</span>"
-            return "#{memo}#{out} "
+                wrapLeft += "<span class='breathOverlay'>"
+                wrapRight += "</span>"
+            return "#{memo}#{rw(word, false, wrapLeft, wrapRight)}"
             ), "", context
         
         box.html(boxHTML)
@@ -279,13 +366,22 @@ class ScriptArea
         # and add event handlers because we were copying the raw html above
         self = @
         taWidth = @area.width()
+        
+        @area.unbind('.tam')
+        .bind('click.tam', -> 
+            console.log "clicked on the box"
+            $('.dropdown.open').removeClass('open')
+        )
+        
         box.find('.dropdown-toggle').each((i) ->
             pos = $(this).offset()
             eltPos = self.area.offset()
             dupe = dupes[context.dupeOrder[i]]
             start = context.bounds[i][0]
             end = context.bounds[i][1]
+            
             $(this).click( ->
+                console.log "start", start, "end", end
                 self.area.setSelection self.words[start].taPos,
                     self.words[end].taPos + self.words[end].word.length
             )
@@ -295,21 +391,40 @@ class ScriptArea
             )
             .find('a.dupeOpt')
             .each((j) ->
-                $(@).click((event) ->
-                    newPos = self.replaceWords start, end,
-                        dupe[j][0][0], dupe[j][0][1]
-                    self.area.setSelection newPos[0], newPos[1]
-                    return false
-                )
-                .find('.dupePlayButton')
+                if locked
+                    "zero clipboard is obnoxious for now"
+                    # $(@).click((event) ->
+                    #     # set up copying in raw speech
+                    #     indices = [dupe[j][0][0]..dupe[j][0][1]]
+                    #     copyButton = $(this).find('.copyButton');
+                    #     copyButton.attr("data-clipboard-text", 
+                    #         self.tam.generateCopyTextFromIndices(indices)
+                    #     )
+                    #     clip = new ZeroClipboard(copyButton,
+                    #         moviePath: "swf/ZeroClipboard.swf"
+                    #     )
+                    #     clip.on 'complete', ->
+                    #         $('.dropdown.open').removeClass('open')    
+                    # )
+                else
+                    # set up text replacement in editing area
+                    $(@).click((event) ->
+                        newPos = self.replaceWords start, end,
+                            dupe[j][0][0], dupe[j][0][1]
+                        self.area.setSelection newPos[0], newPos[1]
+                        return false
+                    )
+                
+                $(@).find('.dupePlayButton')
                 .click((event) ->
-                    start = self.tam.words[dupe[j][0][0]].start
-                    end = self.tam.words[dupe[j][0][1]].end
+                    audiostart = self.tam.words[dupe[j][0][0]].start
+                    audioend = self.tam.words[dupe[j][0][1]].end
                     TAAPP.origSound.play
-                        from: start * 1000.0
-                        to: end * 1000.0
+                        from: audiostart * 1000.0
+                        to: audioend * 1000.0
                         onstop: ->
-                            self.area.focus()
+                            if $(this).closest('.dropdown').hasClass('open')
+                                self.area.focus()
                     event.stopPropagation()
                 )
                 
@@ -323,7 +438,9 @@ class ScriptArea
         @tam.replaceWords c1, c2, w1, w2, @, @words[c1].taPos
 
 class TextAreaManager
-    constructor: (@el, @speakers, @words, @current) ->
+    constructor: (@el, @speakers, @words, @current, @locked) ->
+        @locked ?= false;
+
         @headerTable = $(document.createElement 'table')
             .attr("width", "100%")
             .appendTo(@el)
@@ -333,6 +450,7 @@ class TextAreaManager
                 "overflow-y": "auto"
             )
             .appendTo(@el)
+
         @table = $(document.createElement 'table')
             .attr("width", "100%")
             .appendTo(@container)
@@ -349,7 +467,24 @@ class TextAreaManager
         @tas = []
         @taIndexSpan = []
         @areas = []
+        @dirtyTas = []
         @draw()
+        
+        # create breaths listing
+        @breathInds = {}
+        for speaker in @speakers
+            @breathInds[speaker] = []
+        _.each @words, (word, i, cur) =>
+            if word.alignedWord is "{BR}"
+                j = i
+                while j < @words.length
+                    if "speaker" not of @words[j]
+                        j++
+                    else
+                        break
+                return if j is @words.length
+                if "speaker" of @words[j]
+                    @breathInds[@words[j].speaker].push i
     
     _tr: (prev) ->
         tr = $(document.createElement 'tr')
@@ -368,7 +503,7 @@ class TextAreaManager
         tr
     
     _newScriptArea: (name, speaker, index) ->
-        ta = new ScriptArea this, name, speaker
+        ta = new ScriptArea this, name, speaker, @locked
         if index?
             @tas.splice(index, 0, ta)
             @areas.splice(index, 0, ta.area)
@@ -378,23 +513,32 @@ class TextAreaManager
         ta.el
     
     refresh: ->
+        @dirtyTas = _.uniq(@dirtyTas)
+        
         @updatePos()
         @adjustHeight()
         @emphasizeWords()
         @insertDupeOverlays @dupes, @dupeInfo
+        
+        if TAAPP.currentWaveform?
+            $(TAAPP.currentWaveform).textAlignedWaveform
+                currentWords: @current
+        
+        @dirtyTas = []
     
     adjustHeight: ->
         # height of scriptareas
         ta.adjustHeight() for ta in @tas
 
         # update height of row
-        for i in [0..@tas.length - 1]
+        for i in [0...@tas.length]
             @table.find('tr').eq(i)
                 .height(@tas[i].height())
 
         # update height of outer element
-        console.log "innerheight", window.innerHeight, "offset", @el.offset().top
+        console.log("container height", window.innerHeight - @el.offset().top - 50)
         @container.height(window.innerHeight - @el.offset().top - 50)
+        console.log("el height", window.innerHeight - @el.offset().top - 50)
         @el.height(window.innerHeight - @el.offset().top - 50)
 
     draw: ->
@@ -422,7 +566,7 @@ class TextAreaManager
             if i is @taIndexSpan.length - 1
                 words = @current[start..]
             else
-                words = @current[start..@taIndexSpan[i + 1] - 1]
+                words = @current[start...@taIndexSpan[i + 1]]
 
             @tas[i].updateWords words
 
@@ -433,10 +577,10 @@ class TextAreaManager
     pruneByTAPos: (start, end, ta) ->
         match = []
         _.each(ta.words, (word, idx) ->
-            console.log word.word, word.taPos
             if word.taPos >= start and word.taPos < end
                 match.push idx
             )
+        console.log "prune by TA", match[0], _.last(match)
         @pruneCurrent(match[0], _.last(match) + 1, ta)
     
     pruneCurrent: (start, end, ta) ->
@@ -445,7 +589,6 @@ class TextAreaManager
         @current.splice start + offset, end - start
         
         console.log "offset", offset, "start", start, "end", end
-        console.log "current", @current
         
         # update the script area trackers
         for txtarea, i in @tas
@@ -455,11 +598,14 @@ class TextAreaManager
         if taIndex is @tas.length - 1
             ta.updateWords @current[@taIndexSpan[taIndex]..]
         else
+            console.log "Prune current, updating ta with words",
+                 @taIndexSpan[taIndex],
+                 @taIndexSpan[taIndex + 1] - 1
             ta.updateWords @current\
-                [@taIndexSpan[taIndex]..@taIndexSpan[taIndex + 1] - 1]
+                [@taIndexSpan[taIndex]...@taIndexSpan[taIndex + 1]]
         
         @refresh()
-    
+
     highlightWords: (start, end) ->
         if start is -1
             @currentHighlight = undefined
@@ -494,12 +640,8 @@ class TextAreaManager
         
     updatePos: ->
         @highlightWords -1
-        for ta in @tas
+        for ta in @dirtyTas
             ta.updatePos()
-        
-        if TAAPP.currentWaveform?
-            $(TAAPP.currentWaveform).textAlignedWaveform
-                currentWords: @current
     
     clean: (ta) ->
         # assume we'll either have
@@ -536,9 +678,9 @@ class TextAreaManager
                 tr = @_tr(@table.find('tr').eq(tai))
                 tr.find("td").eq(col)
                     .append(@_newScriptArea(@tas.length, speakers[1]))
-                
+
                 # update words
-                ta.updateWords ta.words[0..segments[1] - 1]
+                ta.updateWords ta.words[0...segments[1]]
                 @tas[@tas.length - 1].updateWords words
                 @taIndexSpan.push offset + ta.words.length
                 
@@ -549,7 +691,7 @@ class TextAreaManager
                 console.log "Inserting in next row"
                 console.log(@tas, tai)
                 nextTa = @tas[tai + 1]
-                ta.updateWords ta.words[0..segments[1] - 1]
+                ta.updateWords ta.words[0...segments[1]]
                 nextTa.updateWords words.concat(nextTa.words)
                 @taIndexSpan[tai + 1] -= words.length
                 
@@ -560,10 +702,10 @@ class TextAreaManager
                 
             console.log "CLEAN: @tas", @tas, "taIndexSpan", @taIndexSpan
             return
-        
+            
         if pattern.length is 2 and pattern[1]
             # wrong right
-            words = ta.words[0..segments[1] - 1]
+            words = ta.words[0...segments[1]]
             if tai is 0
                 console.log "New row (wrong right)"
                 col = @speakers.indexOf speakers[0]
@@ -602,8 +744,8 @@ class TextAreaManager
                 .append(@_newScriptArea(@tas.length, speakers[2], tai + 2))
             
             # update words
-            ta.updateWords words[0..segments[1] - 1]
-            @tas[tai + 1].updateWords words[segments[1]..segments[2] - 1]
+            ta.updateWords words[0...segments[1]]
+            @tas[tai + 1].updateWords words[segments[1]...segments[2]]
             @tas[tai + 2].updateWords words[segments[2]..]
             
             @taIndexSpan.splice tai + 1, 0,
@@ -630,7 +772,8 @@ class TextAreaManager
         end = sel.end
         
         text = ta.area.val()
-        while text.charAt(end) is ' '
+        spaces = [" ", "\n"]
+        while text.charAt(end) in spaces
             end += 1
         
         console.log "calling prune by ta pos with start", sel.start, "end", end
@@ -680,7 +823,7 @@ class TextAreaManager
         Array::splice.apply @current, args
 
         # bookkeeping
-        for i in [0..@tas.length - 1]
+        for i in [0...@tas.length]
             if i > taIndex
                 @taIndexSpan[i] += words.length
         
@@ -694,10 +837,14 @@ class TextAreaManager
         if taIndex is @tas.length - 1
             ta.updateWords @current[@taIndexSpan[taIndex]..]
         else
-            ta.updateWords @current[@taIndexSpan[taIndex]..@taIndexSpan[taIndex + 1] - 1]
+            ta.updateWords @current[@taIndexSpan[taIndex]...@taIndexSpan[taIndex + 1]]
         
         @clean ta
         @refresh()
+        
+        # set the selection position after the inserted words
+        newEnd = ctx.last.taPos + ctx.last.word.length
+        ta.area.setSelection newEnd, newEnd
         
         # newStart = ctx.first.taPos
         # newEnd = ctx.last.taPos + ctx.last.word.length
@@ -706,14 +853,15 @@ class TextAreaManager
     
     processPaste: (ta, a) ->
         _.defer =>
-            parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g;
+            parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g
             bRes = false
             pastedWords = []
             b = ta.area.val()
             sel = ta.area.getSelection()
+            spaces = [" ", "\n"]
             if a.length - b.length + sel.start isnt 0\
-            and a.charAt(a.length - b.length + sel.start) isnt ' '\
-            and a.charAt(a.length - b.length + sel.start - 1) isnt ' '
+            and a.charAt(a.length - b.length + sel.start) not in spaces\
+            and a.charAt(a.length - b.length + sel.start - 1) not in spaces
                 # can't insert here: middle of a word
                 ta.area.val(a)
                 @refresh()
@@ -733,7 +881,19 @@ class TextAreaManager
             
             ta.area.val(a)
             @refresh()
-    
+
+    generateCopyTextFromIndices: (indices) ->
+        wrds= (@current[i] for i in indices)
+        mod = _.reduce wrds, ((memo, wrd) =>
+            if wrd.alignedWord is "gp"
+                return memo + '[gp]' + wrd.word + '|'
+            for w, j in @words
+                if w.start is wrd.start and w.end is wrd.end
+                    break
+            return "#{memo}[#{j}]#{wrd.word}|"
+            ), ""
+        return mod
+
     processCopy: (ta) ->
         selection = window.getSelection()
         newdiv = document.createElement 'div'
@@ -742,7 +902,7 @@ class TextAreaManager
         
         mod = _.reduce wrds, ((memo, wrd) =>
             if wrd.alignedWord is "gp"
-                return memo + '[gp]' + wrd.word + '|';
+                return memo + '[gp]' + wrd.word + '|'
             for w, j in @words
                 if w.start is wrd.start and w.end is wrd.end
                     break
@@ -763,14 +923,14 @@ class TextAreaManager
         
         mod = _.reduce wrds, ((memo, wrd) =>
             if wrd.alignedWord is "gp"
-                return memo + '[gp]' + wrd.word + '|';
+                return memo + '[gp]' + wrd.word + '|'
             for w, j in @words
                 if w.start is wrd.start and w.end is wrd.end
                     break
             return "#{memo}[#{j}]#{wrd.word}|"
             ), ""
         
-        newOut = newOut[0..sel.start - 1] + mod + newOut[sel.end + 1..]
+        newOut = newOut[0...sel.start] + mod + newOut[sel.end + 1..]
         ta.area.val(newOut)
             .setSelection(sel.start, sel.start + mod.length)
     

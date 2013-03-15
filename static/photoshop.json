@@ -3,7 +3,7 @@
         {
             "start": 0.01247, 
             "end": 0.73084, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -23,7 +23,7 @@
         {
             "start": 2.38707, 
             "end": 2.78617, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -50,7 +50,7 @@
         {
             "start": 3.90363, 
             "end": 4.88141, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -63,7 +63,7 @@
         {
             "start": 5.23061, 
             "end": 6.27823, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -132,7 +132,7 @@
         {
             "start": 11.79569, 
             "end": 12.0551, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -152,7 +152,7 @@
         {
             "start": 12.40431, 
             "end": 12.61383, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -263,7 +263,7 @@
         {
             "start": 17.0737, 
             "end": 17.85193, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -297,7 +297,7 @@
         {
             "start": 20.98481, 
             "end": 21.02472, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -317,7 +317,7 @@
         {
             "start": 21.81293, 
             "end": 22.15215, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -435,7 +435,7 @@
         {
             "start": 26.3127, 
             "end": 27.26054, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -455,7 +455,7 @@
         {
             "start": 28.08866, 
             "end": 28.27823, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -489,7 +489,7 @@
         {
             "start": 30.28367, 
             "end": 30.75261, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -502,7 +502,7 @@
         {
             "start": 31.43107, 
             "end": 31.64059, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -662,7 +662,7 @@
         {
             "start": 38.41519, 
             "end": 38.8542, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -696,7 +696,7 @@
         {
             "start": 39.78209, 
             "end": 40.03152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -716,7 +716,7 @@
         {
             "start": 42.04694, 
             "end": 43.71315, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -736,7 +736,7 @@
         {
             "start": 45.61882, 
             "end": 45.63878, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -791,7 +791,7 @@
         {
             "start": 48.19297, 
             "end": 48.58209, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -818,7 +818,7 @@
         {
             "start": 49.83923, 
             "end": 50.28821, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -831,7 +831,7 @@
         {
             "start": 51.2161, 
             "end": 51.31587, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -865,7 +865,7 @@
         {
             "start": 52.92222, 
             "end": 53.38118, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -892,7 +892,7 @@
         {
             "start": 54.24921, 
             "end": 54.29909, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -912,7 +912,7 @@
         {
             "start": 55.26689, 
             "end": 56.1449, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -946,7 +946,7 @@
         {
             "start": 58.43968, 
             "end": 58.56939, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -959,7 +959,7 @@
         {
             "start": 59.03832, 
             "end": 59.12812, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -979,7 +979,7 @@
         {
             "start": 60.20567, 
             "end": 60.78435, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1027,7 +1027,7 @@
         {
             "start": 63.9771, 
             "end": 64.16667, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1047,7 +1047,7 @@
         {
             "start": 64.97483, 
             "end": 65.6932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1074,7 +1074,7 @@
         {
             "start": 66.75079, 
             "end": 67.12993, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1101,7 +1101,7 @@
         {
             "start": 68.5068, 
             "end": 68.58662, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1128,7 +1128,7 @@
         {
             "start": 69.38481, 
             "end": 69.6941, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1162,7 +1162,7 @@
         {
             "start": 71.5, 
             "end": 71.81927, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1175,7 +1175,7 @@
         {
             "start": 72.78707, 
             "end": 72.96667, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1209,7 +1209,7 @@
         {
             "start": 74.03424, 
             "end": 74.0542, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1236,7 +1236,7 @@
         {
             "start": 75.05193, 
             "end": 75.55079, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1298,7 +1298,7 @@
         {
             "start": 77.91542, 
             "end": 77.95533, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1318,7 +1318,7 @@
         {
             "start": 78.61383, 
             "end": 79.08277, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1366,7 +1366,7 @@
         {
             "start": 81.02834, 
             "end": 81.31769, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1379,7 +1379,7 @@
         {
             "start": 81.81655, 
             "end": 81.88639, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1441,7 +1441,7 @@
         {
             "start": 83.37302, 
             "end": 83.48277, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1468,7 +1468,7 @@
         {
             "start": 84.71995, 
             "end": 85.60794, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1509,7 +1509,7 @@
         {
             "start": 87.4737, 
             "end": 88.24195, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1522,7 +1522,7 @@
         {
             "start": 88.71088, 
             "end": 88.99025, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1591,7 +1591,7 @@
         {
             "start": 91.63424, 
             "end": 91.89365, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1625,7 +1625,7 @@
         {
             "start": 93.10091, 
             "end": 93.47007, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1659,7 +1659,7 @@
         {
             "start": 94.75714, 
             "end": 95.19615, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1763,7 +1763,7 @@
         {
             "start": 98.83787, 
             "end": 99.29683, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1776,7 +1776,7 @@
         {
             "start": 100.12494, 
             "end": 100.50408, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1810,7 +1810,7 @@
         {
             "start": 101.92086, 
             "end": 102.40975, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1844,7 +1844,7 @@
         {
             "start": 104.12585, 
             "end": 104.68458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1857,7 +1857,7 @@
         {
             "start": 105.08367, 
             "end": 105.16349, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1891,7 +1891,7 @@
         {
             "start": 106.60023, 
             "end": 107.16893, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1904,7 +1904,7 @@
         {
             "start": 107.58798, 
             "end": 108.34626, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1917,7 +1917,7 @@
         {
             "start": 108.5059, 
             "end": 108.58571, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1951,7 +1951,7 @@
         {
             "start": 109.9127, 
             "end": 110.38163, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1971,7 +1971,7 @@
         {
             "start": 111.65873, 
             "end": 111.69864, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1984,7 +1984,7 @@
         {
             "start": 112.38707, 
             "end": 113.06553, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2018,7 +2018,7 @@
         {
             "start": 115.21066, 
             "end": 115.37029, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2052,7 +2052,7 @@
         {
             "start": 117.29592, 
             "end": 117.64512, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2086,7 +2086,7 @@
         {
             "start": 119.41111, 
             "end": 119.48095, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2099,7 +2099,7 @@
         {
             "start": 119.84014, 
             "end": 119.90998, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2133,7 +2133,7 @@
         {
             "start": 121.29683, 
             "end": 121.38662, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2167,7 +2167,7 @@
         {
             "start": 124.23016, 
             "end": 124.59932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2201,7 +2201,7 @@
         {
             "start": 127.4229, 
             "end": 127.75215, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2214,7 +2214,7 @@
         {
             "start": 129.139, 
             "end": 129.16893, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2241,7 +2241,7 @@
         {
             "start": 129.95714, 
             "end": 130.08685, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2345,7 +2345,7 @@
         {
             "start": 135.18526, 
             "end": 135.41474, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2365,7 +2365,7 @@
         {
             "start": 135.91361, 
             "end": 135.99342, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2427,7 +2427,7 @@
         {
             "start": 138.78707, 
             "end": 139.07642, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2447,7 +2447,7 @@
         {
             "start": 139.80476, 
             "end": 139.83469, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2488,7 +2488,7 @@
         {
             "start": 141.73039, 
             "end": 143.1771, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2515,7 +2515,7 @@
         {
             "start": 144.64376, 
             "end": 144.74354, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2528,7 +2528,7 @@
         {
             "start": 145.13265, 
             "end": 145.71134, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2548,7 +2548,7 @@
         {
             "start": 146.69909, 
             "end": 147.09819, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2561,7 +2561,7 @@
         {
             "start": 148.2356, 
             "end": 148.55488, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2672,7 +2672,7 @@
         {
             "start": 152.49592, 
             "end": 153.68322, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2713,7 +2713,7 @@
         {
             "start": 156.26735, 
             "end": 156.35714, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2733,7 +2733,7 @@
         {
             "start": 157.3449, 
             "end": 157.38481, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2746,7 +2746,7 @@
         {
             "start": 157.66417, 
             "end": 157.80385, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2801,7 +2801,7 @@
         {
             "start": 159.92902, 
             "end": 160.87687, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2828,7 +2828,7 @@
         {
             "start": 162.25374, 
             "end": 162.38345, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2855,7 +2855,7 @@
         {
             "start": 164.97755, 
             "end": 165.25692, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2875,7 +2875,7 @@
         {
             "start": 166.22472, 
             "end": 166.46417, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2888,7 +2888,7 @@
         {
             "start": 167.16259, 
             "end": 167.422, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2971,7 +2971,7 @@
         {
             "start": 170.63469, 
             "end": 171.09365, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3005,7 +3005,7 @@
         {
             "start": 172.35079, 
             "end": 172.59025, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3039,7 +3039,7 @@
         {
             "start": 173.64785, 
             "end": 173.71769, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3059,7 +3059,7 @@
         {
             "start": 174.26644, 
             "end": 175.54354, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3072,7 +3072,7 @@
         {
             "start": 175.95261, 
             "end": 176.21202, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3085,7 +3085,7 @@
         {
             "start": 176.52132, 
             "end": 176.5712, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3133,7 +3133,7 @@
         {
             "start": 179.07551, 
             "end": 179.10544, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3153,7 +3153,7 @@
         {
             "start": 179.84376, 
             "end": 179.97347, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3173,7 +3173,7 @@
         {
             "start": 180.72177, 
             "end": 180.98118, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3214,7 +3214,7 @@
         {
             "start": 182.91678, 
             "end": 183.11633, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3248,7 +3248,7 @@
         {
             "start": 184.99206, 
             "end": 185.61066, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3310,7 +3310,7 @@
         {
             "start": 187.60612, 
             "end": 187.98526, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3414,7 +3414,7 @@
         {
             "start": 192.57483, 
             "end": 192.70454, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3434,7 +3434,7 @@
         {
             "start": 193.81202, 
             "end": 193.90181, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3447,7 +3447,7 @@
         {
             "start": 194.62018, 
             "end": 195.19887, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3467,7 +3467,7 @@
         {
             "start": 196.09683, 
             "end": 196.28639, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3487,7 +3487,7 @@
         {
             "start": 197.32404, 
             "end": 197.62336, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3605,7 +3605,7 @@
         {
             "start": 202.0932, 
             "end": 202.60204, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3667,7 +3667,7 @@
         {
             "start": 204.14853, 
             "end": 204.57755, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3680,7 +3680,7 @@
         {
             "start": 204.87687, 
             "end": 205.11633, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3693,7 +3693,7 @@
         {
             "start": 206.15397, 
             "end": 206.43333, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3706,7 +3706,7 @@
         {
             "start": 206.79252, 
             "end": 206.86236, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3796,7 +3796,7 @@
         {
             "start": 210.57392, 
             "end": 210.8932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3830,7 +3830,7 @@
         {
             "start": 211.88095, 
             "end": 212.3, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3913,7 +3913,7 @@
         {
             "start": 215.05374, 
             "end": 215.37302, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3968,7 +3968,7 @@
         {
             "start": 217.04921, 
             "end": 217.08912, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3988,7 +3988,7 @@
         {
             "start": 217.87732, 
             "end": 218.12676, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4015,7 +4015,7 @@
         {
             "start": 219.49365, 
             "end": 219.94263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4049,7 +4049,7 @@
         {
             "start": 221.24966, 
             "end": 221.38934, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4062,7 +4062,7 @@
         {
             "start": 222.71633, 
             "end": 222.89592, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4124,7 +4124,7 @@
         {
             "start": 225.48005, 
             "end": 225.83923, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4172,7 +4172,7 @@
         {
             "start": 228.54308, 
             "end": 228.82245, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4192,7 +4192,7 @@
         {
             "start": 231.86553, 
             "end": 232.52404, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4205,7 +4205,7 @@
         {
             "start": 233.40204, 
             "end": 233.4619, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4246,7 +4246,7 @@
         {
             "start": 235.11814, 
             "end": 235.16803, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4322,7 +4322,7 @@
         {
             "start": 237.25329, 
             "end": 237.57256, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4342,7 +4342,7 @@
         {
             "start": 238.51043, 
             "end": 238.99932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4355,7 +4355,7 @@
         {
             "start": 239.65782, 
             "end": 239.74762, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4368,7 +4368,7 @@
         {
             "start": 240.1068, 
             "end": 240.58571, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4381,7 +4381,7 @@
         {
             "start": 240.92494, 
             "end": 241.30408, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4443,7 +4443,7 @@
         {
             "start": 242.62109, 
             "end": 242.7907, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4568,7 +4568,7 @@
         {
             "start": 246.65193, 
             "end": 246.88141, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4581,7 +4581,7 @@
         {
             "start": 247.20068, 
             "end": 247.51995, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4594,7 +4594,7 @@
         {
             "start": 247.81927, 
             "end": 247.87914, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4635,7 +4635,7 @@
         {
             "start": 249.92449, 
             "end": 249.99433, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4676,7 +4676,7 @@
         {
             "start": 251.09184, 
             "end": 251.27143, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4738,7 +4738,7 @@
         {
             "start": 253.10726, 
             "end": 253.41655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4758,7 +4758,7 @@
         {
             "start": 254.22472, 
             "end": 254.32449, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4778,7 +4778,7 @@
         {
             "start": 255.49184, 
             "end": 255.87098, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4805,7 +4805,7 @@
         {
             "start": 257.36757, 
             "end": 257.67687, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4818,7 +4818,7 @@
         {
             "start": 258.06599, 
             "end": 258.18571, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4859,7 +4859,7 @@
         {
             "start": 260.09138, 
             "end": 260.38073, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4893,7 +4893,7 @@
         {
             "start": 261.578, 
             "end": 262.13673, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4906,7 +4906,7 @@
         {
             "start": 262.31633, 
             "end": 263.19433, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4919,7 +4919,7 @@
         {
             "start": 264.10227, 
             "end": 264.31179, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4960,7 +4960,7 @@
         {
             "start": 265.56893, 
             "end": 265.99796, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4973,7 +4973,7 @@
         {
             "start": 266.30726, 
             "end": 266.7263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4986,7 +4986,7 @@
         {
             "start": 267.0356, 
             "end": 267.28503, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5027,7 +5027,7 @@
         {
             "start": 268.42245, 
             "end": 268.90136, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5047,7 +5047,7 @@
         {
             "start": 270.04875, 
             "end": 270.40794, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5060,7 +5060,7 @@
         {
             "start": 270.79705, 
             "end": 271.03651, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5080,7 +5080,7 @@
         {
             "start": 271.8746, 
             "end": 272.04422, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5093,7 +5093,7 @@
         {
             "start": 272.59297, 
             "end": 272.88231, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5113,7 +5113,7 @@
         {
             "start": 273.2415, 
             "end": 273.26145, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5126,7 +5126,7 @@
         {
             "start": 274.04966, 
             "end": 274.76803, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5188,7 +5188,7 @@
         {
             "start": 277.422, 
             "end": 277.78118, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5271,7 +5271,7 @@
         {
             "start": 283.0093, 
             "end": 283.04921, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5326,7 +5326,7 @@
         {
             "start": 284.84512, 
             "end": 284.87506, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5339,7 +5339,7 @@
         {
             "start": 285.31406, 
             "end": 285.67324, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5422,7 +5422,7 @@
         {
             "start": 288.45692, 
             "end": 288.54671, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5435,7 +5435,7 @@
         {
             "start": 289.17528, 
             "end": 289.29501, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5455,7 +5455,7 @@
         {
             "start": 290.19297, 
             "end": 290.52222, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5475,7 +5475,7 @@
         {
             "start": 290.99116, 
             "end": 291.21066, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5509,7 +5509,7 @@
         {
             "start": 292.67732, 
             "end": 293.00658, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5522,7 +5522,7 @@
         {
             "start": 293.80476, 
             "end": 293.83469, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5563,7 +5563,7 @@
         {
             "start": 295.20159, 
             "end": 295.5907, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5576,7 +5576,7 @@
         {
             "start": 295.90998, 
             "end": 296.09955, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5638,7 +5638,7 @@
         {
             "start": 299.28231, 
             "end": 299.56168, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5658,7 +5658,7 @@
         {
             "start": 300.07052, 
             "end": 300.14036, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5713,7 +5713,7 @@
         {
             "start": 302.41519, 
             "end": 302.68458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5775,7 +5775,7 @@
         {
             "start": 305.84739, 
             "end": 306.24649, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5809,7 +5809,7 @@
         {
             "start": 307.1644, 
             "end": 307.3839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5857,7 +5857,7 @@
         {
             "start": 309.60884, 
             "end": 309.95805, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5870,7 +5870,7 @@
         {
             "start": 310.23741, 
             "end": 310.3771, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5988,7 +5988,7 @@
         {
             "start": 315.27596, 
             "end": 315.72494, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6022,7 +6022,7 @@
         {
             "start": 316.91224, 
             "end": 316.95215, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6035,7 +6035,7 @@
         {
             "start": 317.05193, 
             "end": 317.09184, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6048,7 +6048,7 @@
         {
             "start": 317.54082, 
             "end": 317.77029, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6089,7 +6089,7 @@
         {
             "start": 319.7059, 
             "end": 319.7458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6102,7 +6102,7 @@
         {
             "start": 319.97528, 
             "end": 320.52404, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6115,7 +6115,7 @@
         {
             "start": 320.84331, 
             "end": 321.14263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6233,7 +6233,7 @@
         {
             "start": 325.76213, 
             "end": 325.96168, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6260,7 +6260,7 @@
         {
             "start": 327.34853, 
             "end": 327.69773, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6301,7 +6301,7 @@
         {
             "start": 329.35397, 
             "end": 329.42381, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6314,7 +6314,7 @@
         {
             "start": 329.85283, 
             "end": 330.32177, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6341,7 +6341,7 @@
         {
             "start": 331.86825, 
             "end": 332.60658, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6354,7 +6354,7 @@
         {
             "start": 332.79615, 
             "end": 333.08549, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6367,7 +6367,7 @@
         {
             "start": 333.79388, 
             "end": 333.83379, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6408,7 +6408,7 @@
         {
             "start": 334.93129, 
             "end": 334.99116, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6435,7 +6435,7 @@
         {
             "start": 335.74943, 
             "end": 335.84921, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6448,7 +6448,7 @@
         {
             "start": 336.0288, 
             "end": 336.48776, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6475,7 +6475,7 @@
         {
             "start": 337.4356, 
             "end": 337.45556, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6516,7 +6516,7 @@
         {
             "start": 339.42109, 
             "end": 339.45102, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6529,7 +6529,7 @@
         {
             "start": 339.9898, 
             "end": 340.68821, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6542,7 +6542,7 @@
         {
             "start": 341.25692, 
             "end": 341.37664, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6653,7 +6653,7 @@
         {
             "start": 345.22789, 
             "end": 345.45737, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6694,7 +6694,7 @@
         {
             "start": 346.73447, 
             "end": 347.12358, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6714,7 +6714,7 @@
         {
             "start": 347.44286, 
             "end": 347.57256, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6741,7 +6741,7 @@
         {
             "start": 348.31088, 
             "end": 348.45057, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6768,7 +6768,7 @@
         {
             "start": 349.4483, 
             "end": 349.56803, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6795,7 +6795,7 @@
         {
             "start": 350.31633, 
             "end": 350.51587, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6850,7 +6850,7 @@
         {
             "start": 353.37937, 
             "end": 353.44921, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6884,7 +6884,7 @@
         {
             "start": 354.38707, 
             "end": 354.84603, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6918,7 +6918,7 @@
         {
             "start": 356.37256, 
             "end": 356.622, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6938,7 +6938,7 @@
         {
             "start": 357.50998, 
             "end": 358.27823, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6972,7 +6972,7 @@
         {
             "start": 360.34354, 
             "end": 360.76259, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6985,7 +6985,7 @@
         {
             "start": 362.25918, 
             "end": 363.68594, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7012,7 +7012,7 @@
         {
             "start": 365.861, 
             "end": 366.23016, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7046,7 +7046,7 @@
         {
             "start": 367.88639, 
             "end": 368.20567, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7059,7 +7059,7 @@
         {
             "start": 368.61474, 
             "end": 368.68458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7142,7 +7142,7 @@
         {
             "start": 371.4483, 
             "end": 371.61791, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7155,7 +7155,7 @@
         {
             "start": 372.14671, 
             "end": 372.22653, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7175,7 +7175,7 @@
         {
             "start": 373.05465, 
             "end": 373.40385, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7209,7 +7209,7 @@
         {
             "start": 374.60113, 
             "end": 374.69093, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7278,7 +7278,7 @@
         {
             "start": 376.62653, 
             "end": 376.69637, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7298,7 +7298,7 @@
         {
             "start": 377.27506, 
             "end": 377.29501, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7318,7 +7318,7 @@
         {
             "start": 377.77392, 
             "end": 377.79388, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7331,7 +7331,7 @@
         {
             "start": 378.52222, 
             "end": 378.83152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7344,7 +7344,7 @@
         {
             "start": 379.13084, 
             "end": 379.43016, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7427,7 +7427,7 @@
         {
             "start": 382.10408, 
             "end": 382.13401, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7552,7 +7552,7 @@
         {
             "start": 386.16485, 
             "end": 386.43424, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7614,7 +7614,7 @@
         {
             "start": 389.07823, 
             "end": 389.34762, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7627,7 +7627,7 @@
         {
             "start": 389.54717, 
             "end": 389.84649, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7647,7 +7647,7 @@
         {
             "start": 390.74444, 
             "end": 390.7644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7737,7 +7737,7 @@
         {
             "start": 393.76757, 
             "end": 394.84512, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7750,7 +7750,7 @@
         {
             "start": 395.22426, 
             "end": 395.37392, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7784,7 +7784,7 @@
         {
             "start": 396.7907, 
             "end": 396.86054, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7825,7 +7825,7 @@
         {
             "start": 398.67642, 
             "end": 398.75624, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7838,7 +7838,7 @@
         {
             "start": 399.0356, 
             "end": 399.38481, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7872,7 +7872,7 @@
         {
             "start": 400.68186, 
             "end": 400.96122, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7955,7 +7955,7 @@
         {
             "start": 405.16168, 
             "end": 405.66054, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7968,7 +7968,7 @@
         {
             "start": 406.16939, 
             "end": 406.4288, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8016,7 +8016,7 @@
         {
             "start": 407.8356, 
             "end": 408.04512, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8064,7 +8064,7 @@
         {
             "start": 409.10272, 
             "end": 409.29229, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8077,7 +8077,7 @@
         {
             "start": 409.79116, 
             "end": 410.19025, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8090,7 +8090,7 @@
         {
             "start": 410.52948, 
             "end": 410.55941, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8103,7 +8103,7 @@
         {
             "start": 410.75896, 
             "end": 411.08821, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8116,7 +8116,7 @@
         {
             "start": 411.89637, 
             "end": 412.1059, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8129,7 +8129,7 @@
         {
             "start": 412.3254, 
             "end": 412.66463, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8142,7 +8142,7 @@
         {
             "start": 414.99932, 
             "end": 415.11905, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8155,7 +8155,7 @@
         {
             "start": 415.56803, 
             "end": 415.92721, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8168,7 +8168,7 @@
         {
             "start": 416.47596, 
             "end": 416.71542, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8195,7 +8195,7 @@
         {
             "start": 418.19206, 
             "end": 418.78073, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8208,7 +8208,7 @@
         {
             "start": 419.21973, 
             "end": 419.3195, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8221,7 +8221,7 @@
         {
             "start": 420.22744, 
             "end": 420.25737, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8262,7 +8262,7 @@
         {
             "start": 421.97347, 
             "end": 422.03333, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8275,7 +8275,7 @@
         {
             "start": 422.34263, 
             "end": 422.69184, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8302,7 +8302,7 @@
         {
             "start": 423.85918, 
             "end": 424.05873, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8329,7 +8329,7 @@
         {
             "start": 425.37574, 
             "end": 425.81474, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8398,7 +8398,7 @@
         {
             "start": 428.9576, 
             "end": 429.43651, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8418,7 +8418,7 @@
         {
             "start": 431.44195, 
             "end": 431.73129, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8431,7 +8431,7 @@
         {
             "start": 432.96848, 
             "end": 433.18798, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8444,7 +8444,7 @@
         {
             "start": 433.58707, 
             "end": 434.21565, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8457,7 +8457,7 @@
         {
             "start": 434.8941, 
             "end": 435.18345, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8470,7 +8470,7 @@
         {
             "start": 436.94943, 
             "end": 437.15896, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8483,7 +8483,7 @@
         {
             "start": 438.59569, 
             "end": 439.66327, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8524,7 +8524,7 @@
         {
             "start": 441.90816, 
             "end": 442.00794, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8537,7 +8537,7 @@
         {
             "start": 445.10091, 
             "end": 445.51995, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8550,7 +8550,7 @@
         {
             "start": 446.72721, 
             "end": 446.93673, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8591,7 +8591,7 @@
         {
             "start": 449.22154, 
             "end": 449.31134, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8611,7 +8611,7 @@
         {
             "start": 451.02744, 
             "end": 451.54626, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8736,7 +8736,7 @@
         {
             "start": 455.24785, 
             "end": 455.32766, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8777,7 +8777,7 @@
         {
             "start": 456.64467, 
             "end": 457.70227, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8811,7 +8811,7 @@
         {
             "start": 458.32086, 
             "end": 458.36077, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8845,7 +8845,7 @@
         {
             "start": 460.31633, 
             "end": 460.4161, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8858,7 +8858,7 @@
         {
             "start": 460.66553, 
             "end": 460.8551, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8906,7 +8906,7 @@
         {
             "start": 462.31179, 
             "end": 462.38163, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8919,7 +8919,7 @@
         {
             "start": 462.69093, 
             "end": 463.21973, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8932,7 +8932,7 @@
         {
             "start": 463.80839, 
             "end": 464.30726, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8945,7 +8945,7 @@
         {
             "start": 465.08549, 
             "end": 465.4746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8972,7 +8972,7 @@
         {
             "start": 466.52222, 
             "end": 466.69184, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9020,7 +9020,7 @@
         {
             "start": 468.14853, 
             "end": 468.18844, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9075,7 +9075,7 @@
         {
             "start": 470.57302, 
             "end": 470.94218, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9095,7 +9095,7 @@
         {
             "start": 471.55079, 
             "end": 471.65057, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9108,7 +9108,7 @@
         {
             "start": 471.89002, 
             "end": 471.95986, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9121,7 +9121,7 @@
         {
             "start": 472.25918, 
             "end": 472.38889, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9134,7 +9134,7 @@
         {
             "start": 473.60612, 
             "end": 474.47415, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9147,7 +9147,7 @@
         {
             "start": 475.35215, 
             "end": 475.43197, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9188,7 +9188,7 @@
         {
             "start": 477.18798, 
             "end": 477.77664, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9236,7 +9236,7 @@
         {
             "start": 478.96395, 
             "end": 479.00385, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9249,7 +9249,7 @@
         {
             "start": 479.31315, 
             "end": 479.61247, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9276,7 +9276,7 @@
         {
             "start": 480.20113, 
             "end": 480.24104, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9289,7 +9289,7 @@
         {
             "start": 480.60023, 
             "end": 480.89955, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9302,7 +9302,7 @@
         {
             "start": 481.21882, 
             "end": 481.89728, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9329,7 +9329,7 @@
         {
             "start": 482.70544, 
             "end": 482.74535, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9384,7 +9384,7 @@
         {
             "start": 484.53129, 
             "end": 484.96032, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9397,7 +9397,7 @@
         {
             "start": 485.1898, 
             "end": 485.67868, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9410,7 +9410,7 @@
         {
             "start": 486.13764, 
             "end": 486.40703, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9444,7 +9444,7 @@
         {
             "start": 487.67415, 
             "end": 487.79388, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9492,7 +9492,7 @@
         {
             "start": 489.88912, 
             "end": 489.98889, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9505,7 +9505,7 @@
         {
             "start": 490.25828, 
             "end": 490.378, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9518,7 +9518,7 @@
         {
             "start": 490.92676, 
             "end": 491.05646, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9559,7 +9559,7 @@
         {
             "start": 491.78481, 
             "end": 491.82472, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9635,7 +9635,7 @@
         {
             "start": 494.25918, 
             "end": 494.54853, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9648,7 +9648,7 @@
         {
             "start": 494.82789, 
             "end": 494.84785, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9661,7 +9661,7 @@
         {
             "start": 495.25692, 
             "end": 495.67596, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9674,7 +9674,7 @@
         {
             "start": 496.07506, 
             "end": 496.29456, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9736,7 +9736,7 @@
         {
             "start": 498.28005, 
             "end": 498.35986, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9784,7 +9784,7 @@
         {
             "start": 500.07596, 
             "end": 500.1458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9797,7 +9797,7 @@
         {
             "start": 500.46508, 
             "end": 500.8941, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9810,7 +9810,7 @@
         {
             "start": 501.31315, 
             "end": 501.98163, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9921,7 +9921,7 @@
         {
             "start": 505.8229, 
             "end": 505.93265, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9941,7 +9941,7 @@
         {
             "start": 506.41156, 
             "end": 506.69093, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9968,7 +9968,7 @@
         {
             "start": 508.09773, 
             "end": 508.35714, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9981,7 +9981,7 @@
         {
             "start": 508.78617, 
             "end": 509.10544, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10078,7 +10078,7 @@
         {
             "start": 512.56757, 
             "end": 512.6873, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10154,7 +10154,7 @@
         {
             "start": 516.41882, 
             "end": 516.45873, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10279,7 +10279,7 @@
         {
             "start": 520.03061, 
             "end": 520.41973, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10292,7 +10292,7 @@
         {
             "start": 521.30771, 
             "end": 521.9263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10319,7 +10319,7 @@
         {
             "start": 522.8542, 
             "end": 522.93401, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10346,7 +10346,7 @@
         {
             "start": 523.9517, 
             "end": 524.42063, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10366,7 +10366,7 @@
         {
             "start": 525.19887, 
             "end": 525.29864, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10379,7 +10379,7 @@
         {
             "start": 525.54807, 
             "end": 525.79751, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10441,7 +10441,7 @@
         {
             "start": 527.67324, 
             "end": 527.90272, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10475,7 +10475,7 @@
         {
             "start": 529.14989, 
             "end": 529.16984, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10488,7 +10488,7 @@
         {
             "start": 529.49909, 
             "end": 529.85828, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10501,7 +10501,7 @@
         {
             "start": 530.42698, 
             "end": 530.48685, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10535,7 +10535,7 @@
         {
             "start": 531.41474, 
             "end": 532.51224, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10555,7 +10555,7 @@
         {
             "start": 534.19841, 
             "end": 534.23832, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10603,7 +10603,7 @@
         {
             "start": 536.30363, 
             "end": 536.44331, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10630,7 +10630,7 @@
         {
             "start": 537.26145, 
             "end": 537.69048, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10678,7 +10678,7 @@
         {
             "start": 541.27234, 
             "end": 541.422, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10719,7 +10719,7 @@
         {
             "start": 542.99841, 
             "end": 543.2678, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10732,7 +10732,7 @@
         {
             "start": 543.86644, 
             "end": 544.19569, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10773,7 +10773,7 @@
         {
             "start": 545.81202, 
             "end": 546.10136, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10793,7 +10793,7 @@
         {
             "start": 546.82971, 
             "end": 547.67778, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10848,7 +10848,7 @@
         {
             "start": 549.88277, 
             "end": 550.07234, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10861,7 +10861,7 @@
         {
             "start": 550.15215, 
             "end": 550.98027, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10874,7 +10874,7 @@
         {
             "start": 551.52902, 
             "end": 551.66871, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10915,7 +10915,7 @@
         {
             "start": 553.11542, 
             "end": 553.27506, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10928,7 +10928,7 @@
         {
             "start": 553.53447, 
             "end": 553.62426, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10941,7 +10941,7 @@
         {
             "start": 553.95351, 
             "end": 554.46236, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10954,7 +10954,7 @@
         {
             "start": 554.83152, 
             "end": 555.68957, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10967,7 +10967,7 @@
         {
             "start": 556.08866, 
             "end": 556.45782, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10980,7 +10980,7 @@
         {
             "start": 556.80703, 
             "end": 556.89683, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11028,7 +11028,7 @@
         {
             "start": 558.98209, 
             "end": 559.022, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11041,7 +11041,7 @@
         {
             "start": 559.36122, 
             "end": 559.44104, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11054,7 +11054,7 @@
         {
             "start": 559.89002, 
             "end": 560.07959, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11088,7 +11088,7 @@
         {
             "start": 561.68594, 
             "end": 561.75578, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11108,7 +11108,7 @@
         {
             "start": 562.17483, 
             "end": 562.20476, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11156,7 +11156,7 @@
         {
             "start": 563.96077, 
             "end": 564.47959, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11190,7 +11190,7 @@
         {
             "start": 565.20794, 
             "end": 565.22789, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11210,7 +11210,7 @@
         {
             "start": 565.88639, 
             "end": 566.30544, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11244,7 +11244,7 @@
         {
             "start": 567.2034, 
             "end": 567.52268, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11257,7 +11257,7 @@
         {
             "start": 568.33084, 
             "end": 569.06916, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11277,7 +11277,7 @@
         {
             "start": 569.76757, 
             "end": 569.82744, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11297,7 +11297,7 @@
         {
             "start": 570.4161, 
             "end": 570.75533, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11345,7 +11345,7 @@
         {
             "start": 573.07007, 
             "end": 573.15986, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11379,7 +11379,7 @@
         {
             "start": 573.82834, 
             "end": 573.91814, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11441,7 +11441,7 @@
         {
             "start": 576.14308, 
             "end": 576.33265, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11510,7 +11510,7 @@
         {
             "start": 578.65737, 
             "end": 578.79705, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11530,7 +11530,7 @@
         {
             "start": 579.28594, 
             "end": 579.73492, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11543,7 +11543,7 @@
         {
             "start": 580.13401, 
             "end": 580.1839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11556,7 +11556,7 @@
         {
             "start": 580.69274, 
             "end": 581.18163, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11576,7 +11576,7 @@
         {
             "start": 581.40113, 
             "end": 581.49093, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11631,7 +11631,7 @@
         {
             "start": 583.21701, 
             "end": 583.5263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11665,7 +11665,7 @@
         {
             "start": 585.32222, 
             "end": 585.49184, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11678,7 +11678,7 @@
         {
             "start": 585.92086, 
             "end": 586.00068, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11691,7 +11691,7 @@
         {
             "start": 586.32993, 
             "end": 586.34989, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11718,7 +11718,7 @@
         {
             "start": 587.36757, 
             "end": 587.99615, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11731,7 +11731,7 @@
         {
             "start": 588.36531, 
             "end": 588.40522, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11800,7 +11800,7 @@
         {
             "start": 590.99932, 
             "end": 591.27868, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11813,7 +11813,7 @@
         {
             "start": 591.50816, 
             "end": 592.07687, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11861,7 +11861,7 @@
         {
             "start": 594.59116, 
             "end": 594.8805, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11895,7 +11895,7 @@
         {
             "start": 596.36712, 
             "end": 596.61655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11908,7 +11908,7 @@
         {
             "start": 597.15533, 
             "end": 597.4746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11942,7 +11942,7 @@
         {
             "start": 599.31043, 
             "end": 599.98889, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12004,7 +12004,7 @@
         {
             "start": 601.60522, 
             "end": 601.84467, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12108,7 +12108,7 @@
         {
             "start": 604.49864, 
             "end": 604.63832, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12149,7 +12149,7 @@
         {
             "start": 605.69592, 
             "end": 606.32449, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12169,7 +12169,7 @@
         {
             "start": 606.85329, 
             "end": 607.04286, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12210,7 +12210,7 @@
         {
             "start": 608.67914, 
             "end": 608.70907, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12223,7 +12223,7 @@
         {
             "start": 609.05828, 
             "end": 609.27778, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12250,7 +12250,7 @@
         {
             "start": 610.78435, 
             "end": 610.83424, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12263,7 +12263,7 @@
         {
             "start": 611.30317, 
             "end": 611.41293, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12276,7 +12276,7 @@
         {
             "start": 611.68231, 
             "end": 612.03152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12289,7 +12289,7 @@
         {
             "start": 612.35079, 
             "end": 612.94943, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12309,7 +12309,7 @@
         {
             "start": 614.13673, 
             "end": 614.75533, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12357,7 +12357,7 @@
         {
             "start": 616.7907, 
             "end": 616.81066, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12377,7 +12377,7 @@
         {
             "start": 617.59887, 
             "end": 618.41701, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12418,7 +12418,7 @@
         {
             "start": 619.80385, 
             "end": 620.01338, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12431,7 +12431,7 @@
         {
             "start": 620.49229, 
             "end": 620.80159, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12472,7 +12472,7 @@
         {
             "start": 621.97891, 
             "end": 622.378, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12485,7 +12485,7 @@
         {
             "start": 622.69728, 
             "end": 622.98662, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12519,7 +12519,7 @@
         {
             "start": 623.93447, 
             "end": 623.9644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12532,7 +12532,7 @@
         {
             "start": 624.45329, 
             "end": 624.47324, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12580,7 +12580,7 @@
         {
             "start": 626.46871, 
             "end": 626.80794, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12635,7 +12635,7 @@
         {
             "start": 628.42426, 
             "end": 628.4542, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12648,7 +12648,7 @@
         {
             "start": 628.78345, 
             "end": 628.86327, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12661,7 +12661,7 @@
         {
             "start": 629.20249, 
             "end": 629.61156, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12702,7 +12702,7 @@
         {
             "start": 631.19796, 
             "end": 631.40748, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12715,7 +12715,7 @@
         {
             "start": 632.33537, 
             "end": 632.5449, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12798,7 +12798,7 @@
         {
             "start": 635.14898, 
             "end": 635.24875, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12832,7 +12832,7 @@
         {
             "start": 636.14671, 
             "end": 636.24649, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12852,7 +12852,7 @@
         {
             "start": 636.66553, 
             "end": 637.04467, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12921,7 +12921,7 @@
         {
             "start": 640.26735, 
             "end": 640.30726, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12976,7 +12976,7 @@
         {
             "start": 643.25057, 
             "end": 643.52993, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12989,7 +12989,7 @@
         {
             "start": 644.36803, 
             "end": 644.81701, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13121,7 +13121,7 @@
         {
             "start": 649.21701, 
             "end": 649.56621, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13134,7 +13134,7 @@
         {
             "start": 649.9254, 
             "end": 650.41429, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13280,7 +13280,7 @@
         {
             "start": 655.12358, 
             "end": 655.54263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13314,7 +13314,7 @@
         {
             "start": 656.99932, 
             "end": 657.08912, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13397,7 +13397,7 @@
         {
             "start": 659.68322, 
             "end": 659.93265, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13424,7 +13424,7 @@
         {
             "start": 661.54898, 
             "end": 662.07778, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13437,7 +13437,7 @@
         {
             "start": 662.5068, 
             "end": 662.56667, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13450,7 +13450,7 @@
         {
             "start": 663.53447, 
             "end": 663.91361, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13470,7 +13470,7 @@
         {
             "start": 665.2805, 
             "end": 665.34036, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13490,7 +13490,7 @@
         {
             "start": 666.16848, 
             "end": 666.60748, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13517,7 +13517,7 @@
         {
             "start": 668.33356, 
             "end": 668.50317, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13530,7 +13530,7 @@
         {
             "start": 668.91224, 
             "end": 669.17166, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13557,7 +13557,7 @@
         {
             "start": 670.40884, 
             "end": 670.81791, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13577,7 +13577,7 @@
         {
             "start": 671.51633, 
             "end": 671.76576, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13611,7 +13611,7 @@
         {
             "start": 673.06281, 
             "end": 673.1127, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13624,7 +13624,7 @@
         {
             "start": 673.93084, 
             "end": 674.05057, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13644,7 +13644,7 @@
         {
             "start": 674.67914, 
             "end": 674.89864, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13685,7 +13685,7 @@
         {
             "start": 676.6746, 
             "end": 676.70454, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13712,7 +13712,7 @@
         {
             "start": 678.56032, 
             "end": 678.95941, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13725,7 +13725,7 @@
         {
             "start": 679.49819, 
             "end": 679.6678, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13766,7 +13766,7 @@
         {
             "start": 682.53129, 
             "end": 683.43923, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13779,7 +13779,7 @@
         {
             "start": 683.74853, 
             "end": 683.99796, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13792,7 +13792,7 @@
         {
             "start": 684.19751, 
             "end": 684.46689, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13931,7 +13931,7 @@
         {
             "start": 689.40567, 
             "end": 689.85465, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13944,7 +13944,7 @@
         {
             "start": 690.24376, 
             "end": 690.38345, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13964,7 +13964,7 @@
         {
             "start": 691.62063, 
             "end": 691.88005, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13977,7 +13977,7 @@
         {
             "start": 692.18934, 
             "end": 692.62834, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14032,7 +14032,7 @@
         {
             "start": 695.18254, 
             "end": 695.49184, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14052,7 +14052,7 @@
         {
             "start": 696.09048, 
             "end": 696.76893, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14065,7 +14065,7 @@
         {
             "start": 697.11814, 
             "end": 697.1381, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14120,7 +14120,7 @@
         {
             "start": 699.67234, 
             "end": 699.87188, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14189,7 +14189,7 @@
         {
             "start": 702.08685, 
             "end": 702.45601, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14216,7 +14216,7 @@
         {
             "start": 704.10227, 
             "end": 704.31179, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14257,7 +14257,7 @@
         {
             "start": 706.32721, 
             "end": 706.75624, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14298,7 +14298,7 @@
         {
             "start": 708.55215, 
             "end": 708.83152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14318,7 +14318,7 @@
         {
             "start": 709.67959, 
             "end": 709.78934, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14331,7 +14331,7 @@
         {
             "start": 710.47778, 
             "end": 710.53764, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14344,7 +14344,7 @@
         {
             "start": 710.9068, 
             "end": 711.2161, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14371,7 +14371,7 @@
         {
             "start": 712.59297, 
             "end": 712.99206, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14405,7 +14405,7 @@
         {
             "start": 714.47868, 
             "end": 714.99751, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14425,7 +14425,7 @@
         {
             "start": 715.63605, 
             "end": 715.68594, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14445,7 +14445,7 @@
         {
             "start": 716.71361, 
             "end": 717.15261, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14458,7 +14458,7 @@
         {
             "start": 717.422, 
             "end": 717.74127, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14471,7 +14471,7 @@
         {
             "start": 718.65918, 
             "end": 718.90862, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14505,7 +14505,7 @@
         {
             "start": 720.40522, 
             "end": 720.49501, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14532,7 +14532,7 @@
         {
             "start": 721.48277, 
             "end": 721.93175, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14545,7 +14545,7 @@
         {
             "start": 722.261, 
             "end": 722.38073, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14572,7 +14572,7 @@
         {
             "start": 723.47823, 
             "end": 723.52812, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14592,7 +14592,7 @@
         {
             "start": 724.62562, 
             "end": 724.74535, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14605,7 +14605,7 @@
         {
             "start": 725.80295, 
             "end": 725.90272, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14618,7 +14618,7 @@
         {
             "start": 726.43152, 
             "end": 727.55896, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14645,7 +14645,7 @@
         {
             "start": 728.93583, 
             "end": 729.31497, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14658,7 +14658,7 @@
         {
             "start": 729.71406, 
             "end": 729.76395, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14713,7 +14713,7 @@
         {
             "start": 731.49002, 
             "end": 731.65964, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14726,7 +14726,7 @@
         {
             "start": 732.08866, 
             "end": 732.84694, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14767,7 +14767,7 @@
         {
             "start": 734.46327, 
             "end": 734.61293, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14780,7 +14780,7 @@
         {
             "start": 734.67279, 
             "end": 734.74263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14800,7 +14800,7 @@
         {
             "start": 735.74036, 
             "end": 736.25918, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14813,7 +14813,7 @@
         {
             "start": 736.48866, 
             "end": 736.80794, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14875,7 +14875,7 @@
         {
             "start": 739.32222, 
             "end": 739.36213, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14888,7 +14888,7 @@
         {
             "start": 740.23016, 
             "end": 740.65918, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14908,7 +14908,7 @@
         {
             "start": 740.89864, 
             "end": 741.07823, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14970,7 +14970,7 @@
         {
             "start": 743.16349, 
             "end": 743.35306, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14990,7 +14990,7 @@
         {
             "start": 744.16122, 
             "end": 745.45828, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15010,7 +15010,7 @@
         {
             "start": 746.17664, 
             "end": 748.34172, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }
     ]

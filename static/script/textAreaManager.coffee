@@ -313,12 +313,14 @@ class ScriptArea
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                     <li class="disabled"><a><%= header %></a></li>
                     <% _.each(dupes[dupeIdx], function (elt) { %>
-                        <li><a href="javascript:void(0)" 
+                        <li><span 
                                class="dupeOpt"
                                tabindex="-1">
                                <i class="icon-play dupePlayButton"></i>
+                               <div style="position:relative; display:inline-block">
                                <span class="copyButton"><%= elt[1] %></span>
-                            </a>
+                               </div>
+                            </span>
                         </li>
                     <% }) %>
                 </ul>
@@ -373,12 +375,16 @@ class ScriptArea
             $('.dropdown.open').removeClass('open')
         )
         
-        box.find('.dropdown-toggle').each((i) ->
+        box.find('.dropdown-toggle')
+        .dropdown()
+        .each((i) ->
             pos = $(this).offset()
             eltPos = self.area.offset()
             dupe = dupes[context.dupeOrder[i]]
             start = context.bounds[i][0]
             end = context.bounds[i][1]
+            
+            
             
             $(this).click( ->
                 console.log "start", start, "end", end
@@ -389,23 +395,30 @@ class ScriptArea
                 left: "#{-pos.left + eltPos.left + 10}px"
                 width: "#{taWidth - 20}px"
             )
-            .find('a.dupeOpt')
+            .find('span.dupeOpt')
             .each((j) ->
                 if locked
+                    $(this).closest('.dropdown').addClass('open');
                     "zero clipboard is obnoxious for now"
-                    # $(@).click((event) ->
-                    #     # set up copying in raw speech
-                    #     indices = [dupe[j][0][0]..dupe[j][0][1]]
-                    #     copyButton = $(this).find('.copyButton');
-                    #     copyButton.attr("data-clipboard-text", 
-                    #         self.tam.generateCopyTextFromIndices(indices)
-                    #     )
-                    #     clip = new ZeroClipboard(copyButton,
-                    #         moviePath: "swf/ZeroClipboard.swf"
-                    #     )
-                    #     clip.on 'complete', ->
-                    #         $('.dropdown.open').removeClass('open')    
-                    # )
+                    indices = [dupe[j][0][0]..dupe[j][0][1]]
+                    $(@).find('.copyButton')
+                        .attr("data-clipboard-text", 
+                            self.tam.generateCopyTextFromIndices indices)
+                        .zclip(
+                            path: "swf/ZeroClipboard.swf",
+                            copy: self.tam.generateCopyTextFromIndices(indices),
+                            afterCopy: (->
+                                self.area.focus()
+                                console.log "COPPY", $(this).closest('.dropdown')
+                                $(this).closest('.dropdown').removeClass('open')
+                            )
+                        )
+                    # this is a hack but I don't know why the offset is wrong
+                    # with zclip/ZeroClipboard
+                    $(this).find('.zclip').css(
+                        top: "-4px"
+                    )
+                    $(this).closest('.dropdown').removeClass('open');
                 else
                     # set up text replacement in editing area
                     $(@).click((event) ->
@@ -427,10 +440,8 @@ class ScriptArea
                                 self.area.focus()
                     event.stopPropagation()
                 )
-                
             )
         )
-        .dropdown()
         
     replaceWords: (c1, c2, w1, w2) ->
         # replace words from c1 to c2 in @words

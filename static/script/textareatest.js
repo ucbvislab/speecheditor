@@ -195,6 +195,7 @@ TAAPP.adjustHeight = function () {
     // $('.rawTAManager').height(eltHeight - 70 + "px");
     
     TAAPP.TAManager.adjustHeight();
+
     
     if (TAAPP.hasOwnProperty("sliders")) {
         TAAPP.sliders.each(function () {
@@ -202,7 +203,16 @@ TAAPP.adjustHeight = function () {
         });
     }
     
+
     TAAPP.RawTAManager.adjustHeight();
+    
+    
+    if (TAAPP.hasOwnProperty("sliders")) {
+        TAAPP.sliders.each(function () {
+           $(this).tabSlideOut("refresh");
+        });
+    }
+    
 };
 
 // TODO: fix this in wake of new timing data
@@ -678,7 +688,10 @@ TAAPP.loadSite = function () {
             return $('#editorRow').height();
         }
     });
-
+    
+    // TODO: hack hack hack fix this bug
+    // setTimeout(TAAPP.adjustHeight, 5000);
+    
 };
 
 $(function () {

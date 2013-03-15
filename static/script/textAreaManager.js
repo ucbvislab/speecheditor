@@ -329,7 +329,7 @@
       dupeStarts = dupeInfo.starts;
       offset = this.tam.taIndexSpan[this.tam.tas.indexOf(this)];
       dupeDropdownWrapLeft = "<span class=\"dropdown overlay\">\n    <span class=\"dropdown-toggle\">";
-      dupeDropdownWrapRight = "    </span>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">\n        <li class=\"disabled\"><a><%= header %></a></li>\n        <% _.each(dupes[dupeIdx], function (elt) { %>\n            <li><a href=\"javascript:void(0)\" \n                   class=\"dupeOpt\"\n                   tabindex=\"-1\">\n                   <i class=\"icon-play dupePlayButton\"></i>\n                   <span class=\"copyButton\"><%= elt[1] %></span>\n                </a>\n            </li>\n        <% }) %>\n    </ul>\n</span>";
+      dupeDropdownWrapRight = "    </span>\n    <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">\n        <li class=\"disabled\"><a><%= header %></a></li>\n        <% _.each(dupes[dupeIdx], function (elt) { %>\n            <li><span \n                   class=\"dupeOpt\"\n                   tabindex=\"-1\">\n                   <i class=\"icon-play dupePlayButton\"></i>\n                   <div style=\"position:relative; display:inline-block\">\n                   <span class=\"copyButton\"><%= elt[1] %></span>\n                   </div>\n                </span>\n            </li>\n        <% }) %>\n    </ul>\n</span>";
       rw = this._renderWord;
       locked = this.locked;
       boxHTML = _.reduce(this.words, (function(memo, word, idx, words) {
@@ -371,7 +371,7 @@
         console.log("clicked on the box");
         return $('.dropdown.open').removeClass('open');
       });
-      return box.find('.dropdown-toggle').each(function(i) {
+      return box.find('.dropdown-toggle').dropdown().each(function(i) {
         var dupe, eltPos, end, pos, start;
         pos = $(this).offset();
         eltPos = self.area.offset();
@@ -384,9 +384,29 @@
         }).next('.dropdown-menu').css({
           left: "" + (-pos.left + eltPos.left + 10) + "px",
           width: "" + (taWidth - 20) + "px"
-        }).find('a.dupeOpt').each(function(j) {
+        }).find('span.dupeOpt').each(function(j) {
+          var indices, _i, _ref, _ref1, _results;
           if (locked) {
+            $(this).closest('.dropdown').addClass('open');
             "zero clipboard is obnoxious for now";
+            indices = (function() {
+              _results = [];
+              for (var _i = _ref = dupe[j][0][0], _ref1 = dupe[j][0][1]; _ref <= _ref1 ? _i <= _ref1 : _i >= _ref1; _ref <= _ref1 ? _i++ : _i--){ _results.push(_i); }
+              return _results;
+            }).apply(this);
+            $(this).find('.copyButton').attr("data-clipboard-text", self.tam.generateCopyTextFromIndices(indices)).zclip({
+              path: "swf/ZeroClipboard.swf",
+              copy: self.tam.generateCopyTextFromIndices(indices),
+              afterCopy: (function() {
+                self.area.focus();
+                console.log("COPPY", $(this).closest('.dropdown'));
+                return $(this).closest('.dropdown').removeClass('open');
+              })
+            });
+            $(this).find('.zclip').css({
+              top: "-4px"
+            });
+            $(this).closest('.dropdown').removeClass('open');
           } else {
             $(this).click(function(event) {
               var newPos;
@@ -411,7 +431,7 @@
             return event.stopPropagation();
           });
         });
-      }).dropdown();
+      });
     };
 
     ScriptArea.prototype.replaceWords = function(c1, c2, w1, w2) {

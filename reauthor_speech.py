@@ -6,8 +6,9 @@ try:
 except:
     import json
 import sys
+import numpy as N
 
-from radiotool.composer import Composition, Speech, Segment
+from radiotool.composer import Composition, Speech, Segment, RawTrack, equal_power
 print >> sys.stderr, "Composer imported"
 
 from breath_classifier import breath_classifier
@@ -110,26 +111,36 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
             if cut_to_zc:
                 try:
-                    start = s.zero_crossing_before(start)
+                    start = s.zero_crossing_after(start)
                 except:
                     pass
                 try:
-                    end = s.zero_crossing_after(end)
+                    end = s.zero_crossing_before(end)
                 except:
                     pass
 
             start_times.append(composition_loc)
             
-            while pause_len > end - start:
-                seg = Segment(s, composition_loc, start, end - start)
-                c.add_score_segment(seg)
-                composition_loc += (end - start) 
-                pause_len -= (end - start)
-                segments.append(seg)
-
-            seg = Segment(s, composition_loc, start, pause_len)            
-            c.add_score_segment(seg)
-            segments.append(seg)
+            # while pause_len > end - start:
+            seg = Segment(s, composition_loc, start, end - start)
+            track, cf_seg = create_roomtone_pause2(seg, pause_len)
+            c.add_track(track)
+            c.add_score_segment(cf_seg)
+                
+                
+            #     c.add_score_segment(seg)
+            #     composition_loc += (end - start) 
+            #     pause_len -= (end - start)
+            #     plen = end - start
+            #     segments.append(seg)
+            #     print segments[-1].duration
+            #     if len(segments) > 1:
+            #         c.cross_fade(segments[-2], segments[-1], plen / 2)
+            # 
+            # seg = Segment(s, composition_loc, start, pause_len)            
+            # c.add_score_segment(seg)
+            
+            segments.append(cf_seg)
             composition_loc += pause_len
         else:
             start = eg.start
@@ -157,7 +168,9 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     
     if crossfades:
         for i in range(len(segments) - 1):
-            c.cross_fade(segments[i], segments[i + 1], .005)
+            if segments[i].score_location + segments[i].duration ==\
+                segments[i + 1].score_location:
+                c.cross_fade(segments[i], segments[i + 1], .005)
     
     out = {}
     
@@ -194,6 +207,60 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     # return [(e.edit_index, start_times[i]) for i, e in enumerate(edit_groups)]
 
 
+def create_roomtone_pause(segment, final_duration):
+    final_dur_in_frames = int(final_duration * segment.track.sr())
+    out = N.empty(final_dur_in_frames)
+    
+    breath_dur = segment.duration
+    half_bd = int(breath_dur / 2)
+    nbreaths = N.ceil(final_dur_in_frames / segment.duration) + 2
+    
+    # tile the breaths
+    frames = segment.get_frames(channels=1)
+    breaths =  N.tile(frames, [nbreaths])
+    
+    out = breaths[:final_dur_in_frames] +\
+        breaths[half_bd:final_dur_in_frames + half_bd]
+    
+
+    sr = segment.track.sr()
+    track = RawTrack(out / 2, name="raw", samplerate=sr)
+
+    raw_seg = Segment(track, segment.score_location / float(sr),
+                      0.0, final_duration)
+    return track, raw_seg
+
+def create_roomtone_pause2(segment, final_duration):
+    final_dur_in_frames = int(final_duration * segment.track.sr())
+    out = N.empty(final_dur_in_frames)
+    
+    breath_dur = segment.duration
+    half_bd = int(breath_dur / 2)
+    nbreaths = N.ceil(final_dur_in_frames / segment.duration) + 2
+    
+    # tile the breaths
+    frames = segment.get_frames(channels=1)
+    
+    offset = 0
+    if len(frames) % 2 == 1:
+        offset = 1
+    
+    firsthalf = frames[:half_bd]
+    secondhalf = frames[half_bd + offset:]
+    cf = equal_power(secondhalf, firsthalf)
+    
+    breaths =  N.tile(cf, [nbreaths * 2])
+    
+    out = breaths[:final_dur_in_frames]
+
+    sr = segment.track.sr()
+    track = RawTrack(out, name="raw", samplerate=sr)
+
+    raw_seg = Segment(track, segment.score_location / float(sr),
+                      0.0, final_duration)
+    return track, raw_seg
+
+
 def render_pauses(speech_file, alignment):
     """and reauthor the alignment json"""
     pause_idx = 0
@@ -213,6 +280,7 @@ def render_pauses(speech_file, alignment):
                 continue
             # print "pause", pause_idx-1, "start:", start, "end", end
             # print "len", end - start
+            print "Creating pause", start, end - start
             seg = Segment(speech, 0.0, start, end - start)
             comp.add_score_segment(seg)
             comp.output_score(

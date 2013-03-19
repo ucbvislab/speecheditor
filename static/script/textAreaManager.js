@@ -7,13 +7,16 @@
 
   ScriptArea = (function() {
 
-    function ScriptArea(tam, name, speaker, locked) {
+    function ScriptArea(tam, name, speaker, settings) {
       var containers,
         _this = this;
       this.tam = tam;
       this.name = name;
       this.speaker = speaker;
-      this.locked = locked;
+      if (settings == null) {
+        settings = {};
+      }
+      this.locked = "locked" in settings ? settings.locked : false;
       this.el = $("<div>\n<div class=\"emContainerTAM\">\n    <div class=\"emphasisTAM\"></div>\n</div>\n<div class=\"hlContainerTAM\">\n    <div class=\"highlightsTAM\"></div>\n</div>\n<div class=\"taContainerTAM\">\n    <textarea class=\"txtAreaTAM\" name=\"area" + name + "\"></textarea>\n</div>\n<div class=\"overlayContainerTAM\">\n    <div class=\"overlaysTAM\"></div>\n</div>\n</div>");
       this.hlContainer = this.el.find('.hlContainerTAM');
       this.highlights = this.el.find('.highlightsTAM');
@@ -395,7 +398,7 @@
               return _results;
             }).apply(this);
             $(this).find('.copyButton').attr("data-clipboard-text", self.tam.generateCopyTextFromIndices(indices)).zclip({
-              path: "swf/ZeroClipboard.swf",
+              path: "static/swf/ZeroClipboard.swf",
               copy: self.tam.generateCopyTextFromIndices(indices),
               afterCopy: (function() {
                 self.area.focus();
@@ -444,17 +447,18 @@
 
   TextAreaManager = (function() {
 
-    function TextAreaManager(el, speakers, words, current, locked) {
-      var speaker, tr, _i, _len, _ref, _ref1,
+    function TextAreaManager(el, speakers, words, current, settings) {
+      var speaker, tr, _i, _len, _ref,
         _this = this;
       this.el = el;
       this.speakers = speakers;
       this.words = words;
       this.current = current;
-      this.locked = locked;
-      if ((_ref = this.locked) == null) {
-        this.locked = false;
+      if (settings == null) {
+        settings = {};
       }
+      this.locked = "locked" in settings ? settings.locked : false;
+      this.textAlignedWf = "wf" in settings ? settings.wf : null;
       this.headerTable = $(document.createElement('table')).attr("width", "100%").appendTo(this.el);
       this.container = $(document.createElement('div')).css({
         "overflow-x": "hidden",
@@ -473,9 +477,9 @@
       this.dirtyTas = [];
       this.draw();
       this.breathInds = {};
-      _ref1 = this.speakers;
-      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-        speaker = _ref1[_i];
+      _ref = this.speakers;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        speaker = _ref[_i];
         this.breathInds[speaker] = [];
       }
       _.each(this.words, function(word, i, cur) {
@@ -518,7 +522,9 @@
 
     TextAreaManager.prototype._newScriptArea = function(name, speaker, index) {
       var ta;
-      ta = new ScriptArea(this, name, speaker, this.locked);
+      ta = new ScriptArea(this, name, speaker, {
+        locked: this.locked
+      });
       if (index != null) {
         this.tas.splice(index, 0, ta);
         this.areas.splice(index, 0, ta.area);
@@ -535,8 +541,8 @@
       this.adjustHeight();
       this.emphasizeWords();
       this.insertDupeOverlays(this.dupes, this.dupeInfo);
-      if (TAAPP.currentWaveform != null) {
-        $(TAAPP.currentWaveform).textAlignedWaveform({
+      if (this.textAlignedWf != null) {
+        $(this.textAlignedWf).textAlignedWaveform({
           currentWords: this.current
         });
       }
@@ -1002,7 +1008,6 @@
 
     TextAreaManager.prototype.removeTA = function(ta) {
       var taIndex;
-      this.log("in remove TA", ta);
       taIndex = this.tas.indexOf(ta);
       this.tas.splice(taIndex, 1);
       this.taIndexSpan.splice(taIndex, 1);

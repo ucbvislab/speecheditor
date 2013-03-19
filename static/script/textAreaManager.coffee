@@ -3,7 +3,10 @@
 $ = jQuery
 
 class ScriptArea
-    constructor: (@tam, @name, @speaker, @locked) ->
+    constructor: (@tam, @name, @speaker, settings) ->
+        settings ?= {}
+        @locked = if "locked" of settings then settings.locked else false
+        
         @el= $("""
         <div>
         <div class="emContainerTAM">
@@ -405,7 +408,7 @@ class ScriptArea
                         .attr("data-clipboard-text", 
                             self.tam.generateCopyTextFromIndices indices)
                         .zclip(
-                            path: "swf/ZeroClipboard.swf",
+                            path: "static/swf/ZeroClipboard.swf",
                             copy: self.tam.generateCopyTextFromIndices(indices),
                             afterCopy: (->
                                 self.area.focus()
@@ -449,8 +452,10 @@ class ScriptArea
         @tam.replaceWords c1, c2, w1, w2, @, @words[c1].taPos
 
 class TextAreaManager
-    constructor: (@el, @speakers, @words, @current, @locked) ->
-        @locked ?= false;
+    constructor: (@el, @speakers, @words, @current, settings) ->
+        settings ?= {}
+        @locked = if "locked" of settings then settings.locked else false
+        @textAlignedWf = if "wf" of settings then settings.wf else null
 
         @headerTable = $(document.createElement 'table')
             .attr("width", "100%")
@@ -514,7 +519,7 @@ class TextAreaManager
         tr
     
     _newScriptArea: (name, speaker, index) ->
-        ta = new ScriptArea this, name, speaker, @locked
+        ta = new ScriptArea this, name, speaker, locked: @locked
         if index?
             @tas.splice(index, 0, ta)
             @areas.splice(index, 0, ta.area)
@@ -531,8 +536,8 @@ class TextAreaManager
         @emphasizeWords()
         @insertDupeOverlays @dupes, @dupeInfo
         
-        if TAAPP.currentWaveform?
-            $(TAAPP.currentWaveform).textAlignedWaveform
+        if @textAlignedWf?
+            $(@textAlignedWf).textAlignedWaveform
                 currentWords: @current
         
         @dirtyTas = []
@@ -958,7 +963,6 @@ class TextAreaManager
         return @insertWords _.range(w1, w2 + 1), pos, ta
     
     removeTA: (ta) ->
-        @log "in remove TA", ta
         taIndex = @tas.indexOf ta
         @tas.splice taIndex, 1
         @taIndexSpan.splice taIndex, 1

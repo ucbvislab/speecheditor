@@ -1,0 +1,145 @@
+
+<div class="container-fluid">
+
+	<header>
+        <!-- <h1>Browser</h1>
+        <p class="lead">Browse through a set of underlays created for a given story. -->
+
+<!-- <br /> The tag categories correspond to a <a href="https://portfolio.du.edu/portfolio/getportfoliofile?uid=174367">clustering of last.fm mood tags (p. 71)</a> -->
+	</header>
+	
+	<!-- <div class="row">
+		<div class="lead ui360"><a href="mp3s/browser/3_little_pigs_90s.mp3">3 Little Pigs (excerpt) &ndash; Story without music</a></div>
+	</div>
+	<br /> -->
+	
+	<div class="row-fluid">
+		<div class="span4">
+			<p class="lead">Valence: <span id="valenceAmountLo" style="border:0; font-weight:bold;"></span> - <span id="valenceAmountHi" style="border:0; font-weight:bold;"></span></p>
+			<div id="valenceSlider"></div><br />
+		</div>
+		<div class="span4">
+			<p class="lead">Arousal: <span id="arousalAmountLo" style="border:0; font-weight:bold;"></span> - <span id="arousalAmountHi" style="border:0; font-weight:bold;"></span></p>
+			<div id="arousalSlider"></div><br />
+		</div>
+		<div class="span4">
+			<p class="lead">Tempo: <span id="tempoAmountLo" style="border:0; font-weight:bold;"></span> - <span id="tempoAmountHi" style="border:0; font-weight:bold;"></span> BPM</p>
+			<div id="tempoSlider"></div><br />
+		</div>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="span2">
+			<p class="lead">Coarse V/A filters</p>
+        </div>
+        <div class="span10">
+			<div style="display:inline" id="coarseVAFilter" class="btn-group" data-toggle="buttons-radio">
+				<button class="btn" value="1">Happy/Elated/Excited/Alert</button>
+				<button class="btn" value="2">Tense/Nervous/Stressed/Upset</button>
+				<button class="btn" value="3">Sad/Depressed/Lethargic/Fatigued</button>
+				<button class="btn" value="4">Calm/Relaxed/Serene/Contented</button>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span2">
+			<p class="lead">Pivot</p>
+        </div>
+        <div class="span1">
+            <button class="btn btn-danger" id="removePivot"><i class="icon-remove icon-white"></i></button>
+        </div>
+        <div class="span9">
+			    <button id="pivot" class="btn btn-inverse disabled">None</button>
+		</div>
+    </div>
+    <div class="row-fluid">
+		<div class="span2">
+			<p class="lead">Constrain pivot</p>
+        </div>
+        <div class="span1">
+            <button class="btn btn-primary" id="filterPivot">Go!</button>
+        </div>
+        <div class="span9">
+    			<div id="constraintButtons" class="btn-group">
+    				<button type="button" class="btn" data-constraint="valence">Valence</button>
+    				<button  type="button" class="btn" data-constraint="arousal">Arousal</button>
+    				<button type="button" class="btn" data-constraint="mode">Mode</button>
+    				<button type="button" class="btn" data-constraint="tempo">Tempo</button>
+    				<button type="button" class="btn" data-constraint="rms_energy">Energy</button>
+    				<button type="button" class="btn" data-constraint="danceability">Danceability</button>
+    				<button type="button" class="btn" data-constraint="mfccs">MFCCS (instrumentation)</button>
+    			</div>
+		</div>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="span12">
+			<table cellpadding="0" cellspacing="0" border="0" class="browser-table table-striped table-bordered" id="browser">
+				<thead>
+					<tr>
+						<th>Song clip</th>
+						<th>Title</th>
+						<th>Artist</th>
+						<th>Valence</th>
+						<th>Arousal</th>
+						<th>Mode</th>
+						<th>Tempo</th>
+						<th>Danceability</th>
+						<th>Tag categories</th>
+						<th>Hidden tags</th>
+						<th>All Tags (last.fm)</th>
+						<th>Pivot</th>
+						<th>Sorter</th>
+					</tr>
+				</thead>
+			</table>
+			
+		</div>
+		
+	</div>
+	
+	<h2>Nearest neighbor search</h2>
+	
+	<div class="row-fluid">
+
+		<div class="span4">
+			<h3>Select a song:</h3> <input type="text" class="typeahead span4"></input>
+			<h3>Select feature:</h3>
+			<div class="btn-group featureType" data-toggle="buttons-radio">
+				<button class="btn" id="mfccs">15 sec. MFCCs</button>
+				<button class="btn" id="wmfccs">15 sec. MFCCs (whitened)</button>
+			</div>
+		</div>
+		<div class="span8">
+			<h3>Nearest neighbors</h3>
+			<p>Artist - Title (Distance).</p>
+			<p>
+				<em>Note: the similarity match is based on the section after the changepoint (in other words, 6 seconds into these clips, for the remaining 15 seconds of the clips)</em></p>
+			<div class="nearest"></div>
+		</div>
+	</div>
+	
+	<footer class="footer"></footer>
+	
+</div>
+
+<!-- datatables includes -->
+<link rel="stylesheet" type="text/css" href="/static/musicbrowser/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf-8" src="/static/musicbrowser/js/jquery.dataTables.min.js"></script>
+<!-- end datatables includes -->
+
+
+<!-- music browser css includes -->
+<link rel="stylesheet" type="text/css" href="/static/musicbrowser/css/page-player.css" />
+<link rel="stylesheet" type="text/css" href="/static/musicbrowser/css/360player.css" />
+<link rel="stylesheet" type="text/css" href="/static/musicbrowser/css/browser.css"></link>
+<!-- end music browser css includes -->
+
+<script type="text/javascript" src="/static/musicbrowser/js/paging.js"></script>
+<script type="text/javascript" src="/static/musicbrowser/js/berniecode-animator.js"></script>
+<script src="/static/musicbrowser/js/360player.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/musicbrowser/js/kdTree.js"></script>
+
+<!-- main browser js -->
+<script type="text/javascript" src="/static/musicbrowser/js/musicBrowserApp.js"></script>
+<!-- end main browser js -->

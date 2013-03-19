@@ -5,6 +5,7 @@ except:
 import urllib
 import subprocess
 import os
+import eyed3
 
 import sys
 sys.path.append("/home/ubuntu/speecheditor")
@@ -26,9 +27,16 @@ try:
 except:
     APP_PATH = ''
 
-from flask import Flask, request, make_response, jsonify, Response
+from flask import Flask, request, make_response, jsonify, Response, render_template
 from werkzeug import secure_filename
 app = Flask(__name__)
+app.debug = True
+
+# load the app for music browsing
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/reauthor', methods=['POST'])
 def reauthor():
@@ -201,7 +209,7 @@ def reauthor():
 
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
             dat["outfile"] + '.wav', shell=True)
-        return jsonify(url='tmp/' + dat["outfile"] + '.mp3',
+        return jsonify(url='static/tmp/' + dat["outfile"] + '.mp3',
                        timing=result["timing"])
 
 
@@ -243,54 +251,82 @@ def dupes():
     return
 
 
-@app.route('/uploadSong', methods=['POST'])
+@app.route('/uploadSong', methods=['POST', 'GET'])
 def upload_song():
+    
+    upload_path = APP_PATH + 'static/uploads/'
+    
     if request.method == 'POST':
-        upload_path = APP_PATH + 'static/uploads/'
         f = request.files['song']
         file_path = f.filename.replace('\\', '/')
+        basename = os.path.basename(file_path)
         filename = secure_filename(f.filename)
         full_name = upload_path + filename
         f.save(full_name)
+
+    if request.method == 'GET':
+        """
+        upload a file from the local file browser --
+        in static/musicbrowser/fullmp3s    
+        """
+        filename = request.args.get('filename')
+        sec_fn = secure_filename(filename)
+        basename = os.path.basename(sec_fn)
+        full_name = os.path.join(upload_path, basename)
+        try:
+            with open(basename): pass
+        except IOError:
+            orig_name = os.path.join(
+                APP_PATH + 'static/musicbrowser/fullmp3s',
+                     os.path.basename(filename))
+            print orig_name, full_name
+            subprocess.call('cp "%s" "%s"' % (orig_name, full_name), shell=True)
+        filename = sec_fn
+
+    # get id3 tags
+    song = eyed3.load(full_name)
+    song_title = song.tag.title
+    song_artist = song.tag.artist
         
-        # convert to wav
-        subprocess.call(
-            'lame --decode "%s"' % full_name, shell=True)
+    # convert to wav
+    subprocess.call(
+        'lame --decode "%s"' % full_name, shell=True)
                 
-        wav_name = ".".join(full_name.split('.')[:-1]) + '.wav'
+    wav_name = ".".join(full_name.split('.')[:-1]) + '.wav'
         
-        # wav2json
-        subprocess.call(
-            'wav2json -p 2 -s 10000 --channels mid -n -o "%s" "%s"' %
-            (upload_path + 'wfData/' + filename + '.json', wav_name),
-            shell=True)
+    # wav2json
+    subprocess.call(
+        'wav2json -p 2 -s 10000 --channels mid -n -o "%s" "%s"' %
+        (upload_path + 'wfData/' + filename + '.json', wav_name),
+        shell=True)
 
-        out = {
-            "path": "uploads/" + filename,
-            "name": file_path.split('.')[0]
-        }
+    out = {
+        "path": "uploads/" + filename,
+        "name": basename.split('.')[0],
+        "title": song_title,
+        "artist": song_artist
+    }
 
-        # get length of song upload
-        track = Track(wav_name, "track")
-        out["dur"] = track.total_frames() / float(track.sr()) * 1000.0
+    # get length of song upload
+    track = Track(wav_name, "track")
+    out["dur"] = track.total_frames() / float(track.sr()) * 1000.0
 
-        # get song graph
-        mg = MusicGraph(full_name, cache_path=upload_path, verbose=True)        
-        out["graph"] = mg.json_graph()
+    # get song graph
+    mg = MusicGraph(full_name, cache_path=upload_path, verbose=True)        
+    out["graph"] = mg.json_graph()
         
-        print "Got music graph"
+    print "Got music graph"
 
-        # delete wav
-        #
-        # actually, don't delete the wav for now.
-        # subprocess.call('rm "%s"' % wav_name, shell=True)
+    # delete wav
+    #
+    # actually, don't delete the wav for now.
+    # subprocess.call('rm "%s"' % wav_name, shell=True)
 
-        # read waveform data json
-        with open(upload_path + 'wfData/' + filename + '.json', 'r') as wf:
-            out["wfData"] = json.load(wf)["mid"]
+    # read waveform data json
+    with open(upload_path + 'wfData/' + filename + '.json', 'r') as wf:
+        out["wfData"] = json.load(wf)["mid"]
 
-        return jsonify(**out)
-    return
+    return jsonify(**out)
 
 
 @app.route('/alignment/<name>')
@@ -302,6 +338,7 @@ def alignment(name):
         print e
         algn = json.load(
             open("%sstatic/%s.json" % (APP_PATH, name), 'r'))["words"]
+        print "filename", "%sstatic/%s44.wav" % (APP_PATH, name)
         new_alignment = reauthor_speech.render_pauses(
             "%sstatic/%s44.wav" % (APP_PATH, name), algn)
         out = {"words": new_alignment}
@@ -312,5 +349,17 @@ def alignment(name):
     return jsonify(**out)
 
 
+from werkzeug.serving import run_simple
+from werkzeug.wsgi import DispatcherMiddleware
+
+from music_browser.browser_flask import app as browserapp
+
+application = DispatcherMiddleware(app, {
+    '/musicbrowser': browserapp
+})
+
 if __name__ == '__main__':
-    app.run(debug=True)
+
+    run_simple('localhost', 5000, application,
+               use_reloader=True, use_debugger=True, use_evalex=True)
+

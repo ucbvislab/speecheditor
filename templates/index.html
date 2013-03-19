@@ -8,34 +8,25 @@
 
 <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script>
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" type="text/javascript"></script> -->
+
+<script src="static/script/soundmanager2-jsmin.js" type="text/javascript"></script>
+
+<!-- includes transitions, modal, buttons, dropdowns -->
+<script src="static/script/bootstrap-custom.min.js"></script>
 
 
-<link href="style/bootstrap-fileupload.min.css" rel="stylesheet">
-<link href="style/bootstrap.min.cosmo.css" rel="stylesheet" media="screen">
+<link href="static/style/bootstrap-fileupload.min.css" rel="stylesheet">
+<link href="static/style/bootstrap.min.cosmo.css" rel="stylesheet" media="screen">
 
-
-<link rel="stylesheet/less" type="text/css" href="style/textareastyle.less" />
+<link rel="stylesheet/less" type="text/css" href="static/style/textareastyle.less" />
 
 <!-- edible includes -->
 <link rel="stylesheet" type="text/css" 
 href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css"/>
-<link rel="stylesheet/less" type="text/css" href="edible/css/waveform.less" />
+<link rel="stylesheet/less" type="text/css" href="static/edible/css/waveform.less" />
 <!-- end edible includes -->
 
-<!-- <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-34210485-2']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script> -->
 <body>
 
 <!-- <div class="navbar navbar-top">
@@ -98,6 +89,8 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
                     <option value="obama">Barack Obama - 2nd Inauguration</option>
                     
                     <option value="memo">Steve voice memo</option>
+                    
+                    <option value="bluesmobile">Elwood Blues Mobile narration</option>
                 </select>
             </div>
             
@@ -112,8 +105,17 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
         </div>
     </div>
     
-    <div class="row-fluid">
-        <div class="span12">
+    <div class="row-fluid" id="editorRow">
+        <div class="span9">
+            <div class="TAManager">
+
+            </div>
+        </div>
+        
+        <div class="span3" id="musicLibrary">
+            <h3>Music library</h3>
+            
+
             <form id="songUploadForm" method="POST" enctype="multipart/form-data" action="/upload">
                 <div class="fileupload fileupload-new" data-provides="fileupload">
                   <span class="btn btn-file">
@@ -126,19 +128,11 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
                   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
                 </div>
             </form>
-        </div>
-    </div>
+            
+            <div class="musicLibrary">
+                <table class="table table-condensed">
 
-    <div class="row-fluid" id="editorRow">
-        <div class="span9">
-            <div class="TAManager">
-
-            </div>
-        </div>
-        
-        <div class="span3">
-            <div class="AddedMusic">
-
+                </table>
             </div>
         </div>
         
@@ -159,22 +153,10 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 <div class="browserSlider tabSlider">
     <div class="browserSliderHandle">Music Browser</div>
         <!-- <h2>Music Browser</h2> -->
-
-        <p>Donec fringilla vehicula quam, et scelerisque sapien
-        eleifend sed. Ut sit amet euismod risus. Maecenas ullamcorper
-        semper risus sed tristique. Mauris placerat gravida eros sed
-        commodo. Cum sociis natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus. Nulla pharetra libero et metus
-        congue pharetra ultricies massa laoreet. Sed hendrerit commodo
-        faucibus. Ut eleifend, mauris sagittis ullamcorper convallis,
-        arcu risus congue ante, sit amet ullamcorper nisi sem et ante.
-        Phasellus suscipit, urna at varius congue, purus mi aliquam
-        magna, sit amet eleifend sapien purus eu lacus. In hac
-        habitasse platea dictumst. Proin dignissim felis vitae est
-        feugiat sed mattis ligula ullamcorper. Etiam tincidunt volutpat
-        libero, id aliquam diam malesuada at. Nunc blandit purus
-        purus.</p>
-
+        
+        <div class="musicBrowserBox">
+            {% include "browser.html" %}
+        </div>
 </div>
 
 <!-- Setup dialog -->
@@ -193,37 +175,49 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 
 
  
-<script src="script/underscore-min.js" type="text/javascript"></script>
-<script src="script/spin.js"></script>
-<script src="script/soundmanager2-jsmin.js" type="text/javascript"></script>
-<script src="script/textinputs.jquery.js" type="text/javascript"></script>
+<script src="static/script/underscore-min.js" type="text/javascript"></script>
+<script src="static/script/spin.js"></script>
 
-<script src="script/jquery.tabSlideOut.js"></script>
-<script src="script/lib/jquery.zclip.js"></script>
-<script src="script/textAreaManager.js"></script>
+<script src="static/script/textinputs.jquery.js" type="text/javascript"></script>
 
-<script src="script/textareatest.js" type="text/javascript"></script>
-<script src="script/bootstrap.min.js"></script>
-<script src="script/bootstrap-fileupload.min.js"></script>
+<script src="static/script/jquery.tabSlideOut.js"></script>
+<script src="static/script/lib/jquery.zclip.js"></script>
+<script src="static/script/textAreaManager.js"></script>
+
+<script src="static/script/bootstrap-fileupload.min.js"></script>
 
 
 
 <!-- edible includes -->
-<script src="edible/js/jquery.ui.snap2.js"></script>
-<script src="edible/js/edible.multicanvas.js"></script>
-<script src="edible/js/edible.wfBase.js"></script>
-<script src="edible/js/edible.waveform.js"></script>
-<script src="edible/js/edible.textAlignedWaveform.js"></script>
-<script src="edible/js/lib/jsnetworkx.js"></script>
-<script src="edible/js/lib/cubicspline.js"></script>
-<script src="edible/js/edible.musicWaveform.js"></script>
-<script src="edible/js/edible.timeline.js"></script>
-<script src="edible/js/lib/waveform.js"></script>
+<script src="static/edible/js/jquery.ui.snap2.js"></script>
+<script src="static/edible/js/edible.multicanvas.js"></script>
+<script src="static/edible/js/edible.wfBase.js"></script>
+<script src="static/edible/js/edible.waveform.js"></script>
+<script src="static/edible/js/edible.textAlignedWaveform.js"></script>
+<script src="static/edible/js/lib/jsnetworkx.js"></script>
+<script src="static/edible/js/lib/cubicspline.js"></script>
+<script src="static/edible/js/edible.musicWaveform.js"></script>
+<script src="static/edible/js/edible.timeline.js"></script>
+<script src="static/edible/js/lib/waveform.js"></script>
 <!-- end edible includes -->
 
-<script src="script/less.js" type="text/javascript"></script>
+<script src="static/script/less.js" type="text/javascript"></script>
+<script src="static/script/textareatest.js" type="text/javascript"></script>
 
 <!-- <script src="script/textarea-dev.min.js"></script> -->
+
+<script id="songLibraryTemplate" type="text/template">
+<tr>
+    <td>
+        <button class="btn" data-song-name="<%= name %>">
+            <i class="icon-plus"></i>
+        </button>
+    </td>
+    <td><%= artist %></td>
+    <td><i><%= title %></i></td>
+</tr>
+</div>
+</script>
 
 <!-- Template for text area -->
 <script id="textAreaTemplate" type="text/template">
@@ -269,13 +263,14 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 <div class="wfCanvContainer">
     <canvas class="displayCanvas"></canvas>
 </div>
-
 </script>
     
 <script type="text/template" id="trackTemplate">
 <div class="track"></div>
 </script>
 <!-- end templates for edible -->
+ 
+
  
 </body>
 </html>

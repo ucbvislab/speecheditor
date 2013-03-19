@@ -19,7 +19,7 @@ var clone = function (t) {
 };
 
 soundManager.setup({
-    url: 'swf/soundmanager2_flash9.swf',
+    url: 'static/swf/soundmanager2_flash9.swf',
     flashVersion: 9,
     useFlashBlock: false,
     useHighPerformance: true
@@ -255,8 +255,8 @@ TAAPP.roomTone = {
         "alignedWord": "gp"
     },
     "teleclip": {
-        "start": 0.044,
-        "end": 0.476,
+        "start": 0.000,
+        "end": 0.557,
         "word": "{gpause}",
         "alignedWord": "gp"
     }
@@ -274,6 +274,9 @@ TAAPP.buildWaveform = function (sound, kind) {
             currentWords: TAAPP.current
         });
         TAAPP.currentWaveform = wf;
+        
+        TAAPP.TAManager.textAlignedWf = TAAPP.currentWaveform;
+        
     } else {
         $(wf).waveform({
             dur: sound.duration,
@@ -286,7 +289,7 @@ TAAPP.buildWaveform = function (sound, kind) {
     // get the waveform data
     // from:
     // wav2json -p 2 -s 2000 --channels mid -n FILENAME.wav 
-    $.getJSON('wfData/' + TAAPP.speech + '44.wav.json', function (data) {
+    $.getJSON('static/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
         $(wf).wf({
             data: data.mid
         });
@@ -303,7 +306,7 @@ TAAPP.origSoundURL = function () {
             //     TAAPP.speech + ".mp3";
         }
     }
-    return TAAPP.speech + ".mp3";
+    return 'static/' + TAAPP.speech + ".mp3";
 };
 
 TAAPP.loadOriginal = function () {
@@ -368,10 +371,10 @@ TAAPP.reset = function () {
 
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
-    $('.dlLink').prop('href', '../download/' + TAAPP.state.outfile);
+    $('.dlLink').prop('href', 'download/' + TAAPP.state.outfile);
 
     // mod for now to do on-the-fly classification of breaths
-    $.getJSON('../alignment/' + TAAPP.speech, function (data) {
+    $.getJSON('alignment/' + TAAPP.speech, function (data) {
         var words = data.words;
         // filename of the new json
         TAAPP.state.speechText = data.speechText;
@@ -388,6 +391,7 @@ TAAPP.reset = function () {
             .filter(function (word) { return !_.isUndefined(word); })
             .uniq()
             .value();
+            
         TAAPP.TAManager = new TextAreaManager($(".TAManager"),
             TAAPP.speakers, TAAPP.words, TAAPP.current);
 
@@ -400,7 +404,7 @@ TAAPP.reset = function () {
 
 TAAPP.updateDupes = function () {
     $.ajax({
-        url: '../dupes',
+        url: 'dupes',
         type: 'POST',
         dataType: 'json',
         contentType: 'json',
@@ -412,7 +416,7 @@ TAAPP.updateDupes = function () {
             // TAAPP.drawScript();
             
             TAAPP.RawTAManager = new TextAreaManager($(".rawTAManager"),
-                TAAPP.speakers, TAAPP.words, TAAPP.current, true);
+                TAAPP.speakers, TAAPP.words, clone(TAAPP.current));
             
             TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
             TAAPP.RawTAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
@@ -572,28 +576,50 @@ TAAPP.zoomOut = function () {
     TAAPP._zoom(.5);
 };
 
+TAAPP.songInfo = {};
+
+TAAPP.addSongToTimeline = function (songName) {
+    var songData = TAAPP.songInfo[songName];
+    var wf = document.createElement('div');
+    $(wf).musicWaveform({
+        data: songData.wfData,
+        name: songData.name,
+        filename: songData.path,
+        dur: songData.dur,
+        len: songData.dur,
+        musicGraph: songData.graph
+    });
+    TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
+};
+
+TAAPP.addSongToLibrary = function (songData) {
+    var songTemplate = $("#songLibraryTemplate").html();
+    TAAPP.songInfo[songData.name] = songData;
+    $(_.template(songTemplate, {
+        name: songData.name,
+        title: songData.title,
+        artist: songData.artist
+    }))
+    .appendTo(".musicLibrary table")
+    .find('button')
+    .click(function () {
+        TAAPP.addSongToTimeline($(this).attr("data-song-name"));
+    });
+    
+}
+
 TAAPP.uploadSong = function (form) {
     var formData = new FormData(form);
     
     TAAPP.spinner.spin($("body")[0]);
     
     $.ajax({
-        url: '../uploadSong',
+        url: 'uploadSong',
         type: 'POST',
         success: function (data) {
             $(form).find('[data-dismiss="fileupload"]').trigger("click");
-            var wf = document.createElement('div');
-            $(wf).musicWaveform({
-                data: data.wfData,
-                name: data.name,
-                filename: data.path,
-                dur: data.dur,
-                len: data.dur,
-                musicGraph: data.graph
-            });
-            TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
-            console.log(data);
             
+            TAAPP.addSongToLibrary(data);            
             TAAPP.spinner.stop();
             
         },
@@ -641,13 +667,7 @@ TAAPP.loadSite = function () {
         TAAPP.uploadSong($("#songUploadForm")[0]);
         return false;
     });
-    
-    $("body").keyup(function (e) {
-        if (e.keyCode === 80) {
-            TAAPP.togglePlay();
-        }
-    });
-    
+
     $(window).resize(function () {    
         TAAPP.adjustHeight();
         TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
@@ -664,7 +684,7 @@ TAAPP.loadSite = function () {
         action: 'click',
         topPos: '0px',
         leftPos: '20px',
-        pathToTabImage: 'img/origSlider.png',
+        pathToTabImage: 'static/img/origSlider.png',
         imageHeight: '200px',
         imageWidth: '20px',
         height: function () {
@@ -680,7 +700,7 @@ TAAPP.loadSite = function () {
         action: 'click',
         topPos: '220px',
         leftPos: '20px',
-        pathToTabImage: 'img/musicBrowserSlider.png',
+        pathToTabImage: 'static/img/musicBrowserSlider.png',
         imageHeight: '200px',
         imageWidth: '20px',
         topReferenceElement: $("#editorRow"),
@@ -688,9 +708,6 @@ TAAPP.loadSite = function () {
             return $('#editorRow').height();
         }
     });
-    
-    // TODO: hack hack hack fix this bug
-    // setTimeout(TAAPP.adjustHeight, 5000);
     
 };
 

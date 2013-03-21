@@ -54,6 +54,12 @@ module.exports = function (grunt) {
                     'static/script/less.js',
                     'static/script/textAreaManager.js',
                     'static/script/textareatest.js',
+                    'static/musicbrowser/js/jquery.dataTables.min.js',
+                    "static/musicbrowser/js/paging.js",
+                    "static/musicbrowser/js/berniecode-animator.js",
+                    "static/musicbrowser/js/kdTree.js",
+                    "static/musicbrowser/js/inlineplayer.js",
+                    "static/musicbrowser/js/musicBrowserApp.js"
                 ],
                 dest: 'static/script/textarea-dev.min.js'
             }

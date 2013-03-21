@@ -1,18 +1,20 @@
 (function() {
   var $, ScriptArea, TextAreaManager,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __slice = [].slice;
 
   $ = jQuery;
 
   ScriptArea = (function() {
-
     function ScriptArea(tam, name, speaker, settings) {
       var containers,
         _this = this;
+
       this.tam = tam;
       this.name = name;
       this.speaker = speaker;
+      this.adjustSelection = __bind(this.adjustSelection, this);
       if (settings == null) {
         settings = {};
       }
@@ -45,6 +47,7 @@
         }
       }).keypress(function(e) {
         var _this = this;
+
         if (e.which(function() {
           return 0x20;
         })) {
@@ -83,14 +86,29 @@
               return _this.addPeriod();
             }
         }
-      }).bind('mouseup', function() {
-        _this.tam.lastFocused = _this;
-        return _this.snapSelectionToWord();
-      });
+      }).bind('mousemove', function() {
+        var endInd, sel, startInd, _ref;
+
+        sel = _this.area.getSelection();
+        _ref = _this.rangeIndices(sel.start, sel.end), startInd = _ref[0], endInd = _ref[1];
+        return _this.tam.highlightWordsInWaveform(startInd, endInd, _this);
+      }).bind('mouseup', this.adjustSelection);
+      this.overlays.bind('mouseup', this.adjustSelection);
     }
+
+    ScriptArea.prototype.adjustSelection = function() {
+      var endInd, sel, startInd, _ref;
+
+      this.tam.lastFocused = this;
+      this.snapSelectionToWord();
+      sel = this.area.getSelection();
+      _ref = this.rangeIndices(sel.start, sel.end), startInd = _ref[0], endInd = _ref[1];
+      return this.tam.highlightWordsInWaveform(startInd, endInd, this);
+    };
 
     ScriptArea.prototype._renderWord = function(word, isTextArea, wrapLeft, wrapRight) {
       var ending, _ref;
+
       if (wrapLeft == null) {
         wrapLeft = "";
       }
@@ -110,6 +128,7 @@
     ScriptArea.prototype.updateWords = function(words) {
       var content, rw,
         _this = this;
+
       if (words) {
         this.words = words;
       }
@@ -145,14 +164,17 @@
 
     ScriptArea.prototype.adjustHeight = function() {
       var scrHeight;
+
       this.area.height("20px");
       scrHeight = this.area.prop("scrollHeight") + 'px';
       return this.$containers.height(scrHeight);
     };
 
     ScriptArea.prototype.snapSelectionToWord = function() {
-      var doneEnd, doneStart, oldLen, sel, spaces, text, _ref, _ref1, _ref2, _ref3, _results;
+      var doneEnd, doneStart, oldLen, sel, spaces, text, _ref, _ref1, _ref2, _ref3;
+
       sel = this.area.getSelection();
+      console.log(sel);
       doneEnd = false;
       doneStart = false;
       if (sel.length === 0) {
@@ -187,18 +209,18 @@
             break;
           }
         }
-        _results = [];
         while ((_ref3 = text.charAt(sel.end), __indexOf.call(spaces, _ref3) < 0) && text.charAt(sel.end) !== '' && oldLen !== sel.length && !doneEnd) {
           oldLen = sel.length;
           this.area.setSelection(sel.start, sel.end + 1);
-          _results.push(sel = this.area.getSelection());
+          sel = this.area.getSelection();
         }
-        return _results;
       }
+      return console.log("end of snap", sel);
     };
 
     ScriptArea.prototype.selectWord = function(direction) {
       var other, spaces, start, text, _ref, _ref1;
+
       start = this.area.getSelection().start;
       text = this.area.val();
       spaces = [" ", "\n"];
@@ -220,6 +242,7 @@
 
     ScriptArea.prototype.updatePos = function() {
       var name;
+
       name = this.name;
       return _.each(this.words, (function(elt, i, words) {
         words[i].taPos = this.total;
@@ -230,8 +253,30 @@
       });
     };
 
+    ScriptArea.prototype.rangeIndices = function(start, end) {
+      var endInd, i, startInd, w, _i, _j, _len, _len1, _ref, _ref1;
+
+      _ref = this.words;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        w = _ref[i];
+        if (w.taPos >= start) {
+          startInd = i;
+          break;
+        }
+      }
+      _ref1 = this.words;
+      for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
+        w = _ref1[i];
+        if (w.taPos < end) {
+          endInd = i;
+        }
+      }
+      return [startInd, endInd];
+    };
+
     ScriptArea.prototype.range = function(start, end) {
       var first, i, word, _i, _len, _ref;
+
       if (end == null) {
         _ref = this.words;
         for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
@@ -250,6 +295,7 @@
 
     ScriptArea.prototype.addPeriod = function() {
       var addInds, breath, breathInds, i, range, sel;
+
       console.log("Adding a period");
       sel = this.area.getSelection();
       range = this.range(sel.end);
@@ -273,9 +319,11 @@
 
     ScriptArea.prototype.highlightWords = function(start, end) {
       var hlHTML, rw;
+
       rw = this._renderWord;
       hlHTML = _.reduce(this.words, (function(memo, word, idx) {
         var wrapLeft, wrapRight;
+
         wrapLeft = "";
         wrapRight = "";
         if (idx === start && (idx === end - 1 || (end == null))) {
@@ -293,10 +341,12 @@
 
     ScriptArea.prototype.emphasizeWords = function() {
       var ctx, emphHTML, rw;
+
       ctx = [-1];
       rw = this._renderWord;
       emphHTML = _.reduce(this.words, (function(memo, word, idx) {
         var wrapLeft, wrapRight;
+
         wrapLeft = "";
         wrapRight = "";
         if ((word.origPos != null) && word.origPos - 1 !== this[0]) {
@@ -322,6 +372,7 @@
 
     ScriptArea.prototype.insertDupeOverlays = function(dupes, dupeInfo) {
       var box, boxHTML, context, dupeDropdownWrapLeft, dupeDropdownWrapRight, dupeOrder, dupeStarts, dupeStartsFirsts, locked, offset, rw, self, taWidth;
+
       box = this.overlays;
       context = {
         dupeOrder: [],
@@ -337,6 +388,7 @@
       locked = this.locked;
       boxHTML = _.reduce(this.words, (function(memo, word, idx, words) {
         var allIdx, d, dupeIdx, header, sentenceEnd, wrapLeft, wrapRight;
+
         dupeIdx = dupeStartsFirsts.indexOf(word.origPos);
         wrapLeft = "";
         wrapRight = "";
@@ -376,6 +428,7 @@
       });
       return box.find('.dropdown-toggle').dropdown().each(function(i) {
         var dupe, eltPos, end, pos, start;
+
         pos = $(this).offset();
         eltPos = self.area.offset();
         dupe = dupes[context.dupeOrder[i]];
@@ -389,6 +442,7 @@
           width: "" + (taWidth - 20) + "px"
         }).find('span.dupeOpt').each(function(j) {
           var indices, _i, _ref, _ref1, _results;
+
           if (locked) {
             $(this).closest('.dropdown').addClass('open');
             "zero clipboard is obnoxious for now";
@@ -413,6 +467,7 @@
           } else {
             $(this).click(function(event) {
               var newPos;
+
               newPos = self.replaceWords(start, end, dupe[j][0][0], dupe[j][0][1]);
               self.area.setSelection(newPos[0], newPos[1]);
               return false;
@@ -420,6 +475,7 @@
           }
           return $(this).find('.dupePlayButton').click(function(event) {
             var audioend, audiostart;
+
             audiostart = self.tam.words[dupe[j][0][0]].start;
             audioend = self.tam.words[dupe[j][0][1]].end;
             TAAPP.origSound.play({
@@ -446,10 +502,10 @@
   })();
 
   TextAreaManager = (function() {
-
     function TextAreaManager(el, speakers, words, current, settings) {
       var speaker, tr, _i, _len, _ref,
         _this = this;
+
       this.el = el;
       this.speakers = speakers;
       this.words = words;
@@ -468,6 +524,7 @@
       tr = $(document.createElement('tr')).appendTo(this.headerTable);
       _.each(this.speakers, function(speaker) {
         var th;
+
         th = document.createElement('th');
         return $(th).html(speaker).width("" + (100 / _this.speakers.length) + "%").appendTo(tr);
       });
@@ -484,6 +541,7 @@
       }
       _.each(this.words, function(word, i, cur) {
         var j;
+
         if (word.alignedWord === "{BR}") {
           j = i;
           while (j < _this.words.length) {
@@ -505,9 +563,11 @@
 
     TextAreaManager.prototype._tr = function(prev) {
       var tr;
+
       tr = $(document.createElement('tr'));
       _.each(this.speakers, function(speaker) {
         var td;
+
         td = $(document.createElement('td'));
         return tr.append(td);
       });
@@ -522,6 +582,7 @@
 
     TextAreaManager.prototype._newScriptArea = function(name, speaker, index) {
       var ta;
+
       ta = new ScriptArea(this, name, speaker, {
         locked: this.locked
       });
@@ -551,6 +612,7 @@
 
     TextAreaManager.prototype.adjustHeight = function() {
       var i, ta, _i, _j, _len, _ref, _ref1;
+
       _ref = this.tas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
@@ -568,12 +630,14 @@
     TextAreaManager.prototype.draw = function() {
       var count, lastSpeaker,
         _this = this;
+
       this.table.find("tr").remove();
       lastSpeaker = this.speakers[0];
       count = 0;
       this.taIndexSpan = [0];
       _.each(this.current, function(word, i) {
         var col, tr;
+
         if (i === 0) {
           col = 0;
           tr = _this._tr();
@@ -588,6 +652,7 @@
       });
       _.each(this.taIndexSpan, function(start, i) {
         var words;
+
         if (i === _this.taIndexSpan.length - 1) {
           words = _this.current.slice(start);
         } else {
@@ -601,6 +666,7 @@
 
     TextAreaManager.prototype.pruneByTAPos = function(start, end, ta) {
       var match;
+
       match = [];
       _.each(ta.words, function(word, idx) {
         if (word.taPos >= start && word.taPos < end) {
@@ -613,6 +679,7 @@
 
     TextAreaManager.prototype.pruneCurrent = function(start, end, ta) {
       var i, offset, taIndex, txtarea, _i, _len, _ref;
+
       taIndex = this.tas.indexOf(ta);
       offset = this.taIndexSpan[taIndex];
       this.current.splice(start + offset, end - start);
@@ -633,8 +700,20 @@
       return this.refresh();
     };
 
+    TextAreaManager.prototype.highlightWordsInWaveform = function(start, end, ta) {
+      var offset;
+
+      if (this.textAlignedWf != null) {
+        offset = this.taIndexSpan[this.tas.indexOf(ta)];
+        return $(this.textAlignedWf).textAlignedWaveform({
+          highlightedWordsRange: [offset + start, offset + end + 1]
+        });
+      }
+    };
+
     TextAreaManager.prototype.highlightWords = function(start, end) {
       var i, newEnd, offset, t, ta, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _ref3, _ref4;
+
       if (start === -1) {
         this.currentHighlight = void 0;
         _ref = this.tas;
@@ -675,6 +754,7 @@
 
     TextAreaManager.prototype.emphasizeWords = function() {
       var ta, _i, _len, _ref, _results;
+
       _ref = this.tas;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -686,6 +766,7 @@
 
     TextAreaManager.prototype.updatePos = function() {
       var ta, _i, _len, _ref, _results;
+
       this.highlightWords(-1);
       _ref = this.dirtyTas;
       _results = [];
@@ -698,6 +779,7 @@
 
     TextAreaManager.prototype.clean = function(ta) {
       var col, i, lastSpeaker, nextTa, offset, pattern, prevTa, segments, speakers, tai, tr, word, words, _i, _len, _ref;
+
       tai = this.tas.indexOf(ta);
       offset = this.taIndexSpan[tai];
       segments = [];
@@ -785,6 +867,7 @@
 
     TextAreaManager.prototype.processDelete = function(ta, direction) {
       var end, sel, spaces, text, _ref;
+
       if (window.TAAPP.sound) {
         window.TAAPP.sound.stop();
       }
@@ -808,6 +891,7 @@
 
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {
       var args, ctx, i, loc, newEnd, offset, taIndex, word, words, _i, _j, _len, _ref, _ref1;
+
       if (ta == null) {
         ta = this.lastFocused;
       }
@@ -833,6 +917,7 @@
       }
       words = _.map(indices, (function(idx) {
         var tmp, _ref1, _ref2;
+
         if (idx.toString().split('-')[0] === '{gp') {
           tmp = clone(TAAPP.roomTone[TAAPP.speech]);
           tmp.word = idx;
@@ -870,8 +955,10 @@
 
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
+
       return _.defer(function() {
         var b, bRes, parse_paste, pastedWords, result, sel, spaces, _ref, _ref1;
+
         parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g;
         bRes = false;
         pastedWords = [];
@@ -904,8 +991,10 @@
     TextAreaManager.prototype.generateCopyTextFromIndices = function(indices) {
       var i, mod, wrds,
         _this = this;
+
       wrds = (function() {
         var _i, _len, _results;
+
         _results = [];
         for (_i = 0, _len = indices.length; _i < _len; _i++) {
           i = indices[_i];
@@ -915,6 +1004,7 @@
       }).call(this);
       mod = _.reduce(wrds, (function(memo, wrd) {
         var j, w, _i, _len, _ref;
+
         if (wrd.alignedWord === "gp") {
           return memo + '[gp]' + wrd.word + '|';
         }
@@ -933,12 +1023,14 @@
     TextAreaManager.prototype.processCopy = function(ta) {
       var mod, newdiv, sel, selection, wrds,
         _this = this;
+
       selection = window.getSelection();
       newdiv = document.createElement('div');
       sel = ta.area.getSelection();
       wrds = ta.range(sel.start, sel.end);
       mod = _.reduce(wrds, (function(memo, wrd) {
         var j, w, _i, _len, _ref;
+
         if (wrd.alignedWord === "gp") {
           return memo + '[gp]' + wrd.word + '|';
         }
@@ -964,11 +1056,13 @@
     TextAreaManager.prototype.processCut = function(ta) {
       var mod, newOut, sel, wrds,
         _this = this;
+
       sel = ta.area.getSelection();
       wrds = ta.range(sel.start, sel.end);
       newOut = ta.area.val();
       mod = _.reduce(wrds, (function(memo, wrd) {
         var j, w, _i, _len, _ref;
+
         if (wrd.alignedWord === "gp") {
           return memo + '[gp]' + wrd.word + '|';
         }
@@ -987,6 +1081,7 @@
 
     TextAreaManager.prototype.insertDupeOverlays = function(dupes, dupeInfo) {
       var ta, _i, _len, _ref, _results;
+
       this.dupes = dupes;
       this.dupeInfo = dupeInfo;
       if (this.dupes == null) {
@@ -1008,6 +1103,7 @@
 
     TextAreaManager.prototype.removeTA = function(ta) {
       var taIndex;
+
       taIndex = this.tas.indexOf(ta);
       this.tas.splice(taIndex, 1);
       this.taIndexSpan.splice(taIndex, 1);
@@ -1021,6 +1117,7 @@
 
     TextAreaManager.prototype.log = function() {
       var args, statements;
+
       statements = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       args = ["[TAM]"].concat(statements);
       return console.log.apply(console, args);

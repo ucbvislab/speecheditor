@@ -3,7 +3,7 @@
         {
             "start": 0.01247, 
             "end": 0.47143, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16,7 +16,7 @@
         {
             "start": 0.95034, 
             "end": 1.03016, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -64,7 +64,7 @@
         {
             "start": 2.71633, 
             "end": 2.8161, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -77,7 +77,7 @@
         {
             "start": 3.0356, 
             "end": 4.96122, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -97,7 +97,7 @@
         {
             "start": 5.5, 
             "end": 5.56984, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -138,7 +138,7 @@
         {
             "start": 7.29592, 
             "end": 7.3458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -165,7 +165,7 @@
         {
             "start": 8.55306, 
             "end": 8.79252, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -178,7 +178,7 @@
         {
             "start": 9.49093, 
             "end": 9.80023, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -233,7 +233,7 @@
         {
             "start": 12.31451, 
             "end": 12.69365, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -274,7 +274,7 @@
         {
             "start": 15.2678, 
             "end": 15.59705, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -315,7 +315,7 @@
         {
             "start": 16.77438, 
             "end": 16.81429, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -363,7 +363,7 @@
         {
             "start": 19.07914, 
             "end": 19.11905, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -383,7 +383,7 @@
         {
             "start": 19.86735, 
             "end": 20.07687, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -438,7 +438,7 @@
         {
             "start": 22.58118, 
             "end": 22.7907, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -458,7 +458,7 @@
         {
             "start": 24.49683, 
             "end": 24.7263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -541,7 +541,7 @@
         {
             "start": 27.99887, 
             "end": 28.1585, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -610,7 +610,7 @@
         {
             "start": 30.61293, 
             "end": 30.94218, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -651,7 +651,7 @@
         {
             "start": 31.71043, 
             "end": 32.21927, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -734,7 +734,7 @@
         {
             "start": 35.29229, 
             "end": 35.75125, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -817,7 +817,7 @@
         {
             "start": 37.89637, 
             "end": 40.19116, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -837,7 +837,7 @@
         {
             "start": 40.51043, 
             "end": 42.18662, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -927,7 +927,7 @@
         {
             "start": 44.46145, 
             "end": 45.21973, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1024,7 +1024,7 @@
         {
             "start": 49.54989, 
             "end": 49.56984, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1058,7 +1058,7 @@
         {
             "start": 50.51769, 
             "end": 50.62744, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1085,7 +1085,7 @@
         {
             "start": 51.62517, 
             "end": 52.17392, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1098,7 +1098,7 @@
         {
             "start": 52.63288, 
             "end": 52.9322, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1146,7 +1146,7 @@
         {
             "start": 56.0551, 
             "end": 56.39433, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1166,7 +1166,7 @@
         {
             "start": 56.64376, 
             "end": 58.43968, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1228,7 +1228,7 @@
         {
             "start": 61.45283, 
             "end": 61.74218, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1304,7 +1304,7 @@
         {
             "start": 64.27642, 
             "end": 64.58571, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1436,7 +1436,7 @@
         {
             "start": 69.00567, 
             "end": 69.5644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1512,25 +1512,102 @@
         {
             "start": 71.61973, 
             "speaker": "Elwood", 
-            "end": 73.03651, 
+            "end": 72.4678, 
             "word": "1960,", 
             "alignedWord": "1960"
         }, 
         {
-            "start": 73.03651, 
-            "end": 73.50544, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 73.50544, 
+            "start": 72.4678, 
             "speaker": "Elwood", 
-            "end": 74.03424, 
+            "end": 72.49773, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 74.03424, 
+            "start": 72.49773, 
+            "speaker": "Elwood", 
+            "end": 73.11633, 
+            "word": "standard", 
+            "alignedWord": "STANDARD"
+        }, 
+        {
+            "start": 73.11633, 
+            "end": 73.41565, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 73.41565, 
+            "speaker": "Elwood", 
+            "end": 73.60522, 
+            "word": "from", 
+            "alignedWord": "FROM"
+        }, 
+        {
+            "start": 73.60522, 
+            "speaker": "Elwood", 
+            "end": 73.73492, 
+            "word": "one", 
+            "alignedWord": "ONE"
+        }, 
+        {
+            "start": 73.73492, 
+            "speaker": "Elwood", 
+            "end": 73.79478, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 73.79478, 
+            "speaker": "Elwood", 
+            "end": 73.86463, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 73.86463, 
+            "speaker": "Elwood", 
+            "end": 74.16395, 
+            "word": "young", 
+            "alignedWord": "YOUNG"
+        }, 
+        {
+            "start": 74.16395, 
+            "speaker": "Elwood", 
+            "end": 74.7127, 
+            "word": "pioneers", 
+            "alignedWord": "PIONEERS"
+        }, 
+        {
+            "start": 74.7127, 
+            "speaker": "Elwood", 
+            "end": 74.83243, 
+            "word": "who", 
+            "alignedWord": "WHO"
+        }, 
+        {
+            "start": 74.83243, 
+            "speaker": "Elwood", 
+            "end": 75.11179, 
+            "word": "helped", 
+            "alignedWord": "HELPED"
+        }, 
+        {
+            "start": 75.11179, 
+            "speaker": "Elwood", 
+            "end": 75.44104, 
+            "word": "invent", 
+            "alignedWord": "INVENT"
+        }, 
+        {
+            "start": 75.44104, 
+            "speaker": "Elwood", 
+            "end": 75.83016, 
+            "word": "soul", 
+            "alignedWord": "SOUL"
+        }, 
+        {
+            "start": 75.83016, 
             "speaker": "Elwood", 
             "end": 76.28912, 
             "word": "music.", 
@@ -1539,7 +1616,7 @@
         {
             "start": 76.28912, 
             "end": 76.60839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1559,7 +1636,7 @@
         {
             "start": 77.22698, 
             "end": 77.45646, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1572,7 +1649,7 @@
         {
             "start": 77.84558, 
             "end": 77.88549, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1634,7 +1711,7 @@
         {
             "start": 80.34989, 
             "end": 80.50952, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1682,7 +1759,7 @@
         {
             "start": 81.7966, 
             "end": 82.11587, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1744,7 +1821,7 @@
         {
             "start": 83.98163, 
             "end": 84.16122, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1757,7 +1834,7 @@
         {
             "start": 84.22109, 
             "end": 84.73991, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1847,7 +1924,7 @@
         {
             "start": 88.222, 
             "end": 88.5712, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1930,7 +2007,7 @@
         {
             "start": 91.48458, 
             "end": 92.61202, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -1999,7 +2076,7 @@
         {
             "start": 94.49773, 
             "end": 94.59751, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2047,7 +2124,7 @@
         {
             "start": 96.67279, 
             "end": 97.14172, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2074,7 +2151,7 @@
         {
             "start": 98.09955, 
             "end": 98.12948, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2108,7 +2185,7 @@
         {
             "start": 99.11723, 
             "end": 99.54626, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2121,7 +2198,7 @@
         {
             "start": 99.97528, 
             "end": 101.03288, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2176,7 +2253,7 @@
         {
             "start": 103.47732, 
             "end": 103.7966, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2189,7 +2266,7 @@
         {
             "start": 104.59478, 
             "end": 106.09138, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2251,7 +2328,7 @@
         {
             "start": 107.50816, 
             "end": 107.55805, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2292,7 +2369,7 @@
         {
             "start": 109.75306, 
             "end": 110.03243, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2319,7 +2396,7 @@
         {
             "start": 111.09002, 
             "end": 111.33946, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2360,7 +2437,7 @@
         {
             "start": 113.22517, 
             "end": 113.66417, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2380,7 +2457,7 @@
         {
             "start": 114.24286, 
             "end": 114.38254, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2421,7 +2498,7 @@
         {
             "start": 115.22063, 
             "end": 115.5, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2462,7 +2539,7 @@
         {
             "start": 116.51769, 
             "end": 116.66735, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2573,7 +2650,7 @@
         {
             "start": 119.92993, 
             "end": 119.97982, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2621,7 +2698,7 @@
         {
             "start": 120.99751, 
             "end": 121.48639, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2669,7 +2746,7 @@
         {
             "start": 122.32449, 
             "end": 122.70363, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2696,7 +2773,7 @@
         {
             "start": 123.44195, 
             "end": 123.56168, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2709,7 +2786,7 @@
         {
             "start": 123.7712, 
             "end": 123.84104, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2750,7 +2827,7 @@
         {
             "start": 124.3898, 
             "end": 124.40975, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2777,7 +2854,7 @@
         {
             "start": 124.83878, 
             "end": 125.47732, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2909,7 +2986,7 @@
         {
             "start": 129.09909, 
             "end": 129.40839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2936,7 +3013,7 @@
         {
             "start": 130.36621, 
             "end": 137.02109, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2956,7 +3033,7 @@
         {
             "start": 137.81927, 
             "end": 137.85918, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -2997,7 +3074,7 @@
         {
             "start": 139.47551, 
             "end": 140.2737, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3080,7 +3157,7 @@
         {
             "start": 143.9254, 
             "end": 144.13492, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3128,7 +3205,7 @@
         {
             "start": 145.63152, 
             "end": 145.88095, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3225,7 +3302,7 @@
         {
             "start": 149.12358, 
             "end": 149.56259, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3315,7 +3392,7 @@
         {
             "start": 152.49592, 
             "end": 152.65556, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3412,7 +3489,7 @@
         {
             "start": 156.1576, 
             "end": 156.44694, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3502,7 +3579,7 @@
         {
             "start": 160.45782, 
             "end": 160.7771, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3515,7 +3592,7 @@
         {
             "start": 160.97664, 
             "end": 160.9966, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3563,7 +3640,7 @@
         {
             "start": 163.18163, 
             "end": 163.23152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3583,7 +3660,7 @@
         {
             "start": 164.02971, 
             "end": 164.06961, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3624,7 +3701,7 @@
         {
             "start": 166.07506, 
             "end": 166.4542, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3833,7 +3910,7 @@
         {
             "start": 172.45057, 
             "end": 172.66009, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3860,7 +3937,7 @@
         {
             "start": 173.89728, 
             "end": 175.37392, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -3943,7 +4020,7 @@
         {
             "start": 178.84603, 
             "end": 179.64422, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4019,7 +4096,7 @@
         {
             "start": 183.3059, 
             "end": 183.56531, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4039,7 +4116,7 @@
         {
             "start": 184.2737, 
             "end": 185.43107, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4073,7 +4150,7 @@
         {
             "start": 186.5585, 
             "end": 186.61837, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4121,7 +4198,7 @@
         {
             "start": 188.66372, 
             "end": 189.27234, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4141,7 +4218,7 @@
         {
             "start": 189.66145, 
             "end": 189.73129, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4161,7 +4238,7 @@
         {
             "start": 190.29002, 
             "end": 190.33991, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4230,7 +4307,7 @@
         {
             "start": 193.2034, 
             "end": 193.50272, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4271,7 +4348,7 @@
         {
             "start": 195.42834, 
             "end": 195.65782, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4284,7 +4361,7 @@
         {
             "start": 196.3263, 
             "end": 197.37392, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4325,7 +4402,7 @@
         {
             "start": 199.1898, 
             "end": 199.46916, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4373,7 +4450,7 @@
         {
             "start": 201.51451, 
             "end": 201.53447, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4407,7 +4484,7 @@
         {
             "start": 202.93129, 
             "end": 202.96122, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4427,7 +4504,7 @@
         {
             "start": 203.5898, 
             "end": 203.79932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4461,7 +4538,7 @@
         {
             "start": 205.10635, 
             "end": 205.40567, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4509,7 +4586,7 @@
         {
             "start": 207.07188, 
             "end": 207.14172, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4578,7 +4655,7 @@
         {
             "start": 209.88549, 
             "end": 210.2746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4598,7 +4675,7 @@
         {
             "start": 210.70363, 
             "end": 210.74354, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4639,7 +4716,7 @@
         {
             "start": 213.05828, 
             "end": 213.16803, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4652,7 +4729,7 @@
         {
             "start": 213.46735, 
             "end": 213.49728, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4679,7 +4756,7 @@
         {
             "start": 214.57483, 
             "end": 215.46281, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4692,7 +4769,7 @@
         {
             "start": 215.66236, 
             "end": 216.0415, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4733,7 +4810,7 @@
         {
             "start": 217.08912, 
             "end": 217.40839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4753,7 +4830,7 @@
         {
             "start": 217.93719, 
             "end": 219.1644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4808,7 +4885,7 @@
         {
             "start": 220.49138, 
             "end": 221.11995, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4919,7 +4996,7 @@
         {
             "start": 224.40249, 
             "end": 224.71179, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4981,7 +5058,7 @@
         {
             "start": 227.14626, 
             "end": 227.17619, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -4994,7 +5071,7 @@
         {
             "start": 227.66508, 
             "end": 228.07415, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5042,7 +5119,7 @@
         {
             "start": 230.43878, 
             "end": 230.59841, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5069,7 +5146,7 @@
         {
             "start": 231.65601, 
             "end": 231.98526, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5082,7 +5159,7 @@
         {
             "start": 232.37438, 
             "end": 232.42426, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5109,7 +5186,7 @@
         {
             "start": 233.54172, 
             "end": 235.23787, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5136,7 +5213,7 @@
         {
             "start": 236.77438, 
             "end": 237.27324, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5163,7 +5240,7 @@
         {
             "start": 238.69002, 
             "end": 239.17891, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5190,7 +5267,7 @@
         {
             "start": 240.6356, 
             "end": 241.28413, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5217,7 +5294,7 @@
         {
             "start": 242.03243, 
             "end": 242.46145, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5237,7 +5314,7 @@
         {
             "start": 242.98027, 
             "end": 243.06009, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5257,7 +5334,7 @@
         {
             "start": 243.68866, 
             "end": 244.09773, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5270,7 +5347,7 @@
         {
             "start": 244.42698, 
             "end": 244.52676, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5290,7 +5367,7 @@
         {
             "start": 245.04558, 
             "end": 245.1254, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5310,7 +5387,7 @@
         {
             "start": 245.8737, 
             "end": 246.01338, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5323,7 +5400,7 @@
         {
             "start": 246.21293, 
             "end": 246.35261, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5336,7 +5413,7 @@
         {
             "start": 246.54218, 
             "end": 246.82154, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5356,7 +5433,7 @@
         {
             "start": 247.2805, 
             "end": 247.34036, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5390,7 +5467,7 @@
         {
             "start": 248.41791, 
             "end": 248.43787, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5403,7 +5480,7 @@
         {
             "start": 248.61746, 
             "end": 249.08639, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5416,7 +5493,7 @@
         {
             "start": 249.6551, 
             "end": 250.02426, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5429,7 +5506,7 @@
         {
             "start": 250.35351, 
             "end": 250.85238, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5449,7 +5526,7 @@
         {
             "start": 251.8102, 
             "end": 252.00975, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5490,7 +5567,7 @@
         {
             "start": 253.40658, 
             "end": 253.95533, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5601,7 +5678,7 @@
         {
             "start": 258.55488, 
             "end": 258.9839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5656,7 +5733,7 @@
         {
             "start": 260.7898, 
             "end": 261.07914, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5697,7 +5774,7 @@
         {
             "start": 262.20658, 
             "end": 262.44603, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5738,7 +5815,7 @@
         {
             "start": 263.93265, 
             "end": 267.57438, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5793,91 +5870,177 @@
         {
             "start": 269.4102, 
             "end": 269.75941, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
             "start": 269.75941, 
             "speaker": "Elwood", 
-            "end": 270.58753, 
+            "end": 269.88912, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 270.58753, 
-            "end": 270.65737, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 270.65737, 
+            "start": 269.88912, 
             "speaker": "Elwood", 
-            "end": 271.10635, 
+            "end": 270.04875, 
             "word": "have", 
             "alignedWord": "HAVE"
         }, 
         {
-            "start": 271.10635, 
+            "start": 270.04875, 
             "speaker": "Elwood", 
-            "end": 271.37574, 
+            "end": 270.30816, 
             "word": "some", 
             "alignedWord": "SOME"
         }, 
         {
-            "start": 271.37574, 
-            "end": 272.19388, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 272.19388, 
+            "start": 270.30816, 
             "speaker": "Elwood", 
-            "end": 273.0619, 
+            "end": 270.52766, 
             "word": "great", 
             "alignedWord": "GREAT"
         }, 
         {
-            "start": 273.0619, 
+            "start": 270.52766, 
             "speaker": "Elwood", 
-            "end": 274.35896, 
-            "word": "was", 
-            "alignedWord": "WAS"
+            "end": 270.94671, 
+            "word": "stories", 
+            "alignedWord": "STORIES"
         }, 
         {
-            "start": 274.35896, 
-            "end": 274.37891, 
-            "word": "{pause}", 
+            "start": 270.94671, 
+            "speaker": "Elwood", 
+            "end": 271.04649, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 271.04649, 
+            "speaker": "Elwood", 
+            "end": 271.38571, 
+            "word": "tell.", 
+            "alignedWord": "TELL"
+        }, 
+        {
+            "start": 271.38571, 
+            "end": 272.1839, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 274.37891, 
+            "start": 272.1839, 
             "speaker": "Elwood", 
-            "end": 274.70816, 
-            "word": "it", 
-            "alignedWord": "IT"
+            "end": 272.34354, 
+            "word": "You", 
+            "alignedWord": "YOU"
         }, 
         {
-            "start": 274.70816, 
-            "end": 275.19705, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
+            "start": 272.34354, 
+            "speaker": "Elwood", 
+            "end": 272.59297, 
+            "word": "came", 
+            "alignedWord": "CAME"
         }, 
         {
-            "start": 275.19705, 
+            "start": 272.59297, 
             "speaker": "Elwood", 
-            "end": 275.96531, 
-            "word": "about", 
-            "alignedWord": "ABOUT"
+            "end": 272.75261, 
+            "word": "up", 
+            "alignedWord": "UP"
         }, 
         {
-            "start": 275.96531, 
+            "start": 272.75261, 
             "speaker": "Elwood", 
-            "end": 276.22472, 
+            "end": 272.87234, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 272.87234, 
+            "speaker": "Elwood", 
+            "end": 273.33129, 
+            "word": "Detroit,", 
+            "alignedWord": "DETROIT"
+        }, 
+        {
+            "start": 273.33129, 
+            "speaker": "Elwood", 
+            "end": 273.43107, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 273.43107, 
+            "speaker": "Elwood", 
+            "end": 273.49093, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
+            "start": 273.49093, 
+            "speaker": "Elwood", 
+            "end": 273.92993, 
+            "word": "'50s", 
+            "alignedWord": "50S"
+        }, 
+        {
+            "start": 273.92993, 
+            "speaker": "Elwood", 
+            "end": 274.02971, 
+            "word": "and", 
+            "alignedWord": "AND"
+        }, 
+        {
+            "start": 274.02971, 
+            "speaker": "Elwood", 
+            "end": 274.7381, 
+            "word": "'60s.", 
+            "alignedWord": "60S"
+        }, 
+        {
+            "start": 274.7381, 
+            "end": 275.20703, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 275.20703, 
+            "speaker": "Elwood", 
+            "end": 275.68594, 
+            "word": "What", 
+            "alignedWord": "WHAT"
+        }, 
+        {
+            "start": 275.68594, 
+            "speaker": "Elwood", 
+            "end": 275.96531, 
+            "word": "was", 
+            "alignedWord": "WAS"
+        }, 
+        {
+            "start": 275.96531, 
+            "speaker": "Elwood", 
+            "end": 276.02517, 
+            "word": "it", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 276.02517, 
+            "speaker": "Elwood", 
+            "end": 276.22472, 
+            "word": "about", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
             "start": 276.22472, 
+            "speaker": "Elwood", 
+            "end": 276.28458, 
+            "word": "the", 
+            "alignedWord": "THE"
+        }, 
+        {
+            "start": 276.28458, 
             "speaker": "Elwood", 
             "end": 276.62381, 
             "word": "city", 
@@ -5893,7 +6056,7 @@
         {
             "start": 276.99297, 
             "end": 277.12268, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5920,7 +6083,7 @@
         {
             "start": 278.05057, 
             "end": 278.42971, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -5933,64 +6096,143 @@
         {
             "start": 278.74898, 
             "speaker": "Elwood", 
-            "end": 279.08821, 
+            "end": 278.91859, 
             "word": "made", 
             "alignedWord": "MADE"
         }, 
         {
-            "start": 279.08821, 
+            "start": 278.91859, 
             "speaker": "Elwood", 
-            "end": 279.25782, 
+            "end": 279.02834, 
             "word": "it", 
             "alignedWord": "IT"
         }, 
         {
-            "start": 279.25782, 
-            "end": 279.4873, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 279.4873, 
+            "start": 279.02834, 
             "speaker": "Elwood", 
-            "end": 279.87642, 
+            "end": 279.25782, 
             "word": "such", 
             "alignedWord": "SUCH"
         }, 
         {
-            "start": 279.87642, 
-            "end": 279.94626, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 279.94626, 
+            "start": 279.25782, 
             "speaker": "Elwood", 
-            "end": 280.38526, 
+            "end": 279.29773, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 280.38526, 
+            "start": 279.29773, 
+            "speaker": "Elwood", 
+            "end": 279.54717, 
+            "word": "hot", 
+            "alignedWord": "HOT"
+        }, 
+        {
+            "start": 279.54717, 
+            "speaker": "Elwood", 
+            "end": 279.86644, 
+            "word": "spot", 
+            "alignedWord": "SPOT"
+        }, 
+        {
+            "start": 279.86644, 
+            "speaker": "Elwood", 
+            "end": 280.02608, 
+            "word": "for", 
+            "alignedWord": "FOR"
+        }, 
+        {
+            "start": 280.02608, 
+            "speaker": "Elwood", 
+            "end": 280.47506, 
+            "word": "music?", 
+            "alignedWord": "MUSIC"
+        }, 
+        {
+            "start": 280.47506, 
             "end": 280.60476, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
             "start": 280.60476, 
             "speaker": "Elwood", 
-            "end": 282.4805, 
-            "word": "hot", 
-            "alignedWord": "HOT"
+            "end": 281.61247, 
+            "word": "What", 
+            "alignedWord": "WHAT"
         }, 
         {
-            "start": 282.4805, 
-            "end": 282.51043, 
-            "word": "{pause}", 
+            "start": 281.61247, 
+            "speaker": "Elwood", 
+            "end": 281.96168, 
+            "word": "was", 
+            "alignedWord": "WAS"
+        }, 
+        {
+            "start": 281.96168, 
+            "speaker": "Elwood", 
+            "end": 282.02154, 
+            "word": "it", 
+            "alignedWord": "IT"
+        }, 
+        {
+            "start": 282.02154, 
+            "speaker": "Elwood", 
+            "end": 282.30091, 
+            "word": "about", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 282.30091, 
+            "speaker": "Elwood", 
+            "end": 282.70998, 
+            "word": "Detroit", 
+            "alignedWord": "DETROIT"
+        }, 
+        {
+            "start": 282.70998, 
+            "speaker": "Elwood", 
+            "end": 282.7898, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 282.7898, 
+            "speaker": "Elwood", 
+            "end": 282.94943, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 282.94943, 
+            "end": 282.96939, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 282.51043, 
+            "start": 282.96939, 
+            "speaker": "Elwood", 
+            "end": 283.30862, 
+            "word": "period,", 
+            "alignedWord": "PERIOD"
+        }, 
+        {
+            "start": 283.30862, 
+            "speaker": "Elwood", 
+            "end": 283.45828, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 283.45828, 
+            "speaker": "Elwood", 
+            "end": 283.63787, 
+            "word": "made", 
+            "alignedWord": "MADE"
+        }, 
+        {
+            "start": 283.63787, 
             "speaker": "Elwood", 
             "end": 283.71769, 
             "word": "it", 
@@ -6041,7 +6283,7 @@
         {
             "start": 285.1644, 
             "end": 287.02018, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6103,7 +6345,7 @@
         {
             "start": 289.67415, 
             "end": 290.05329, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6151,7 +6393,7 @@
         {
             "start": 291.75941, 
             "end": 292.0288, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6192,7 +6434,7 @@
         {
             "start": 293.71497, 
             "end": 293.9644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6212,7 +6454,7 @@
         {
             "start": 294.54308, 
             "end": 294.66281, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6260,7 +6502,7 @@
         {
             "start": 296.30907, 
             "end": 296.94762, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6273,7 +6515,7 @@
         {
             "start": 297.55624, 
             "end": 298.13492, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6293,18 +6535,115 @@
         {
             "start": 299.00295, 
             "speaker": "Elwood", 
-            "end": 299.94082, 
-            "word": "City,", 
-            "alignedWord": "CITY"
+            "end": 299.49184, 
+            "word": "singer,", 
+            "alignedWord": "SINGER"
         }, 
         {
-            "start": 299.94082, 
+            "start": 299.49184, 
+            "speaker": "Elwood", 
+            "end": 299.70136, 
+            "word": "is", 
+            "alignedWord": "IS"
+        }, 
+        {
+            "start": 299.70136, 
+            "speaker": "Elwood", 
+            "end": 299.85102, 
+            "word": "with", 
+            "alignedWord": "WITH"
+        }, 
+        {
+            "start": 299.85102, 
+            "speaker": "Elwood", 
+            "end": 300.15034, 
+            "word": "us.", 
+            "alignedWord": "US"
+        }, 
+        {
+            "start": 300.15034, 
             "end": 300.71905, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
             "start": 300.71905, 
+            "speaker": "Elwood", 
+            "end": 300.8288, 
+            "word": "A", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 300.8288, 
+            "speaker": "Elwood", 
+            "end": 301.16803, 
+            "word": "native", 
+            "alignedWord": "NATIVE"
+        }, 
+        {
+            "start": 301.16803, 
+            "speaker": "Elwood", 
+            "end": 301.27778, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 301.27778, 
+            "speaker": "Elwood", 
+            "end": 301.60703, 
+            "word": "Motor", 
+            "alignedWord": "MOTOR"
+        }, 
+        {
+            "start": 301.60703, 
+            "speaker": "Elwood", 
+            "end": 301.98617, 
+            "word": "City...", 
+            "alignedWord": "CITY"
+        }, 
+        {
+            "start": 301.98617, 
+            "end": 302.2356, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 302.2356, 
+            "speaker": "Elwood", 
+            "end": 302.30544, 
+            "word": "A", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 302.30544, 
+            "speaker": "Elwood", 
+            "end": 302.61474, 
+            "word": "native", 
+            "alignedWord": "NATIVE"
+        }, 
+        {
+            "start": 302.61474, 
+            "speaker": "Elwood", 
+            "end": 302.70454, 
+            "word": "of", 
+            "alignedWord": "OF"
+        }, 
+        {
+            "start": 302.70454, 
+            "speaker": "Elwood", 
+            "end": 302.97392, 
+            "word": "Motor", 
+            "alignedWord": "MOTOR"
+        }, 
+        {
+            "start": 302.97392, 
+            "speaker": "Elwood", 
+            "end": 303.27324, 
+            "word": "City,", 
+            "alignedWord": "CITY"
+        }, 
+        {
+            "start": 303.27324, 
             "speaker": "Elwood", 
             "end": 303.52268, 
             "word": "Bettye", 
@@ -6320,7 +6659,7 @@
         {
             "start": 303.88186, 
             "end": 304.21111, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6354,7 +6693,7 @@
         {
             "start": 305.96712, 
             "end": 306.4161, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6374,7 +6713,7 @@
         {
             "start": 307.33401, 
             "end": 307.58345, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6436,7 +6775,7 @@
         {
             "start": 309.07007, 
             "end": 309.57891, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6498,7 +6837,7 @@
         {
             "start": 311.91361, 
             "end": 311.95351, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6518,7 +6857,7 @@
         {
             "start": 312.29274, 
             "end": 312.34263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6545,7 +6884,7 @@
         {
             "start": 313.22063, 
             "end": 313.46009, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6579,7 +6918,7 @@
         {
             "start": 314.75714, 
             "end": 315.07642, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6669,7 +7008,7 @@
         {
             "start": 318.06961, 
             "end": 318.36893, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6710,7 +7049,7 @@
         {
             "start": 320.19478, 
             "end": 320.90317, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6751,7 +7090,7 @@
         {
             "start": 322.64921, 
             "end": 323.15805, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6820,7 +7159,7 @@
         {
             "start": 325.79206, 
             "end": 326.16122, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6854,7 +7193,7 @@
         {
             "start": 327.19887, 
             "end": 327.25873, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6867,7 +7206,7 @@
         {
             "start": 327.63787, 
             "end": 328.11678, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6880,7 +7219,7 @@
         {
             "start": 328.37619, 
             "end": 328.56576, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6942,7 +7281,7 @@
         {
             "start": 330.39161, 
             "end": 335.92902, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -6962,7 +7301,7 @@
         {
             "start": 336.42789, 
             "end": 336.4678, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7052,7 +7391,7 @@
         {
             "start": 339.89002, 
             "end": 339.94989, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7065,7 +7404,7 @@
         {
             "start": 340.39887, 
             "end": 341.04739, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7120,7 +7459,7 @@
         {
             "start": 344.42971, 
             "end": 344.88866, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7133,7 +7472,7 @@
         {
             "start": 345.05828, 
             "end": 345.16803, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7146,7 +7485,7 @@
         {
             "start": 345.36757, 
             "end": 345.41746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7166,7 +7505,7 @@
         {
             "start": 346.18571, 
             "end": 346.39524, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7214,7 +7553,7 @@
         {
             "start": 347.90181, 
             "end": 350.59569, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7325,7 +7664,7 @@
         {
             "start": 354.88594, 
             "end": 355.15533, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7366,7 +7705,7 @@
         {
             "start": 356.39252, 
             "end": 356.74172, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7414,7 +7753,7 @@
         {
             "start": 358.26825, 
             "end": 358.28821, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7434,7 +7773,7 @@
         {
             "start": 358.65737, 
             "end": 359.01655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7461,7 +7800,7 @@
         {
             "start": 359.48549, 
             "end": 359.5254, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7502,7 +7841,7 @@
         {
             "start": 360.85238, 
             "end": 360.95215, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7536,7 +7875,7 @@
         {
             "start": 361.91995, 
             "end": 362.14943, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7577,7 +7916,7 @@
         {
             "start": 363.59615, 
             "end": 363.75578, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7646,7 +7985,7 @@
         {
             "start": 365.861, 
             "end": 366.03061, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7680,7 +8019,7 @@
         {
             "start": 367.27778, 
             "end": 367.29773, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7721,7 +8060,7 @@
         {
             "start": 369.12358, 
             "end": 369.24331, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7734,7 +8073,7 @@
         {
             "start": 369.80204, 
             "end": 370.63016, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7747,7 +8086,7 @@
         {
             "start": 371.54807, 
             "end": 371.578, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7760,7 +8099,7 @@
         {
             "start": 372.20658, 
             "end": 372.25646, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7787,7 +8126,7 @@
         {
             "start": 373.19433, 
             "end": 373.48367, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7828,7 +8167,7 @@
         {
             "start": 374.93039, 
             "end": 376.82608, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7876,7 +8215,7 @@
         {
             "start": 377.85374, 
             "end": 377.98345, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -7994,7 +8333,7 @@
         {
             "start": 382.35351, 
             "end": 382.80249, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8063,7 +8402,7 @@
         {
             "start": 385.42653, 
             "end": 385.54626, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8083,7 +8422,7 @@
         {
             "start": 385.96531, 
             "end": 386.53401, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8131,7 +8470,7 @@
         {
             "start": 387.3322, 
             "end": 387.80113, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8158,7 +8497,7 @@
         {
             "start": 388.79887, 
             "end": 389.46735, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8192,7 +8531,7 @@
         {
             "start": 390.51497, 
             "end": 390.6746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8240,7 +8579,7 @@
         {
             "start": 391.92177, 
             "end": 392.09138, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8288,7 +8627,7 @@
         {
             "start": 394.06689, 
             "end": 395.4737, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8336,7 +8675,7 @@
         {
             "start": 396.52132, 
             "end": 396.56122, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8482,7 +8821,7 @@
         {
             "start": 400.35261, 
             "end": 400.41247, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8495,7 +8834,7 @@
         {
             "start": 400.56213, 
             "end": 401.03107, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8536,7 +8875,7 @@
         {
             "start": 402.01882, 
             "end": 404.76259, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8584,7 +8923,7 @@
         {
             "start": 406.58844, 
             "end": 406.84785, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8611,7 +8950,7 @@
         {
             "start": 408.19478, 
             "end": 409.05283, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8666,7 +9005,7 @@
         {
             "start": 410.80884, 
             "end": 410.90862, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8679,7 +9018,7 @@
         {
             "start": 411.05828, 
             "end": 411.81655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8713,7 +9052,7 @@
         {
             "start": 413.62245, 
             "end": 414.27098, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8782,7 +9121,7 @@
         {
             "start": 416.11678, 
             "end": 416.21655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8795,7 +9134,7 @@
         {
             "start": 416.43605, 
             "end": 416.49592, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8836,7 +9175,7 @@
         {
             "start": 417.23424, 
             "end": 417.28413, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8877,7 +9216,7 @@
         {
             "start": 418.07234, 
             "end": 418.12222, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8904,7 +9243,7 @@
         {
             "start": 418.64104, 
             "end": 418.73084, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8924,7 +9263,7 @@
         {
             "start": 419.02018, 
             "end": 419.33946, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8972,7 +9311,7 @@
         {
             "start": 420.48685, 
             "end": 420.60658, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8985,7 +9324,7 @@
         {
             "start": 421.23515, 
             "end": 421.61429, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -8998,7 +9337,7 @@
         {
             "start": 423.08095, 
             "end": 423.939, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9011,7 +9350,7 @@
         {
             "start": 424.43787, 
             "end": 424.47778, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9024,7 +9363,7 @@
         {
             "start": 425.89456, 
             "end": 425.98435, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9037,7 +9376,7 @@
         {
             "start": 427.78027, 
             "end": 427.94989, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9050,7 +9389,7 @@
         {
             "start": 429.48639, 
             "end": 429.60612, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9070,7 +9409,7 @@
         {
             "start": 431.34218, 
             "end": 431.861, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9083,7 +9422,7 @@
         {
             "start": 432.14036, 
             "end": 432.30998, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9103,7 +9442,7 @@
         {
             "start": 433.97619, 
             "end": 434.38526, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9116,7 +9455,7 @@
         {
             "start": 435.30317, 
             "end": 436.13129, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9129,7 +9468,7 @@
         {
             "start": 436.45057, 
             "end": 436.56032, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9254,7 +9593,7 @@
         {
             "start": 440.99025, 
             "end": 442.89592, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9393,7 +9732,7 @@
         {
             "start": 448.86236, 
             "end": 449.08186, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9420,7 +9759,7 @@
         {
             "start": 450.2093, 
             "end": 450.36893, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9461,7 +9800,7 @@
         {
             "start": 452.16485, 
             "end": 452.51406, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9537,7 +9876,7 @@
         {
             "start": 455.08821, 
             "end": 455.12812, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9564,7 +9903,7 @@
         {
             "start": 455.93628, 
             "end": 457.15351, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9612,7 +9951,7 @@
         {
             "start": 459.91723, 
             "end": 459.95714, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9625,7 +9964,7 @@
         {
             "start": 460.48594, 
             "end": 461.06463, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9659,7 +9998,7 @@
         {
             "start": 462.98027, 
             "end": 463.02018, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9686,7 +10025,7 @@
         {
             "start": 464.22744, 
             "end": 464.89592, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9706,7 +10045,7 @@
         {
             "start": 465.57438, 
             "end": 465.89365, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9733,7 +10072,7 @@
         {
             "start": 466.73175, 
             "end": 467.52993, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9767,7 +10106,7 @@
         {
             "start": 468.30816, 
             "end": 468.61746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9794,7 +10133,7 @@
         {
             "start": 469.24603, 
             "end": 469.3059, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9807,7 +10146,7 @@
         {
             "start": 469.93447, 
             "end": 470.14399, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9827,7 +10166,7 @@
         {
             "start": 471.09184, 
             "end": 471.26145, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9854,7 +10193,7 @@
         {
             "start": 471.76032, 
             "end": 471.90998, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9923,7 +10262,7 @@
         {
             "start": 473.9254, 
             "end": 474.43424, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9936,7 +10275,7 @@
         {
             "start": 474.56395, 
             "end": 474.68367, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -9956,7 +10295,7 @@
         {
             "start": 475.39206, 
             "end": 475.82109, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10004,7 +10343,7 @@
         {
             "start": 477.40748, 
             "end": 477.5771, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10031,7 +10370,7 @@
         {
             "start": 478.56485, 
             "end": 478.94399, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10079,7 +10418,7 @@
         {
             "start": 480.16122, 
             "end": 480.25102, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10148,7 +10487,7 @@
         {
             "start": 482.60567, 
             "end": 482.77528, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10203,7 +10542,7 @@
         {
             "start": 485.10998, 
             "end": 487.26508, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10335,7 +10674,7 @@
         {
             "start": 492.17392, 
             "end": 492.31361, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10355,7 +10694,7 @@
         {
             "start": 492.89229, 
             "end": 493.41111, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10382,7 +10721,7 @@
         {
             "start": 494.15941, 
             "end": 494.2093, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10395,7 +10734,7 @@
         {
             "start": 494.32902, 
             "end": 494.65828, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10443,7 +10782,7 @@
         {
             "start": 495.44649, 
             "end": 496.38435, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10477,7 +10816,7 @@
         {
             "start": 497.61156, 
             "end": 498.45964, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10504,7 +10843,7 @@
         {
             "start": 498.97846, 
             "end": 498.99841, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10573,7 +10912,7 @@
         {
             "start": 501.41293, 
             "end": 501.74218, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10600,7 +10939,7 @@
         {
             "start": 502.58027, 
             "end": 502.74989, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10620,7 +10959,7 @@
         {
             "start": 503.29864, 
             "end": 503.5381, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10661,7 +11000,7 @@
         {
             "start": 505.06463, 
             "end": 508.07778, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10779,7 +11118,7 @@
         {
             "start": 512.79705, 
             "end": 512.94671, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10855,7 +11194,7 @@
         {
             "start": 515.83016, 
             "end": 515.86009, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10868,7 +11207,7 @@
         {
             "start": 516.39887, 
             "end": 516.78798, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10944,7 +11283,7 @@
         {
             "start": 519.68141, 
             "end": 520.10045, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -10999,7 +11338,7 @@
         {
             "start": 522.48503, 
             "end": 524.15125, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11012,7 +11351,7 @@
         {
             "start": 524.52041, 
             "end": 525.34853, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11060,7 +11399,7 @@
         {
             "start": 526.87506, 
             "end": 527.11451, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11157,7 +11496,7 @@
         {
             "start": 530.97574, 
             "end": 531.01565, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11170,7 +11509,7 @@
         {
             "start": 531.37483, 
             "end": 532.33265, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11274,7 +11613,7 @@
         {
             "start": 535.98435, 
             "end": 536.29365, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11301,7 +11640,7 @@
         {
             "start": 536.91224, 
             "end": 537.22154, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11314,7 +11653,7 @@
         {
             "start": 537.39116, 
             "end": 537.461, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11334,7 +11673,7 @@
         {
             "start": 538.72812, 
             "end": 539.46644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11347,7 +11686,7 @@
         {
             "start": 539.98526, 
             "end": 540.72358, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11395,7 +11734,7 @@
         {
             "start": 541.69138, 
             "end": 541.79116, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11520,7 +11859,7 @@
         {
             "start": 547.26871, 
             "end": 547.58798, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11547,7 +11886,7 @@
         {
             "start": 548.40612, 
             "end": 548.5458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11616,14 +11955,62 @@
         {
             "start": 550.39161, 
             "speaker": "Elwood", 
-            "end": 551.68866, 
+            "end": 550.82063, 
             "word": "please", 
             "alignedWord": "PLEASE"
         }, 
         {
-            "start": 551.68866, 
+            "start": 550.82063, 
+            "speaker": "Elwood", 
+            "end": 551.10998, 
+            "word": "share", 
+            "alignedWord": "SHARE"
+        }, 
+        {
+            "start": 551.10998, 
+            "speaker": "Elwood", 
+            "end": 551.21973, 
+            "word": "that", 
+            "alignedWord": "THAT"
+        }, 
+        {
+            "start": 551.21973, 
+            "speaker": "Elwood", 
+            "end": 551.55896, 
+            "word": "story", 
+            "alignedWord": "STORY"
+        }, 
+        {
+            "start": 551.55896, 
+            "speaker": "Elwood", 
+            "end": 551.76848, 
+            "word": "about,", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 551.76848, 
+            "speaker": "Elwood", 
+            "end": 552.05782, 
+            "word": "about", 
+            "alignedWord": "ABOUT"
+        }, 
+        {
+            "start": 552.05782, 
+            "end": 552.08776, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 552.08776, 
+            "speaker": "Elwood", 
+            "end": 552.33719, 
+            "word": "them.", 
+            "alignedWord": "THEM"
+        }, 
+        {
+            "start": 552.33719, 
             "end": 556.97664, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11692,7 +12079,7 @@
         {
             "start": 559.58073, 
             "end": 559.65057, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11712,7 +12099,7 @@
         {
             "start": 560.57846, 
             "end": 561.40658, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11816,7 +12203,7 @@
         {
             "start": 565.22789, 
             "end": 565.54717, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11864,7 +12251,7 @@
         {
             "start": 567.74218, 
             "end": 568.11134, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11975,7 +12362,7 @@
         {
             "start": 572.48141, 
             "end": 572.97029, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -11995,7 +12382,7 @@
         {
             "start": 573.42925, 
             "end": 573.46916, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12008,7 +12395,7 @@
         {
             "start": 573.61882, 
             "end": 573.65873, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12049,7 +12436,7 @@
         {
             "start": 575.51451, 
             "end": 575.90363, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12104,7 +12491,7 @@
         {
             "start": 577.53991, 
             "end": 577.89909, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12117,7 +12504,7 @@
         {
             "start": 578.07868, 
             "end": 578.19841, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12130,7 +12517,7 @@
         {
             "start": 578.86689, 
             "end": 579.28594, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12234,7 +12621,7 @@
         {
             "start": 582.71814, 
             "end": 582.75805, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12247,7 +12634,7 @@
         {
             "start": 583.11723, 
             "end": 583.41655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12295,7 +12682,7 @@
         {
             "start": 585.59161, 
             "end": 585.7712, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12322,7 +12709,7 @@
         {
             "start": 586.46961, 
             "end": 586.50952, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12335,7 +12722,7 @@
         {
             "start": 586.9585, 
             "end": 587.02834, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12383,7 +12770,7 @@
         {
             "start": 588.47506, 
             "end": 589.02381, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12445,7 +12832,7 @@
         {
             "start": 591.16893, 
             "end": 591.64785, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12486,7 +12873,7 @@
         {
             "start": 592.93492, 
             "end": 593.02472, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12576,38 +12963,136 @@
         {
             "start": 596.42698, 
             "speaker": "Elwood", 
-            "end": 597.1254, 
+            "end": 596.69637, 
             "word": "car", 
             "alignedWord": "CAR"
         }, 
         {
-            "start": 597.1254, 
+            "start": 596.69637, 
             "speaker": "Elwood", 
-            "end": 597.98345, 
+            "end": 596.87596, 
             "word": "you've", 
             "alignedWord": "YOU'VE"
         }, 
         {
-            "start": 597.98345, 
-            "end": 598.74172, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 598.74172, 
+            "start": 596.87596, 
             "speaker": "Elwood", 
-            "end": 599.89909, 
+            "end": 597.10544, 
             "word": "ever", 
             "alignedWord": "EVER"
         }, 
         {
-            "start": 599.89909, 
-            "end": 600.73719, 
-            "word": "{pause}", 
+            "start": 597.10544, 
+            "speaker": "Elwood", 
+            "end": 597.48458, 
+            "word": "seen.", 
+            "alignedWord": "SEEN"
+        }, 
+        {
+            "start": 597.48458, 
+            "speaker": "Elwood", 
+            "end": 597.54444, 
+            "word": "I", 
+            "alignedWord": "I"
+        }, 
+        {
+            "start": 597.54444, 
+            "speaker": "Elwood", 
+            "end": 597.8737, 
+            "word": "mean,", 
+            "alignedWord": "MEAN"
+        }, 
+        {
+            "start": 597.8737, 
+            "speaker": "Elwood", 
+            "end": 598.05329, 
+            "word": "ah,", 
+            "alignedWord": "AH"
+        }, 
+        {
+            "start": 598.05329, 
+            "end": 598.67188, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 600.73719, 
+            "start": 598.67188, 
+            "speaker": "Elwood", 
+            "end": 598.78163, 
+            "word": "I", 
+            "alignedWord": "I"
+        }, 
+        {
+            "start": 598.78163, 
+            "speaker": "Elwood", 
+            "end": 598.93129, 
+            "word": "hope", 
+            "alignedWord": "HOPE"
+        }, 
+        {
+            "start": 598.93129, 
+            "speaker": "Elwood", 
+            "end": 599.03107, 
+            "word": "you're", 
+            "alignedWord": "YOU'RE"
+        }, 
+        {
+            "start": 599.03107, 
+            "speaker": "Elwood", 
+            "end": 599.16077, 
+            "word": "not", 
+            "alignedWord": "NOT"
+        }, 
+        {
+            "start": 599.16077, 
+            "speaker": "Elwood", 
+            "end": 599.29048, 
+            "word": "going", 
+            "alignedWord": "GOING"
+        }, 
+        {
+            "start": 599.29048, 
+            "speaker": "Elwood", 
+            "end": 599.35034, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 599.35034, 
+            "speaker": "Elwood", 
+            "end": 599.50998, 
+            "word": "say", 
+            "alignedWord": "SAY"
+        }, 
+        {
+            "start": 599.50998, 
+            "speaker": "Elwood", 
+            "end": 599.939, 
+            "word": "some,", 
+            "alignedWord": "SOME"
+        }, 
+        {
+            "start": 599.939, 
+            "end": 600.60748, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 600.60748, 
+            "speaker": "Elwood", 
+            "end": 600.88685, 
+            "word": "some,", 
+            "alignedWord": "SOME"
+        }, 
+        {
+            "start": 600.88685, 
+            "speaker": "Elwood", 
+            "end": 601.23605, 
+            "word": "German", 
+            "alignedWord": "GERMAN"
+        }, 
+        {
+            "start": 601.23605, 
             "speaker": "Elwood", 
             "end": 601.3458, 
             "word": "or", 
@@ -12630,7 +13115,7 @@
         {
             "start": 602.24376, 
             "end": 602.26372, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12643,7 +13128,7 @@
         {
             "start": 602.44331, 
             "end": 606.90317, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12740,7 +13225,7 @@
         {
             "start": 610.34535, 
             "end": 610.71451, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12823,7 +13308,7 @@
         {
             "start": 613.32857, 
             "end": 615.13447, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12836,7 +13321,7 @@
         {
             "start": 615.52358, 
             "end": 615.67324, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12856,7 +13341,7 @@
         {
             "start": 616.18209, 
             "end": 616.21202, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12883,7 +13368,7 @@
         {
             "start": 617.12993, 
             "end": 619.54444, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12980,7 +13465,7 @@
         {
             "start": 622.60748, 
             "end": 622.64739, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -12993,7 +13478,7 @@
         {
             "start": 623.04649, 
             "end": 623.36576, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13076,7 +13561,7 @@
         {
             "start": 626.54853, 
             "end": 628.79342, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13110,7 +13595,7 @@
         {
             "start": 629.95079, 
             "end": 630.28005, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13151,7 +13636,7 @@
         {
             "start": 631.98617, 
             "end": 632.07596, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13360,7 +13845,7 @@
         {
             "start": 638.74082, 
             "end": 639.33946, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13394,7 +13879,7 @@
         {
             "start": 640.46689, 
             "end": 640.75624, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13421,7 +13906,7 @@
         {
             "start": 641.38481, 
             "end": 641.43469, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13455,7 +13940,7 @@
         {
             "start": 642.46236, 
             "end": 642.6619, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13496,7 +13981,7 @@
         {
             "start": 643.99887, 
             "end": 644.28821, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13509,7 +13994,7 @@
         {
             "start": 645.4356, 
             "end": 647.21156, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13564,7 +14049,7 @@
         {
             "start": 648.98753, 
             "end": 649.99524, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13633,7 +14118,7 @@
         {
             "start": 651.93084, 
             "end": 651.96077, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13660,7 +14145,7 @@
         {
             "start": 652.76893, 
             "end": 653.59705, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13708,7 +14193,7 @@
         {
             "start": 654.88413, 
             "end": 655.23333, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13749,7 +14234,7 @@
         {
             "start": 656.62018, 
             "end": 656.7, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13881,7 +14366,7 @@
         {
             "start": 661.3195, 
             "end": 661.83832, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13915,7 +14400,7 @@
         {
             "start": 662.69637, 
             "end": 663.18526, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13935,7 +14420,7 @@
         {
             "start": 663.94354, 
             "end": 664.06327, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -13948,7 +14433,7 @@
         {
             "start": 664.42245, 
             "end": 666.78707, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14080,7 +14565,7 @@
         {
             "start": 671.46644, 
             "end": 671.67596, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14121,7 +14606,7 @@
         {
             "start": 673.06281, 
             "end": 673.13265, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14190,7 +14675,7 @@
         {
             "start": 676.55488, 
             "end": 676.91406, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14273,7 +14758,7 @@
         {
             "start": 679.28866, 
             "end": 679.30862, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14321,7 +14806,7 @@
         {
             "start": 680.7254, 
             "end": 681.19433, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14376,7 +14861,7 @@
         {
             "start": 683.9381, 
             "end": 684.48685, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14417,7 +14902,7 @@
         {
             "start": 685.93356, 
             "end": 686.6619, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14437,7 +14922,7 @@
         {
             "start": 688.93673, 
             "end": 688.9966, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14471,7 +14956,7 @@
         {
             "start": 689.98435, 
             "end": 690.02426, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14512,7 +14997,7 @@
         {
             "start": 691.47098, 
             "end": 691.53084, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14525,7 +15010,7 @@
         {
             "start": 691.83016, 
             "end": 692.35896, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14580,7 +15065,7 @@
         {
             "start": 694.92313, 
             "end": 694.94308, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14593,7 +15078,7 @@
         {
             "start": 695.36213, 
             "end": 696.20023, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14662,7 +15147,7 @@
         {
             "start": 698.87415, 
             "end": 699.47279, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14766,7 +15251,7 @@
         {
             "start": 704.58118, 
             "end": 704.61111, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14800,7 +15285,7 @@
         {
             "start": 705.4093, 
             "end": 705.61882, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14848,7 +15333,7 @@
         {
             "start": 707.74399, 
             "end": 709.20068, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14924,7 +15409,7 @@
         {
             "start": 711.63515, 
             "end": 712.10408, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14944,7 +15429,7 @@
         {
             "start": 712.80249, 
             "end": 712.89229, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14964,7 +15449,7 @@
         {
             "start": 713.6805, 
             "end": 713.89002, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -14984,7 +15469,7 @@
         {
             "start": 714.80794, 
             "end": 717.03288, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15004,7 +15489,7 @@
         {
             "start": 717.49184, 
             "end": 717.50181, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15094,7 +15579,7 @@
         {
             "start": 721.6424, 
             "end": 721.88186, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15142,7 +15627,7 @@
         {
             "start": 724.25646, 
             "end": 724.28639, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15211,7 +15696,7 @@
         {
             "start": 727.06009, 
             "end": 727.55896, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15336,7 +15821,7 @@
         {
             "start": 732.21837, 
             "end": 732.44785, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15363,7 +15848,7 @@
         {
             "start": 733.73492, 
             "end": 733.81474, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15411,7 +15896,7 @@
         {
             "start": 735.25147, 
             "end": 735.52086, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15452,7 +15937,7 @@
         {
             "start": 737.13719, 
             "end": 737.18707, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15486,7 +15971,7 @@
         {
             "start": 738.55397, 
             "end": 738.8932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15520,7 +16005,7 @@
         {
             "start": 740.18027, 
             "end": 740.19025, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15547,7 +16032,7 @@
         {
             "start": 741.14807, 
             "end": 741.16803, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15574,7 +16059,7 @@
         {
             "start": 742.21565, 
             "end": 742.50499, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15594,7 +16079,7 @@
         {
             "start": 743.28322, 
             "end": 743.54263, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15607,7 +16092,7 @@
         {
             "start": 743.80204, 
             "end": 743.90181, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15627,7 +16112,7 @@
         {
             "start": 745.06916, 
             "end": 745.43832, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15640,7 +16125,7 @@
         {
             "start": 745.98707, 
             "end": 746.64558, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15667,7 +16152,7 @@
         {
             "start": 747.61338, 
             "end": 747.67324, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15701,7 +16186,7 @@
         {
             "start": 748.93039, 
             "end": 748.98027, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15721,7 +16206,7 @@
         {
             "start": 749.6288, 
             "end": 749.99796, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15762,7 +16247,7 @@
         {
             "start": 751.75397, 
             "end": 751.95351, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15796,7 +16281,7 @@
         {
             "start": 752.88141, 
             "end": 753.57982, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15816,7 +16301,7 @@
         {
             "start": 754.25828, 
             "end": 754.28821, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15829,7 +16314,7 @@
         {
             "start": 754.50771, 
             "end": 754.54762, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15919,7 +16404,7 @@
         {
             "start": 758.5585, 
             "end": 758.778, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15932,7 +16417,7 @@
         {
             "start": 758.97755, 
             "end": 759.01746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -15980,7 +16465,7 @@
         {
             "start": 760.56395, 
             "end": 761.18254, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16007,7 +16492,7 @@
         {
             "start": 762.45964, 
             "end": 762.8288, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16034,7 +16519,7 @@
         {
             "start": 763.82653, 
             "end": 763.90635, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16075,51 +16560,128 @@
         {
             "start": 766.19116, 
             "speaker": "Elwood", 
-            "end": 766.45057, 
+            "end": 766.35079, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 766.45057, 
-            "end": 766.52041, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 766.52041, 
+            "start": 766.35079, 
             "speaker": "Elwood", 
-            "end": 766.99932, 
+            "end": 766.41066, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 766.99932, 
-            "end": 767.25873, 
-            "word": "{pause}", 
+            "start": 766.41066, 
+            "speaker": "Elwood", 
+            "end": 767.01927, 
+            "word": "secular", 
+            "alignedWord": "SECULAR"
+        }, 
+        {
+            "start": 767.01927, 
+            "end": 767.27868, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 767.25873, 
+            "start": 767.27868, 
             "speaker": "Elwood", 
-            "end": 768.46599, 
+            "end": 767.71769, 
+            "word": "ranging", 
+            "alignedWord": "RANGING"
+        }, 
+        {
+            "start": 767.71769, 
+            "speaker": "Elwood", 
+            "end": 767.92721, 
             "word": "from", 
             "alignedWord": "FROM"
         }, 
         {
+            "start": 767.92721, 
+            "speaker": "Elwood", 
+            "end": 768.00703, 
+            "word": "an", 
+            "alignedWord": "AN"
+        }, 
+        {
+            "start": 768.00703, 
+            "speaker": "Elwood", 
+            "end": 768.46599, 
+            "word": "Elmore", 
+            "alignedWord": "ELMORE"
+        }, 
+        {
             "start": 768.46599, 
             "speaker": "Elwood", 
-            "end": 769.90272, 
+            "end": 768.87506, 
+            "word": "James", 
+            "alignedWord": "JAMES"
+        }, 
+        {
+            "start": 768.87506, 
+            "speaker": "Elwood", 
+            "end": 769.44376, 
+            "word": "blues,", 
+            "alignedWord": "BLUES"
+        }, 
+        {
+            "start": 769.44376, 
+            "speaker": "Elwood", 
+            "end": 769.54354, 
+            "word": "a", 
+            "alignedWord": "A"
+        }, 
+        {
+            "start": 769.54354, 
+            "end": 769.72313, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 769.72313, 
+            "speaker": "Elwood", 
+            "end": 770.07234, 
+            "word": "guest", 
+            "alignedWord": "GUEST"
+        }, 
+        {
+            "start": 770.07234, 
+            "end": 770.09229, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 770.09229, 
+            "speaker": "Elwood", 
+            "end": 770.5712, 
+            "word": "gospel", 
+            "alignedWord": "GOSPEL"
+        }, 
+        {
+            "start": 770.5712, 
+            "speaker": "Elwood", 
+            "end": 770.93039, 
+            "word": "vocal", 
+            "alignedWord": "VOCAL"
+        }, 
+        {
+            "start": 770.93039, 
+            "speaker": "Elwood", 
+            "end": 771.11995, 
+            "word": "from", 
+            "alignedWord": "FROM"
+        }, 
+        {
+            "start": 771.11995, 
+            "speaker": "Elwood", 
+            "end": 771.58889, 
             "word": "Shemekia", 
             "alignedWord": "SHEMEKIA"
         }, 
         {
-            "start": 769.90272, 
-            "end": 770.00249, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 770.00249, 
+            "start": 771.58889, 
             "speaker": "Elwood", 
             "end": 772.13764, 
             "word": "Copeland,", 
@@ -16128,7 +16690,7 @@
         {
             "start": 772.13764, 
             "end": 772.53673, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16232,7 +16794,7 @@
         {
             "start": 776.30816, 
             "end": 776.64739, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16266,7 +16828,7 @@
         {
             "start": 778.06417, 
             "end": 778.12404, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16293,7 +16855,7 @@
         {
             "start": 779.07188, 
             "end": 779.66054, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16306,7 +16868,7 @@
         {
             "start": 780.39887, 
             "end": 781.96531, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16466,7 +17028,7 @@
         {
             "start": 788.15125, 
             "end": 788.56032, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16486,7 +17048,7 @@
         {
             "start": 788.99932, 
             "end": 789.04921, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16506,7 +17068,7 @@
         {
             "start": 789.73764, 
             "end": 790.04694, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16547,7 +17109,7 @@
         {
             "start": 792.00249, 
             "end": 793.65873, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16588,7 +17150,7 @@
         {
             "start": 795.22517, 
             "end": 795.94354, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16699,7 +17261,7 @@
         {
             "start": 799.8746, 
             "end": 799.89456, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16733,7 +17295,7 @@
         {
             "start": 801.31134, 
             "end": 801.51088, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16753,7 +17315,7 @@
         {
             "start": 802.03968, 
             "end": 802.27914, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16780,7 +17342,7 @@
         {
             "start": 803.24694, 
             "end": 803.32676, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16793,7 +17355,7 @@
         {
             "start": 803.96531, 
             "end": 804.2746, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16806,7 +17368,7 @@
         {
             "start": 805.08277, 
             "end": 805.20249, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16819,7 +17381,7 @@
         {
             "start": 805.9907, 
             "end": 806.3898, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16944,7 +17506,7 @@
         {
             "start": 810.32086, 
             "end": 810.49048, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -16957,7 +17519,7 @@
         {
             "start": 810.68005, 
             "end": 810.71995, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17005,7 +17567,7 @@
         {
             "start": 813.72313, 
             "end": 814.11224, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17025,7 +17587,7 @@
         {
             "start": 815.14989, 
             "end": 815.35941, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17157,7 +17719,7 @@
         {
             "start": 820.84694, 
             "end": 821.05646, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17233,7 +17795,7 @@
         {
             "start": 823.94989, 
             "end": 824.16939, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17267,7 +17829,7 @@
         {
             "start": 825.22698, 
             "end": 825.3068, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17301,7 +17863,7 @@
         {
             "start": 826.33447, 
             "end": 826.48413, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17328,7 +17890,7 @@
         {
             "start": 827.79116, 
             "end": 827.96077, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17348,7 +17910,7 @@
         {
             "start": 828.59932, 
             "end": 828.86871, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17424,7 +17986,7 @@
         {
             "start": 831.81202, 
             "end": 831.96168, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17556,7 +18118,7 @@
         {
             "start": 835.95261, 
             "end": 836.54127, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17604,7 +18166,7 @@
         {
             "start": 838.35714, 
             "end": 838.63651, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17666,7 +18228,7 @@
         {
             "start": 841.31043, 
             "end": 842.03878, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17686,7 +18248,7 @@
         {
             "start": 842.67732, 
             "end": 842.79705, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17706,7 +18268,7 @@
         {
             "start": 843.82472, 
             "end": 843.99433, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17754,7 +18316,7 @@
         {
             "start": 846.52857, 
             "end": 846.65828, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17795,7 +18357,7 @@
         {
             "start": 849.20249, 
             "end": 849.34218, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17815,7 +18377,7 @@
         {
             "start": 850.19025, 
             "end": 850.26009, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17828,7 +18390,7 @@
         {
             "start": 850.53946, 
             "end": 850.58934, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17848,7 +18410,7 @@
         {
             "start": 851.16803, 
             "end": 851.30771, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17882,7 +18444,7 @@
         {
             "start": 852.64467, 
             "end": 852.68458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17895,7 +18457,7 @@
         {
             "start": 852.94399, 
             "end": 852.9839, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -17908,7 +18470,7 @@
         {
             "start": 853.34308, 
             "end": 853.61247, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18082,7 +18644,7 @@
         {
             "start": 859.43923, 
             "end": 859.66871, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18158,7 +18720,7 @@
         {
             "start": 861.86372, 
             "end": 862.26281, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18220,7 +18782,7 @@
         {
             "start": 864.4678, 
             "end": 864.76712, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18240,7 +18802,7 @@
         {
             "start": 865.37574, 
             "end": 865.49546, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18316,7 +18878,7 @@
         {
             "start": 867.65057, 
             "end": 867.80023, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18371,7 +18933,7 @@
         {
             "start": 870.22472, 
             "end": 870.85329, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18447,66 +19009,151 @@
         {
             "start": 873.39751, 
             "speaker": "Elwood", 
-            "end": 874.96395, 
+            "end": 873.52721, 
             "word": "got", 
             "alignedWord": "GOT"
         }, 
         {
-            "start": 874.96395, 
+            "start": 873.52721, 
             "speaker": "Elwood", 
-            "end": 875.05374, 
+            "end": 873.55714, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 875.05374, 
+            "start": 873.55714, 
             "speaker": "Elwood", 
-            "end": 875.58254, 
+            "end": 874.0161, 
             "word": "birthday", 
             "alignedWord": "BIRTHDAY"
         }, 
         {
-            "start": 875.58254, 
+            "start": 874.0161, 
             "speaker": "Elwood", 
-            "end": 876.18118, 
-            "word": "college,", 
-            "alignedWord": "COLLEGE"
+            "end": 874.36531, 
+            "word": "shout", 
+            "alignedWord": "SHOUT"
         }, 
         {
-            "start": 876.18118, 
+            "start": 874.36531, 
             "speaker": "Elwood", 
-            "end": 877.72766, 
-            "word": "he", 
-            "alignedWord": "HE"
+            "end": 874.57483, 
+            "word": "out", 
+            "alignedWord": "OUT"
         }, 
         {
-            "start": 877.72766, 
+            "start": 874.57483, 
             "speaker": "Elwood", 
-            "end": 879.06463, 
-            "word": "happened", 
-            "alignedWord": "HAPPENED"
-        }, 
-        {
-            "start": 879.06463, 
-            "end": 879.19433, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 879.19433, 
-            "speaker": "Elwood", 
-            "end": 879.61338, 
+            "end": 874.74444, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 879.61338, 
-            "end": 879.68322, 
-            "word": "{pause}", 
+            "start": 874.74444, 
+            "speaker": "Elwood", 
+            "end": 875.11361, 
+            "word": "Ronnie", 
+            "alignedWord": "RONNIE"
+        }, 
+        {
+            "start": 875.11361, 
+            "speaker": "Elwood", 
+            "end": 875.4229, 
+            "word": "Earl,", 
+            "alignedWord": "EARL"
+        }, 
+        {
+            "start": 875.4229, 
+            "speaker": "Elwood", 
+            "end": 875.76213, 
+            "word": "born", 
+            "alignedWord": "BORN"
+        }, 
+        {
+            "start": 875.76213, 
+            "speaker": "Elwood", 
+            "end": 876.09138, 
+            "word": "March", 
+            "alignedWord": "MARCH"
+        }, 
+        {
+            "start": 876.09138, 
+            "end": 876.13129, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 879.68322, 
+            "start": 876.13129, 
+            "speaker": "Elwood", 
+            "end": 876.80975, 
+            "word": "10th,", 
+            "alignedWord": "10TH"
+        }, 
+        {
+            "start": 876.80975, 
+            "speaker": "Elwood", 
+            "end": 877.73764, 
+            "word": "1953.", 
+            "alignedWord": "1953"
+        }, 
+        {
+            "start": 877.73764, 
+            "speaker": "Elwood", 
+            "end": 878.38617, 
+            "word": "When", 
+            "alignedWord": "WHEN"
+        }, 
+        {
+            "start": 878.38617, 
+            "speaker": "Elwood", 
+            "end": 878.70544, 
+            "word": "Ronnie", 
+            "alignedWord": "RONNIE"
+        }, 
+        {
+            "start": 878.70544, 
+            "speaker": "Elwood", 
+            "end": 878.8551, 
+            "word": "was", 
+            "alignedWord": "WAS"
+        }, 
+        {
+            "start": 878.8551, 
+            "speaker": "Elwood", 
+            "end": 878.95488, 
+            "word": "in", 
+            "alignedWord": "IN"
+        }, 
+        {
+            "start": 878.95488, 
+            "speaker": "Elwood", 
+            "end": 879.43379, 
+            "word": "college,", 
+            "alignedWord": "COLLEGE"
+        }, 
+        {
+            "start": 879.43379, 
+            "speaker": "Elwood", 
+            "end": 879.56349, 
+            "word": "he", 
+            "alignedWord": "HE"
+        }, 
+        {
+            "start": 879.56349, 
+            "speaker": "Elwood", 
+            "end": 879.89274, 
+            "word": "happened", 
+            "alignedWord": "HAPPENED"
+        }, 
+        {
+            "start": 879.89274, 
+            "speaker": "Elwood", 
+            "end": 879.97256, 
+            "word": "to", 
+            "alignedWord": "TO"
+        }, 
+        {
+            "start": 879.97256, 
             "speaker": "Elwood", 
             "end": 880.34172, 
             "word": "catch", 
@@ -18529,7 +19176,7 @@
         {
             "start": 881.22971, 
             "end": 881.58889, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18542,7 +19189,7 @@
         {
             "start": 881.96803, 
             "end": 882.12766, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18667,7 +19314,7 @@
         {
             "start": 886.59751, 
             "end": 887.18617, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18799,7 +19446,7 @@
         {
             "start": 891.98526, 
             "end": 892.35442, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18854,7 +19501,7 @@
         {
             "start": 894.41973, 
             "end": 894.59932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18888,7 +19535,7 @@
         {
             "start": 895.84649, 
             "end": 895.98617, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -18950,7 +19597,7 @@
         {
             "start": 898.87959, 
             "end": 899.27868, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19005,7 +19652,7 @@
         {
             "start": 901.46372, 
             "end": 901.77302, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19102,7 +19749,7 @@
         {
             "start": 905.50454, 
             "end": 905.76395, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19164,7 +19811,7 @@
         {
             "start": 908.06871, 
             "end": 908.2483, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19191,7 +19838,7 @@
         {
             "start": 909.25601, 
             "end": 909.59524, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19288,7 +19935,7 @@
         {
             "start": 912.66825, 
             "end": 913.93537, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19357,7 +20004,7 @@
         {
             "start": 916.46961, 
             "end": 918.68458, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19370,7 +20017,7 @@
         {
             "start": 919.02381, 
             "end": 919.27324, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19467,7 +20114,7 @@
         {
             "start": 922.18662, 
             "end": 922.33628, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19480,7 +20127,7 @@
         {
             "start": 922.73537, 
             "end": 922.76531, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19493,7 +20140,7 @@
         {
             "start": 923.08458, 
             "end": 923.22426, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19541,7 +20188,7 @@
         {
             "start": 924.65102, 
             "end": 924.7907, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19617,7 +20264,7 @@
         {
             "start": 927.83379, 
             "end": 929.94898, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19756,7 +20403,7 @@
         {
             "start": 935.25692, 
             "end": 935.45646, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19790,7 +20437,7 @@
         {
             "start": 937.34218, 
             "end": 937.63152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19838,7 +20485,7 @@
         {
             "start": 939.5771, 
             "end": 939.94626, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19858,7 +20505,7 @@
         {
             "start": 940.65465, 
             "end": 940.90408, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19878,7 +20525,7 @@
         {
             "start": 942.05147, 
             "end": 943.47823, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -19996,7 +20643,7 @@
         {
             "start": 947.52902, 
             "end": 947.64875, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20107,7 +20754,7 @@
         {
             "start": 951.94898, 
             "end": 952.19841, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20155,7 +20802,7 @@
         {
             "start": 953.77483, 
             "end": 953.93447, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20203,7 +20850,7 @@
         {
             "start": 956.10952, 
             "end": 956.31905, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20377,7 +21024,7 @@
         {
             "start": 962.06599, 
             "end": 962.53492, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20390,7 +21037,7 @@
         {
             "start": 963.27324, 
             "end": 963.32313, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20417,7 +21064,7 @@
         {
             "start": 964.34082, 
             "end": 965.08912, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20465,25 +21112,86 @@
         {
             "start": 966.77528, 
             "speaker": "Elwood", 
-            "end": 967.50363, 
+            "end": 967.49365, 
             "word": "themselves", 
             "alignedWord": "THEMSELVES"
         }, 
         {
-            "start": 967.50363, 
+            "start": 967.49365, 
+            "end": 967.51361, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 967.51361, 
             "speaker": "Elwood", 
-            "end": 969.24966, 
+            "end": 967.79297, 
+            "word": "so", 
+            "alignedWord": "SO"
+        }, 
+        {
+            "start": 967.79297, 
+            "end": 967.98254, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 967.98254, 
+            "speaker": "Elwood", 
+            "end": 968.11224, 
+            "word": "we", 
+            "alignedWord": "WE"
+        }, 
+        {
+            "start": 968.11224, 
+            "speaker": "Elwood", 
+            "end": 968.33175, 
+            "word": "can", 
+            "alignedWord": "CAN"
+        }, 
+        {
+            "start": 968.33175, 
+            "speaker": "Elwood", 
+            "end": 968.46145, 
+            "word": "do", 
+            "alignedWord": "DO"
+        }, 
+        {
+            "start": 968.46145, 
+            "speaker": "Elwood", 
+            "end": 968.80068, 
+            "word": "this", 
+            "alignedWord": "THIS"
+        }, 
+        {
+            "start": 968.80068, 
+            "speaker": "Elwood", 
+            "end": 969.04014, 
+            "word": "every", 
+            "alignedWord": "EVERY"
+        }, 
+        {
+            "start": 969.04014, 
+            "speaker": "Elwood", 
+            "end": 969.32948, 
+            "word": "week.", 
+            "alignedWord": "WEEK"
+        }, 
+        {
+            "start": 969.32948, 
+            "end": 971.66417, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 971.66417, 
+            "speaker": "Elwood", 
+            "end": 972.18299, 
             "word": "Shemekia", 
             "alignedWord": "SHEMEKIA"
         }, 
         {
-            "start": 969.24966, 
-            "end": 971.81383, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 971.81383, 
+            "start": 972.18299, 
             "speaker": "Elwood", 
             "end": 972.72177, 
             "word": "Copeland.", 
@@ -20492,7 +21200,7 @@
         {
             "start": 972.72177, 
             "end": 973.03107, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20526,7 +21234,7 @@
         {
             "start": 974.84694, 
             "end": 974.9068, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20602,7 +21310,7 @@
         {
             "start": 977.77029, 
             "end": 978.1195, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20657,7 +21365,7 @@
         {
             "start": 980.93311, 
             "end": 981.15261, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20705,7 +21413,7 @@
         {
             "start": 983.23787, 
             "end": 983.55714, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20718,7 +21426,7 @@
         {
             "start": 984.12585, 
             "end": 984.21565, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20745,7 +21453,7 @@
         {
             "start": 985.78209, 
             "end": 986.03152, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20758,7 +21466,7 @@
         {
             "start": 986.20113, 
             "end": 986.22109, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20785,7 +21493,7 @@
         {
             "start": 987.47823, 
             "end": 988.26644, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20833,7 +21541,7 @@
         {
             "start": 989.85283, 
             "end": 989.90272, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20874,7 +21582,7 @@
         {
             "start": 991.8483, 
             "end": 992.16757, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20908,7 +21616,7 @@
         {
             "start": 993.59433, 
             "end": 993.89365, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20963,7 +21671,7 @@
         {
             "start": 996.74717, 
             "end": 997.11633, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -20997,7 +21705,7 @@
         {
             "start": 998.4034, 
             "end": 998.59297, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21045,7 +21753,7 @@
         {
             "start": 1000.19932, 
             "end": 1000.52857, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21072,7 +21780,7 @@
         {
             "start": 1001.05737, 
             "end": 1001.22698, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21085,7 +21793,7 @@
         {
             "start": 1001.34671, 
             "end": 1001.41655, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21112,7 +21820,7 @@
         {
             "start": 1001.99524, 
             "end": 1002.11497, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21125,7 +21833,7 @@
         {
             "start": 1002.44422, 
             "end": 1003.34218, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21138,7 +21846,7 @@
         {
             "start": 1003.59161, 
             "end": 1003.75125, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21207,7 +21915,7 @@
         {
             "start": 1006.88413, 
             "end": 1006.94399, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21227,7 +21935,7 @@
         {
             "start": 1007.93175, 
             "end": 1009.11905, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21310,7 +22018,7 @@
         {
             "start": 1012.661, 
             "end": 1012.75079, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21365,7 +22073,7 @@
         {
             "start": 1014.17755, 
             "end": 1014.20748, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21427,7 +22135,7 @@
         {
             "start": 1016.10317, 
             "end": 1016.52222, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21447,7 +22155,7 @@
         {
             "start": 1017.30045, 
             "end": 1017.55986, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21467,7 +22175,7 @@
         {
             "start": 1018.50771, 
             "end": 1018.62744, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21487,7 +22195,7 @@
         {
             "start": 1019.40567, 
             "end": 1019.64512, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21542,7 +22250,7 @@
         {
             "start": 1021.61066, 
             "end": 1021.78027, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21576,7 +22284,7 @@
         {
             "start": 1022.59841, 
             "end": 1023.04739, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21659,7 +22367,7 @@
         {
             "start": 1026.739, 
             "end": 1026.91859, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
@@ -21693,7 +22401,7 @@
         {
             "start": 1028.42517, 
             "end": 1030.99932, 
-            "word": "{pause}", 
+            "word": "{p}", 
             "alignedWord": "sp"
         }
     ]

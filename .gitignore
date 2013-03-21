@@ -4,3 +4,4 @@ static/tmp/*.mp3
 .svn
 .idea
 ed_env
+tmp/pauses

@@ -65,6 +65,28 @@ TAAPP.bestBreathIndices = function () {
     return indices;
 };
 
+TAAPP.allBreathIndices = function () {
+    var breaths = _.filter(TAAPP.words, function(word) {
+        return (word.hasOwnProperty("breathLen"));
+    });
+    
+    var out = [];
+    var i;
+    var tmpArr = [];
+    for (i = 0; i < breaths.length; i++) {
+        tmpArr = [breaths[i].origPos]
+        if (TAAPP.words[breaths[i].origPos + 1].alignedWord === "sp") {
+            tmpArr.push(tmpArr[0] + 1);
+        }
+        if (TAAPP.words[breaths[i].origPos - 1].alignedWord === "sp") {
+            tmpArr.splice(0, 0, breaths[i].origPos - 1);
+        }
+        out.push(tmpArr);
+        tmpArr = [];
+    }
+    return out;
+};
+
 TAAPP.randomBreathIndices = function () {
     var breaths = _.filter(TAAPP.words, function (word) {
         return (word.hasOwnProperty("breathLen"));
@@ -76,10 +98,37 @@ TAAPP.randomBreathIndices = function () {
     }
     return indices;
 
-}
+};
+
+TAAPP._createBreathDropdown = function () {
+    var breaths = TAAPP.allBreathIndices();
+    var bTemp = _.template($("#breathDropdownTemplate").html());
+    
+    $('.breathDropdown').append(bTemp({breaths: breaths}))
+    .find('.breathPlayButton')
+    .each(function (i) {
+        $(this).click(function (event) {
+            var audiostart = TAAPP.words[breaths[i][0]].start;
+            var audioend = TAAPP.words[_.last(breaths[i])].end;
+            TAAPP.origSound.play({
+                from: audiostart * 1000.0,
+                to: audioend * 1000.0
+            });
+            event.stopPropagation()
+        });
+    })
+    
+    $('.breathDropdown').find('.copyButton')
+    .each(function (i) {
+        $(this).click(function (event) {
+            TAAPP.TAManager.insertWords(breaths[i]);
+        });
+    });
+    
+};
 
 TAAPP.insertBreath = function () {
-    var indices = TAAPP.bestBreathIndices();
+    var indices = TAAPP.randomBreathIndices();
     TAAPP.TAManager.insertWords(indices);
 };
 
@@ -259,6 +308,12 @@ TAAPP.roomTone = {
         "end": 0.557,
         "word": "{gpause}",
         "alignedWord": "gp"
+    },
+    "bluesmobile": {
+        "start": 333.334,
+        "end": 334.249,
+        "word": "{gpause}",
+        "alignedWord": "gp"
     }
 };
 
@@ -368,7 +423,8 @@ TAAPP.reset = function () {
     $(".rawTAManager").html("");
     TAAPP.RawTAManager = undefined;
     
-
+    $('.breathDropdown').html("");
+    
     $('.dupeList').html("");
     TAAPP.state.outfile = TAAPP.speech + '-' + TAAPP.outfile;
     $('.dlLink').prop('href', 'download/' + TAAPP.state.outfile);
@@ -396,10 +452,10 @@ TAAPP.reset = function () {
             TAAPP.speakers, TAAPP.words, TAAPP.current);
 
         TAAPP.updateDupes();
-
+        TAAPP._createBreathDropdown();
         // create the orignal sound, for sound "spriting"
         TAAPP.loadOriginal();
-    });    
+    });
 };
 
 TAAPP.updateDupes = function () {
@@ -635,16 +691,6 @@ TAAPP.uploadSong = function (form) {
 };
 
 TAAPP.loadSite = function () {
-    $("select[name=speechSelect]").change(function() {
-        console.log("Changing to " + $(this).val());
-        TAAPP.speech = $(this).val();
-        TAAPP.reset();
-    });
-    
-    TAAPP.speech = $("select[name=speechSelect]").val();
-    TAAPP.outfile = Math.random().toString(36).substring(12);
-    TAAPP.reset();
-    
     $('.gPause').click(function () {
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
@@ -653,7 +699,8 @@ TAAPP.loadSite = function () {
         return false;
     });
     
-    $('.insBreath').click(TAAPP.insertBreath);
+    // this is now covered by a breath-selection dropdown
+    // $('.insBreath').click(TAAPP.insertBreath);
     
     $('.genLink').click(TAAPP.reauthor);
     $('.playBtn').click(TAAPP.togglePlay);
@@ -708,10 +755,21 @@ TAAPP.loadSite = function () {
             return $('#editorRow').height();
         }
     });
-    
+};
+
+TAAPP.newProject = function () {
+    TAAPP.speech = $("select[name=speechSelect]").val();
+    TAAPP.reset();
 };
 
 $(function () {
+    // make the "create" button work and show the modal
+    $('#setupModal')
+    .modal()
+    .find('.createProjectBtn')
+    .click(TAAPP.newProject);
+
+    // initialize everything that doesn't depend on the speech track
     TAAPP.loadSite();
 });
 

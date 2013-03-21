@@ -144,7 +144,8 @@ MBAPP.loadTable = function () {
             if (soundManager !== undefined) {
                     soundManager.onready(function() { 
                         soundManager.stopAll(); 
-                        threeSixtyPlayer.init(); 
+                        inlinePlayer = new InlinePlayer();
+                        // threeSixtyPlayer.init(); 
                 });
             }
         },
@@ -161,7 +162,6 @@ MBAPP.loadTable = function () {
                 MBAPP.oTable.fnDraw();
                 $('td:eq(' + MBAPP.COLS.SORTER + ')', MBAPP.oTable.$('tr')).text('');
             })
-
         },
         "bProcessing": true,
         "bPaginate": false,
@@ -174,8 +174,9 @@ MBAPP.loadTable = function () {
               "fnRender": function( o, val ) {
                   var addBtn = '<button class="btn brAddBtn" data-file-name="' + val + 
                         '"><i class="icon-plus"></i></button>';
-                  var playBtn = '<button class="btn brPlayBtn" data-file-name="' + val +
-                        '"><i class="icon-play"></i></button>';
+                  var playBtn = '<a href="/static/musicbrowser/mp3s/browser/context/' + val +
+                        '.mp3" class="btn brPlayBtn" data-file-name="' + val +
+                        '"><i class="icon-play"></i></a>';
                   return '<div class="btn-group">' + playBtn + addBtn +
                          '</div>';
                       
@@ -249,18 +250,7 @@ MBAPP.loadTable = function () {
                 "sType": "numeric" }
         ]
     } );
-    
-    // hook up the "add" buttons
-    // $('td:eq(0)', MBAPP.oTable.$('tr')).find('.brAddBtn').each(function () {
-    //     console.log("each", $(this));
-    //     $(this).click(function () {
-    //         console.log("clicked", $(this));
-    //         var filename = $(this).attr("data-file-name")
-    //         $.get('uploadSong?filename=' + filename, function (data) {
-    //             TAAPP.addSongToLibrary(data);
-    //         });
-    //     })
-    // });
+
 }; 
 
 $(document).ready(function() {

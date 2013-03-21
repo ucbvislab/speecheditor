@@ -19,7 +19,7 @@ def parse(transcript):
     script = []
 
     speaker_name = re.compile(r'^\s\s([^\s:]+):?')
-    line_text = re.compile(r'^.{20}([^s].*)')
+    line_text = re.compile(r'^.{20}([^\s].*)')
     special_token = re.compile(r'\[([^\[\]])\]')
 
     current_speaker = []
@@ -29,11 +29,13 @@ def parse(transcript):
         match = speaker_name.match(line)
         if match:
             current_speaker.append(match.group(1))
-
+        
+        line = re.sub(r'\t', '    ', line)
+        
         line_match = line_text.match(line)
         if line_match:
             current_line.append(line_match.group(1))
-
+        
         if i + 1 == len(lines) or (
             len(line) == 0 and speaker_name.match(lines[i + 1])):
             # construct the DialogLine

@@ -83,11 +83,23 @@ class ScriptArea
                         if not @locked
                             @addPeriod()
                 )
-            .bind('mouseup', => 
-                @tam.lastFocused = @
-                @snapSelectionToWord()
+            .bind('mousemove', =>
+                sel = @area.getSelection()
+                [startInd, endInd] = @rangeIndices(sel.start, sel.end)
+                @tam.highlightWordsInWaveform startInd, endInd, @
             )
-            
+            .bind('mouseup', @adjustSelection)
+        
+        @overlays.bind('mouseup', @adjustSelection)
+    
+    adjustSelection: =>
+        @tam.lastFocused = @
+        @snapSelectionToWord()
+        
+        sel = @area.getSelection()
+        [startInd, endInd] = @rangeIndices(sel.start, sel.end)
+        @tam.highlightWordsInWaveform startInd, endInd, @
+       
     _renderWord: (word, isTextArea, wrapLeft, wrapRight) ->
         wrapLeft ?= ""
         wrapRight ?= ""
@@ -137,6 +149,7 @@ class ScriptArea
     
     snapSelectionToWord: ->
         sel = @area.getSelection()
+        console.log sel
         doneEnd = false
         doneStart = false
         return if sel.length is 0
@@ -185,6 +198,8 @@ class ScriptArea
                 oldLen = sel.length
                 @area.setSelection sel.start, sel.end + 1
                 sel = @area.getSelection()
+        
+        console.log "end of snap", sel
                 
     selectWord: (direction) ->
         start = @area.getSelection().start
@@ -213,6 +228,17 @@ class ScriptArea
             words[i].taIdx = name
             this.total += elt.word.length + 1
         ), "total": 0
+    
+    rangeIndices: (start, end) ->
+        for w, i in @words
+            if w.taPos >= start
+                startInd = i
+                break
+        for w, i in @words
+            if w.taPos < end
+                endInd = i
+        
+        [startInd, endInd] 
     
     range: (start, end) ->
         if not end?
@@ -621,6 +647,12 @@ class TextAreaManager
                 [@taIndexSpan[taIndex]...@taIndexSpan[taIndex + 1]]
         
         @refresh()
+
+    highlightWordsInWaveform: (start, end, ta) ->
+        if @textAlignedWf?
+            offset = @taIndexSpan[@tas.indexOf ta]
+            $(@textAlignedWf).textAlignedWaveform
+                highlightedWordsRange: [offset + start, offset + end + 1]
 
     highlightWords: (start, end) ->
         if start is -1

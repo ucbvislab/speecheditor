@@ -176,7 +176,7 @@ TAAPP.generateAudio = function () {
     TAAPP.spinner.spin($("body")[0]);
 
     $.ajax({
-        url: '../reauthor',
+        url: 'reauthor',
         type: 'POST',
         dataType: 'json',
         contentType: 'json',

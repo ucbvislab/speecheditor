@@ -166,7 +166,7 @@ MBAPP.loadTable = function () {
         "bProcessing": true,
         "bPaginate": false,
         "sPaginationType": "bootstrap",
-        "sAjaxSource": '/static/musicbrowser/json/browser.json',
+        "sAjaxSource": 'static/musicbrowser/json/browser.json',
         "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
         "aoColumns": [
             { "mDataProp": "filename",
@@ -174,7 +174,7 @@ MBAPP.loadTable = function () {
               "fnRender": function( o, val ) {
                   var addBtn = '<button class="btn brAddBtn" data-file-name="' + val + 
                         '"><i class="icon-plus"></i></button>';
-                  var playBtn = '<a href="/static/musicbrowser/mp3s/browser/context/' + val +
+                  var playBtn = '<a href="static/musicbrowser/mp3s/browser/context/' + val +
                         '.mp3" class="btn brPlayBtn" data-file-name="' + val +
                         '"><i class="icon-play"></i></a>';
                   return '<div class="btn-group">' + playBtn + addBtn +
@@ -182,7 +182,7 @@ MBAPP.loadTable = function () {
                       
                 return  '<div style="display:inline-block">' +
                         '<div class="sm2-inline-list"><div class="ui360">'+
-                        '<a href="/static/musicbrowser/mp3s/browser/context/' +
+                        '<a href="static/musicbrowser/mp3s/browser/context/' +
                         val + '.mp3" class="sm2_button">' +  
                         val + '</a></div>' + '</div>';
                 /*'<div class="ui360"><a href="mp3s/browser/v1/Change Point1 - ' +
@@ -340,7 +340,7 @@ $(function() {
                 if (MBAPP.songData[s].title === nn[i][0].title &&
                     MBAPP.songData[s].artist === nn[i][0].artist) {
                     var filename = MBAPP.songData[s].filename;
-                    result +='<div class="ui360"><a href="mp3s/browser/context/' +
+                    result +='<div class="ui360"><a href="static/musicbrowser/mp3s/browser/context/' +
                         filename +'.mp3" class="sm2_button">'+ 
                         filename + ' (' +
                         nn[i][1].toPrecision(3) +
@@ -352,7 +352,7 @@ $(function() {
         $('.nearest').html(result);
         if (soundManager !== undefined) {
             soundManager.reboot();
-            $.getScript('/static/musicbrowser/js/360player.js', function() {});
+            $.getScript('static/musicbrowser/js/360player.js', function() {});
         }
     };
         
@@ -399,8 +399,8 @@ $(function() {
     
     var featureIndex = "mfccs";
     var features = {
-        mfccs: "/static/musicbrowser/json/changepoints_mfccs.json",
-        wmfccs: "/static/musicbrowser/json/changepoints_mfccs_whitened.json"
+        mfccs: "static/musicbrowser/json/changepoints_mfccs.json",
+        wmfccs: "static/musicbrowser/json/changepoints_mfccs_whitened.json"
     };
         
     $('.featureType').find('button').bind('click', function(event) {
@@ -415,7 +415,7 @@ $(function() {
         
     MBAPP.reloadFeatures(features[featureIndex]);
         
-    $.getJSON("/static/musicbrowser/json/browser.json", function(data) {
+    $.getJSON("static/musicbrowser/json/browser.json", function(data) {
         MBAPP.songData = data.aaData;
     });
         

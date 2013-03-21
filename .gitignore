@@ -5,3 +5,7 @@ static/tmp/*.mp3
 .idea
 ed_env
 tmp/pauses
+music_browser/fail
+music_browser/generate_db_entries/changepoints
+music_browser/results
+music_browser/succ

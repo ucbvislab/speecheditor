@@ -699,6 +699,8 @@ TAAPP.loadSite = function () {
         return false;
     });
     
+    TAAPP.outfile = Math.random().toString(36).substring(12);
+    
     // this is now covered by a breath-selection dropdown
     // $('.insBreath').click(TAAPP.insertBreath);
     

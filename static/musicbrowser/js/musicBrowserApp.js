@@ -137,7 +137,61 @@ $.fn.dataTableExt.afnFiltering.push(
     MBAPP.fnPivotFiltering);
     
 MBAPP.oTable = undefined;
-    
+
+MBAPP.loadedSongs = {};
+
+MBAPP.activateLinks = function () {
+    $('.brPlayBtn').bind("click", function (e) {
+        var songName = $(this).attr("data-file-name");
+        
+        // stop this song if it's playing
+        if (songName in MBAPP.loadedSongs &&
+            MBAPP.loadedSongs[songName].playState === 1) {
+            MBAPP.loadedSongs[songName].stop();
+            e.preventDefault();
+            return;
+        }
+        
+        // stop all playing clips
+        for (var sn in MBAPP.loadedSongs) {
+            if (MBAPP.loadedSongs.hasOwnProperty(sn)) {
+                MBAPP.loadedSongs[sn].stop();
+            }
+        }
+        var btn = $(this);
+
+        if (songName in MBAPP.loadedSongs) {
+            MBAPP.loadedSongs[songName].play();
+        } else {
+            MBAPP.loadedSongs[songName] = soundManager.createSound({
+                id: songName,
+                url: $(this).attr("href"),
+                autoLoad: true,
+                autoPlay: true,
+                onstop: function () {
+                    MBAPP.showPlayButton(btn);  
+                },
+                onplay: function () {
+                    MBAPP.showStopButton(btn);
+                },
+                onfinish: function () {
+                    MBAPP.showPlayButton(btn);
+                }
+            });
+        }
+        e.preventDefault();
+        return false;
+    });
+};
+
+MBAPP.showPlayButton = function (btn) {
+    $(btn).html("<i class='icon-play'></i>");
+};
+
+MBAPP.showStopButton = function (btn) {
+    $(btn).html("<i class='icon-stop'></i>");
+}
+
 MBAPP.loadTable = function () {
     MBAPP.oTable = $('#browser').dataTable( {
         "fnDrawCallback": function(oSettings) {
@@ -162,6 +216,8 @@ MBAPP.loadTable = function () {
                 MBAPP.oTable.fnDraw();
                 $('td:eq(' + MBAPP.COLS.SORTER + ')', MBAPP.oTable.$('tr')).text('');
             })
+            
+            MBAPP.activateLinks();
         },
         "bProcessing": true,
         "bPaginate": false,

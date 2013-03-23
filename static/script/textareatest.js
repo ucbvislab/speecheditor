@@ -67,7 +67,8 @@ TAAPP.bestBreathIndices = function () {
 
 TAAPP.allBreathIndices = function () {
     var breaths = _.filter(TAAPP.words, function(word) {
-        return (word.hasOwnProperty("breathLen"));
+        return word.alignedWord === "{BR}";
+        // return (word.hasOwnProperty("breathLen"));
     });
     
     var out = [];
@@ -75,11 +76,17 @@ TAAPP.allBreathIndices = function () {
     var tmpArr = [];
     for (i = 0; i < breaths.length; i++) {
         tmpArr = [breaths[i].origPos]
-        if (TAAPP.words[breaths[i].origPos + 1].alignedWord === "sp") {
+        if (breaths[i].origPos + 1 < TAAPP.words.length &&
+            TAAPP.words[breaths[i].origPos + 1].alignedWord === "sp") {
+
             tmpArr.push(tmpArr[0] + 1);
+
         }
-        if (TAAPP.words[breaths[i].origPos - 1].alignedWord === "sp") {
+        if (breaths[i].origPos - 1 >= 0 &&
+            TAAPP.words[breaths[i].origPos - 1].alignedWord === "sp") {
+            
             tmpArr.splice(0, 0, breaths[i].origPos - 1);
+
         }
         out.push(tmpArr);
         tmpArr = [];

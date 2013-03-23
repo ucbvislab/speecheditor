@@ -1,6 +1,9 @@
 import pickle
 import sys
 import os
+import subprocess
+import re
+import simplejson as json
 
 print >> sys.stderr, "system stuff"
 
@@ -68,6 +71,18 @@ def get_mfcc(filename):
     return pipe.toarray()
 
 
+def get_rms_energy(filename):
+    audio = C.Track(filename, 'woop')
+    resample_factor = 11025.0 / audio.samplerate()
+    src = AudioSource(filename)
+    pip = Pipeline(
+        src,
+        Resample(resample_factor),
+        RMS
+    )
+    return pipe.toarray()
+
+
 def deltas(x, window_size=9):
     # define window shape
     h_len = int(window_size / 2)
@@ -98,6 +113,52 @@ def get_features(audio_file):
     n_subframes = N.shape(cc)[0]
     features = N.hstack((cc, deltas(cc, 5), deltas(deltas(cc, 5), 5)))
     return features
+
+
+ac_re = re.compile(r"\[Ac=(-?\d+)")
+
+MIN_BREATH_DUR = 0.1
+MIN_AC = 500
+
+def classify_htk(audio_file):
+    cwd = os.getcwd()
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+    
+    transcript = "breath.transcript"
+    output = "breath-classify-output.json"
+    results = "tmp/aligned.results"
+    
+    subprocess.call('python ../p2fa/align.py ../%s %s %s' %
+        (audio_file, transcript, output), shell=True)
+    
+    final_words = [{
+        "start": 0.0,
+        "end": 0.0,
+        "alignedWord": "sp",
+        "word": "{p}"
+    }]
+    
+    with open(results, 'r') as res:
+        match = ac_re.search(res.read())
+        if match:
+            ac = int(match.group(1))
+            print "Ac:", ac
+            if ac > MIN_AC:
+                print "Breath!"
+    
+                with open(output, 'r') as out:
+                    words = json.load(out)["words"]
+                    breath = filter(
+                        lambda x: x["alignedWord"] == "{BR}",
+                        words)[0]
+                    breath_dur = breath["end"] - breath["start"]
+                    print "breath len", breath_dur
+                    if breath_dur > MIN_BREATH_DUR:
+                        final_words = words
+                        final_words[0]["start"] = 0.0
+
+    os.chdir(cwd)
+    return final_words
 
 
 def classify(audio_file):

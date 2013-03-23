@@ -63,7 +63,7 @@ def reauthor():
                 result = reauthor_speech.rebuild_audio(
                     APP_PATH + 'static/' + dat["speechAudio"],
                     af, ef,
-                    cut_to_zc=True,
+                    cut_to_zc=False,
                     tracks_and_segments=True,
                     samplerate=dat["speechSampleRate"],
                     score_start=score_start,

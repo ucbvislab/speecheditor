@@ -32,7 +32,7 @@
         "speaker": "Maneesh"
     }, 
     {
-        "line": "And, and Photoshop is now, like Google or like Thermos or Kleenex used to be, the, the synonym for all, uh, photo manipulation they're all called, but the best?", 
+        "line": "And, and Photoshop is now, like Google or like Thermos or Kleenex used to be, the, the synonym for all, uh, photo manipulation software. Are there other important kinds of photo manipulation software we should be aware of? Or is, is Photoshop not only what they're all called, but the best?", 
         "speaker": "Kurt"
     }, 
     {
@@ -60,7 +60,7 @@
         "speaker": "Kurt"
     }, 
     {
-        "line": " Right, but um, but, but things have gotten disrupted. Ah, It was, you know, Photoshop first came out, and as I said, then, uh, the ubiquity of digital cameras, and, uh, the Web, and cell phone cameras. Each one of those, ah, disrupted the way we deal with digital photo...the way we deal with digital photographs. Um, and, ah, and I can imagine that kind of disruption may happen again. So, uh, video is an obvious candidate. Uh, you're already seeing ah, people are becoming more, and more interested in taking video, and editing video. And so tools for making video are ,are on the horizon, I think. Um, there's also advances in camera technologies, so you may have heard of this new camera, the Lightro? Ah, it's a camera that takes an image, that can then be refocused after you've taken the image, um, and that might change the way people create photographs, the kinds of photographs that they take, ah, how we interact with photographs.", 
+        "line": " Right, but um, but, but things have gotten disrupted. Ah, It was, you know, Photoshop first came out, and as I said, then, uh, the ubiquity of digital cameras, and, uh, the Web, and cell phone cameras. Each one of those, ah, disrupted the way we deal with digital photo...the way we deal with digital photographs. Um, and, ah, and I can imagine that kind of disruption may happen again. So, uh, video is an obvious candidate. Uh, you're already seeing sites like YouTube, that are changing the way we distribute video, ah, people are becoming more, and more interested in taking video, and editing video. And so tools for making video are ,are on the horizon, I think. Um, there's also advances in camera technologies, so you may have heard of this new camera, the Lightro? Ah, it's a camera that takes an image, that can then be refocused after you've taken the image, um, and that might change the way people create photographs, the kinds of photographs that they take, ah, how we interact with photographs.", 
         "speaker": "Maneesh"
     }, 
     {
@@ -76,7 +76,7 @@
         "speaker": "Kurt"
     }, 
     {
-        "line": "Yeah, it's a great question. Ah, I think we're already starting to Facebook are heavily invested in this, ah, it should be the case, that when you upload a photograph to these sites, they're trying to do recognition on them to figure out which of your friends are in those photographs. Um, I think, ah, I think we're going to see that happening more and more.", 
+        "line": "Yeah, it's a great question. Ah, I think we're already starting to see recognitions technologies, ah, companies like Google, and Facebook are heavily invested in this, ah, it should be the case, that when you upload a photograph to these sites, they're trying to do recognition on them to figure out which of your friends are in those photographs. Um, I think, ah, I think we're going to see that happening more and more.", 
         "speaker": "Maneesh"
     }, 
     {
@@ -84,11 +84,11 @@
         "speaker": "Kurt"
     }, 
     {
-        "line": "Yeah. Or, or being analyzed in some sense. So, so that's one thing. I think you'll see other kinds of recognition as well. So, um, I think there's great interest in being able to recognize the clothing that you're wearing or other contextual elements. Uh, are you standing in front of, uh, you know, a well known building. Are you standing in front of uh, uh, you know, the here for uh, different kinds of uh, recognition and recognition that will lead to various kinds of monetize, monetization as well.", 
+        "line": "Yeah. Or, or being analyzed in some sense. So, so that's one thing. I think you'll see other kinds of recognition as well. So, um, I think there's great interest in being able to recognize the clothing that you're wearing or other contextual elements. Uh, are you standing in front of, uh, you know, a well known building. Are you standing in front of uh, uh, you know, the supermarket down the street? There are all kinds of possibilities here for uh, different kinds of uh, recognition and recognition that will lead to various kinds of monetize, monetization as well.", 
         "speaker": "Maneesh"
     }, 
     {
-        "line": "Now all these kinds of technologies one can imagine various Orwellian one. The kind of banal consumerist one. And then perhaps do, do those ethical issues and, and, and, possible scenarios weigh on the minds of technologists? Or do they just do what they do because it's an interesting problem to solve today?", 
+        "line": "Now all these kinds of technologies one can imagine various scenarios. But let's say three. The, the, the terrible dystopian Orwellian one. The kind of banal consumerist one. And then perhaps some utopian one where everything is better because all the...do, do, do those ethical issues and, and, and, possible scenarios weigh on the minds of technologists? Or do they just do what they do because it's an interesting problem to solve today?", 
         "speaker": "Kurt"
     }, 
     {
@@ -148,7 +148,7 @@
         "speaker": "Kurt"
     }, 
     {
-        "line": "There are different things, there are different techniques that have been proposed, but one of the things that it does is, uh, that it analyzes the compression that's been used on the photographs. So when you use JPEG to compress an image, for example, it leaves behind a little bit of a signature. That signature is slightly different depending on the exact algorithm that you use, and uh, and so this tool looks for those changes to the signature in, uh, the JPEG compression. Uh, in particular, when you use Photoshop on an image, uh, the parts where you've used Photoshop have a slightly different it uses that to detect.", 
+        "line": "There are different things, there are different techniques that have been proposed, but one of the things that it does is, uh, that it analyzes the compression that's been used on the photographs. So when you use JPEG to compress an image, for example, it leaves behind a little bit of a signature. That signature is slightly different depending on the exact algorithm that you use, and uh, and so this tool looks for those changes to the signature in, uh, the JPEG compression. Uh, in particular, when you use Photoshop on an image, uh, the parts where you've used Photoshop have a slightly different signature than the parts where you haven't used Photoshop. And so, it uses that to detect.", 
         "speaker": "Maneesh"
     }, 
     {

@@ -285,15 +285,20 @@ def render_pauses(speech_file, alignment):
             comp.add_score_segment(seg)
             comp.output_score(
                 adjust_dynamics=False,
-                filename="tmp/pauses/p%02d" % pause_idx,
+                filename="tmp/pauses/p%03d" % pause_idx,
                 channels=1,
                 filetype='wav',
                 samplerate=speech.samplerate(),
                 separate_tracks=False)
-            print "# classifying p%02d.wav" % pause_idx
+            print "# classifying p%03d.wav" % pause_idx
             print "# segment length:", x["end"] - x["start"]
-            cls = breath_classifier.classify(
-                'tmp/pauses/p%02d.wav' % pause_idx)
+            
+            cls = breath_classifier.classify_htk(
+                'tmp/pauses/p%03d.wav' % pause_idx)
+            
+            # cls = breath_classifier.classify(
+            #     'tmp/pauses/p%03d.wav' % pause_idx)
+
             for word in cls:
                 word["start"] += x["start"]
                 word["end"] += x["start"]

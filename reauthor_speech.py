@@ -87,8 +87,6 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             new_pause = False
             new_group = True
 
-    print "edit groups start at", edit_groups
-
     # build the segments that correspond to the uncut segments of the speech
     segments = []
     composition_loc = score_start
@@ -99,9 +97,10 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     c = Composition(channels=1)
 
     # new reauthoring loop
+    s = Speech(speech, "s" + str(i))
+    c.add_track(s)
     for i, eg in enumerate(edit_groups):
-        s = Speech(speech, "s" + str(i))
-        c.add_track(s)
+
 
         if isinstance(eg, Pause):
             pause = eg
@@ -120,25 +119,11 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                     pass
 
             start_times.append(composition_loc)
-            
-            # while pause_len > end - start:
+
             seg = Segment(s, composition_loc, start, end - start)
             track, cf_seg = create_roomtone_pause2(seg, pause_len)
             c.add_track(track)
             c.add_score_segment(cf_seg)
-                
-                
-            #     c.add_score_segment(seg)
-            #     composition_loc += (end - start) 
-            #     pause_len -= (end - start)
-            #     plen = end - start
-            #     segments.append(seg)
-            #     print segments[-1].duration
-            #     if len(segments) > 1:
-            #         c.cross_fade(segments[-2], segments[-1], plen / 2)
-            # 
-            # seg = Segment(s, composition_loc, start, pause_len)            
-            # c.add_score_segment(seg)
             
             segments.append(cf_seg)
             composition_loc += pause_len
@@ -300,8 +285,8 @@ def render_pauses(speech_file, alignment):
             #     'tmp/pauses/p%03d.wav' % pause_idx)
 
             for word in cls:
-                word["start"] += x["start"]
-                word["end"] += x["start"]
+                word["start"] = round(word["start"] + x["start"], 5)
+                word["end"] = round(word["end"] + x["start"], 5)
             cls[-1]["end"] = x["end"]
             new_alignment.extend(cls)
             pause_idx += 1

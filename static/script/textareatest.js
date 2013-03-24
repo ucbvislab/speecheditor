@@ -22,6 +22,7 @@ soundManager.setup({
     url: 'static/swf/soundmanager2_flash9.swf',
     flashVersion: 9,
     useFlashBlock: false,
+    flashLoadTimeout: 15000,
     useHighPerformance: true
 });
 
@@ -319,6 +320,12 @@ TAAPP.roomTone = {
     "bluesmobile": {
         "start": 333.334,
         "end": 334.249,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "photoshop": {
+        "start": 747.588,
+        "end": 748.000,
         "word": "{gpause}",
         "alignedWord": "gp"
     }
@@ -722,6 +729,9 @@ TAAPP.loadSite = function () {
     $('#songUploadForm').submit(function () {
         TAAPP.uploadSong($("#songUploadForm")[0]);
         return false;
+    });
+    $('.clearWords').click(function () {
+        TAAPP.TAManager.pruneAll();
     });
 
     $(window).resize(function () {    

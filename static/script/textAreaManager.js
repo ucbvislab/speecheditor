@@ -126,15 +126,18 @@
     };
 
     ScriptArea.prototype.updateWords = function(words) {
-      var content, rw,
+      var badWords, content, rw,
         _this = this;
 
       if (words) {
         this.words = words;
       }
       rw = this._renderWord;
+      badWords = ["UH", "UM", "AH"];
       content = _.reduce(this.words, (function(memo, word) {
-        if (word.alignedWord === "UH" || word.alignedWord === "UM") {
+        var _ref;
+
+        if (_ref = word.alignedWord, __indexOf.call(badWords, _ref) >= 0) {
           word.emph = true;
         }
         return "" + memo + (rw(word, true));
@@ -142,11 +145,11 @@
       this.val(content);
       this.tam.dirtyTas.push(this);
       this.refresh();
-      if (this.words.length === 0 && this.tam.tas.length !== 1) {
-        return _.defer(function() {
+      return _.defer(function() {
+        if (_this.words.length === 0 && _this.tam.tas.length !== 1) {
           return _this.tam.removeTA(_this);
-        });
-      }
+        }
+      });
     };
 
     ScriptArea.prototype.height = function() {
@@ -294,7 +297,8 @@
     };
 
     ScriptArea.prototype.addPeriod = function() {
-      var addInds, breath, breathInds, i, range, sel;
+      var addInds, breath, breathInds, gp, i, range, sel, topBreaths,
+        _this = this;
 
       console.log("Adding a period");
       sel = this.area.getSelection();
@@ -304,15 +308,18 @@
       }
       i = range[1] - 1;
       console.log("adding period to word", this.words[i]);
-      this.words[i].word += '.';
-      breathInds = this.tam.breathInds[this.speaker];
-      breath = breathInds[Math.floor(Math.random() * breathInds.length)];
-      addInds = [breath];
-      if (this.tam.words[breath - 1].alignedWord === "sp") {
-        addInds = [breath - 1, breath];
+      if (__indexOf.call(this.words[i].word, '.') < 0) {
+        this.words[i].word += '.';
       }
-      if (this.tam.words[breath + 1].alignedWord === "sp") {
-        addInds.push(breath + 1);
+      breathInds = this.tam.breathInds[this.speaker];
+      topBreaths = _.sortBy(breathInds, function(bi) {
+        return -_this.tam.words[bi].likelihood;
+      });
+      breath = topBreaths[Math.floor(Math.random() * topBreaths.length)];
+      addInds = [breath];
+      if ((typeof TAAPP !== "undefined" && TAAPP !== null ? TAAPP.speech : void 0) in TAAPP.roomTone && false) {
+        gp = '{gp-0.08}';
+        addInds = [gp, breath, gp];
       }
       return this.tam.insertWords(addInds, range.end, this);
     };
@@ -357,7 +364,7 @@
           wrapLeft += "<span class='emph'>";
           wrapRight += "</span>";
         }
-        if (word.alignedWord === "sp") {
+        if (word.alignedWord === "sp" || word.alignedWord === "gp") {
           wrapLeft += "<span class='pause'>";
           wrapRight += "</span>";
         } else if (word.alignedWord === "{BR}") {
@@ -409,7 +416,7 @@
             dupes: dupes
           });
         }
-        if (word.alignedWord === "sp") {
+        if (word.alignedWord === "sp" || word.alignedWord === "gp") {
           wrapLeft += "<span class='pauseOverlay'>";
           wrapRight += "</span>";
         }
@@ -677,9 +684,12 @@
       return this.pruneCurrent(match[0], _.last(match) + 1, ta);
     };
 
-    TextAreaManager.prototype.pruneCurrent = function(start, end, ta) {
+    TextAreaManager.prototype.pruneCurrent = function(start, end, ta, refresh) {
       var i, offset, taIndex, txtarea, _i, _len, _ref;
 
+      if (refresh == null) {
+        refresh = true;
+      }
       taIndex = this.tas.indexOf(ta);
       offset = this.taIndexSpan[taIndex];
       this.current.splice(start + offset, end - start);
@@ -696,6 +706,19 @@
       } else {
         console.log("Prune current, updating ta with words", this.taIndexSpan[taIndex], this.taIndexSpan[taIndex + 1] - 1);
         ta.updateWords(this.current.slice(this.taIndexSpan[taIndex], this.taIndexSpan[taIndex + 1]));
+      }
+      if (refresh) {
+        return this.refresh();
+      }
+    };
+
+    TextAreaManager.prototype.pruneAll = function() {
+      var ta, _i, _len, _ref;
+
+      _ref = this.tas;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        ta = _ref[_i];
+        this.pruneCurrent(0, ta.words.length, ta, false);
       }
       return this.refresh();
     };

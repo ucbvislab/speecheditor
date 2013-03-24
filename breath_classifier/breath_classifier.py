@@ -156,6 +156,9 @@ def classify_htk(audio_file):
                     if breath_dur > MIN_BREATH_DUR:
                         final_words = words
                         final_words[0]["start"] = 0.0
+                        for word in final_words:
+                            if word["alignedWord"] == "{BR}":
+                                word["likelihood"] = ac
 
     os.chdir(cwd)
     return final_words

@@ -60,15 +60,18 @@ def reauthor():
                 if "crossfades" in dat:
                     crossfades = dat["crossfades"]
 
+                args = {
+                    "cut_to_zc": False,
+                    "samplerate": dat["speechSampleRate"],
+                    "tracks_and_segments": True,
+                    "score_start": score_start,
+                    "crossfades": crossfades
+                }
+
+                speech_audio_path = APP_PATH + 'static/' + dat["speechAudio"]
+
                 result = reauthor_speech.rebuild_audio(
-                    APP_PATH + 'static/' + dat["speechAudio"],
-                    af, ef,
-                    cut_to_zc=False,
-                    tracks_and_segments=True,
-                    samplerate=dat["speechSampleRate"],
-                    score_start=score_start,
-                    crossfades=crossfades
-                )
+                    speech_audio_path, af, ef, **args)
                 
                 c.add_tracks(result["tracks"])
                 c.add_score_segments(result["segments"])
@@ -202,7 +205,7 @@ def reauthor():
             samplerate=result["samplerate"],
             separate_tracks=False)
         
-        subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
+        subprocess.call('lame -q5 -b 128 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True)
         
         # get the new wav2json data, maybe

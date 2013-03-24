@@ -118,9 +118,10 @@ class ScriptArea
 
         rw = @_renderWord
 
+        badWords = ["UH", "UM", "AH"]
+
         content = _.reduce @words, ((memo, word) ->
-            if word.alignedWord is "UH"\
-            or word.alignedWord is "UM"
+            if word.alignedWord in badWords
                 word.emph = true
             return "#{memo}#{rw(word, true)}"), ""
         @val(content)
@@ -129,8 +130,9 @@ class ScriptArea
         
         @refresh()
 
-        if @words.length is 0 and @tam.tas.length isnt 1
-            _.defer => @tam.removeTA @
+        _.defer =>
+            if @words.length is 0 and @tam.tas.length isnt 1
+                @tam.removeTA @
     
     height: ->
         @area.height()
@@ -259,17 +261,29 @@ class ScriptArea
         if range[1] is 0
             return
         i = range[1] - 1
+        
         console.log("adding period to word", @words[i])
-        @words[i].word += '.'
+        # TODO: check for punctuating period, not any period
+        if '.' not in @words[i].word
+            @words[i].word += '.'
 
         # add breath
         breathInds = @tam.breathInds[@speaker]
-        breath = breathInds[Math.floor(Math.random() * breathInds.length)]
+        topBreaths = _.sortBy breathInds, (bi) => 
+            return - @tam.words[bi].likelihood
+        
+        # limit to best 10 breaths
+        # topBreaths = topBreaths[0...10]
+        
+        breath = topBreaths[Math.floor(Math.random() * topBreaths.length)]
         addInds = [breath]
-        if @tam.words[breath - 1].alignedWord is "sp"
-            addInds = [breath - 1, breath]
-        if @tam.words[breath + 1].alignedWord is "sp"
-            addInds.push breath + 1
+        
+        # let's not do this for now... I don't know
+        if TAAPP?.speech of TAAPP.roomTone and false
+            # create general pause before and after
+            gp = '{gp-0.08}'
+            
+            addInds = [gp, breath, gp]
         
         @tam.insertWords addInds, range.end, @
         
@@ -307,14 +321,13 @@ class ScriptArea
                 wrapLeft += "<span class='emph'>"
                 wrapRight += "</span>"
                 # out = "<span class='emph'>#{out}</span>"
-            if word.alignedWord is "sp"
+            if word.alignedWord is "sp" or word.alignedWord is "gp"
                 wrapLeft += "<span class='pause'>"
                 wrapRight += "</span>"
                 # out = "<span class='pause'>#{out}</span>"
             else if word.alignedWord is "{BR}"
                 wrapLeft += "<span class='breath'>"
                 wrapRight += "</span>"
-                # out = "<span class='breath'>#{out}</span>"
             this[0] = word.origPos
             return "#{memo}#{rw(word, false, wrapLeft, wrapRight)}"
             ), "", ctx
@@ -382,7 +395,7 @@ class ScriptArea
                     dupeIdx: allIdx,
                     dupes: dupes)
 
-            if word.alignedWord is "sp"
+            if word.alignedWord is "sp" or word.alignedWord is "gp"
                 wrapLeft += "<span class='pauseOverlay'>"
                 wrapRight += "</span>"
             if word.alignedWord is "{BR}"
@@ -582,7 +595,7 @@ class TextAreaManager
         @container.height(window.innerHeight - @el.offset().top - 50)
         console.log("el height", window.innerHeight - @el.offset().top - 50)
         @el.height(window.innerHeight - @el.offset().top - 50)
-
+    
     draw: ->
         @table.find("tr").remove()
         lastSpeaker = @speakers[0]
@@ -625,7 +638,8 @@ class TextAreaManager
         console.log "prune by TA", match[0], _.last(match)
         @pruneCurrent(match[0], _.last(match) + 1, ta)
     
-    pruneCurrent: (start, end, ta) ->
+    pruneCurrent: (start, end, ta, refresh) ->
+        refresh ?= true
         taIndex = @tas.indexOf ta
         offset = @taIndexSpan[taIndex]
         @current.splice start + offset, end - start
@@ -646,6 +660,11 @@ class TextAreaManager
             ta.updateWords @current\
                 [@taIndexSpan[taIndex]...@taIndexSpan[taIndex + 1]]
         
+        @refresh() if refresh
+
+    pruneAll: ->
+        for ta in @tas
+            @pruneCurrent 0, ta.words.length, ta, false
         @refresh()
 
     highlightWordsInWaveform: (start, end, ta) ->

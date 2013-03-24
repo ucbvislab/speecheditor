@@ -9,3 +9,5 @@ music_browser/fail
 music_browser/generate_db_entries/changepoints
 music_browser/results
 music_browser/succ
+line_profiler
+node_modules

@@ -198,8 +198,6 @@ MBAPP.loadTable = function () {
             if (soundManager !== undefined) {
                     soundManager.onready(function() { 
                         soundManager.stopAll(); 
-                        inlinePlayer = new InlinePlayer();
-                        // threeSixtyPlayer.init(); 
                 });
             }
         },

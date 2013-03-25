@@ -181,6 +181,7 @@ if __name__ == '__main__':
         # handle the case where there's a jump before the final frame
         if len(cf_durations) > 0:
             if (cf_durations[-1] == 12.0):
+                print "Adjusting last cf duration"
                 if len(cf_durations) > 1:
                     cf_durations[-1] = cf_durations[-2]
                 else:

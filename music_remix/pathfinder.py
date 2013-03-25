@@ -34,6 +34,8 @@ class PathFinder(object):
 
     def find(self, length_padding=5, avoid=None):
         self.build_table(length_padding=length_padding, bad_nodes=avoid)
+        N.save("tmp_cost_table" + str(self.start) + '-' + str(self.end), self.C)
+
         res = self.C[self.end,
                      self.length - 1 - length_padding:
                      self.length + length_padding]
@@ -78,7 +80,7 @@ class PathFinder(object):
 
         self.trans_cost = trans_cost
 
-    def build_table(self, length_padding=0, bad_nodes=None):
+    def build_table(self, length_padding=0, bad_nodes=None, min_jump=None):
         # bad_nodes are nodes that you MAY NOT pass through
         # - in our case, these are other change points
 
@@ -118,6 +120,16 @@ class PathFinder(object):
         
         # no self-jumps
         N.fill_diagonal(trans_cost, N.inf)
+
+        # no jumps within min-jump
+        if min_jump and min_jump > 0:
+            total_len = N.shape(trans_cost)[0]
+            for idx in range(total_len):
+                for diag_idx in range(-(min_jump - 1), min_jump):
+                    if 0 < idx + diag_idx < total_len:
+                        print "zeroing", idx, diag_idx
+                        trans_cost[idx, idx + diag_idx] = N.inf
+
 
         # define the table dimensions
         C = N.zeros((len(self.nodes), self.length + length_padding))

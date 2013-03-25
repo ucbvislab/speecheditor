@@ -205,7 +205,7 @@ def reauthor():
             samplerate=result["samplerate"],
             separate_tracks=False)
         
-        subprocess.call('lame -q5 -b 128 ' + APP_PATH + 'static/tmp/'
+        subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True)
         
         # get the new wav2json data, maybe

@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-	<div class="row-fluid">
+	<div class="row-fluid" style="display:none">
 		<div class="span4">
 			<p class="lead">Valence: <span id="valenceAmountLo" style="border:0; font-weight:bold;"></span> - <span id="valenceAmountHi" style="border:0; font-weight:bold;"></span></p>
 			<div id="valenceSlider"></div><br />
@@ -14,10 +14,10 @@
 			<div id="tempoSlider"></div><br />
 		</div>
 	</div>
-	
+
 	<div class="row-fluid">
 		<div class="span2">
-			<p class="lead">Coarse V/A filters</p>
+			<p class="lead">Emotions</p>
         </div>
         <div class="span10">
 			<div style="display:inline" id="coarseVAFilter" class="btn-group" data-toggle="buttons-radio">
@@ -28,23 +28,54 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="row-fluid">
+		<div class="span2">
+			<p class="lead">Features</p>
+		</div>
+		<div class="span10">
+		    <div id="browserToggleButtons" class="btn-group">
+				<button type="button" class="btn" data-col-toggle="valence">Valence</button>
+				<button type="button" class="btn" data-col-toggle="arousal">Arousal</button>
+				<button type="button" class="btn" data-col-toggle="mode">Mode</button>
+				<button type="button" class="btn" data-col-toggle="tempo">Tempo</button>
+				<button type="button" class="btn" data-col-toggle="danceability">Danceability</button>
+				<button type="button" class="btn" data-col-toggle="tagCategories">Tag Categories</button>
+				<button type="button" class="btn" data-col-toggle="tags">All Tags</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span2">
+			<p class="lead">
+				<button id="filterPivot" class="btn btn-primary">Find songs</button>
+			</p>
+		</div>
+		<div class="span2">
+			<p class="lead" style="text-align: center">similar to</p>
+		</div>
+		 <div class="span8">
+			    <button id="pivot" class="btn btn-inverse disabled">(Use <span style="background:#ccc"><i class="icon-similar"></i></span> to select a song)</button>
+			    <button class="btn btn-danger" id="removePivot"><i class="icon-remove icon-white"></i></button>
+		</div>
+	</div>
+
+	<div class="row-fluid" style="display:none">
 		<div class="span2">
 			<p class="lead">Pivot</p>
         </div>
         <div class="span1">
             <button class="btn btn-danger" id="removePivot"><i class="icon-remove icon-white"></i></button>
         </div>
-        <div class="span9">
-			    <button id="pivot" class="btn btn-inverse disabled">None</button>
-		</div>
+
     </div>
-    <div class="row-fluid">
+    <div class="row-fluid" style="display:none">
 		<div class="span2">
 			<p class="lead">Constrain pivot</p>
         </div>
         <div class="span1">
-            <button class="btn btn-primary" id="filterPivot">Go!</button>
+            <button class="btn btn-primary" id="">Go!</button>
         </div>
         <div class="span9">
     			<div id="constraintButtons" class="btn-group">
@@ -54,7 +85,7 @@
     				<button type="button" class="btn" data-constraint="tempo">Tempo</button>
     				<button type="button" class="btn" data-constraint="rms_energy">Energy</button>
     				<button type="button" class="btn" data-constraint="danceability">Danceability</button>
-    				<button type="button" class="btn" data-constraint="mfccs">MFCCS (instrumentation)</button>
+    				<button type="button" class="btn active" data-constraint="mfccs">MFCCS (instrumentation)</button>
     			</div>
 		</div>
 	</div>
@@ -65,6 +96,7 @@
 				<thead>
 					<tr>
 						<th>Song clip</th>
+						<th>Pivot</th>
 						<th>Title</th>
 						<th>Artist</th>
 						<th>Valence</th>
@@ -75,7 +107,6 @@
 						<th>Tag categories</th>
 						<th>Hidden tags</th>
 						<th>All Tags (last.fm)</th>
-						<th>Pivot</th>
 						<th>Sorter</th>
 					</tr>
 				</thead>
@@ -85,9 +116,7 @@
 		
 	</div>
 	
-	<h2>Nearest neighbor search</h2>
-	
-	<div class="row-fluid">
+	<div class="row-fluid" style="display:none">
 
 		<div class="span4">
 			<h3>Select a song:</h3> <input type="text" class="typeahead span4"></input>

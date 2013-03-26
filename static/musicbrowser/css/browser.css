@@ -57,6 +57,14 @@ div.dataTables_paginate {
     clear: both;
 }
 
+table.dataTable tr.odd td.sorting_1  {
+    background-color: #c3ffbf;
+}
+
+table.dataTable tr.even td.sorting_1  {
+    background-color: #e1ffde;
+}
+
 .ui360 {
 /*	display: inline;*/
 }

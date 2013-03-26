@@ -6846,11 +6846,23 @@ function kdTree(points, metric, dimensions) {
 var MBAPP = {};
 
 MBAPP.COLS = {
-    "PIVOT": 10,
-    "SORTER": 11,
+    "PIVOT": 1,
+    "SORTER": 10,
     "CLIP": 0,
-    "tPIVOT": 11,
-    "tSORTER": 12,
+    "tPIVOT": 1,
+    "tSORTER": 10,
+};
+
+MBAPP.featureColumn = {
+    "valence": 4,
+    "arousal": 5,
+    "mode": 6,
+    "tempo": 7,
+    "danceability": 8,
+    "tagCategories": 9,
+    "hiddenTags": 10,
+    "tags": 11,
+    "sorter": 12
 };
 
 var SOUND_ID = '';
@@ -6934,19 +6946,19 @@ MBAPP.fnPivotValidIDs = function() {
             console.log(data.query);
             var sorter = data.sorter;
             var idRE = /\d+/;
-                
-            // set the sorter column
-            $('td:eq(' + MBAPP.COLS.SORTER + ')', MBAPP.oTable.$('tr')).each(function() {
-                var match = idRE.exec(
-                    $(this).parent()
-                    .find('td:eq(' + MBAPP.COLS.PIVOT + ') button')
-                    .attr('data-song-id'));
-                var id = match[0];
-                var idx = MBAPP.validIDs.indexOf(parseInt(id));
-                if (idx !== -1) {
-                    $(this).html(sorter[idx]);
+
+
+            var allData = MBAPP.oTable.fnGetData();
+            var i;
+            $.each(allData, function (i, d) {
+                var id = parseInt($(d.song_id).attr("data-song-id"), 10);
+                var idx = MBAPP.validIDs.indexOf(id);
+                if (idx === -1) {
+                    MBAPP.oTable.fnUpdate('', i, MBAPP.featureColumn.sorter, false);
+                } else {
+                    MBAPP.oTable.fnUpdate(sorter[idx], i, MBAPP.featureColumn.sorter, false);
                 }
-            })
+            });
         }
     });
         
@@ -6974,10 +6986,14 @@ MBAPP.fnPivotFiltering = function(oSettings, aData, iDataIndex) {
 // };
     
 $.fn.dataTableExt.afnFiltering.push(
-    MBAPP.fnRangeFiltering(6, "#tempoAmountLo", "#tempoAmountHi"),
-    MBAPP.fnRangeFiltering(3, "#valenceAmountLo", "#valenceAmountHi"),
-    MBAPP.fnRangeFiltering(4, "#arousalAmountLo", "#arousalAmountHi"),
-    MBAPP.fnPivotFiltering);
+    MBAPP.fnRangeFiltering(MBAPP.featureColumn.tempo,
+        "#tempoAmountLo", "#tempoAmountHi"),
+    MBAPP.fnRangeFiltering(MBAPP.featureColumn.valence,
+        "#valenceAmountLo", "#valenceAmountHi"),
+    MBAPP.fnRangeFiltering(MBAPP.featureColumn.arousal,
+        "#arousalAmountLo", "#arousalAmountHi"),
+    MBAPP.fnPivotFiltering
+);
     
 MBAPP.oTable = undefined;
 
@@ -7035,6 +7051,12 @@ MBAPP.showStopButton = function (btn) {
     $(btn).html("<i class='icon-stop'></i>");
 }
 
+MBAPP.showHide = function (featureName) {
+    var iCol = MBAPP.featureColumn[featureName];
+    var bVis = MBAPP.oTable.fnSettings().aoColumns[iCol].bVisible;
+    MBAPP.oTable.fnSetColumnVis(iCol, !bVis);
+};
+
 MBAPP.loadTable = function () {
     MBAPP.oTable = $('#browser').dataTable( {
         "fnDrawCallback": function(oSettings) {
@@ -7048,43 +7070,38 @@ MBAPP.loadTable = function () {
             $("#filterPivot").click(function() {
                 MBAPP.fnPivotValidIDs();
                 MBAPP.oTable.fnDraw();    
-                MBAPP.oTable.fnSort([[MBAPP.COLS.tSORTER, 'asc']]);
+                MBAPP.oTable.fnSort([[0, 'asc']]);
             });
             $("#removePivot").click(function() {
                 $("#pivot").html('None')
                 $("#pivot").attr('data-pivot-song-id', '')
                 MBAPP.validIDs = 'all';
                 MBAPP.oTable.fnDraw();
-                $('td:eq(' + MBAPP.COLS.SORTER + ')', MBAPP.oTable.$('tr')).text('');
+                // TODO: clear the sorter data
             })
+
+            MBAPP.showHide("tags");
+            MBAPP.showHide("hiddenTags");
             
             MBAPP.activateLinks();
         },
         "bProcessing": true,
         "bPaginate": false,
+        "bAutoWidth": false,
         "sPaginationType": "bootstrap",
         "sAjaxSource": 'static/musicbrowser/json/browser.json',
         "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
         "aoColumns": [
             { "mDataProp": "filename",
-              // "sWidth": "150px",
+              "iDataSort": MBAPP.featureColumn.sorter,
+              "sWidth": "1px",
               "fnRender": function( o, val ) {
                   var addBtn = '<button class="btn brAddBtn" data-file-name="' + val + 
                         '"><i class="icon-plus"></i></button>';
                   var playBtn = '<a href="static/musicbrowser/mp3s/browser/context/' + val +
                         '.mp3" class="btn brPlayBtn" data-file-name="' + val +
                         '"><i class="icon-play"></i></a>';
-                  return '<div class="btn-group">' + playBtn + addBtn +
-                         '</div>';
-                      
-                return  '<div style="display:inline-block">' +
-                        '<div class="sm2-inline-list"><div class="ui360">'+
-                        '<a href="static/musicbrowser/mp3s/browser/context/' +
-                        val + '.mp3" class="sm2_button">' +  
-                        val + '</a></div>' + '</div>';
-                /*'<div class="ui360"><a href="mp3s/browser/v1/Change Point1 - ' +
-                        val + '.mp3" class="sm2_button">' + 
-                        val + '</a></div></div>';*/
+                  return '<div class="btn-group">' + playBtn + addBtn + '</div>';
                 },
             "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
                 $(nTd).find('.brAddBtn').click(function () {
@@ -7095,21 +7112,43 @@ MBAPP.loadTable = function () {
                     });
                 });
             }},
+            { "mDataProp": "song_id",
+              "iDataSort": MBAPP.featureColumn.sorter,
+              "sWidth": "1px",
+              "fnRender": function(o, val) {
+                    var similarBtn = '<button data-song-id="' + val +
+                                     '" class="btn"><i class="icon-similar"></i></button>';
+                    return similarBtn;
+                },
+                "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
+                    var val = oData.song_id;
+                    var song_id = $(nTd).find('button')
+                        .attr('data-song-id');
+                    $(nTd).find('button').click(function() {
+                        $("#pivot").html('"' + oData.title + 
+                                '" - ' + oData.artist); 
+                        $("#pivot").attr('data-pivot-song-id', song_id);
+                    })
+                }
+            },
             { "mDataProp": "title" },
             { "mDataProp": "artist" },
-            { "mDataProp": "valence" },
-            { "mDataProp": "arousal" },
-            { "mDataProp": "mode" },
-            { "mDataProp": "tempo" },
-            // { "mDataProp": "rms_energy" },
-            { "mDataProp": "danceability" },
+            { "mDataProp": "valence", "bVisible": false },
+            { "mDataProp": "arousal", "bVisible": false },
+            { "mDataProp": "mode", "bVisible": false },
+            { "mDataProp": "tempo", "bVisible": false },
+            // { "mDataProp": "rms_energy", "bVisible": false },
+            { "mDataProp": "danceability", "bVisible": false },
             { "mDataProp": "categories",
+              "bVisible": false,
               "fnRender": function(o, val) {
                 return val.join(', ');
             } },
             { "mDataProp": "tags",
-              "bVisible": false },
+              "bVisible": true // but we need to turn it off right away
+            },
             { "mDataProp": "tags",
+              "bVisible": true,  // but we need to turn it off right away
               "fnRender": function( o, val ) {
                     var tags = val.join(', ');
                     if (tags !== '') {
@@ -7126,24 +7165,8 @@ MBAPP.loadTable = function () {
                             }
                         });
             }},
-            { "mDataProp": "song_id",
-              "fnRender": function(o, val) {
-                    var out =
-                        '<button class="btn" data-song-id="'+ val +'">Pivot</button>';
-                    return out;
-            },
-              "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
-                    var val = oData.song_id;
-                    var song_id = $(nTd).find('button')
-                        .attr('data-song-id');
-                    $(nTd).find('button').click(function() {
-                        $("#pivot").html('"' + oData.title + 
-                                '" - ' + oData.artist); 
-                        $("#pivot").attr('data-pivot-song-id', song_id);
-                    })
-            }
-            },
             {   "mDataProp": "sorter",
+                "bVisible": false,
                 "sSortDataType": "magic",
                 "sType": "numeric" }
         ]
@@ -7156,6 +7179,13 @@ $(document).ready(function() {
     
     $("#constraintButtons button").click(function () {
         $(this).button("toggle");
+    });
+
+    $("#browserToggleButtons button").click(function () {
+        $(this).button("toggle");
+        var featureName = $(this).data("colToggle");
+
+        MBAPP.showHide(featureName);
     });
 });
     
@@ -7205,7 +7235,12 @@ $(function() {
         
     // dealing with coarse V/A filters
     $("#coarseVAFilter button").click(function(e) {
-        if ($(this).attr("value") == 1) {
+        if ($(this).hasClass("active")) {
+            $("#valenceSlider").slider("option", "values", [-200, 200]);
+            $("#arousalSlider").slider("option", "values", [-200, 200]);
+            $(this).removeClass("active");
+            return;
+        } else if ($(this).attr("value") == 1) {
             $("#valenceSlider").slider("option", "values", [-5, 200]);
             $("#arousalSlider").slider("option", "values", [-5, 200]);
         } else if ($(this).attr("value") == 2) {
@@ -7218,6 +7253,8 @@ $(function() {
             $("#valenceSlider").slider("option", "values", [-5, 200]);
             $("#arousalSlider").slider("option", "values", [-200, 5]);
         }
+
+        $(this).button("toggle");
     });
 });
 

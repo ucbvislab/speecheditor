@@ -784,22 +784,6 @@
             "danceability": 0.720547
         },
         {
-            "song_id": 16,
-            "valence": "",
-            "rms_energy": 0.0995776,
-            "energy": "",
-            "tags": [],
-            "tempo": "",
-            "filename": "Blonde Redhead - In Particular.10",
-            "sorter": "",
-            "mode": "",
-            "arousal": "",
-            "title": "In Particular.10",
-            "artist": "Blonde Redhead",
-            "categories": [],
-            "danceability": ""
-        },
-        {
             "song_id": 17,
             "valence": 32.7485,
             "rms_energy": 0.168708,
@@ -3582,22 +3566,6 @@
                 "gloomy"
             ],
             "danceability": 0.774815
-        },
-        {
-            "song_id": 78,
-            "valence": "",
-            "rms_energy": 0.0774046,
-            "energy": "",
-            "tags": [],
-            "tempo": "",
-            "filename": "Peace Orchestra - Who Am I 1.09",
-            "sorter": "",
-            "mode": "",
-            "arousal": "",
-            "title": "Who Am I 1.09",
-            "artist": "Peace Orchestra",
-            "categories": [],
-            "danceability": ""
         },
         {
             "song_id": 79,

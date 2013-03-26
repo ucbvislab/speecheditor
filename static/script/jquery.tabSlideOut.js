@@ -185,20 +185,21 @@
         
         var slideIn = function() {
             
-            var properties = recomputeProperties(obj, settings);
+            if (obj.hasClass('open')) {
+                var properties = recomputeProperties(obj, settings);
 
-            console.log("props", properties)
+                console.log("props", properties)
             
-            if (settings.tabLocation === 'top') {
-                obj.animate({top:'-' + properties.containerHeight}, settings.speed).removeClass('open');
-            } else if (settings.tabLocation === 'left') {
-                obj.animate({left: '-' + properties.containerWidth}, settings.speed).removeClass('open');
-            } else if (settings.tabLocation === 'right') {
-                obj.animate({right: '-' + properties.containerWidth}, settings.speed).removeClass('open');
-            } else if (settings.tabLocation === 'bottom') {
-                obj.animate({bottom: '-' + properties.containerHeight}, settings.speed).removeClass('open');
-            }    
-            
+                if (settings.tabLocation === 'top') {
+                    obj.animate({top:'-' + properties.containerHeight}, settings.speed).removeClass('open');
+                } else if (settings.tabLocation === 'left') {
+                    obj.animate({left: '-' + properties.containerWidth}, settings.speed).removeClass('open');
+                } else if (settings.tabLocation === 'right') {
+                    obj.animate({right: '-' + properties.containerWidth}, settings.speed).removeClass('open');
+                } else if (settings.tabLocation === 'bottom') {
+                    obj.animate({bottom: '-' + properties.containerHeight}, settings.speed).removeClass('open');
+                }    
+            }
         };
         
         var slideOut = function() {

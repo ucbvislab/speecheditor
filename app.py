@@ -6,6 +6,7 @@ import urllib
 import subprocess
 import os
 import eyed3
+import shutil
 
 import sys
 sys.path.append("/home/ubuntu/speecheditor")
@@ -16,6 +17,7 @@ import numpy as N
 import reauthor_speech
 import duplicate_lines
 from music_remix.music_remix import MusicGraph
+from music_remix.novelty_simple import novelty
 from cubic_spline import MonotonicCubicSpline
 
 from radiotool.composer import\
@@ -254,6 +256,22 @@ def dupes():
     return
 
 
+@app.route('/changepoints/<song_name>')
+def find_change_points(song_name):
+    wav_fn = APP_PATH + 'static/uploads/' + song_name + '.wav'
+    try:
+        cpraw = subprocess.check_output([
+            APP_PATH + 'music_changepoints/novelty',
+            wav_fn, 'rms'])
+        cp = [float(c) for c in cpraw.split('\n') if len(c) > 0]
+    except:
+        cp = novelty(wav_fn, k=64, nchangepoints=4)
+    out = {
+        "changepoints": cp
+    }
+    return jsonify(**out)
+
+
 @app.route('/uploadSong', methods=['POST', 'GET'])
 def upload_song():
     
@@ -283,7 +301,7 @@ def upload_song():
                 APP_PATH + 'static/musicbrowser/fullmp3s',
                      os.path.basename(filename))
             print orig_name, full_name
-            subprocess.call('cp "%s" "%s"' % (orig_name, full_name), shell=True)
+            shutil.copyfile(orig_name, full_name)
         filename = sec_fn
 
     # get id3 tags

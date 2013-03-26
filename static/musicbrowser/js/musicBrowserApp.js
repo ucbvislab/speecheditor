@@ -246,6 +246,7 @@ MBAPP.loadTable = function () {
             "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
                 $(nTd).find('.brAddBtn').click(function () {
                     var filename = $(this).attr("data-file-name") + ".mp3";
+                    filename = encodeURIComponent(filename);
                     $.get('uploadSong?filename=' + filename, function (data) {
                         TAAPP.addSongToLibrary(data);
                     });

@@ -46,14 +46,13 @@
           return _this.tam.processPaste(_this, _this.area.val());
         }
       }).keypress(function(e) {
-        var _this = this;
-
-        if (e.which(function() {
-          return 0x20;
-        })) {
-          return e.preventDefault;
+        if (e.which >= 32) {
+          e.preventDefault;
         }
+        return false;
       }).keydown(function(e) {
+        var tai;
+
         switch (e.which) {
           case 8:
             e.preventDefault();
@@ -85,6 +84,30 @@
             if (!_this.locked) {
               return _this.addPeriod();
             }
+            break;
+          case 69:
+            e.preventDefault();
+            return _this.insertEmphasisPoint();
+          case 87:
+            tai = _this.tam.tas.indexOf(_this);
+            if (tai > 0) {
+              _this.tam.tas[tai - 1].area.setSelection(0);
+              _this.tam.lastFocused = _this.tam.tas[tai - 1];
+              _this.tam.container.stop().scrollTo($(_this.tam.tas[tai - 1].area), 200, {
+                offset: -200
+              });
+            }
+            return e.preventDefault();
+          case 83:
+            tai = _this.tam.tas.indexOf(_this);
+            if (tai + 1 < _this.tam.tas.length) {
+              _this.tam.tas[tai + 1].area.setSelection(0);
+              _this.tam.lastFocused = _this.tam.tas[tai + 1];
+              _this.tam.container.stop().scrollTo($(_this.tam.tas[tai + 1].area), 200, {
+                offset: -200
+              });
+            }
+            return e.preventDefault();
         }
       }).bind('mousemove', function() {
         var endInd, sel, startInd, _ref;
@@ -221,9 +244,24 @@
       return console.log("end of snap", sel);
     };
 
+    ScriptArea.prototype.insertEmphasisPoint = function() {
+      var sel, word;
+
+      this.selectWord("backward");
+      sel = this.area.getSelection();
+      this.area.setSelection(sel.end);
+      word = this.range(sel.start, sel.end)[0];
+      word.emphasisPoint = true;
+      this.tam.dirtyTas.push(this);
+      return this.tam.refresh();
+    };
+
     ScriptArea.prototype.selectWord = function(direction) {
       var other, spaces, start, text, _ref, _ref1;
 
+      if (direction == null) {
+        direction = "backward";
+      }
       start = this.area.getSelection().start;
       text = this.area.val();
       spaces = [" ", "\n"];
@@ -362,6 +400,10 @@
         }
         if ((word.emph != null) && word.emph) {
           wrapLeft += "<span class='emph'>";
+          wrapRight += "</span>";
+        }
+        if ((word.emphasisPoint != null) && word.emphasisPoint) {
+          wrapLeft += "<span class='ePt'>";
           wrapRight += "</span>";
         }
         if (word.alignedWord === "sp" || word.alignedWord === "gp") {
@@ -566,6 +608,7 @@
           }
         }
       });
+      this.el.scrollTo(0);
     }
 
     TextAreaManager.prototype._tr = function(prev) {
@@ -910,6 +953,13 @@
       this.pruneByTAPos(sel.start, end, ta);
       ta.area.setSelection(sel.start, sel.start);
       return this.refresh();
+    };
+
+    TextAreaManager.prototype.insertEmphasisPoint = function(ta) {
+      if (ta == null) {
+        ta = this.lastFocused;
+      }
+      return ta.insertEmphasisPoint();
     };
 
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {

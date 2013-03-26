@@ -61,7 +61,7 @@ div.dataTables_paginate {
 /*	display: inline;*/
 }
 
-p.lead {
+.musicBrowserBox p.lead {
     text-align: right;
 }
 

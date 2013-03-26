@@ -51,7 +51,10 @@ class ScriptArea
                 else
                     @tam.processPaste(@, @area.val())
             )
-            .keypress((e) -> e.preventDefault if e.which => 0x20)
+            .keypress((e) ->
+                e.preventDefault if e.which >= 32
+                return false
+            )
             .keydown((e) =>
                 switch e.which
                     when 8
@@ -82,6 +85,27 @@ class ScriptArea
                         e.preventDefault()
                         if not @locked
                             @addPeriod()
+                    when 69
+                        e.preventDefault()
+                        @insertEmphasisPoint()
+                    when 87
+                        # w: previous ta
+                        tai = @tam.tas.indexOf @
+                        if (tai > 0)
+                            @tam.tas[tai - 1].area.setSelection(0)
+                            @tam.lastFocused = @tam.tas[tai - 1]
+                            @tam.container.stop().scrollTo(
+                                $(@tam.tas[tai - 1].area), 200, offset: -200)
+                        e.preventDefault()
+                    when 83 
+                        # s: next ta
+                        tai = @tam.tas.indexOf @
+                        if (tai + 1 < @tam.tas.length)
+                            @tam.tas[tai + 1].area.setSelection(0)
+                            @tam.lastFocused = @tam.tas[tai + 1]
+                            @tam.container.stop().scrollTo(
+                                $(@tam.tas[tai + 1].area), 200, offset: -200)
+                        e.preventDefault()
                 )
             .bind('mousemove', =>
                 sel = @area.getSelection()
@@ -148,7 +172,7 @@ class ScriptArea
         @area.height "20px"
         scrHeight = @area.prop("scrollHeight") + 'px'
         @$containers.height(scrHeight)
-    
+
     snapSelectionToWord: ->
         sel = @area.getSelection()
         console.log sel
@@ -202,8 +226,18 @@ class ScriptArea
                 sel = @area.getSelection()
         
         console.log "end of snap", sel
-                
+    
+    insertEmphasisPoint: ->
+        @selectWord("backward")
+        sel = @area.getSelection()
+        @area.setSelection(sel.end)
+        word = @range(sel.start, sel.end)[0]
+        word.emphasisPoint = true;
+        @tam.dirtyTas.push(@)
+        @tam.refresh()
+
     selectWord: (direction) ->
+        direction ?= "backward"
         start = @area.getSelection().start
         text = @area.val()
         spaces = [" ", "\n"]
@@ -321,6 +355,9 @@ class ScriptArea
                 wrapLeft += "<span class='emph'>"
                 wrapRight += "</span>"
                 # out = "<span class='emph'>#{out}</span>"
+            if word.emphasisPoint? and word.emphasisPoint
+                wrapLeft += "<span class='ePt'>"
+                wrapRight += "</span>"
             if word.alignedWord is "sp" or word.alignedWord is "gp"
                 wrapLeft += "<span class='pause'>"
                 wrapRight += "</span>"
@@ -540,6 +577,10 @@ class TextAreaManager
                 return if j is @words.length
                 if "speaker" of @words[j]
                     @breathInds[@words[j].speaker].push i
+
+        # init scrollTo
+        @el.scrollTo 0
+        
     
     _tr: (prev) ->
         tr = $(document.createElement 'tr')
@@ -823,7 +864,7 @@ class TextAreaManager
             
             @tas[tai + 1].area.setSelection(0, 0)
             return
-        
+
     processDelete: (ta, direction) ->
         if window.TAAPP.sound
             window.TAAPP.sound.stop()
@@ -849,6 +890,10 @@ class TextAreaManager
         ta.area.setSelection(sel.start, sel.start)
         @refresh()
     
+    insertEmphasisPoint: (ta) ->
+        ta ?= @lastFocused
+        ta.insertEmphasisPoint()
+
     insertWords: (indices, pos, ta) ->
         # pos and ta are optional
         ta ?= @lastFocused

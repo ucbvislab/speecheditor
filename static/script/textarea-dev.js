@@ -633,20 +633,21 @@ true),collapseSelection:e(m,true),deleteSelectedText:e(q,true),deleteText:e(l,tr
         
         var slideIn = function() {
             
-            var properties = recomputeProperties(obj, settings);
+            if (obj.hasClass('open')) {
+                var properties = recomputeProperties(obj, settings);
 
-            console.log("props", properties)
+                console.log("props", properties)
             
-            if (settings.tabLocation === 'top') {
-                obj.animate({top:'-' + properties.containerHeight}, settings.speed).removeClass('open');
-            } else if (settings.tabLocation === 'left') {
-                obj.animate({left: '-' + properties.containerWidth}, settings.speed).removeClass('open');
-            } else if (settings.tabLocation === 'right') {
-                obj.animate({right: '-' + properties.containerWidth}, settings.speed).removeClass('open');
-            } else if (settings.tabLocation === 'bottom') {
-                obj.animate({bottom: '-' + properties.containerHeight}, settings.speed).removeClass('open');
-            }    
-            
+                if (settings.tabLocation === 'top') {
+                    obj.animate({top:'-' + properties.containerHeight}, settings.speed).removeClass('open');
+                } else if (settings.tabLocation === 'left') {
+                    obj.animate({left: '-' + properties.containerWidth}, settings.speed).removeClass('open');
+                } else if (settings.tabLocation === 'right') {
+                    obj.animate({right: '-' + properties.containerWidth}, settings.speed).removeClass('open');
+                } else if (settings.tabLocation === 'bottom') {
+                    obj.animate({bottom: '-' + properties.containerHeight}, settings.speed).removeClass('open');
+                }    
+            }
         };
         
         var slideOut = function() {
@@ -728,6 +729,13 @@ true),collapseSelection:e(m,true),deleteSelectedText:e(q,true),deleteText:e(l,tr
     };
 })(jQuery);
 
+/**
+ * Copyright (c) 2007-2012 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+ * Dual licensed under MIT and GPL.
+ * @author Ariel Flesler
+ * @version 1.4.4
+ */
+;(function($){var h=$.scrollTo=function(a,b,c){$(window).scrollTo(a,b,c)};h.defaults={axis:'xy',duration:parseFloat($.fn.jquery)>=1.3?0:1,limit:true};h.window=function(a){return $(window)._scrollable()};$.fn._scrollable=function(){return this.map(function(){var a=this,isWin=!a.nodeName||$.inArray(a.nodeName.toLowerCase(),['iframe','#document','html','body'])!=-1;if(!isWin)return a;var b=(a.contentWindow||a).document||a.ownerDocument||a;return/webkit/i.test(navigator.userAgent)||b.compatMode=='BackCompat'?b.body:b.documentElement})};$.fn.scrollTo=function(e,f,g){if(typeof f=='object'){g=f;f=0}if(typeof g=='function')g={onAfter:g};if(e=='max')e=9e9;g=$.extend({},h.defaults,g);f=f||g.duration;g.queue=g.queue&&g.axis.length>1;if(g.queue)f/=2;g.offset=both(g.offset);g.over=both(g.over);return this._scrollable().each(function(){if(e==null)return;var d=this,$elem=$(d),targ=e,toff,attr={},win=$elem.is('html,body');switch(typeof targ){case'number':case'string':if(/^([+-]=)?\d+(\.\d+)?(px|%)?$/.test(targ)){targ=both(targ);break}targ=$(targ,this);if(!targ.length)return;case'object':if(targ.is||targ.style)toff=(targ=$(targ)).offset()}$.each(g.axis.split(''),function(i,a){var b=a=='x'?'Left':'Top',pos=b.toLowerCase(),key='scroll'+b,old=d[key],max=h.max(d,a);if(toff){attr[key]=toff[pos]+(win?0:old-$elem.offset()[pos]);if(g.margin){attr[key]-=parseInt(targ.css('margin'+b))||0;attr[key]-=parseInt(targ.css('border'+b+'Width'))||0}attr[key]+=g.offset[pos]||0;if(g.over[pos])attr[key]+=targ[a=='x'?'width':'height']()*g.over[pos]}else{var c=targ[pos];attr[key]=c.slice&&c.slice(-1)=='%'?parseFloat(c)/100*max:c}if(g.limit&&/^\d+$/.test(attr[key]))attr[key]=attr[key]<=0?0:Math.min(attr[key],max);if(!i&&g.queue){if(old!=attr[key])animate(g.onAfterFirst);delete attr[key]}});animate(g.onAfter);function animate(a){$elem.animate(attr,f,g.easing,a&&function(){a.call(this,e,g)})}}).end()};h.max=function(a,b){var c=b=='x'?'Width':'Height',scroll='scroll'+c;if(!$(a).is('html,body'))return a[scroll]-$(a)[c.toLowerCase()]();var d='client'+c,html=a.ownerDocument.documentElement,body=a.ownerDocument.body;return Math.max(html[scroll],body[scroll])-Math.min(html[d],body[d])};function both(a){return typeof a=='object'?a:{top:a,left:a}}})(jQuery);
 /*
  * zClip :: jQuery ZeroClipboard v1.1.1
  * http://steamdev.com/zclip
@@ -1527,7 +1535,7 @@ EDIBLE.modules.MultiContext = (function () {
         }
     }
     
-    var universals = ["save", "restore", "closePath", "beginPath", "stroke"];
+    var universals = ["save", "restore", "closePath", "beginPath", "stroke", "fill"];
     
     universals.forEach(function (univ) {
         MultiContext.prototype[univ] = universalFunc(univ);
@@ -1821,6 +1829,8 @@ $.fn.wf = function () {
         
         waveformClass: function () { return "waveform" },
         
+        addVolumeMarker: function () { return; },
+
         exportExtras: function () {
             return {};
         },
@@ -2134,6 +2144,7 @@ $.fn.wf = function () {
 
             var colorFunc = gradient;
             
+            // highlight words
             if ("highlightedWordsRange" in this.options &&
                 this.options.highlightedWordsRange !== undefined) {
                 var hwRange = this.options.highlightedWordsRange;
@@ -2158,6 +2169,54 @@ $.fn.wf = function () {
                 width: this.width()
             });
             
+            var drawMarker = function (x, y, ctx) {
+                ctx.save();
+                ctx.fillStyle = "red";
+                ctx.strokeStyle = "#cccccc";
+                ctx.beginPath();
+                ctx.moveTo(x - 5, y - 15);
+                ctx.lineTo(x - 5, y - 5);
+                ctx.lineTo(x, y);
+                ctx.lineTo(x + 5, y - 5);
+                ctx.lineTo(x + 5, y - 15);
+                ctx.lineTo(x - 5, y - 15);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+            };
+
+            var hitBox = function (x, y, width, height) {
+                var ePtBox = document.createElement('div');
+                return $(ePtBox)
+                    .addClass('emphasisPointBox')
+                    .width(width)
+                    .height(height)
+                    .css({
+                        "left": x,
+                        "top": y
+                    })
+                    .appendTo(that.element);
+            };
+
+            // render emphasis points on the waveform
+            $(this.element).find('.emphasisPointBox').remove();
+            $.each(this.options.currentWords, function (j, word) {
+                if (word.hasOwnProperty('emphasisPoint') &&
+                    word.emphasisPoint) {
+                    // label the emphasis point at the end of the word
+                    var x = wordPositions[j + 1] * that.options.pxPerMs;
+                    var y = 20;
+                    drawMarker(x, y, canv.getContext('2d'));
+                    var hb = hitBox(x - 5, y, 10, 15);
+                    hb.data("wordIndex", j);
+
+                    hb.click(function () {
+                        // create musical underlay
+                        that.options.emphasisPointFunc($(this).data("wordIndex"));
+                    });
+                }
+            });
+
             // render text on waveform
             // don't do it for now... need to figure out problem
             // with canvas width limitations
@@ -2391,6 +2450,10 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         MAX_VOL: 1.5,
         
         _create: function () {
+            var cbi;
+            var cb;
+            var i;
+
             this.options._graph = this._createGraph();
             if (this.options.currentBeats === undefined) {
                 this.options.currentBeats = this.options._graph.nodes().slice(0)
@@ -2399,6 +2462,21 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
                     })
                 this.options._beatOrder = this.options.currentBeats.slice(0);
                 console.log(this.options.currentBeats);
+
+                if (this.options.start !== 0.0 ||
+                    this.options.dur !== this.options.len) {
+                    cb = this.options.currentBeats.slice(0);
+                    this.options.currentBeats = [];
+                    for (i = 0; i < cb.length; i++) {
+                        cbi = parseFloat(cb[i]) * 1000.0;
+                        if (cbi >= this.options.start &&
+                            cbi < this.options.start + this.options.len) {
+                            this.options.currentBeats.push(cb[i]);
+                        }
+                    }
+                    this.options.start =
+                        parseFloat(this.options.currentBeats[0]) * 1000.0;
+                }
             }
             
             // the super...
@@ -3562,14 +3640,13 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
           return _this.tam.processPaste(_this, _this.area.val());
         }
       }).keypress(function(e) {
-        var _this = this;
-
-        if (e.which(function() {
-          return 0x20;
-        })) {
-          return e.preventDefault;
+        if (e.which >= 32) {
+          e.preventDefault;
         }
+        return false;
       }).keydown(function(e) {
+        var tai;
+
         switch (e.which) {
           case 8:
             e.preventDefault();
@@ -3601,6 +3678,30 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             if (!_this.locked) {
               return _this.addPeriod();
             }
+            break;
+          case 69:
+            e.preventDefault();
+            return _this.insertEmphasisPoint();
+          case 87:
+            tai = _this.tam.tas.indexOf(_this);
+            if (tai > 0) {
+              _this.tam.tas[tai - 1].area.setSelection(0);
+              _this.tam.lastFocused = _this.tam.tas[tai - 1];
+              _this.tam.container.stop().scrollTo($(_this.tam.tas[tai - 1].area), 200, {
+                offset: -200
+              });
+            }
+            return e.preventDefault();
+          case 83:
+            tai = _this.tam.tas.indexOf(_this);
+            if (tai + 1 < _this.tam.tas.length) {
+              _this.tam.tas[tai + 1].area.setSelection(0);
+              _this.tam.lastFocused = _this.tam.tas[tai + 1];
+              _this.tam.container.stop().scrollTo($(_this.tam.tas[tai + 1].area), 200, {
+                offset: -200
+              });
+            }
+            return e.preventDefault();
         }
       }).bind('mousemove', function() {
         var endInd, sel, startInd, _ref;
@@ -3737,9 +3838,24 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       return console.log("end of snap", sel);
     };
 
+    ScriptArea.prototype.insertEmphasisPoint = function() {
+      var sel, word;
+
+      this.selectWord("backward");
+      sel = this.area.getSelection();
+      this.area.setSelection(sel.end);
+      word = this.range(sel.start, sel.end)[0];
+      word.emphasisPoint = true;
+      this.tam.dirtyTas.push(this);
+      return this.tam.refresh();
+    };
+
     ScriptArea.prototype.selectWord = function(direction) {
       var other, spaces, start, text, _ref, _ref1;
 
+      if (direction == null) {
+        direction = "backward";
+      }
       start = this.area.getSelection().start;
       text = this.area.val();
       spaces = [" ", "\n"];
@@ -3878,6 +3994,10 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         }
         if ((word.emph != null) && word.emph) {
           wrapLeft += "<span class='emph'>";
+          wrapRight += "</span>";
+        }
+        if ((word.emphasisPoint != null) && word.emphasisPoint) {
+          wrapLeft += "<span class='ePt'>";
           wrapRight += "</span>";
         }
         if (word.alignedWord === "sp" || word.alignedWord === "gp") {
@@ -4082,6 +4202,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
           }
         }
       });
+      this.el.scrollTo(0);
     }
 
     TextAreaManager.prototype._tr = function(prev) {
@@ -4426,6 +4547,13 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       this.pruneByTAPos(sel.start, end, ta);
       ta.area.setSelection(sel.start, sel.start);
       return this.refresh();
+    };
+
+    TextAreaManager.prototype.insertEmphasisPoint = function(ta) {
+      if (ta == null) {
+        ta = this.lastFocused;
+      }
+      return ta.insertEmphasisPoint();
     };
 
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {
@@ -5003,6 +5131,103 @@ TAAPP.roomTone = {
     }
 };
 
+TAAPP.underlayWizard = function (wordIndex) {
+    var word = TAAPP.current[wordIndex];
+    var numWords = wordIndex < 7 ? wordIndex : 7;
+    var numWordsAfter = TAAPP.current - wordIndex < 7 ? TAAPP.current - wordIndex : 7;
+    var wordList = TAAPP.current.slice(wordIndex - numWords, wordIndex + 1);
+    var wordListBefore = _.reduce(wordList, function (memo, word) {
+        return memo += ' ' + word.word;
+    }, "");
+    var wordList2 = TAAPP.current.slice(wordIndex + 1, wordIndex + numWordsAfter + 1);
+    var wordListAfter = _.reduce(wordList2, function (memo, word) {
+        return memo += ' ' + word.word;
+    }, "");
+
+    $('#underlayModal .ePtModalMarker').data("wordIndex", wordIndex);
+    $('#underlayModal .underlayWordsBefore').text(wordListBefore);
+    $('#underlayModal .underlayWordsAfter').text(wordListAfter);
+    $('#underlayModal').modal("show");
+};
+
+TAAPP.createUnderlay = function (wordIndex, songName) {
+
+    // once we have the changepoints...
+    var _build = function (cp) {
+        var padding = 500;  // in milliseconds
+        var best = cp[0];
+        var bestms = best * 1000.0 - padding;
+        var songData = TAAPP.songInfo[songName];
+
+        var start = bestms - 15 * 1000.0;
+        var speechLength = _.reduce(TAAPP.current.slice(0, wordIndex + 1),
+            function (memo, word) {
+                return memo + word.end - word.start
+            }, 0.0);
+        if (speechLength < 15) {
+            start += (15 - speechLength) * 1000.0;
+        }
+        if (start < 0) {
+            start = 0.0;
+        }
+
+        var end = bestms + (6 + 12 + 3) * 1000.0;
+        if (end > songData.dur) {
+            end = songData.dur;
+        }
+
+        // volume
+        var vx = [0, 3000.,
+                  bestms - start - 500, bestms - start + 500,
+                  bestms - start + 5750, bestms - start + 6500,
+                  end - start - 3500, end - start - 500];
+        var vy = [0, .15,
+                  .15, .75,
+                  .75, .15,
+                  .15, 0];
+
+        var wf = document.createElement('div');
+        $(wf).musicWaveform({
+            data: songData.wfData,
+            name: songData.name,
+            filename: songData.path,
+            dur: songData.dur,
+            len: end - start,
+            start: start,
+            musicGraph: songData.graph,
+            volume: {
+                x: vx,
+                y: vy
+            }
+        });
+        TAAPP.$timeline.timeline("addWaveform", {
+            elt: wf,
+            track: 1,
+            pos: speechLength * 1000.0 + start - bestms
+        });
+
+        TAAPP.spinner.stop();
+    };
+
+    TAAPP.spinner.spin($("body")[0]);
+
+    if (TAAPP.songInfo[songName].hasOwnProperty("changepoints")) {
+        _build(songInfo[songName].changepoints);
+    } else {
+        $.getJSON('changepoints/' + songName, function (data) {
+            TAAPP.songInfo[songName].changepoints = data.changepoints;
+            _build(data.changepoints);
+        })
+    }
+
+    var word = TAAPP.current[wordIndex];
+    var ta = TAAPP.TAManager.tas[word.taIdx];
+    var pos = TAAPP.current[wordIndex + 1].taPos;
+
+    TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
+
+};
+
 TAAPP.buildWaveform = function (sound, kind) {
     var wf = document.createElement("div");
     if (kind === "textaligned") {
@@ -5012,7 +5237,8 @@ TAAPP.buildWaveform = function (sound, kind) {
             len: sound.duration,
             filename: sound.url,
             name: "Speech",
-            currentWords: TAAPP.current
+            currentWords: TAAPP.current,
+            emphasisPointFunc: TAAPP.underlayWizard
         });
         TAAPP.currentWaveform = wf;
         
@@ -5347,7 +5573,15 @@ TAAPP.addSongToLibrary = function (songData) {
     .click(function () {
         TAAPP.addSongToTimeline($(this).attr("data-song-name"));
     });
-    
+
+    // add the song to the list in the underlay creation modal
+    var underlaySongTemplate = $("#underlaySongTemplate").html();
+    $(_.template(underlaySongTemplate, {
+        name: songData.name,
+        title: songData.title,
+        artist: songData.artist
+    }))
+    .appendTo("#underlaySongSelect");
 }
 
 TAAPP.uploadSong = function (form) {
@@ -5406,9 +5640,27 @@ TAAPP.loadSite = function () {
         TAAPP.TAManager.pruneAll();
     });
 
+    $('.emphPt').click(function () {
+        TAAPP.TAManager.insertEmphasisPoint();
+    });
+    
+    $('.createUnderlayBtn').click(function () {
+        var wordIndex = $('.ePtModalMarker').data('wordIndex');
+        var songName = $('input[name=underlaySongRadio]:checked').val();
+        TAAPP.createUnderlay(wordIndex, songName);
+    });
+
     $(window).resize(function () {    
         TAAPP.adjustHeight();
         TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
+    });
+
+    $('body').keydown(function (e) {
+        if (e.which === 32) {
+            TAAPP.togglePlay();
+        } else if (e.which === 13) {
+            TAAPP.reauthor();
+        }
     });
     
     var outerBox = $('#editorRow');
@@ -6837,6 +7089,7 @@ MBAPP.loadTable = function () {
             "fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
                 $(nTd).find('.brAddBtn').click(function () {
                     var filename = $(this).attr("data-file-name") + ".mp3";
+                    filename = encodeURIComponent(filename);
                     $.get('uploadSong?filename=' + filename, function (data) {
                         TAAPP.addSongToLibrary(data);
                     });

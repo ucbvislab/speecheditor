@@ -76,6 +76,8 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
                 </ul>
             </div>
             
+            <div class="btn-group"><button class="btn btn-info emphPt">Emphasis point</button></div>
+
             <div class="btn-group">
                 <button href="" class="btn btn-info clearWords">Clear words</button>
             </div>
@@ -192,6 +194,33 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
     </div>
 </div>
 
+<!-- Underlay dialog -->
+<div id="underlayModal" class="modal fade hide" tabindex="-1" role="dialog" aria-labelledby="underlayModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="setupModalLabel">Create musical underlay</h3>
+    </div>
+    <div class="modal-body">
+        
+        <p class="lead">Speech emphasis point:</p>
+
+        <p><i>...<span class="underlayWordsBefore"></span>
+            <span class="ePtModalMarker"></span>
+            <span class="underlayWordsAfter"></span>...
+        </i></p>
+
+        <p class="lead">Select a song:</p>
+        
+        <div id="underlaySongSelect">
+        </div>
+        
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary createUnderlayBtn" data-dismiss="modal">Create</a>
+    </div>
+</div>
+
+
 
 <!-- <script src="static/script/underscore-min.js" type="text/javascript"></script>
 <script src="static/script/spin.js"></script>
@@ -228,6 +257,13 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
     <td><i><%= title %></i></td>
 </tr>
 </div>
+</script>
+
+<script id="underlaySongTemplate" type="text/template">
+<label class="radio">
+    <input type="radio" value="<%= name %>" name="underlaySongRadio">
+    <%= artist %> - <i><%= title %></i>
+</label>
 </script>
 
 <script id="breathDropdownTemplate" type="text/template">

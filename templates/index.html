@@ -11,7 +11,7 @@
 
 <link href="static/style/bootstrap-fileupload.min.css" rel="stylesheet">
 <link href="static/style/bootstrap.min.cosmo.css" rel="stylesheet" media="screen">
-
+<link rel="stylesheet" href="static/script/chosen/chosen/chosen.css" rel="stylesheet" media="screen">
 <link rel="stylesheet/less" type="text/css" href="static/style/textareastyle.less" />
 
 <!-- edible includes -->
@@ -200,14 +200,20 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="setupModalLabel">Create musical underlay</h3>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="height:800px">
         
         <p class="lead">Speech emphasis point:</p>
 
         <p><i>...<span class="underlayWordsBefore"></span>
-            <span class="ePtModalMarker"></span>
+            <span class="ePtModalMarker ePt1ModalMarker"></span>
             <span class="underlayWordsAfter"></span>...
         </i></p>
+
+        <div id="underlayE2Box">
+            <select name="underlayE2Select" id="underlayE2Select" data-placeholder="(No second emphasis point)" class="chzn-select" style="width:515px">
+                <option value=""></option>
+            </select>
+        </div>
 
         <p class="lead">Select a song:</p>
         

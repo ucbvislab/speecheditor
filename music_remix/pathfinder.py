@@ -58,7 +58,7 @@ class PathFinder(object):
         path.append(end)
         node = end
         while length > 0:
-            node = self.prev_node[node, length]
+            node = self.prev_node[int(node), length]
             path.append(node)
             length -= 1
         return [self.nodes[int(n)] for n in reversed(path)]

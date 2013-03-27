@@ -100,17 +100,39 @@ def make_graph(paths, markers, string_names=False):
             DG.add_node(markers[i].start)
     # add edges
     edges = []
-    
-    for i in xrange(len(paths)):
-    
-        if i != len(paths)-1:
+
+    for i in xrange(len(markers)):
+        if i != len(markers) - 1:
             if string_names:
-                edges.append((str(markers[i].start), str(markers[i+1].start), {'distance':0, 'timbredist': 0, 'pitchdist': 0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
+                edges.append(
+                    (str(markers[i].start), 
+                     str(markers[i+1].start),
+                     {
+                        'distance':0,
+                        'timbredist': 0,
+                        'pitchdist': 0,
+                        'duration': markers[i].duration,
+                        'source':i,
+                        'target':i+1
+                    }
+                    )) # source and target for plots only
             else:
                 edges.append((markers[i].start, markers[i+1].start, {'distance':0, 'timbredist': 0, 'pitchdist': 0, 'duration': markers[i].duration, 'source':i, 'target':i+1})) # source and target for plots only
 
+    
+    for i in xrange(len(paths)):
         if string_names:
-            edges.extend([(str(markers[i].start), str(markers[l[0]+1].start), {'distance':l[1], 'timbredist': l[2], 'pitchdist': l[3], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
+            edges.extend([
+                (str(markers[i].start),
+                str(markers[l[0]+1].start),
+                {
+                    'distance':l[1],
+                    'timbredist': l[2],
+                    'pitchdist': l[3],
+                    'duration': markers[i].duration,
+                    'source':i,
+                    'target':l[0]+1
+                }) for l in paths[i]])
         else:
             edges.extend([(markers[i].start, markers[l[0]+1].start, {'distance':l[1], 'timbredist': l[2], 'pitchdist': l[3], 'duration': markers[i].duration, 'source':i, 'target':l[0]+1}) for l in paths[i]])
     DG.add_edges_from(edges)
@@ -520,8 +542,9 @@ def do_work(track, graph_only=False, duration=0.0, minimum=0, length=False,
             print_screen(paths)
 
         # make graph
-        markers = getattr(track.analysis, timbre['rate'])[timbre['index']:timbre['index']+len(paths)]
-        
+        # markers = getattr(track.analysis, timbre['rate'])[timbre['index']:timbre['index']+len(paths)]
+        markers = getattr(track.analysis, timbre['rate'])
+
         print "MARKER COUNT:", len(markers)
         
         graph = make_graph(paths, markers, string_names=string_names)

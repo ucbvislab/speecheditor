@@ -241,6 +241,9 @@ MBAPP.loadTable = function () {
             MBAPP.showHide("hiddenTags");
             
             MBAPP.activateLinks();
+
+            var wrapperHeight = $('div.dataTables_wrapper').height();
+
         },
         "bProcessing": true,
         "bPaginate": false,

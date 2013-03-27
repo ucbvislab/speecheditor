@@ -328,29 +328,66 @@ TAAPP.roomTone = {
         "end": 748.000,
         "word": "{gpause}",
         "alignedWord": "gp"
+    },
+    "obama": {
+        "start": 996.424,
+        "end": 1001.143,
+        "word": "{gpause}",
+        "alignedWord": "gp"
     }
 };
 
 TAAPP.underlayWizard = function (wordIndex) {
-    var word = TAAPP.current[wordIndex];
-    var numWords = wordIndex < 7 ? wordIndex : 7;
-    var numWordsAfter = TAAPP.current - wordIndex < 7 ? TAAPP.current - wordIndex : 7;
-    var wordList = TAAPP.current.slice(wordIndex - numWords, wordIndex + 1);
-    var wordListBefore = _.reduce(wordList, function (memo, word) {
-        return memo += ' ' + word.word;
-    }, "");
-    var wordList2 = TAAPP.current.slice(wordIndex + 1, wordIndex + numWordsAfter + 1);
-    var wordListAfter = _.reduce(wordList2, function (memo, word) {
-        return memo += ' ' + word.word;
-    }, "");
 
-    $('#underlayModal .ePtModalMarker').data("wordIndex", wordIndex);
-    $('#underlayModal .underlayWordsBefore').text(wordListBefore);
-    $('#underlayModal .underlayWordsAfter').text(wordListAfter);
+    var eptContext = function (wordIndex) {
+        var word = TAAPP.current[wordIndex];
+        var numWords = wordIndex < 7 ? wordIndex : 7;
+        var numWordsAfter = TAAPP.current - wordIndex < 7 ? TAAPP.current - wordIndex : 7;
+        var wordList = TAAPP.current.slice(wordIndex - numWords, wordIndex + 1);
+        var wordListBefore = _.reduce(wordList, function (memo, word) {
+            return memo += ' ' + word.word;
+        }, "");
+        var wordList2 = TAAPP.current.slice(wordIndex + 1, wordIndex + numWordsAfter + 1);
+        var wordListAfter = _.reduce(wordList2, function (memo, word) {
+            return memo += ' ' + word.word;
+        }, "");
+        return [wordListBefore, wordListAfter];
+    };
+
+    var wlists = eptContext(wordIndex);
+
+    $('#underlayModal .ePt1ModalMarker').data("wordIndex", wordIndex);
+    $('#underlayModal .underlayWordsBefore').text(wlists[0]);
+    $('#underlayModal .underlayWordsAfter').text(wlists[1]);
+
+    // seconds emphasis point?
+    $("#underlayE2Select").html('<option value=""></option>');
+    var nextWords = TAAPP.current.slice(wordIndex + 1);
+    _.each(nextWords, function (w, i) {
+        if (w.hasOwnProperty("emphasisPoint") && w.emphasisPoint) {
+            var idx = i + wordIndex + 1;
+            var wlists = eptContext(idx);
+            var opt = document.createElement('option');
+            $(opt).val(idx)
+                .html('<i>...' +
+                      wlists[0] +
+                      ' <span class="ePtModalMarker">*</span> ' +
+                      wlists[1] +
+                      '...</i>')
+                .appendTo("#underlayE2Select");
+        }
+    });
+
+    $("#underlayE2Select").trigger("liszt:updated");
+    $("#underlayE2Select").chosen({allow_single_deselect:true});
     $('#underlayModal').modal("show");
 };
 
-TAAPP.createUnderlay = function (wordIndex, songName) {
+TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
+    var speechLength = _.reduce(TAAPP.current.slice(0, wordIndex + 1),
+        function (memo, word) {
+            return memo + word.end - word.start
+        }, 0.0);
 
     // once we have the changepoints...
     var _build = function (cp) {
@@ -360,10 +397,7 @@ TAAPP.createUnderlay = function (wordIndex, songName) {
         var songData = TAAPP.songInfo[songName];
 
         var start = bestms - 15 * 1000.0;
-        var speechLength = _.reduce(TAAPP.current.slice(0, wordIndex + 1),
-            function (memo, word) {
-                return memo + word.end - word.start
-            }, 0.0);
+
         if (speechLength < 15) {
             start += (15 - speechLength) * 1000.0;
         }
@@ -405,26 +439,130 @@ TAAPP.createUnderlay = function (wordIndex, songName) {
             track: 1,
             pos: speechLength * 1000.0 + start - bestms
         });
-
-        TAAPP.spinner.stop();
     };
+
+    var _buildMulti = function (d) {
+        // add the pauses in the speech
+        var word1 = TAAPP.current[wordIndex];
+        var ta1 = TAAPP.TAManager.tas[word1.taIdx];
+        var pos1 = TAAPP.current[wordIndex + 1].taPos;
+        var word2, ta2, pos2;
+
+        TAAPP.TAManager.insertWords(['{gp-' + d.solo1 + '}'], pos1, ta1);
+
+        word2 = TAAPP.current[wordIndex2 + 1];
+        ta2 = TAAPP.TAManager.tas[word2.taIdx];
+        pos2 = TAAPP.current[wordIndex2 + 2].taPos;
+        TAAPP.TAManager.insertWords(['{gp-' + d.solo2 + '}'], pos2, ta2);
+
+        var vx = _.map([
+            0,
+            3,
+            d.before - 1,
+            d.before,
+            d.before + d.solo1 - .75,
+            d.before + d.solo1,
+            d.before + d.solo1 + d.middle - 1,
+            d.before + d.solo1 + d.middle,
+            d.before + d.solo1 + d.middle + d.solo2 - .75,
+            d.before + d.solo1 + d.middle + d.solo2,
+            d.total - 3.5,
+            d.total - .5
+        ], function (v) { return v * 1000.0; });
+
+        var vy = [
+            0,
+            .15,
+            .15,
+            .75,
+            .75,
+            .15,
+            .15,
+            .75,
+            .75,
+            .15,
+            .15,
+            0
+        ];
+
+        // create the waveform
+        var songData = TAAPP.songInfo[songName];
+        var wf = document.createElement('div');
+        $(wf).musicWaveform({
+            data: songData.wfData,
+            name: songData.name,
+            filename: songData.path,
+            dur: songData.dur,
+            len: d.total * 1000.0,
+            currentBeats: d.beats,
+            musicGraph: songData.graph,
+            volume: { x: vx, y: vy }
+        });
+
+        TAAPP.$timeline.timeline("addWaveform", {
+            elt: wf,
+            track: 1,
+            pos: (speechLength - d.before) * 1000.0
+        });
+    }
 
     TAAPP.spinner.spin($("body")[0]);
 
-    if (TAAPP.songInfo[songName].hasOwnProperty("changepoints")) {
-        _build(songInfo[songName].changepoints);
+    if (wordIndex2 === undefined) {
+        if (TAAPP.songInfo[songName].hasOwnProperty("changepoints")) {
+            _build(songInfo[songName].changepoints);
+            TAAPP.spinner.stop();
+        } else {
+            $.getJSON('changepoints/' + songName, function (data) {
+                TAAPP.songInfo[songName].changepoints = data.changepoints;
+                _build(data.changepoints);
+                TAAPP.spinner.stop();
+            })
+        }
+
+        var word = TAAPP.current[wordIndex];
+        var ta = TAAPP.TAManager.tas[word.taIdx];
+        var pos = TAAPP.current[wordIndex + 1].taPos;
+
+        TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
     } else {
-        $.getJSON('changepoints/' + songName, function (data) {
-            TAAPP.songInfo[songName].changepoints = data.changepoints;
-            _build(data.changepoints);
-        })
+        // create retargeted underlay
+        var wordsBetween = TAAPP.current.slice(wordIndex + 1, wordIndex2 + 1);
+
+        // get rid of pauses and breaths right after the emphasis point
+        var removedPauseOffset = 0;
+        while (wordsBetween[0].alignedWord === "sp" ||
+               wordsBetween[0].alignedWord === "{BR}" ||
+               wordsBetween[0].alignedWord === "gp") {
+            removedPauseOffset += 1;
+            var removed = wordsBetween.splice(0, 1)[0];
+            var ta = TAAPP.TAManager.tas[removed.taIdx];
+            TAAPP.TAManager.pruneCurrent(
+                wordIndex + 1, wordIndex + 2, ta, false);
+        }
+        if (removedPauseOffset > 0) {
+            TAAPP.TAManager.refresh();
+        }
+
+        // update wordIndex2 to reflect removed pauses and breaths
+        wordIndex2 -= removedPauseOffset;
+
+        var retargetLength = _.reduce(wordsBetween, function (memo, w) {
+            return memo + w.end - w.start;
+        }, 0.0);
+
+        var before = 15.5;
+        if (speechLength < before) {
+            before = speechLength;
+        }
+
+        $.getJSON('underlayRetarget/' + songName + '/' + retargetLength +
+            '/' + before + '/15.0',
+            function (data) {
+                _buildMulti(data);
+                TAAPP.spinner.stop();
+            });
     }
-
-    var word = TAAPP.current[wordIndex];
-    var ta = TAAPP.TAManager.tas[word.taIdx];
-    var pos = TAAPP.current[wordIndex + 1].taPos;
-
-    TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
 
 };
 
@@ -811,6 +949,9 @@ TAAPP.uploadSong = function (form) {
 };
 
 TAAPP.loadSite = function () {
+    $("#underlayE2Select").chosen({
+        allow_single_deselect: true
+    });
     $('.gPause').click(function () {
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
@@ -845,9 +986,17 @@ TAAPP.loadSite = function () {
     });
     
     $('.createUnderlayBtn').click(function () {
-        var wordIndex = $('.ePtModalMarker').data('wordIndex');
+        var wordIndex = $('.ePt1ModalMarker').data('wordIndex');
         var songName = $('input[name=underlaySongRadio]:checked').val();
-        TAAPP.createUnderlay(wordIndex, songName);
+
+        var ept2wordIndex = $("#underlayE2Select").val();
+        if (ept2wordIndex === "") {
+            TAAPP.createUnderlay(wordIndex, songName);
+        } else {
+            TAAPP.createUnderlay(wordIndex, songName,
+                parseFloat(ept2wordIndex, 10));
+        }
+        
     });
 
     $(window).resize(function () {    

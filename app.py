@@ -18,6 +18,7 @@ import reauthor_speech
 import duplicate_lines
 from music_remix.music_remix import MusicGraph
 from music_remix.novelty_simple import novelty
+from music_remix.changepoint_paths import best_changepoint_path
 from cubic_spline import MonotonicCubicSpline
 
 from radiotool.composer import\
@@ -271,6 +272,62 @@ def find_change_points(song_name):
     }
     return jsonify(**out)
 
+@app.route('/underlayRetarget/<song_name>/<float:length>/<float:before>/<float:after>')
+def retargeted_underlay(song_name, length, before, after):
+    solo_length = 6.0
+
+    wav_fn = APP_PATH + 'static/uploads/' + song_name + '.wav'
+    npz_fn = APP_PATH + 'static/uploads/' + song_name + '.npz'
+
+    beat_path = best_changepoint_path(
+        wav_fn,
+        npz_fn,
+        length + solo_length,
+        APP_PATH=APP_PATH,
+        nchangepoints=3)
+
+    npz = N.load(npz_fn)
+
+    all_beats = npz["markers"]
+    avg_duration = npz["avg_duration"]
+
+    first_target = float(beat_path[0]) - before
+    last_target = float(beat_path[-1]) + after + solo_length
+
+    first_beat = min(all_beats, key=lambda b: N.abs(b - first_target))
+    last_beat = min(all_beats, key=lambda b: N.abs(b - last_target))
+
+    beat_path_start = [str(b) for b in all_beats 
+                       if b >= first_beat and b < float(beat_path[0])]
+    beat_path_end = [str(b) for b in all_beats
+                     if b > float(beat_path[-1]) and b <= last_beat]
+
+    middle = round(avg_duration[0] * len(beat_path), 5)
+
+    out = {
+        "beats": beat_path_start + beat_path + beat_path_end,
+        "before": round(float(beat_path[0]) - float(beat_path_start[0]), 5),
+        "middle": length,
+        "solo1": round(middle - length, 5),
+        "solo2": float(solo_length),
+        "after": round(float(beat_path_end[-1]) - float(beat_path[-1]) - solo_length, 5),
+        "changepoints": [beat_path[0], beat_path[-1]],
+    }
+
+    # quick check! just in case
+    while out["before"] > before:
+        out["beats"] = out["beats"][1:]
+        out["before"] = round(float(beat_path[0]) - float(out["beats"][0]), 5)
+
+    out["total"] = out["before"] + out["solo1"] + out["middle"] +\
+        out["solo2"] + out["after"]
+
+    out["total"] = round(out["total"], 5)
+
+    print out
+
+    return jsonify(**out)
+
 
 @app.route('/uploadSong', methods=['POST', 'GET'])
 def upload_song():
@@ -308,18 +365,24 @@ def upload_song():
     song = eyed3.load(full_name)
     song_title = song.tag.title
     song_artist = song.tag.artist
-        
-    # convert to wav
-    subprocess.call(
-        'lame --decode "%s"' % full_name, shell=True)
-                
+    
     wav_name = ".".join(full_name.split('.')[:-1]) + '.wav'
-        
-    # wav2json
-    subprocess.call(
-        'wav2json -p 2 -s 10000 --channels mid -n -o "%s" "%s"' %
-        (upload_path + 'wfData/' + filename + '.json', wav_name),
-        shell=True)
+
+    # convert to wav if necessary
+    try:
+        with open(wav_name): pass
+    except IOError:
+        subprocess.call(
+            'lame --decode "%s"' % full_name, shell=True)
+                
+    # wav2json if necessary
+    try:
+        with open(upload_path + 'wfData/' + filename + '.json'): pass
+    except IOError:
+        subprocess.call(
+            'wav2json -p 2 -s 10000 --channels mid -n -o "%s" "%s"' %
+            (upload_path + 'wfData/' + filename + '.json', wav_name),
+            shell=True)
 
     out = {
         "path": "uploads/" + filename,

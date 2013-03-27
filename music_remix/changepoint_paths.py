@@ -13,10 +13,18 @@ from radiotool.composer import Composition, Track, Segment
 
 
 def changepoint_path(wav_fn, length, graph=None, markers=None,
-    sim_mat=None, avg_duration=None):
+    sim_mat=None, avg_duration=None, APP_PATH=None, nchangepoints=4):
     """wave filename and graph from that wav, length in seconds"""
     # generate changepoints
-    changepoints = novelty(wav_fn, k=64, nchangepoints=4)
+    try:
+        cpraw = subprocess.check_output([
+            APP_PATH + 'music_changepoints/novelty',
+            wav_fn, '64', 'rms', 'euc', str(nchangepoints)])
+        changepoints = [float(c) for c in cpraw.split('\n') if len(c) > 0]
+    except:
+        changepoints = novelty(wav_fn, k=64, nchangepoints=nchangepoints)
+
+    print "Change points", changepoints
 
     if graph is not None:
         edge_lens = [graph[e[0]][e[1]]["duration"]
@@ -39,7 +47,7 @@ def changepoint_path(wav_fn, length, graph=None, markers=None,
     out = []
 
     for pair in itertools.permutations(closest_nodes, r=2):
-        print "Finding path for pair", pair, "of length", node_count
+        # print "Finding path for pair", pair, "of length", node_count
         
         avoid_nodes = [cn for cn in closest_nodes if cn != pair[1]]
         # avoid_nodes = closest_nodes
@@ -48,7 +56,7 @@ def changepoint_path(wav_fn, length, graph=None, markers=None,
             try:
                 shortest_path = nx.astar_path_length(graph,
                     nodes[pair[0]], nodes[pair[1]])
-                print "# shortest path:", shortest_path
+                # print "# shortest path:", shortest_path
                 if  shortest_path <= node_count:
         
                     pf = PathFinder(graph=graph, start=pair[0],
@@ -72,6 +80,29 @@ def changepoint_path(wav_fn, length, graph=None, markers=None,
 
     return out, changepoints
 
+def best_changepoint_path(wav_fn, npz_fn, length, 
+    APP_PATH=None, nchangepoints=4):
+
+    basename = os.path.basename(wav_fn)
+
+    npz = N.load(npz_fn)
+    markers = npz["markers"]
+    sim_mat = npz["cost"]
+    avg_duration = npz["avg_duration"][0]
+
+    out, changepoints = changepoint_path(wav_fn, length,
+        graph=None,
+        markers=markers,
+        sim_mat=sim_mat,
+        avg_duration=avg_duration,
+        APP_PATH=APP_PATH,
+        nchangepoints=nchangepoints)
+
+    if len(out) > 0:
+        best, best_cost = min(out, key=lambda x: x[1])
+        return best
+
+    return []
 
 if __name__ == '__main__':
     wav_fn = sys.argv[1]

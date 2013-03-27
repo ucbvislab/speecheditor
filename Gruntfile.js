@@ -23,6 +23,7 @@ module.exports = function (grunt) {
                     'static/script/underscore-min.js',
                     'static/script/spin.js',
                     'static/script/soundmanager2-jsmin.js',
+                    'static/script/chosen/chosen/chosen.jquery.min.js',
                     'static/script/textinputs.jquery.js',
                     'static/script/jquery.tabSlideOut.js',
                     'static/script/jquery.scrollTo/jquery.scrollTo.min.js',

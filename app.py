@@ -109,6 +109,10 @@ def reauthor():
                 cf_durations = []
                 seg_start = starts[0]
                 seg_start_loc = current_loc
+
+                with open ("tmp-starts", 'w') as tf:
+                    for i, start in enumerate(starts):
+                        tf.write('%s,%s,%s\n' % (start, dists[i], durs[i]))
                 
                 for i, start in enumerate(starts):
                     if i == 0 or dists[i - 1] == 0:
@@ -117,12 +121,11 @@ def reauthor():
                     else:
                         seg = Segment(track, seg_start_loc, seg_start,
                             current_loc - seg_start_loc)
-                        
                         c.add_score_segment(seg)
                         segments.append(seg)
                         
-                        track = Track(wav_fn, t["name"])
-                        c.add_track(track)
+                        # track = Track(wav_fn, t["name"])
+                        # c.add_track(track)
                         dur = durs[i]
                         cf_durations.append(dur)
                         
@@ -130,7 +133,9 @@ def reauthor():
                         seg_start = start
                         
                         current_loc += dur
-                        
+                
+                print "cf_durations", cf_durations
+
                 last_seg = Segment(track, seg_start_loc, seg_start,
                     current_loc - seg_start_loc)
                 c.add_score_segment(last_seg)
@@ -145,8 +150,8 @@ def reauthor():
                 
                 for i, seg in enumerate(segments[:-1]):
                     rawseg = c.cross_fade(seg, segments[i + 1], cf_durations[i])
-                    
                     all_segs.extend([seg, rawseg])
+
                 all_segs.append(segments[-1])
 
                 first_loc = all_segs[0].score_location
@@ -164,17 +169,20 @@ def reauthor():
                         10000)
                         
                     sampley = N.array([cdf.interpolate(x) for x in samplex])
+
+                    lasty = cdf.interpolate(
+                        seg.score_location - first_loc + seg.duration)
                     
                     for i, sy in enumerate(sampley):
-                        print i, sy
+                        # print i, sy
                         if i != len(samplex) - 1:
                             vol_frames[i * 10000:(i + 1) * 10000] =\
                                  N.linspace(sy, sampley[i + 1], num=10000)
                         else:
                             vol_frames[i * 10000:] =\
-                                N.linspace(sy, vy[-1],
+                                N.linspace(sy, lasty,
                                            num=seg.duration - i * 10000)
-                    
+
                     vol = RawVolume(seg, vol_frames)
                     c.add_dynamic(vol)
 
@@ -284,7 +292,7 @@ def retargeted_underlay(song_name, length, before, after):
         npz_fn,
         length + solo_length,
         APP_PATH=APP_PATH,
-        nchangepoints=3)
+        nchangepoints=4)
 
     npz = N.load(npz_fn)
 
@@ -304,9 +312,14 @@ def retargeted_underlay(song_name, length, before, after):
 
     middle = round(avg_duration[0] * len(beat_path), 5)
 
+    try:
+        before_dur = round(float(beat_path[0]) - float(beat_path_start[0]), 5)
+    except:
+        before_dur = 0
+
     out = {
         "beats": beat_path_start + beat_path + beat_path_end,
-        "before": round(float(beat_path[0]) - float(beat_path_start[0]), 5),
+        "before": before_dur,
         "middle": length,
         "solo1": round(middle - length, 5),
         "solo2": float(solo_length),

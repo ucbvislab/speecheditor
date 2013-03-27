@@ -100,6 +100,7 @@ def best_changepoint_path(wav_fn, npz_fn, length,
 
     if len(out) > 0:
         best, best_cost = min(out, key=lambda x: x[1])
+        print "BEST PATH:", best
         return best
 
     return []
@@ -129,7 +130,8 @@ if __name__ == '__main__':
     out, changepoints = changepoint_path(wav_fn, sys.argv[3],
         graph=graph,
         markers=markers, sim_mat=sim_mat,
-        avg_duration=avg_duration)
+        avg_duration=avg_duration,
+        APP_PATH="../")
 
     if len(out) > 0:
         best, best_cost = min(out, key=lambda x: x[1])
@@ -169,7 +171,7 @@ if __name__ == '__main__':
 
         score_start = 12.0
         track = Track(wav_fn, wav_fn)
-        c = Composition(channels=2)
+        c = Composition(channels=1)
         c.add_track(track)
         c.add_score_segment(
             Segment(track, 0.0, starts[0] - 12.0, 12.0))
@@ -181,6 +183,10 @@ if __name__ == '__main__':
         cf_durations = []
         
         segments = []
+
+        with open ("tmp-starts", 'w') as tf:
+            for i, start in enumerate(starts):
+                tf.write('%s,%s,%s\n' % (start, dists[i], durs[i]))
 
         for i, start in enumerate(starts):
             if i == 0 or dists[i - 1] == 0:
@@ -194,8 +200,8 @@ if __name__ == '__main__':
                 
                 print "segment added at", seg_start_loc, "start", seg_start, "dur", current_loc - seg_start_loc
                 
-                track = Track(wav_fn, wav_fn)
-                c.add_track(track)
+                # track = Track(wav_fn, wav_fn)
+                # c.add_track(track)
                 dur = durs[i]
                 cf_durations.append(dur)
                 
@@ -228,7 +234,7 @@ if __name__ == '__main__':
         c.output_score(
             adjust_dynamics=False,
             filename=out_name,
-            channels=2,
+            channels=1,
             filetype='wav',
             separate_tracks=False)
         

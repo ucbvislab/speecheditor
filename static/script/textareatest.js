@@ -455,35 +455,61 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         pos2 = TAAPP.current[wordIndex2 + 2].taPos;
         TAAPP.TAManager.insertWords(['{gp-' + d.solo2 + '}'], pos2, ta2);
 
-        var vx = _.map([
-            0,
-            3,
-            d.before - 1,
-            d.before,
-            d.before + d.solo1 - .75,
-            d.before + d.solo1,
-            d.before + d.solo1 + d.middle - 1,
-            d.before + d.solo1 + d.middle,
-            d.before + d.solo1 + d.middle + d.solo2 - .75,
-            d.before + d.solo1 + d.middle + d.solo2,
-            d.total - 3.5,
-            d.total - .5
-        ], function (v) { return v * 1000.0; });
+        if (d.before > 0) {
+             var vx = _.map([
+                0,
+                3,
+                d.before - 1,
+                d.before,
+                d.before + d.solo1 - 1.5,
+                d.before + d.solo1 - .5,
+                d.before + d.solo1 + d.middle - 1,
+                d.before + d.solo1 + d.middle,
+                d.before + d.solo1 + d.middle + d.solo2 - 1.5,
+                d.before + d.solo1 + d.middle + d.solo2 - .5,
+                d.total - 3.5,
+                d.total - .5
+            ], function (v) { return v * 1000.0; });
 
-        var vy = [
-            0,
-            .15,
-            .15,
-            .75,
-            .75,
-            .15,
-            .15,
-            .75,
-            .75,
-            .15,
-            .15,
-            0
-        ];
+            var vy = [
+                0,
+                .15,
+                .15,
+                .75,
+                .75,
+                .15,
+                .15,
+                .75,
+                .75,
+                .15,
+                .15,
+                0
+            ];
+        } else {
+            var vx = _.map([
+                0,
+                d.solo1 - 1.5,
+                d.solo1 - .5,
+                d.solo1 + d.middle - 1,
+                d.solo1 + d.middle,
+                d.solo1 + d.middle + d.solo2 - 1.5,
+                d.solo1 + d.middle + d.solo2 - .5,
+                d.total - 3.5,
+                d.total - .5
+            ], function (v) { return v * 1000.0; });
+
+            var vy = [
+                .75,
+                .75,
+                .15,
+                .15,
+                .75,
+                .75,
+                .15,
+                .15,
+                0
+            ];
+        }
 
         // create the waveform
         var songData = TAAPP.songInfo[songName];
@@ -502,7 +528,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         TAAPP.$timeline.timeline("addWaveform", {
             elt: wf,
             track: 1,
-            pos: (speechLength - d.before) * 1000.0
+            pos: (speechLength - d.before + .5) * 1000.0
         });
     }
 
@@ -540,12 +566,26 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             TAAPP.TAManager.pruneCurrent(
                 wordIndex + 1, wordIndex + 2, ta, false);
         }
+
+        // update wordIndex2 to reflect removed pauses and breaths
+        wordIndex2 -= removedPauseOffset;
+
+        // and remove pauses and breaths right after the 2nd emph pt
+        var wordsAfter = TAAPP.current.slice(wordIndex2 + 1)
+        while (wordsAfter[0].alignedWord === "sp" ||
+               wordsAfter[0].alignedWord === "{BR}" ||
+               wordsAfter[0].alignedWord === "gp") {
+
+            var removed = wordsAfter.splice(0, 1)[0];
+            var ta = TAAPP.TAManager.tas[removed.taIdx];
+            TAAPP.TAManager.pruneCurrent(
+                wordIndex2 + 1, wordIndex2 + 2, ta, false);
+        }
+
         if (removedPauseOffset > 0) {
             TAAPP.TAManager.refresh();
         }
 
-        // update wordIndex2 to reflect removed pauses and breaths
-        wordIndex2 -= removedPauseOffset;
 
         var retargetLength = _.reduce(wordsBetween, function (memo, w) {
             return memo + w.end - w.start;
@@ -1049,17 +1089,62 @@ TAAPP.loadSite = function () {
     });
 };
 
-TAAPP.newProject = function () {
-    TAAPP.speech = $("select[name=speechSelect]").val();
+TAAPP.newProject = function (speech) {
+    if (speech === undefined) {
+        TAAPP.speech = $("select[name=speechSelect]").val();
+        history.pushState({ speech: TAAPP.speech }, null, "?speech=" + TAAPP.speech);
+    } else {
+        TAAPP.speech = speech;
+    }
     TAAPP.reset();
 };
 
+window.onpopstate = function (event) {
+    if (event.state == null) {
+        return;
+    }
+
+    TAAPP.speech = event.state.speech;
+    if (TAAPP.speech === "") {
+        // show project creation modal
+        $("#setupModal").modal("show");
+    } else {
+        $("#setupModal").modal("hide");
+        TAAPP.reset();
+    }
+}
+
+function getParameterByName(name)
+{
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.search);
+    if(results == null)
+       return "";
+    else
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 $(function () {
     // make the "create" button work and show the modal
+    var speech = getParameterByName("speech");
+
+    // initial state
+    history.replaceState({ speech: speech }, null, null);
+
     $('#setupModal')
-    .modal()
+    .modal({
+        show: (speech === "")
+    })
     .find('.createProjectBtn')
-    .click(TAAPP.newProject);
+    .click(function () {
+        TAAPP.newProject();
+    });
+
+    if (speech !== "") {
+        TAAPP.newProject(speech);
+    }
 
     // initialize everything that doesn't depend on the speech track
     TAAPP.loadSite();

@@ -14,7 +14,8 @@ module.exports = function (grunt) {
                     ['static/script/setProductionEnv.js', 'static/script/textarea-dev.js']
             },
             dev: {
-                'static/script/textarea-dev.min.js': 'static/script/textarea-dev.js'
+                src: ['static/script/textarea-dev.js'],
+                dest: 'static/script/textarea-dev.min.js'
             }
         },
         concat: {

@@ -1826,6 +1826,7 @@ $.fn.wf = function () {
             filename: "audio.mp3",
             innerColor: undefined,
             fixed: false,
+            mute: false,
             volume: {
                 x: [0],
                 y: [1]
@@ -2159,10 +2160,16 @@ $.fn.wf = function () {
                 this.options.highlightedWordsRange !== undefined) {
                 var hwRange = this.options.highlightedWordsRange;
                 var pxPerMs = this.options.pxPerMs;
+                var hwStart = wordPositions[hwRange[0]] * pxPerMs;
+                var hwStop;
+                if (hwRange[1] + 1 >= wordPositions.length) {
+                    hwStop = that.width();
+                } else {
+                    hwStop = wordPositions[hwRange[1] + 1] * pxPerMs;
+                }
                 colorFunc = function (x, y) {
                     var pxX = x * that.width();
-                    if (pxX >= wordPositions[hwRange[0]] * pxPerMs &&
-                        pxX < wordPositions[hwRange[1]] * pxPerMs) {
+                    if (pxX >= hwStart && pxX < hwStop) {
                         return selectedGradient;
                     }
                     return gradient;
@@ -3154,15 +3161,17 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             pxPerMs: .05,
             sound: undefined,
             position: 0.0,
-            clickMode: "volume"
+            clickMode: "volume",
+            linkGroups: [],
         },
         
         _create: function () {
-            console.log("in timeline _create");
             var that = this;
+            console.log("in timeline _create");
+            
             var trackTemplate = $("#trackTemplate").html();
             var i;
-            this.element.addClass("edible-timeline")
+            this.element.addClass("edible-timeline");
             for (i = 0; i < this.options.tracks; i++) {
                 this.element.append(_.template(trackTemplate));
             }
@@ -3181,13 +3190,32 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
                         // update pos for the dropped waveform
                         $.each(that.options.wf, function (i, wf) {
                             if (wf.elt === $kid[0]) {
+                                var oldpos = wf.pos;
                                 wf.pos = that.pxToMs($kid.position().left);
+                                var deltapos = wf.pos - oldpos;
+                                var deltapx = that.msToPx(deltapos);
                                 $.each(that.element.find('.track'), function (i, track) {
                                     if ($dad[0] === track) {
                                         wf.track = i;
                                         return false;
                                     }
                                 });
+                                // TOO MUCH NESTING. NO TIME TO CLEAN :-(
+                                // update link group wfs too (in any)
+                                $.each(that.options.linkGroups, function (j, lg) {
+                                    if (lg.indexOf(wf.elt) !== -1) {
+                                        $.each(that.options.wf, function(k, wf2) {
+                                            if (wf2.elt !== wf.elt &&
+                                                lg.indexOf(wf2.elt) !== -1) {
+                                                wf2.pos += deltapos;
+                                                $(wf2.elt)
+                                                .css("left", "+=" + deltapx + "px");
+                                            }
+                                        });
+                                        return false;
+                                    } 
+                                })
+
                                 return;
                             }
                         });
@@ -3315,18 +3343,22 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
 
         export: function () {
             var that = this;
-            return $.map(this.options.wf, function (wf) {
+            var exportOpts = [];
+            $.each(this.options.wf, function (i, wf) {
                 console.log("SCORE START", wf.pos / 1000.0, "WF POS", wf.pos);
-                return {
-                    waveformClass: $(wf.elt).wf("waveformClass"),
-                    extra: $(wf.elt).wf("exportExtras"),
-                    filename: $(wf.elt).wf("option", "filename"),
-                    name: $(wf.elt).wf("option", "name"),
-                    scoreStart: wf.pos / 1000.0,
-                    wfStart: $(wf.elt).wf("option", "start") / 1000.0,
-                    duration: $(wf.elt).wf("option", "len") / 1000.0
-                };
+                if (!$(wf.elt).wf("option", "mute")) {
+                    exportOpts.push({
+                        waveformClass: $(wf.elt).wf("waveformClass"),
+                        extra: $(wf.elt).wf("exportExtras"),
+                        filename: $(wf.elt).wf("option", "filename"),
+                        name: $(wf.elt).wf("option", "name"),
+                        scoreStart: wf.pos / 1000.0,
+                        wfStart: $(wf.elt).wf("option", "start") / 1000.0,
+                        duration: $(wf.elt).wf("option", "len") / 1000.0
+                    });
+                }
             });
+            return exportOpts;
         },
 
         _setOptions: function () {
@@ -3734,6 +3766,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
 
         sel = _this.area.getSelection();
         _ref = _this.rangeIndices(sel.start, sel.end), startInd = _ref[0], endInd = _ref[1];
+        console.log("highlight in words", startInd, endInd);
         return _this.tam.highlightWordsInWaveform(startInd, endInd, _this);
       }).bind('mouseup', this.adjustSelection);
       this.overlays.bind('mouseup', this.adjustSelection);
@@ -4183,7 +4216,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         settings = {};
       }
       this.locked = "locked" in settings ? settings.locked : false;
-      this.textAlignedWf = "wf" in settings ? settings.wf : null;
+      this.textAlignedWfs = "wfs" in settings ? settings.wfs : null;
       this.headerTable = $(document.createElement('table')).attr("width", "100%").appendTo(this.el);
       this.container = $(document.createElement('div')).css({
         "overflow-x": "hidden",
@@ -4272,8 +4305,8 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       this.adjustHeight();
       this.emphasizeWords();
       this.insertDupeOverlays(this.dupes, this.dupeInfo);
-      if (this.textAlignedWf != null) {
-        $(this.textAlignedWf).textAlignedWaveform({
+      if (this.textAlignedWfs != null) {
+        $(_.values(this.textAlignedWfs)).textAlignedWaveform({
           currentWords: this.current
         });
       }
@@ -4344,19 +4377,29 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         }
       });
       console.log("prune by TA", match[0], _.last(match));
-      return this.pruneCurrent(match[0], _.last(match) + 1, ta);
+      return this.pruneByTAIndex(match[0], _.last(match) + 1, ta);
     };
 
-    TextAreaManager.prototype.pruneCurrent = function(start, end, ta, refresh) {
-      var i, offset, taIndex, txtarea, _i, _len, _ref;
+    TextAreaManager.prototype.pruneByTAIndex = function(start, end, ta, refresh) {
+      var offset, taIndex;
 
       if (refresh == null) {
         refresh = true;
       }
       taIndex = this.tas.indexOf(ta);
       offset = this.taIndexSpan[taIndex];
-      this.current.splice(start + offset, end - start);
-      console.log("offset", offset, "start", start, "end", end);
+      return this.pruneCurrent(start + offset, end + offset, refresh);
+    };
+
+    TextAreaManager.prototype.pruneCurrent = function(start, end, refresh) {
+      var cutWords, i, ta, taIndex, txtarea, _i, _len, _ref;
+
+      if (refresh == null) {
+        refresh = true;
+      }
+      cutWords = this.current.splice(start, end - start);
+      taIndex = cutWords[0].taIdx;
+      ta = this.tas[taIndex];
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         txtarea = _ref[i];
@@ -4381,19 +4424,35 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       _ref = this.tas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
-        this.pruneCurrent(0, ta.words.length, ta, false);
+        this.pruneByTAIndex(0, ta.words.length, ta, false);
       }
       return this.refresh();
     };
 
     TextAreaManager.prototype.highlightWordsInWaveform = function(start, end, ta) {
-      var offset;
+      var offset, speaker, _i, _len, _ref, _ref1, _ref2, _results;
 
-      if (this.textAlignedWf != null) {
+      if (this.textAlignedWfs != null) {
         offset = this.taIndexSpan[this.tas.indexOf(ta)];
-        return $(this.textAlignedWf).textAlignedWaveform({
-          highlightedWordsRange: [offset + start, offset + end + 1]
-        });
+        if (((_ref = this.highlightedWordsRange) != null ? _ref[0] : void 0) !== offset + start || ((_ref1 = this.highlightedWordsRange) != null ? _ref1[1] : void 0) !== offset + end) {
+          this.highlightedWordsRange = [offset + start, offset + end];
+          $(this.textAlignedWfs[ta.speaker]).textAlignedWaveform({
+            highlightedWordsRange: this.highlightedWordsRange
+          });
+          _ref2 = this.speakers;
+          _results = [];
+          for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+            speaker = _ref2[_i];
+            if (speaker !== ta.speaker) {
+              _results.push($(this.textAlignedWfs[speaker]).textAlignedWaveform({
+                highlightedWordsRange: void 0
+              }));
+            } else {
+              _results.push(void 0);
+            }
+          }
+          return _results;
+        }
       }
     };
 
@@ -4790,7 +4849,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     TextAreaManager.prototype.replaceWords = function(c1, c2, w1, w2, ta, pos) {
-      this.pruneCurrent(c1, c2 + 1, ta);
+      this.pruneByTAIndex(c1, c2 + 1, ta);
       return this.insertWords(_.range(w1, w2 + 1), pos, ta);
     };
 
@@ -5182,29 +5241,51 @@ TAAPP.underlayWizard = function (wordIndex) {
 
     var wlists = eptContext(wordIndex);
 
-    $('#underlayModal .ePt1ModalMarker').data("wordIndex", wordIndex);
-    $('#underlayModal .underlayWordsBefore').text(wlists[0]);
-    $('#underlayModal .underlayWordsAfter').text(wlists[1]);
-
-    // seconds emphasis point?
+    // all emphasis points
+    $("#underlayE1Select").html('<option value=""></option>');
     $("#underlayE2Select").html('<option value=""></option>');
-    var nextWords = TAAPP.current.slice(wordIndex + 1);
-    _.each(nextWords, function (w, i) {
+    _.each(TAAPP.current, function (w, i) {
         if (w.hasOwnProperty("emphasisPoint") && w.emphasisPoint) {
-            var idx = i + wordIndex + 1;
-            var wlists = eptContext(idx);
+            var wlists = eptContext(i);
             var opt = document.createElement('option');
-            $(opt).val(idx)
+            $(opt).val(i)
                 .html('<i>...' +
                       wlists[0] +
                       ' <span class="ePtModalMarker">*</span> ' +
                       wlists[1] +
                       '...</i>')
-                .appendTo("#underlayE2Select");
+                .appendTo("#underlayE1Select");
+            $("#underlayE2Select").append($.clone(opt));
+            if (i === wordIndex) {
+                $(opt).prop("selected", true);
+            }
         }
     });
 
+    var disableEarlierEPts = function (idx) {
+        idx = parseInt(idx, 10);
+        console.log("DISABLE IDX", idx);
+        $("#underlayE2Select option").each(function (i, el) {
+            console.log("idx", parseInt($(el).val(), 10));
+            if (parseInt($(el).val(), 10) <= idx) {
+                $(el).prop("disabled", true)
+                    .prop("selected", false);
+            } else {
+                $(el).prop("disabled", false);
+            }
+        }).closest("select")
+        .trigger("liszt:updated");
+    }
+
+    disableEarlierEPts($("#underlayE1Select").val());
+
     $("#underlayE2Select").trigger("liszt:updated");
+    $("#underlayE1Select").trigger("liszt:updated")
+        .unbind(".underlayWizard")
+        .bind("change.underlayWizard", function () {
+            var idx = $("#underlayE1Select").val();
+            disableEarlierEPts(idx);
+        });
     $("#underlayE2Select").chosen({allow_single_deselect:true});
     $('#underlayModal').modal("show");
 };
@@ -5262,7 +5343,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         });
         TAAPP.$timeline.timeline("addWaveform", {
             elt: wf,
-            track: 1,
+            track: TAAPP.speakers.length,
             pos: speechLength * 1000.0 + start - bestms
         });
     };
@@ -5271,14 +5352,16 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         // add the pauses in the speech
         var word1 = TAAPP.current[wordIndex];
         var ta1 = TAAPP.TAManager.tas[word1.taIdx];
-        var pos1 = TAAPP.current[wordIndex + 1].taPos;
+        var pos1 = TAAPP.current[wordIndex].taPos +
+                   TAAPP.current[wordIndex].word.length;
         var word2, ta2, pos2;
 
         TAAPP.TAManager.insertWords(['{gp-' + d.solo1 + '}'], pos1, ta1);
 
         word2 = TAAPP.current[wordIndex2 + 1];
         ta2 = TAAPP.TAManager.tas[word2.taIdx];
-        pos2 = TAAPP.current[wordIndex2 + 2].taPos;
+        pos2 = TAAPP.current[wordIndex2 + 1].taPos +
+               TAAPP.current[wordIndex2 + 1].word.length;
         TAAPP.TAManager.insertWords(['{gp-' + d.solo2 + '}'], pos2, ta2);
 
         if (d.before > 0) {
@@ -5353,7 +5436,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
         TAAPP.$timeline.timeline("addWaveform", {
             elt: wf,
-            track: 1,
+            track: TAAPP.speakers.length,
             pos: (speechLength - d.before + .5) * 1000.0
         });
     }
@@ -5388,9 +5471,10 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
                wordsBetween[0].alignedWord === "gp") {
             removedPauseOffset += 1;
             var removed = wordsBetween.splice(0, 1)[0];
-            var ta = TAAPP.TAManager.tas[removed.taIdx];
+            console.log("REMOVED", removed);
+            // var ta = TAAPP.TAManager.tas[removed.taIdx];
             TAAPP.TAManager.pruneCurrent(
-                wordIndex + 1, wordIndex + 2, ta, false);
+                wordIndex + 1, wordIndex + 2, false);
         }
 
         // update wordIndex2 to reflect removed pauses and breaths
@@ -5401,11 +5485,12 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         while (wordsAfter[0].alignedWord === "sp" ||
                wordsAfter[0].alignedWord === "{BR}" ||
                wordsAfter[0].alignedWord === "gp") {
-
+            removedPauseOffset += 1;
             var removed = wordsAfter.splice(0, 1)[0];
-            var ta = TAAPP.TAManager.tas[removed.taIdx];
+            console.log("REMOVED2", removed);
+            // var ta = TAAPP.TAManager.tas[removed.taIdx];
             TAAPP.TAManager.pruneCurrent(
-                wordIndex2 + 1, wordIndex2 + 2, ta, false);
+                wordIndex2 + 1, wordIndex2 + 2, false);
         }
 
         if (removedPauseOffset > 0) {
@@ -5433,39 +5518,63 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 };
 
 TAAPP.buildWaveform = function (sound, kind) {
-    var wf = document.createElement("div");
+    var wfs = [];
     if (kind === "textaligned") {
-        console.log("creating text aligned waveform");
-        $(wf).textAlignedWaveform({
-            dur: sound.duration,
-            len: sound.duration,
-            filename: sound.url,
-            name: "Speech",
-            currentWords: TAAPP.current,
-            emphasisPointFunc: TAAPP.underlayWizard
+        console.log("SPEAKERS", TAAPP.speakers);
+        _.each(TAAPP.speakers, function (speaker, spi) {
+            var wf = document.createElement("div");
+            console.log("creating text aligned waveform");
+
+            $(wf).textAlignedWaveform({
+                dur: sound.duration,
+                len: sound.duration,
+                filename: sound.url,
+                name: "Speech - " + speaker,
+                currentWords: TAAPP.current,
+                emphasisPointFunc: TAAPP.underlayWizard
+            });
+            TAAPP.currentWaveforms[speaker] = wf;
+            // TAAPP.currentWaveform = wf;
+            
+            TAAPP.TAManager.textAlignedWfs = TAAPP.currentWaveforms;
+            wfs.push(wf);
         });
-        TAAPP.currentWaveform = wf;
-        
-        TAAPP.TAManager.textAlignedWf = TAAPP.currentWaveform;
+
         
     } else {
+        var wf = document.createElement('div');
         $(wf).waveform({
             dur: sound.duration,
             len: sound.duration,
             name: sound.id
         });
+        wfs.push(wf);
     }
 
     console.log("in buildWaveform", wf);
     // get the waveform data
     // from:
     // wav2json -p 2 -s 2000 --channels mid -n FILENAME.wav 
-    $.getJSON('static/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
-        $(wf).wf({
-            data: data.mid
+
+    if (TAAPP.speakers.length === 1) {
+        $.getJSON('static/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
+            $(wfs).wf({
+                data: data.mid
+            });
+        }); 
+    } else {
+        _.each(TAAPP.speakers, function (speaker, i) {
+            $.getJSON('static/wfData/' + TAAPP.speech + '44-' + speaker + '.wav.json',
+                function (data) {
+                    $(wfs[i]).wf({
+                        data: data.mid
+                    });
+                });
         });
-    });
-    return wf;
+    }
+
+
+    return wfs;
 };
 
 TAAPP.origSoundURL = function () {
@@ -5489,13 +5598,22 @@ TAAPP.loadOriginal = function () {
             console.log("loaded original sound");
             
             // initialize timeline
-            var wf = TAAPP.buildWaveform(this, "textaligned");
-            
+            var wfs = TAAPP.buildWaveform(this, "textaligned");
+
+            var timelineWfs = $.map(wfs, function (wf, i) {
+                return {
+                    elt: wf,
+                    track: i,
+                    pos: 0.0
+                };
+            });
+
             TAAPP.$timeline.timeline({
-                tracks: 2,
+                tracks: TAAPP.speakers.length + 1,
                 pxPerMs: .005,
                 width: "100%",
-                wf: [{ elt: wf, track: 0, pos: 0.0 }]
+                wf: timelineWfs,
+                linkGroups: [wfs]
             });
             
             console.log("calling adjust height after timeline creation");
@@ -5522,7 +5640,7 @@ TAAPP.reset = function () {
     TAAPP.current = undefined;
     TAAPP.timing = undefined;
     TAAPP.dupes = undefined;
-    TAAPP.currentWaveform = undefined;
+    TAAPP.currentWaveforms = {};
     
     // destroy timeline
     try {
@@ -5780,12 +5898,17 @@ TAAPP.addSongToLibrary = function (songData) {
 
     // add the song to the list in the underlay creation modal
     var underlaySongTemplate = $("#underlaySongTemplate").html();
-    $(_.template(underlaySongTemplate, {
+    var $songOpt = $(_.template(underlaySongTemplate, {
         name: songData.name,
         title: songData.title,
         artist: songData.artist
     }))
     .appendTo("#underlaySongSelect");
+
+    if ($("#underlaySongSelect option").length === 1) {
+        $songOpt.prop("selected", true);
+    }
+    $("#underlaySongSelect").trigger("liszt:updated");
 }
 
 TAAPP.uploadSong = function (form) {
@@ -5818,6 +5941,8 @@ TAAPP.loadSite = function () {
     $("#underlayE2Select").chosen({
         allow_single_deselect: true
     });
+    $("#underlayE1Select").chosen();
+    $("#underlaySongSelect").chosen();
     $('.gPause').click(function () {
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
@@ -5852,15 +5977,23 @@ TAAPP.loadSite = function () {
     });
     
     $('.createUnderlayBtn').click(function () {
-        var wordIndex = $('.ePt1ModalMarker').data('wordIndex');
-        var songName = $('input[name=underlaySongRadio]:checked').val();
-
+        var wordIndex = parseInt($('#underlayE1Select').val(), 10);
+        var songName = $('#underlaySongSelect').val();
         var ept2wordIndex = $("#underlayE2Select").val();
+
+        if (songName === "" || songName === undefined ||
+            isNaN(wordIndex) || wordIndex === undefined) {
+            return;
+        }
+ 
         if (ept2wordIndex === "") {
             TAAPP.createUnderlay(wordIndex, songName);
         } else {
-            TAAPP.createUnderlay(wordIndex, songName,
-                parseFloat(ept2wordIndex, 10));
+            TAAPP.createUnderlay(
+                wordIndex,
+                songName,
+                parseInt(ept2wordIndex, 10)
+            );
         }
         
     });
@@ -5870,11 +6003,16 @@ TAAPP.loadSite = function () {
         TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
     });
 
-    $('body').keydown(function (e) {
+    $(document).keydown(function (e) {
         if (e.which === 32) {
+            // space: play/pause
             TAAPP.togglePlay();
         } else if (e.which === 13) {
+            // enter: render
             TAAPP.reauthor();
+        } else if (e.which === 85) {
+            // u: underlay
+            TAAPP.underlayWizard();
         }
     });
     
@@ -5958,6 +6096,10 @@ $(function () {
 
     // initial state
     history.replaceState({ speech: speech }, null, null);
+
+    $('input').live('keydown', function (event) {
+        event.stopPropagation();
+    });
 
     $('#setupModal')
     .modal({

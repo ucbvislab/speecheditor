@@ -202,23 +202,31 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
     </div>
     <div class="modal-body" style="height:800px">
         
-        <p class="lead">Speech emphasis point:</p>
+        <p class="lead">Speech emphasis points:</p>
+        
+        <i>First emphasis point</i>
 
-        <p><i>...<span class="underlayWordsBefore"></span>
-            <span class="ePtModalMarker ePt1ModalMarker"></span>
-            <span class="underlayWordsAfter"></span>...
-        </i></p>
+        <div id="underlayE1Box">
+            <select name="underlayE1Select" id="underlayE1Select" data-placeholder="First emphasis point" class="chzn-select" style="width:515px">
+            <option value=""></option>
+            </select>
+        </div>
+    
+        <br />
 
+        <i>Second emphasis point</i>
         <div id="underlayE2Box">
             <select name="underlayE2Select" id="underlayE2Select" data-placeholder="(No second emphasis point)" class="chzn-select" style="width:515px">
                 <option value=""></option>
             </select>
         </div>
 
+        <br />
+
         <p class="lead">Select a song:</p>
         
-        <div id="underlaySongSelect">
-        </div>
+        <select id="underlaySongSelect" name="underlaySongSelect" data-placeholder="Select a song" class="chzn-select" style="width:515px">
+        </select>
         
     </div>
     <div class="modal-footer">
@@ -250,7 +258,7 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 <script src="static/script/less.js" type="text/javascript"></script>
 <script src="static/script/textareatest.js" type="text/javascript"></script> -->
 
-<script src="static/script/textarea-dev.js"></script>
+<script src="static/script/textarea-dev.min.js"></script>
 
 <script id="songLibraryTemplate" type="text/template">
 <tr>
@@ -266,10 +274,7 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 </script>
 
 <script id="underlaySongTemplate" type="text/template">
-<label class="radio">
-    <input type="radio" value="<%= name %>" name="underlaySongRadio">
-    <%= artist %> - <i><%= title %></i>
-</label>
+<option value="<%= name %>"><%= artist %> - <i><%= title %></i></option>
 </script>
 
 <script id="breathDropdownTemplate" type="text/template">

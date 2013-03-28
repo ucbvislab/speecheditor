@@ -356,29 +356,51 @@ TAAPP.underlayWizard = function (wordIndex) {
 
     var wlists = eptContext(wordIndex);
 
-    $('#underlayModal .ePt1ModalMarker').data("wordIndex", wordIndex);
-    $('#underlayModal .underlayWordsBefore').text(wlists[0]);
-    $('#underlayModal .underlayWordsAfter').text(wlists[1]);
-
-    // seconds emphasis point?
+    // all emphasis points
+    $("#underlayE1Select").html('<option value=""></option>');
     $("#underlayE2Select").html('<option value=""></option>');
-    var nextWords = TAAPP.current.slice(wordIndex + 1);
-    _.each(nextWords, function (w, i) {
+    _.each(TAAPP.current, function (w, i) {
         if (w.hasOwnProperty("emphasisPoint") && w.emphasisPoint) {
-            var idx = i + wordIndex + 1;
-            var wlists = eptContext(idx);
+            var wlists = eptContext(i);
             var opt = document.createElement('option');
-            $(opt).val(idx)
+            $(opt).val(i)
                 .html('<i>...' +
                       wlists[0] +
                       ' <span class="ePtModalMarker">*</span> ' +
                       wlists[1] +
                       '...</i>')
-                .appendTo("#underlayE2Select");
+                .appendTo("#underlayE1Select");
+            $("#underlayE2Select").append($.clone(opt));
+            if (i === wordIndex) {
+                $(opt).prop("selected", true);
+            }
         }
     });
 
+    var disableEarlierEPts = function (idx) {
+        idx = parseInt(idx, 10);
+        console.log("DISABLE IDX", idx);
+        $("#underlayE2Select option").each(function (i, el) {
+            console.log("idx", parseInt($(el).val(), 10));
+            if (parseInt($(el).val(), 10) <= idx) {
+                $(el).prop("disabled", true)
+                    .prop("selected", false);
+            } else {
+                $(el).prop("disabled", false);
+            }
+        }).closest("select")
+        .trigger("liszt:updated");
+    }
+
+    disableEarlierEPts($("#underlayE1Select").val());
+
     $("#underlayE2Select").trigger("liszt:updated");
+    $("#underlayE1Select").trigger("liszt:updated")
+        .unbind(".underlayWizard")
+        .bind("change.underlayWizard", function () {
+            var idx = $("#underlayE1Select").val();
+            disableEarlierEPts(idx);
+        });
     $("#underlayE2Select").chosen({allow_single_deselect:true});
     $('#underlayModal').modal("show");
 };
@@ -436,7 +458,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         });
         TAAPP.$timeline.timeline("addWaveform", {
             elt: wf,
-            track: 1,
+            track: TAAPP.speakers.length,
             pos: speechLength * 1000.0 + start - bestms
         });
     };
@@ -445,14 +467,16 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         // add the pauses in the speech
         var word1 = TAAPP.current[wordIndex];
         var ta1 = TAAPP.TAManager.tas[word1.taIdx];
-        var pos1 = TAAPP.current[wordIndex + 1].taPos;
+        var pos1 = TAAPP.current[wordIndex].taPos +
+                   TAAPP.current[wordIndex].word.length;
         var word2, ta2, pos2;
 
         TAAPP.TAManager.insertWords(['{gp-' + d.solo1 + '}'], pos1, ta1);
 
         word2 = TAAPP.current[wordIndex2 + 1];
         ta2 = TAAPP.TAManager.tas[word2.taIdx];
-        pos2 = TAAPP.current[wordIndex2 + 2].taPos;
+        pos2 = TAAPP.current[wordIndex2 + 1].taPos +
+               TAAPP.current[wordIndex2 + 1].word.length;
         TAAPP.TAManager.insertWords(['{gp-' + d.solo2 + '}'], pos2, ta2);
 
         if (d.before > 0) {
@@ -527,7 +551,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
         TAAPP.$timeline.timeline("addWaveform", {
             elt: wf,
-            track: 1,
+            track: TAAPP.speakers.length,
             pos: (speechLength - d.before + .5) * 1000.0
         });
     }
@@ -562,9 +586,10 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
                wordsBetween[0].alignedWord === "gp") {
             removedPauseOffset += 1;
             var removed = wordsBetween.splice(0, 1)[0];
-            var ta = TAAPP.TAManager.tas[removed.taIdx];
+            console.log("REMOVED", removed);
+            // var ta = TAAPP.TAManager.tas[removed.taIdx];
             TAAPP.TAManager.pruneCurrent(
-                wordIndex + 1, wordIndex + 2, ta, false);
+                wordIndex + 1, wordIndex + 2, false);
         }
 
         // update wordIndex2 to reflect removed pauses and breaths
@@ -575,11 +600,12 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         while (wordsAfter[0].alignedWord === "sp" ||
                wordsAfter[0].alignedWord === "{BR}" ||
                wordsAfter[0].alignedWord === "gp") {
-
+            removedPauseOffset += 1;
             var removed = wordsAfter.splice(0, 1)[0];
-            var ta = TAAPP.TAManager.tas[removed.taIdx];
+            console.log("REMOVED2", removed);
+            // var ta = TAAPP.TAManager.tas[removed.taIdx];
             TAAPP.TAManager.pruneCurrent(
-                wordIndex2 + 1, wordIndex2 + 2, ta, false);
+                wordIndex2 + 1, wordIndex2 + 2, false);
         }
 
         if (removedPauseOffset > 0) {
@@ -607,39 +633,63 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 };
 
 TAAPP.buildWaveform = function (sound, kind) {
-    var wf = document.createElement("div");
+    var wfs = [];
     if (kind === "textaligned") {
-        console.log("creating text aligned waveform");
-        $(wf).textAlignedWaveform({
-            dur: sound.duration,
-            len: sound.duration,
-            filename: sound.url,
-            name: "Speech",
-            currentWords: TAAPP.current,
-            emphasisPointFunc: TAAPP.underlayWizard
+        console.log("SPEAKERS", TAAPP.speakers);
+        _.each(TAAPP.speakers, function (speaker, spi) {
+            var wf = document.createElement("div");
+            console.log("creating text aligned waveform");
+
+            $(wf).textAlignedWaveform({
+                dur: sound.duration,
+                len: sound.duration,
+                filename: sound.url,
+                name: "Speech - " + speaker,
+                currentWords: TAAPP.current,
+                emphasisPointFunc: TAAPP.underlayWizard
+            });
+            TAAPP.currentWaveforms[speaker] = wf;
+            // TAAPP.currentWaveform = wf;
+            
+            TAAPP.TAManager.textAlignedWfs = TAAPP.currentWaveforms;
+            wfs.push(wf);
         });
-        TAAPP.currentWaveform = wf;
-        
-        TAAPP.TAManager.textAlignedWf = TAAPP.currentWaveform;
+
         
     } else {
+        var wf = document.createElement('div');
         $(wf).waveform({
             dur: sound.duration,
             len: sound.duration,
             name: sound.id
         });
+        wfs.push(wf);
     }
 
     console.log("in buildWaveform", wf);
     // get the waveform data
     // from:
     // wav2json -p 2 -s 2000 --channels mid -n FILENAME.wav 
-    $.getJSON('static/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
-        $(wf).wf({
-            data: data.mid
+
+    if (TAAPP.speakers.length === 1) {
+        $.getJSON('static/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
+            $(wfs).wf({
+                data: data.mid
+            });
+        }); 
+    } else {
+        _.each(TAAPP.speakers, function (speaker, i) {
+            $.getJSON('static/wfData/' + TAAPP.speech + '44-' + speaker + '.wav.json',
+                function (data) {
+                    $(wfs[i]).wf({
+                        data: data.mid
+                    });
+                });
         });
-    });
-    return wf;
+    }
+
+
+    return wfs;
 };
 
 TAAPP.origSoundURL = function () {
@@ -663,13 +713,22 @@ TAAPP.loadOriginal = function () {
             console.log("loaded original sound");
             
             // initialize timeline
-            var wf = TAAPP.buildWaveform(this, "textaligned");
-            
+            var wfs = TAAPP.buildWaveform(this, "textaligned");
+
+            var timelineWfs = $.map(wfs, function (wf, i) {
+                return {
+                    elt: wf,
+                    track: i,
+                    pos: 0.0
+                };
+            });
+
             TAAPP.$timeline.timeline({
-                tracks: 2,
+                tracks: TAAPP.speakers.length + 1,
                 pxPerMs: .005,
                 width: "100%",
-                wf: [{ elt: wf, track: 0, pos: 0.0 }]
+                wf: timelineWfs,
+                linkGroups: [wfs]
             });
             
             console.log("calling adjust height after timeline creation");
@@ -696,7 +755,7 @@ TAAPP.reset = function () {
     TAAPP.current = undefined;
     TAAPP.timing = undefined;
     TAAPP.dupes = undefined;
-    TAAPP.currentWaveform = undefined;
+    TAAPP.currentWaveforms = {};
     
     // destroy timeline
     try {
@@ -954,12 +1013,17 @@ TAAPP.addSongToLibrary = function (songData) {
 
     // add the song to the list in the underlay creation modal
     var underlaySongTemplate = $("#underlaySongTemplate").html();
-    $(_.template(underlaySongTemplate, {
+    var $songOpt = $(_.template(underlaySongTemplate, {
         name: songData.name,
         title: songData.title,
         artist: songData.artist
     }))
     .appendTo("#underlaySongSelect");
+
+    if ($("#underlaySongSelect option").length === 1) {
+        $songOpt.prop("selected", true);
+    }
+    $("#underlaySongSelect").trigger("liszt:updated");
 }
 
 TAAPP.uploadSong = function (form) {
@@ -992,6 +1056,8 @@ TAAPP.loadSite = function () {
     $("#underlayE2Select").chosen({
         allow_single_deselect: true
     });
+    $("#underlayE1Select").chosen();
+    $("#underlaySongSelect").chosen();
     $('.gPause').click(function () {
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
@@ -1026,15 +1092,23 @@ TAAPP.loadSite = function () {
     });
     
     $('.createUnderlayBtn').click(function () {
-        var wordIndex = $('.ePt1ModalMarker').data('wordIndex');
-        var songName = $('input[name=underlaySongRadio]:checked').val();
-
+        var wordIndex = parseInt($('#underlayE1Select').val(), 10);
+        var songName = $('#underlaySongSelect').val();
         var ept2wordIndex = $("#underlayE2Select").val();
+
+        if (songName === "" || songName === undefined ||
+            isNaN(wordIndex) || wordIndex === undefined) {
+            return;
+        }
+ 
         if (ept2wordIndex === "") {
             TAAPP.createUnderlay(wordIndex, songName);
         } else {
-            TAAPP.createUnderlay(wordIndex, songName,
-                parseFloat(ept2wordIndex, 10));
+            TAAPP.createUnderlay(
+                wordIndex,
+                songName,
+                parseInt(ept2wordIndex, 10)
+            );
         }
         
     });
@@ -1044,11 +1118,16 @@ TAAPP.loadSite = function () {
         TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
     });
 
-    $('body').keydown(function (e) {
+    $(document).keydown(function (e) {
         if (e.which === 32) {
+            // space: play/pause
             TAAPP.togglePlay();
         } else if (e.which === 13) {
+            // enter: render
             TAAPP.reauthor();
+        } else if (e.which === 85) {
+            // u: underlay
+            TAAPP.underlayWizard();
         }
     });
     
@@ -1132,6 +1211,10 @@ $(function () {
 
     // initial state
     history.replaceState({ speech: speech }, null, null);
+
+    $('input').live('keydown', function (event) {
+        event.stopPropagation();
+    });
 
     $('#setupModal')
     .modal({

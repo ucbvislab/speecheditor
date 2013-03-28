@@ -1,993 +1,1145 @@
 {
     "words": [
         {
-            "start": 0.0125, 
-            "end": 0.0725, 
-            "word": "{pause}", 
+            "start": 0.01247, 
+            "end": 0.10227, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 0.0725, 
-            "end": 0.2525, 
+            "start": 0.10227, 
+            "speaker": "David", 
+            "end": 0.2619, 
             "word": "No", 
             "alignedWord": "NO"
         }, 
         {
-            "start": 0.2525, 
-            "end": 0.4025, 
+            "start": 0.2619, 
+            "speaker": "David", 
+            "end": 0.40159, 
             "word": "one", 
             "alignedWord": "ONE"
         }, 
         {
-            "start": 0.4025, 
-            "end": 0.6425, 
+            "start": 0.40159, 
+            "speaker": "David", 
+            "end": 0.63107, 
             "word": "else", 
             "alignedWord": "ELSE"
         }, 
         {
-            "start": 0.6425, 
-            "end": 0.7325, 
+            "start": 0.63107, 
+            "speaker": "David", 
+            "end": 0.74082, 
             "word": "had", 
             "alignedWord": "HAD"
         }, 
         {
-            "start": 0.7325, 
-            "end": 0.9025, 
+            "start": 0.74082, 
+            "speaker": "David", 
+            "end": 0.90045, 
             "word": "been", 
             "alignedWord": "BEEN"
         }, 
         {
-            "start": 0.9025, 
-            "end": 1.2925, 
+            "start": 0.90045, 
+            "speaker": "David", 
+            "end": 1.25964, 
             "word": "called,", 
             "alignedWord": "CALLED"
         }, 
         {
-            "start": 1.2925, 
-            "end": 1.4625, 
+            "start": 1.25964, 
+            "speaker": "David", 
+            "end": 1.44921, 
             "word": "so", 
             "alignedWord": "SO"
         }, 
         {
-            "start": 1.4625, 
-            "end": 1.6625, 
+            "start": 1.44921, 
+            "speaker": "David", 
+            "end": 1.66871, 
             "word": "why", 
             "alignedWord": "WHY"
         }, 
         {
-            "start": 1.6625, 
-            "end": 2.0025, 
+            "start": 1.66871, 
+            "speaker": "David", 
+            "end": 2.00794, 
             "word": "me?", 
             "alignedWord": "ME"
         }, 
         {
-            "start": 2.0025, 
-            "end": 3.1725, 
-            "word": "{pause}", 
+            "start": 2.00794, 
+            "end": 3.17528, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 3.1725, 
-            "end": 3.3325, 
+            "start": 3.17528, 
+            "speaker": "David", 
+            "end": 3.31497, 
             "word": "I", 
             "alignedWord": "I"
         }, 
         {
-            "start": 3.3325, 
-            "end": 3.5825, 
+            "start": 3.31497, 
+            "speaker": "David", 
+            "end": 3.59433, 
             "word": "ran", 
             "alignedWord": "RAN"
         }, 
         {
-            "start": 3.5825, 
-            "end": 3.8125, 
+            "start": 3.59433, 
+            "speaker": "David", 
+            "end": 3.81383, 
             "word": "down", 
             "alignedWord": "DOWN"
         }, 
         {
-            "start": 3.8125, 
-            "end": 3.8425, 
+            "start": 3.81383, 
+            "speaker": "David", 
+            "end": 3.84376, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 3.8425, 
-            "end": 4.1725, 
+            "start": 3.84376, 
+            "speaker": "David", 
+            "end": 4.17302, 
             "word": "list", 
             "alignedWord": "LIST"
         }, 
         {
-            "start": 4.1725, 
-            "end": 4.2825, 
+            "start": 4.17302, 
+            "speaker": "David", 
+            "end": 4.27279, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 4.2825, 
-            "end": 4.6425, 
+            "start": 4.27279, 
+            "speaker": "David", 
+            "end": 4.65193, 
             "word": "recent", 
             "alignedWord": "RECENT"
         }, 
         {
-            "start": 4.6425, 
-            "end": 5.2625, 
+            "start": 4.65193, 
+            "speaker": "David", 
+            "end": 5.33039, 
             "word": "crimes,", 
             "alignedWord": "CRIMES"
         }, 
         {
-            "start": 5.2625, 
-            "end": 5.5925, 
-            "word": "{pause}", 
+            "start": 5.33039, 
+            "end": 5.60975, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 5.5925, 
-            "end": 5.9425, 
+            "start": 5.60975, 
+            "speaker": "David", 
+            "end": 5.939, 
             "word": "looking", 
             "alignedWord": "LOOKING"
         }, 
         {
-            "start": 5.9425, 
-            "end": 6.1725, 
+            "start": 5.939, 
+            "speaker": "David", 
+            "end": 6.17846, 
             "word": "for", 
             "alignedWord": "FOR"
         }, 
         {
-            "start": 6.1725, 
-            "end": 6.2025, 
+            "start": 6.17846, 
+            "speaker": "David", 
+            "end": 6.20839, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 6.2025, 
-            "end": 6.8025, 
+            "start": 6.20839, 
+            "speaker": "David", 
+            "end": 6.80703, 
             "word": "conviction", 
             "alignedWord": "CONVICTION"
         }, 
         {
-            "start": 6.8025, 
-            "end": 6.9225, 
+            "start": 6.80703, 
+            "speaker": "David", 
+            "end": 6.91678, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 6.9225, 
-            "end": 7.2125, 
+            "start": 6.91678, 
+            "speaker": "David", 
+            "end": 7.2161, 
             "word": "might", 
             "alignedWord": "MIGHT"
         }, 
         {
-            "start": 7.2125, 
-            "end": 7.6125, 
+            "start": 7.2161, 
+            "speaker": "David", 
+            "end": 7.61519, 
             "word": "stick.", 
             "alignedWord": "STICK"
         }, 
         {
-            "start": 7.6125, 
-            "end": 8.5625, 
-            "word": "{pause}", 
+            "start": 7.61519, 
+            "end": 8.57302, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 8.5625, 
-            "end": 8.9225, 
+            "start": 8.57302, 
+            "speaker": "David", 
+            "end": 8.92222, 
             "word": "Setting", 
             "alignedWord": "SETTING"
         }, 
         {
-            "start": 8.9225, 
-            "end": 9.5325, 
+            "start": 8.92222, 
+            "speaker": "David", 
+            "end": 9.51088, 
             "word": "fire", 
             "alignedWord": "FIRE"
         }, 
         {
-            "start": 9.5325, 
-            "end": 9.7125, 
+            "start": 9.51088, 
+            "speaker": "David", 
+            "end": 9.73039, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 9.7125, 
-            "end": 9.7425, 
+            "start": 9.73039, 
+            "speaker": "David", 
+            "end": 9.76032, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 9.7425, 
-            "end": 10.4325, 
+            "start": 9.76032, 
+            "speaker": "David", 
+            "end": 10.4288, 
             "word": "reportedly", 
             "alignedWord": "REPORTEDLY"
         }, 
         {
-            "start": 10.4325, 
-            "end": 10.8825, 
+            "start": 10.4288, 
+            "speaker": "David", 
+            "end": 10.87778, 
             "word": "flame", 
             "alignedWord": "FLAME"
         }, 
         {
-            "start": 10.8825, 
-            "end": 11.2025, 
+            "start": 10.87778, 
+            "speaker": "David", 
+            "end": 11.20703, 
             "word": "proof", 
             "alignedWord": "PROOF"
         }, 
         {
-            "start": 11.2025, 
-            "end": 11.7325, 
+            "start": 11.20703, 
+            "speaker": "David", 
+            "end": 11.72585, 
             "word": "Halloween", 
             "alignedWord": "HALLOWEEN"
         }, 
         {
-            "start": 11.7325, 
-            "end": 12.2325, 
+            "start": 11.72585, 
+            "speaker": "David", 
+            "end": 12.29456, 
             "word": "costume,", 
             "alignedWord": "COSTUME"
         }, 
         {
-            "start": 12.2325, 
-            "end": 13.0525, 
-            "word": "{pause}", 
+            "start": 12.29456, 
+            "end": 13.05283, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 13.0525, 
-            "end": 13.5725, 
+            "start": 13.05283, 
+            "speaker": "David", 
+            "end": 13.57166, 
             "word": "stealing", 
             "alignedWord": "STEALING"
         }, 
         {
-            "start": 13.5725, 
-            "end": 13.6125, 
+            "start": 13.57166, 
+            "speaker": "David", 
+            "end": 13.62154, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 13.6125, 
-            "end": 13.8625, 
+            "start": 13.62154, 
+            "speaker": "David", 
+            "end": 13.861, 
             "word": "set", 
             "alignedWord": "SET"
         }, 
         {
-            "start": 13.8625, 
-            "end": 13.9825, 
+            "start": 13.861, 
+            "speaker": "David", 
+            "end": 13.98073, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 13.9825, 
-            "end": 14.4925, 
+            "start": 13.98073, 
+            "speaker": "David", 
+            "end": 14.49955, 
             "word": "barbecue", 
             "alignedWord": "BARBECUE"
         }, 
         {
-            "start": 14.4925, 
-            "end": 15.0225, 
+            "start": 14.49955, 
+            "speaker": "David", 
+            "end": 15.01837, 
             "word": "tongs", 
             "alignedWord": "TONGS"
         }, 
         {
-            "start": 15.0225, 
-            "end": 15.1825, 
+            "start": 15.01837, 
+            "speaker": "David", 
+            "end": 15.18798, 
             "word": "from", 
             "alignedWord": "FROM"
         }, 
         {
-            "start": 15.1825, 
-            "end": 15.2725, 
+            "start": 15.18798, 
+            "speaker": "David", 
+            "end": 15.27778, 
             "word": "an", 
             "alignedWord": "AN"
         }, 
         {
-            "start": 15.2725, 
-            "end": 15.7625, 
+            "start": 15.27778, 
+            "speaker": "David", 
+            "end": 15.76667, 
             "word": "unguarded", 
             "alignedWord": "UNGUARDED"
         }, 
         {
-            "start": 15.7625, 
-            "end": 16.3125, 
+            "start": 15.76667, 
+            "speaker": "David", 
+            "end": 16.30544, 
             "word": "patio,", 
             "alignedWord": "PATIO"
         }, 
         {
-            "start": 16.3125, 
-            "end": 17.1225, 
-            "word": "{pause}", 
+            "start": 16.30544, 
+            "end": 17.12358, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 17.1225, 
-            "end": 17.6025, 
+            "start": 17.12358, 
+            "speaker": "David", 
+            "end": 17.60249, 
             "word": "altering", 
             "alignedWord": "ALTERING"
         }, 
         {
-            "start": 17.6025, 
-            "end": 17.6625, 
+            "start": 17.60249, 
+            "speaker": "David", 
+            "end": 17.68231, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 17.6625, 
-            "end": 17.9325, 
+            "start": 17.68231, 
+            "speaker": "David", 
+            "end": 17.93175, 
             "word": "word", 
             "alignedWord": "WORD"
         }, 
         {
-            "start": 17.9325, 
-            "end": 18.3325, 
+            "start": 17.93175, 
+            "speaker": "David", 
+            "end": 18.33084, 
             "word": "hit", 
             "alignedWord": "HIT"
         }, 
         {
-            "start": 18.3325, 
-            "end": 18.4025, 
-            "word": "{pause}", 
+            "start": 18.33084, 
+            "end": 18.40068, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 18.4025, 
-            "end": 18.5925, 
+            "start": 18.40068, 
+            "speaker": "David", 
+            "end": 18.59025, 
             "word": "on", 
             "alignedWord": "ON"
         }, 
         {
-            "start": 18.5925, 
-            "end": 18.6225, 
+            "start": 18.59025, 
+            "speaker": "David", 
+            "end": 18.63016, 
             "word": "a", 
             "alignedWord": "A"
         }, 
         {
-            "start": 18.6225, 
-            "end": 18.9725, 
+            "start": 18.63016, 
+            "speaker": "David", 
+            "end": 18.96939, 
             "word": "list", 
             "alignedWord": "LIST"
         }, 
         {
-            "start": 18.9725, 
-            "end": 19.1425, 
+            "start": 18.96939, 
+            "speaker": "David", 
+            "end": 19.12902, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 19.1425, 
-            "end": 19.5725, 
+            "start": 19.12902, 
+            "speaker": "David", 
+            "end": 19.56803, 
             "word": "rules", 
             "alignedWord": "RULES"
         }, 
         {
-            "start": 19.5725, 
-            "end": 20.0025, 
+            "start": 19.56803, 
+            "speaker": "David", 
+            "end": 20.00703, 
             "word": "posted", 
             "alignedWord": "POSTED"
         }, 
         {
-            "start": 20.0025, 
-            "end": 20.1525, 
+            "start": 20.00703, 
+            "speaker": "David", 
+            "end": 20.16667, 
             "word": "on", 
             "alignedWord": "ON"
         }, 
         {
-            "start": 20.1525, 
-            "end": 20.2225, 
+            "start": 20.16667, 
+            "speaker": "David", 
+            "end": 20.22653, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 20.2225, 
-            "end": 20.8925, 
+            "start": 20.22653, 
+            "speaker": "David", 
+            "end": 20.89501, 
             "word": "gymnasium", 
             "alignedWord": "GYMNASIUM"
         }, 
         {
-            "start": 20.8925, 
-            "end": 21.2125, 
+            "start": 20.89501, 
+            "speaker": "David", 
+            "end": 21.21429, 
             "word": "door;", 
             "alignedWord": "DOOR"
         }, 
         {
-            "start": 21.2125, 
-            "end": 22.2125, 
-            "word": "{pause}", 
+            "start": 21.21429, 
+            "end": 22.24195, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 22.2125, 
-            "end": 22.5925, 
+            "start": 22.24195, 
+            "speaker": "David", 
+            "end": 22.61111, 
             "word": "never", 
             "alignedWord": "NEVER"
         }, 
         {
-            "start": 22.5925, 
-            "end": 22.7525, 
+            "start": 22.61111, 
+            "speaker": "David", 
+            "end": 22.75079, 
             "word": "did", 
             "alignedWord": "DID"
         }, 
         {
-            "start": 22.7525, 
-            "end": 22.8525, 
+            "start": 22.75079, 
+            "speaker": "David", 
+            "end": 22.85057, 
             "word": "it", 
             "alignedWord": "IT"
         }, 
         {
-            "start": 22.8525, 
-            "end": 23.1725, 
+            "start": 22.85057, 
+            "speaker": "David", 
+            "end": 23.15986, 
             "word": "occur", 
             "alignedWord": "OCCUR"
         }, 
         {
-            "start": 23.1725, 
-            "end": 23.2725, 
+            "start": 23.15986, 
+            "speaker": "David", 
+            "end": 23.27959, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 23.2725, 
-            "end": 23.4825, 
+            "start": 23.27959, 
+            "speaker": "David", 
+            "end": 23.47914, 
             "word": "me", 
             "alignedWord": "ME"
         }, 
         {
-            "start": 23.4825, 
-            "end": 23.6025, 
+            "start": 23.47914, 
+            "speaker": "David", 
+            "end": 23.59887, 
             "word": "that", 
             "alignedWord": "THAT"
         }, 
         {
-            "start": 23.6025, 
-            "end": 23.6625, 
+            "start": 23.59887, 
+            "speaker": "David", 
+            "end": 23.65873, 
             "word": "I", 
             "alignedWord": "I"
         }, 
         {
-            "start": 23.6625, 
-            "end": 23.9525, 
+            "start": 23.65873, 
+            "speaker": "David", 
+            "end": 23.95805, 
             "word": "might", 
             "alignedWord": "MIGHT"
         }, 
         {
-            "start": 23.9525, 
-            "end": 24.0725, 
+            "start": 23.95805, 
+            "speaker": "David", 
+            "end": 24.0678, 
             "word": "be", 
             "alignedWord": "BE"
         }, 
         {
-            "start": 24.0725, 
-            "end": 24.6425, 
+            "start": 24.0678, 
+            "speaker": "David", 
+            "end": 24.5966, 
             "word": "innocent.", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 24.6425, 
-            "end": 26.0825, 
-            "word": "{pause}", 
+            "start": 24.5966, 
+            "end": 26.0932, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 26.0825, 
-            "end": 26.2025, 
+            "start": 26.0932, 
+            "speaker": "David", 
+            "end": 26.20295, 
             "word": "\"You", 
             "alignedWord": "YOU"
         }, 
         {
-            "start": 26.2025, 
-            "end": 26.4325, 
+            "start": 26.20295, 
+            "speaker": "David", 
+            "end": 26.43243, 
             "word": "might", 
             "alignedWord": "MIGHT"
         }, 
         {
-            "start": 26.4325, 
-            "end": 26.5925, 
+            "start": 26.43243, 
+            "speaker": "David", 
+            "end": 26.61202, 
             "word": "want", 
             "alignedWord": "WANT"
         }, 
         {
-            "start": 26.5925, 
-            "end": 26.6525, 
+            "start": 26.61202, 
+            "speaker": "David", 
+            "end": 26.68186, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 26.6525, 
-            "end": 26.9225, 
+            "start": 26.68186, 
+            "speaker": "David", 
+            "end": 26.92132, 
             "word": "take", 
             "alignedWord": "TAKE"
         }, 
         {
-            "start": 26.9225, 
-            "end": 27.0225, 
+            "start": 26.92132, 
+            "speaker": "David", 
+            "end": 27.03107, 
             "word": "your", 
             "alignedWord": "YOUR"
         }, 
         {
-            "start": 27.0225, 
-            "end": 27.3725, 
+            "start": 27.03107, 
+            "speaker": "David", 
+            "end": 27.36032, 
             "word": "books", 
             "alignedWord": "BOOKS"
         }, 
         {
-            "start": 27.3725, 
-            "end": 27.5725, 
+            "start": 27.36032, 
+            "speaker": "David", 
+            "end": 27.55986, 
             "word": "with", 
             "alignedWord": "WITH"
         }, 
         {
-            "start": 27.5725, 
-            "end": 27.7725, 
+            "start": 27.55986, 
+            "speaker": "David", 
+            "end": 27.78934, 
             "word": "you,\"", 
             "alignedWord": "YOU"
         }, 
         {
-            "start": 27.7725, 
-            "end": 27.8625, 
+            "start": 27.78934, 
+            "speaker": "David", 
+            "end": 27.86916, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 27.8625, 
-            "end": 28.2125, 
+            "start": 27.86916, 
+            "speaker": "David", 
+            "end": 28.21837, 
             "word": "teacher", 
             "alignedWord": "TEACHER"
         }, 
         {
-            "start": 28.2125, 
-            "end": 28.5625, 
+            "start": 28.21837, 
+            "speaker": "David", 
+            "end": 28.5576, 
             "word": "said.", 
             "alignedWord": "SAID"
         }, 
         {
-            "start": 28.5625, 
-            "end": 29.1125, 
-            "word": "{pause}", 
+            "start": 28.5576, 
+            "end": 29.1263, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 29.1125, 
-            "end": 29.3925, 
+            "start": 29.1263, 
+            "speaker": "David", 
+            "end": 29.39569, 
             "word": "\"And", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 29.3925, 
-            "end": 29.5025, 
+            "start": 29.39569, 
+            "speaker": "David", 
+            "end": 29.51542, 
             "word": "your", 
             "alignedWord": "YOUR"
         }, 
         {
-            "start": 29.5025, 
-            "end": 29.9925, 
+            "start": 29.51542, 
+            "speaker": "David", 
+            "end": 29.98435, 
             "word": "jacket.", 
             "alignedWord": "JACKET"
         }, 
         {
-            "start": 29.9925, 
-            "end": 30.4025, 
-            "word": "{pause}", 
+            "start": 29.98435, 
+            "end": 30.42336, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 30.4025, 
-            "end": 30.5425, 
+            "start": 30.42336, 
+            "speaker": "David", 
+            "end": 30.54308, 
             "word": "You", 
             "alignedWord": "YOU"
         }, 
         {
-            "start": 30.5425, 
-            "end": 31.0025, 
+            "start": 30.54308, 
+            "speaker": "David", 
+            "end": 31.00204, 
             "word": "probably", 
             "alignedWord": "PROBABLY"
         }, 
         {
-            "start": 31.0025, 
-            "end": 31.2425, 
+            "start": 31.00204, 
+            "speaker": "David", 
+            "end": 31.2415, 
             "word": "won't", 
             "alignedWord": "WON'T"
         }, 
         {
-            "start": 31.2425, 
-            "end": 31.3625, 
+            "start": 31.2415, 
+            "speaker": "David", 
+            "end": 31.35125, 
             "word": "be", 
             "alignedWord": "BE"
         }, 
         {
-            "start": 31.3625, 
-            "end": 31.7025, 
+            "start": 31.35125, 
+            "speaker": "David", 
+            "end": 31.67052, 
             "word": "back", 
             "alignedWord": "BACK"
         }, 
         {
-            "start": 31.7025, 
-            "end": 31.9825, 
+            "start": 31.67052, 
+            "end": 31.69048, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 31.69048, 
+            "speaker": "David", 
+            "end": 31.99977, 
             "word": "before", 
             "alignedWord": "BEFORE"
         }, 
         {
-            "start": 31.9825, 
-            "end": 32.0725, 
+            "start": 31.99977, 
+            "speaker": "David", 
+            "end": 32.06961, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 32.0725, 
-            "end": 32.3725, 
+            "start": 32.06961, 
+            "speaker": "David", 
+            "end": 32.36893, 
             "word": "bell", 
             "alignedWord": "BELL"
         }, 
         {
-            "start": 32.3725, 
-            "end": 32.7625, 
+            "start": 32.36893, 
+            "speaker": "David", 
+            "end": 32.74807, 
             "word": "rings.\"", 
             "alignedWord": "RINGS"
         }, 
         {
-            "start": 32.7625, 
-            "end": 34.1925, 
-            "word": "{pause}", 
+            "start": 32.74807, 
+            "end": 34.20476, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 34.1925, 
-            "end": 34.3525, 
+            "start": 34.20476, 
+            "speaker": "David", 
+            "end": 34.35442, 
             "word": "Though", 
             "alignedWord": "THOUGH"
         }, 
         {
-            "start": 34.3525, 
-            "end": 34.5225, 
+            "start": 34.35442, 
+            "speaker": "David", 
+            "end": 34.52404, 
             "word": "she", 
             "alignedWord": "SHE"
         }, 
         {
-            "start": 34.5225, 
-            "end": 34.8425, 
+            "start": 34.52404, 
+            "speaker": "David", 
+            "end": 34.85329, 
             "word": "seemed", 
             "alignedWord": "SEEMED"
         }, 
         {
-            "start": 34.8425, 
-            "end": 35.1525, 
+            "start": 34.85329, 
+            "speaker": "David", 
+            "end": 35.15261, 
             "word": "old", 
             "alignedWord": "OLD"
         }, 
         {
-            "start": 35.1525, 
-            "end": 35.2425, 
+            "start": 35.15261, 
+            "speaker": "David", 
+            "end": 35.23243, 
             "word": "at", 
             "alignedWord": "AT"
         }, 
         {
-            "start": 35.2425, 
-            "end": 35.3025, 
+            "start": 35.23243, 
+            "speaker": "David", 
+            "end": 35.30227, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 35.3025, 
-            "end": 35.7725, 
+            "start": 35.30227, 
+            "speaker": "David", 
+            "end": 35.7712, 
             "word": "time,", 
             "alignedWord": "TIME"
         }, 
         {
-            "start": 35.7725, 
-            "end": 36.1325, 
-            "word": "{pause}", 
+            "start": 35.7712, 
+            "end": 36.17029, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 36.1325, 
-            "end": 36.3225, 
+            "start": 36.17029, 
+            "speaker": "David", 
+            "end": 36.32993, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 36.3225, 
-            "end": 36.6325, 
+            "start": 36.32993, 
+            "speaker": "David", 
+            "end": 36.63923, 
             "word": "agent", 
             "alignedWord": "AGENT"
         }, 
         {
-            "start": 36.6325, 
-            "end": 36.7925, 
+            "start": 36.63923, 
+            "speaker": "David", 
+            "end": 36.79887, 
             "word": "was", 
             "alignedWord": "WAS"
         }, 
         {
-            "start": 36.7925, 
-            "end": 37.0625, 
+            "start": 36.79887, 
+            "speaker": "David", 
+            "end": 37.07823, 
             "word": "most", 
             "alignedWord": "MOST"
         }, 
         {
-            "start": 37.0625, 
-            "end": 37.4225, 
+            "start": 37.07823, 
+            "speaker": "David", 
+            "end": 37.41746, 
             "word": "likely", 
             "alignedWord": "LIKELY"
         }, 
         {
-            "start": 37.4225, 
-            "end": 37.7425, 
+            "start": 37.41746, 
+            "speaker": "David", 
+            "end": 37.74671, 
             "word": "fresh", 
             "alignedWord": "FRESH"
         }, 
         {
-            "start": 37.7425, 
-            "end": 37.8525, 
+            "start": 37.74671, 
+            "speaker": "David", 
+            "end": 37.85646, 
             "word": "out", 
             "alignedWord": "OUT"
         }, 
         {
-            "start": 37.8525, 
-            "end": 37.9225, 
+            "start": 37.85646, 
+            "speaker": "David", 
+            "end": 37.9263, 
             "word": "of", 
             "alignedWord": "OF"
         }, 
         {
-            "start": 37.9225, 
-            "end": 37.9525, 
-            "word": "{pause}", 
+            "start": 37.9263, 
+            "end": 37.94626, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 37.9525, 
-            "end": 38.5125, 
+            "start": 37.94626, 
+            "speaker": "David", 
+            "end": 38.51497, 
             "word": "college.", 
             "alignedWord": "COLLEGE"
         }, 
         {
-            "start": 38.5125, 
-            "end": 39.4225, 
-            "word": "{pause}", 
+            "start": 38.51497, 
+            "end": 39.45283, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 39.4225, 
-            "end": 39.5725, 
+            "start": 39.45283, 
+            "speaker": "David", 
+            "end": 39.57256, 
             "word": "She", 
             "alignedWord": "SHE"
         }, 
         {
-            "start": 39.5725, 
-            "end": 39.8625, 
+            "start": 39.57256, 
+            "speaker": "David", 
+            "end": 39.87188, 
             "word": "walked", 
             "alignedWord": "WALKED"
         }, 
         {
-            "start": 39.8625, 
-            "end": 40.3125, 
+            "start": 39.87188, 
+            "speaker": "David", 
+            "end": 40.32086, 
             "word": "beside", 
             "alignedWord": "BESIDE"
         }, 
         {
-            "start": 40.3125, 
-            "end": 40.5025, 
+            "start": 40.32086, 
+            "speaker": "David", 
+            "end": 40.51043, 
             "word": "me", 
             "alignedWord": "ME"
         }, 
         {
-            "start": 40.5025, 
-            "end": 40.6025, 
+            "start": 40.51043, 
+            "speaker": "David", 
+            "end": 40.6102, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 40.6025, 
-            "end": 40.9125, 
+            "start": 40.6102, 
+            "speaker": "David", 
+            "end": 40.9195, 
             "word": "asked", 
             "alignedWord": "ASKED"
         }, 
         {
-            "start": 40.9125, 
-            "end": 41.0325, 
+            "start": 40.9195, 
+            "speaker": "David", 
+            "end": 41.03923, 
             "word": "what", 
             "alignedWord": "WHAT"
         }, 
         {
-            "start": 41.0325, 
-            "end": 41.4525, 
+            "start": 41.03923, 
+            "speaker": "David", 
+            "end": 41.4483, 
             "word": "appeared", 
             "alignedWord": "APPEARED"
         }, 
         {
-            "start": 41.4525, 
-            "end": 41.5125, 
+            "start": 41.4483, 
+            "speaker": "David", 
+            "end": 41.50816, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 41.5125, 
-            "end": 41.6925, 
+            "start": 41.50816, 
+            "speaker": "David", 
+            "end": 41.69773, 
             "word": "be", 
             "alignedWord": "BE"
         }, 
         {
-            "start": 41.6925, 
-            "end": 41.7725, 
+            "start": 41.69773, 
+            "speaker": "David", 
+            "end": 41.77755, 
             "word": "an", 
             "alignedWord": "AN"
         }, 
         {
-            "start": 41.7725, 
-            "end": 42.2825, 
+            "start": 41.77755, 
+            "speaker": "David", 
+            "end": 42.27642, 
             "word": "innocent", 
             "alignedWord": "INNOCENT"
         }, 
         {
-            "start": 42.2825, 
-            "end": 42.4025, 
+            "start": 42.27642, 
+            "speaker": "David", 
+            "end": 42.39615, 
             "word": "and", 
             "alignedWord": "AND"
         }, 
         {
-            "start": 42.4025, 
-            "end": 42.9125, 
+            "start": 42.39615, 
+            "speaker": "David", 
+            "end": 42.91497, 
             "word": "unrelated", 
             "alignedWord": "UNRELATED"
         }, 
         {
-            "start": 42.9125, 
-            "end": 43.4325, 
+            "start": 42.91497, 
+            "speaker": "David", 
+            "end": 43.45374, 
             "word": "question:", 
             "alignedWord": "QUESTION"
         }, 
         {
-            "start": 43.4325, 
-            "end": 44.5325, 
-            "word": "{pause}", 
-            "alignedWord": "sp"
-        }, 
-        {
-            "start": 44.5325, 
-            "end": 44.6825, 
+            "start": 43.45374, 
+            "speaker": "David", 
+            "end": 43.51361, 
             "word": "\"So,", 
             "alignedWord": "SO"
         }, 
         {
-            "start": 44.6825, 
-            "end": 44.9025, 
+            "start": 43.51361, 
+            "end": 43.54354, 
+            "word": "{p}", 
+            "alignedWord": "sp"
+        }, 
+        {
+            "start": 43.54354, 
+            "speaker": "David", 
+            "end": 44.90045, 
             "word": "which", 
             "alignedWord": "WHICH"
         }, 
         {
-            "start": 44.9025, 
-            "end": 44.9925, 
+            "start": 44.90045, 
+            "speaker": "David", 
+            "end": 44.99025, 
             "word": "do", 
             "alignedWord": "DO"
         }, 
         {
-            "start": 44.9925, 
-            "end": 45.0825, 
+            "start": 44.99025, 
+            "speaker": "David", 
+            "end": 45.09002, 
             "word": "you", 
             "alignedWord": "YOU"
         }, 
         {
-            "start": 45.0825, 
-            "end": 45.3225, 
+            "start": 45.09002, 
+            "speaker": "David", 
+            "end": 45.30952, 
             "word": "like", 
             "alignedWord": "LIKE"
         }, 
         {
-            "start": 45.3225, 
-            "end": 45.6825, 
+            "start": 45.30952, 
+            "speaker": "David", 
+            "end": 45.67868, 
             "word": "better,", 
             "alignedWord": "BETTER"
         }, 
         {
-            "start": 45.6825, 
-            "end": 45.9025, 
-            "word": "{pause}", 
+            "start": 45.67868, 
+            "end": 45.88821, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 45.9025, 
-            "end": 46.2625, 
+            "start": 45.88821, 
+            "speaker": "David", 
+            "end": 46.26735, 
             "word": "State", 
             "alignedWord": "STATE"
         }, 
         {
-            "start": 46.2625, 
-            "end": 46.3325, 
+            "start": 46.26735, 
+            "speaker": "David", 
+            "end": 46.32721, 
             "word": "or", 
             "alignedWord": "OR"
         }, 
         {
-            "start": 46.3325, 
-            "end": 46.9325, 
+            "start": 46.32721, 
+            "speaker": "David", 
+            "end": 46.9458, 
             "word": "Carolina?\"", 
             "alignedWord": "CAROLINA"
         }, 
         {
-            "start": 46.9325, 
-            "end": 48.1825, 
-            "word": "{pause}", 
+            "start": 46.9458, 
+            "end": 48.18299, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }, 
         {
-            "start": 48.1825, 
-            "end": 48.3025, 
+            "start": 48.18299, 
+            "speaker": "David", 
+            "end": 48.30272, 
             "word": "She", 
             "alignedWord": "SHE"
         }, 
         {
-            "start": 48.3025, 
-            "end": 48.4425, 
+            "start": 48.30272, 
+            "speaker": "David", 
+            "end": 48.43243, 
             "word": "was", 
             "alignedWord": "WAS"
         }, 
         {
-            "start": 48.4425, 
-            "end": 48.9725, 
+            "start": 48.43243, 
+            "speaker": "David", 
+            "end": 48.96122, 
             "word": "referring", 
             "alignedWord": "REFERRING"
         }, 
         {
-            "start": 48.9725, 
-            "end": 49.0825, 
+            "start": 48.96122, 
+            "speaker": "David", 
+            "end": 49.08095, 
             "word": "to", 
             "alignedWord": "TO"
         }, 
         {
-            "start": 49.0825, 
-            "end": 49.2125, 
+            "start": 49.08095, 
+            "speaker": "David", 
+            "end": 49.23061, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 49.2125, 
-            "end": 49.7425, 
+            "start": 49.23061, 
+            "speaker": "David", 
+            "end": 49.75941, 
             "word": "athletic", 
             "alignedWord": "ATHLETIC"
         }, 
         {
-            "start": 49.7425, 
-            "end": 50.3225, 
+            "start": 49.75941, 
+            "speaker": "David", 
+            "end": 50.31814, 
             "word": "rivalry", 
             "alignedWord": "RIVALRY"
         }, 
         {
-            "start": 50.3225, 
-            "end": 50.6725, 
+            "start": 50.31814, 
+            "speaker": "David", 
+            "end": 50.67732, 
             "word": "between", 
             "alignedWord": "BETWEEN"
         }, 
         {
-            "start": 50.6725, 
-            "end": 50.7425, 
+            "start": 50.67732, 
+            "speaker": "David", 
+            "end": 50.74717, 
             "word": "the", 
             "alignedWord": "THE"
         }, 
         {
-            "start": 50.7425, 
-            "end": 51.3925, 
+            "start": 50.74717, 
+            "speaker": "David", 
+            "end": 51.39569, 
             "word": "Triangle", 
             "alignedWord": "TRIANGLE"
         }, 
         {
-            "start": 51.3925, 
-            "end": 51.8425, 
+            "start": 51.39569, 
+            "speaker": "David", 
+            "end": 51.83469, 
             "word": "area's", 
             "alignedWord": "AREA'S"
         }, 
         {
-            "start": 51.8425, 
-            "end": 52.0925, 
+            "start": 51.83469, 
+            "speaker": "David", 
+            "end": 52.0941, 
             "word": "two", 
             "alignedWord": "TWO"
         }, 
         {
-            "start": 52.0925, 
-            "end": 52.5425, 
+            "start": 52.0941, 
+            "speaker": "David", 
+            "end": 52.55306, 
             "word": "largest", 
             "alignedWord": "LARGEST"
         }, 
         {
-            "start": 52.5425, 
-            "end": 53.3425, 
+            "start": 52.55306, 
+            "speaker": "David", 
+            "end": 53.32132, 
             "word": "universities.", 
             "alignedWord": "UNIVERSITIES"
         }, 
         {
-            "start": 53.3425, 
-            "end": 53.7725, 
-            "word": "{pause}", 
+            "start": 53.32132, 
+            "end": 53.77029, 
+            "word": "{p}", 
             "alignedWord": "sp"
         }
     ]

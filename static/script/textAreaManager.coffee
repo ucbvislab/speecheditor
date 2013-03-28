@@ -110,6 +110,7 @@ class ScriptArea
             .bind('mousemove', =>
                 sel = @area.getSelection()
                 [startInd, endInd] = @rangeIndices(sel.start, sel.end)
+                console.log "highlight in words", startInd, endInd
                 @tam.highlightWordsInWaveform startInd, endInd, @
             )
             .bind('mouseup', @adjustSelection)
@@ -531,7 +532,7 @@ class TextAreaManager
     constructor: (@el, @speakers, @words, @current, settings) ->
         settings ?= {}
         @locked = if "locked" of settings then settings.locked else false
-        @textAlignedWf = if "wf" of settings then settings.wf else null
+        @textAlignedWfs = if "wfs" of settings then settings.wfs else null
 
         @headerTable = $(document.createElement 'table')
             .attr("width", "100%")
@@ -616,8 +617,8 @@ class TextAreaManager
         @emphasizeWords()
         @insertDupeOverlays @dupes, @dupeInfo
         
-        if @textAlignedWf?
-            $(@textAlignedWf).textAlignedWaveform
+        if @textAlignedWfs?
+            $(_.values(@textAlignedWfs)).textAlignedWaveform
                 currentWords: @current
         
         @dirtyTas = []
@@ -677,15 +678,24 @@ class TextAreaManager
                 match.push idx
             )
         console.log "prune by TA", match[0], _.last(match)
-        @pruneCurrent(match[0], _.last(match) + 1, ta)
+        @pruneByTAIndex(match[0], _.last(match) + 1, ta)
     
-    pruneCurrent: (start, end, ta, refresh) ->
+    pruneByTAIndex: (start, end, ta, refresh) ->
         refresh ?= true
         taIndex = @tas.indexOf ta
         offset = @taIndexSpan[taIndex]
-        @current.splice start + offset, end - start
-        
-        console.log "offset", offset, "start", start, "end", end
+        @pruneCurrent(start + offset, end + offset, refresh)
+
+    pruneCurrent: (start, end, refresh) ->
+        refresh ?= true
+
+        cutWords = @current.splice start, end - start
+
+        # TODO: BUG: will a problem if we have words from more than one TA
+
+        taIndex = cutWords[0].taIdx
+        ta = @tas[taIndex]
+
         
         # update the script area trackers
         for txtarea, i in @tas
@@ -705,14 +715,27 @@ class TextAreaManager
 
     pruneAll: ->
         for ta in @tas
-            @pruneCurrent 0, ta.words.length, ta, false
+            @pruneByTAIndex 0, ta.words.length, ta, false
         @refresh()
 
     highlightWordsInWaveform: (start, end, ta) ->
-        if @textAlignedWf?
+        if @textAlignedWfs?
             offset = @taIndexSpan[@tas.indexOf ta]
-            $(@textAlignedWf).textAlignedWaveform
-                highlightedWordsRange: [offset + start, offset + end + 1]
+            if @highlightedWordsRange?[0] isnt offset + start or
+            @highlightedWordsRange?[1] isnt offset + end
+                @highlightedWordsRange = [offset + start, offset + end]
+
+                # highlight speaker's waveform
+                $(@textAlignedWfs[ta.speaker]).textAlignedWaveform
+                    highlightedWordsRange: @highlightedWordsRange
+                
+                # unhighlight others
+                for speaker in @speakers
+                    if speaker isnt ta.speaker
+                        $(@textAlignedWfs[speaker]).textAlignedWaveform
+                            highlightedWordsRange: undefined
+
+
 
     highlightWords: (start, end) ->
         if start is -1
@@ -1055,7 +1078,7 @@ class TextAreaManager
     replaceWords: (c1, c2, w1, w2, ta, pos) ->
         # replace words from c1 to c2 in @current
         # with words w1 through w2 in the original words
-        @pruneCurrent c1, c2 + 1, ta
+        @pruneByTAIndex c1, c2 + 1, ta
         return @insertWords _.range(w1, w2 + 1), pos, ta
     
     removeTA: (ta) ->

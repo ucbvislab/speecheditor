@@ -114,6 +114,7 @@
 
         sel = _this.area.getSelection();
         _ref = _this.rangeIndices(sel.start, sel.end), startInd = _ref[0], endInd = _ref[1];
+        console.log("highlight in words", startInd, endInd);
         return _this.tam.highlightWordsInWaveform(startInd, endInd, _this);
       }).bind('mouseup', this.adjustSelection);
       this.overlays.bind('mouseup', this.adjustSelection);
@@ -563,7 +564,7 @@
         settings = {};
       }
       this.locked = "locked" in settings ? settings.locked : false;
-      this.textAlignedWf = "wf" in settings ? settings.wf : null;
+      this.textAlignedWfs = "wfs" in settings ? settings.wfs : null;
       this.headerTable = $(document.createElement('table')).attr("width", "100%").appendTo(this.el);
       this.container = $(document.createElement('div')).css({
         "overflow-x": "hidden",
@@ -652,8 +653,8 @@
       this.adjustHeight();
       this.emphasizeWords();
       this.insertDupeOverlays(this.dupes, this.dupeInfo);
-      if (this.textAlignedWf != null) {
-        $(this.textAlignedWf).textAlignedWaveform({
+      if (this.textAlignedWfs != null) {
+        $(_.values(this.textAlignedWfs)).textAlignedWaveform({
           currentWords: this.current
         });
       }
@@ -724,19 +725,29 @@
         }
       });
       console.log("prune by TA", match[0], _.last(match));
-      return this.pruneCurrent(match[0], _.last(match) + 1, ta);
+      return this.pruneByTAIndex(match[0], _.last(match) + 1, ta);
     };
 
-    TextAreaManager.prototype.pruneCurrent = function(start, end, ta, refresh) {
-      var i, offset, taIndex, txtarea, _i, _len, _ref;
+    TextAreaManager.prototype.pruneByTAIndex = function(start, end, ta, refresh) {
+      var offset, taIndex;
 
       if (refresh == null) {
         refresh = true;
       }
       taIndex = this.tas.indexOf(ta);
       offset = this.taIndexSpan[taIndex];
-      this.current.splice(start + offset, end - start);
-      console.log("offset", offset, "start", start, "end", end);
+      return this.pruneCurrent(start + offset, end + offset, refresh);
+    };
+
+    TextAreaManager.prototype.pruneCurrent = function(start, end, refresh) {
+      var cutWords, i, ta, taIndex, txtarea, _i, _len, _ref;
+
+      if (refresh == null) {
+        refresh = true;
+      }
+      cutWords = this.current.splice(start, end - start);
+      taIndex = cutWords[0].taIdx;
+      ta = this.tas[taIndex];
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         txtarea = _ref[i];
@@ -761,19 +772,35 @@
       _ref = this.tas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
-        this.pruneCurrent(0, ta.words.length, ta, false);
+        this.pruneByTAIndex(0, ta.words.length, ta, false);
       }
       return this.refresh();
     };
 
     TextAreaManager.prototype.highlightWordsInWaveform = function(start, end, ta) {
-      var offset;
+      var offset, speaker, _i, _len, _ref, _ref1, _ref2, _results;
 
-      if (this.textAlignedWf != null) {
+      if (this.textAlignedWfs != null) {
         offset = this.taIndexSpan[this.tas.indexOf(ta)];
-        return $(this.textAlignedWf).textAlignedWaveform({
-          highlightedWordsRange: [offset + start, offset + end + 1]
-        });
+        if (((_ref = this.highlightedWordsRange) != null ? _ref[0] : void 0) !== offset + start || ((_ref1 = this.highlightedWordsRange) != null ? _ref1[1] : void 0) !== offset + end) {
+          this.highlightedWordsRange = [offset + start, offset + end];
+          $(this.textAlignedWfs[ta.speaker]).textAlignedWaveform({
+            highlightedWordsRange: this.highlightedWordsRange
+          });
+          _ref2 = this.speakers;
+          _results = [];
+          for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+            speaker = _ref2[_i];
+            if (speaker !== ta.speaker) {
+              _results.push($(this.textAlignedWfs[speaker]).textAlignedWaveform({
+                highlightedWordsRange: void 0
+              }));
+            } else {
+              _results.push(void 0);
+            }
+          }
+          return _results;
+        }
       }
     };
 
@@ -1170,7 +1197,7 @@
     };
 
     TextAreaManager.prototype.replaceWords = function(c1, c2, w1, w2, ta, pos) {
-      this.pruneCurrent(c1, c2 + 1, ta);
+      this.pruneByTAIndex(c1, c2 + 1, ta);
       return this.insertWords(_.range(w1, w2 + 1), pos, ta);
     };
 

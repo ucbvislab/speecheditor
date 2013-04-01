@@ -13,14 +13,24 @@ from radiotool.composer import Composition, Track, Segment
 
 
 def changepoint_path(wav_fn, length, graph=None, markers=None,
-    sim_mat=None, avg_duration=None, APP_PATH=None, nchangepoints=4):
+    sim_mat=None, avg_duration=None, APP_PATH=None, nchangepoints=4,
+    min_start=None):
     """wave filename and graph from that wav, length in seconds"""
     # generate changepoints
     try:
         cpraw = subprocess.check_output([
             APP_PATH + 'music_changepoints/novelty',
-            wav_fn, '64', 'rms', 'euc', str(nchangepoints)])
-        changepoints = [float(c) for c in cpraw.split('\n') if len(c) > 0]
+            wav_fn, '64', 'rms', 'euc', str(nchangepoints) * 3])
+        tmp_changepoints = [float(c) for c in cpraw.split('\n') if len(c) > 0]
+        changepoints = []
+        cp_idx = 0
+        while len(changepoints) < nchangepoints:
+            if min_start is None:
+                changepoints.append(tmp_changepoints[cp_idx])
+            elif tmp_changepoints[cp_idx] >= min_start:
+                changepoints.append(tmp_changepoints[cp_idx])
+            cp_idx += 1
+
     except:
         changepoints = novelty(wav_fn, k=64, nchangepoints=nchangepoints)
 
@@ -76,12 +86,12 @@ def changepoint_path(wav_fn, length, graph=None, markers=None,
                             length=node_count)
             res, cost = pf.find(avoid=avoid_nodes)
             if res is not None:
-                out.append((res, cost))
+                out.append((res, cost, map(lambda x: node_to_cp[str(x)], pair)))
 
     return out, changepoints
 
 def best_changepoint_path(wav_fn, npz_fn, length, 
-    APP_PATH=None, nchangepoints=4):
+    APP_PATH=None, nchangepoints=4, min_start=15):
 
     basename = os.path.basename(wav_fn)
 
@@ -96,14 +106,26 @@ def best_changepoint_path(wav_fn, npz_fn, length,
         sim_mat=sim_mat,
         avg_duration=avg_duration,
         APP_PATH=APP_PATH,
-        nchangepoints=nchangepoints)
+        nchangepoints=nchangepoints,
+        min_start=15)
 
     if len(out) > 0:
-        best, best_cost = min(out, key=lambda x: x[1])
-        print "BEST PATH:", best
-        return best
+        best, best_cost, cps = min(out, key=lambda x: x[1])
 
-    return []
+        nodes = map(str, markers)
+        durs = []
+        print best[-1], nodes
+        for i, b in enumerate(best[:-1]):
+            try:
+                dur = float(nodes[nodes.index(b) + 1]) - float(b)
+            except:
+                dur = float(b) - float(nodes[nodes.index(b) - 1])
+            durs.append(dur)
+
+        print "BEST PATH:", best
+        return best, best_cost, cps, durs
+
+    return [], 0
 
 if __name__ == '__main__':
     wav_fn = sys.argv[1]

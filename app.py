@@ -59,16 +59,17 @@ def reauthor():
                     af = json.loads(f.read())["words"]
                 ef = dat["speechReauthor"]["words"]
 
-                crossfades = True
-                if "crossfades" in dat:
-                    crossfades = dat["crossfades"]
+                # crossfades = True
+                # if "crossfades" in dat:
+                #     crossfades = dat["crossfades"]
 
                 args = {
-                    "cut_to_zc": False,
+                    "cut_to_zc": True,
                     "samplerate": dat["speechSampleRate"],
                     "tracks_and_segments": True,
                     "score_start": score_start,
-                    "crossfades": crossfades
+                    "crossfades": True,
+                    "render_from_all_tracks": False
                 }
 
                 speech_audio_path = APP_PATH + 'static/' + dat["speechAudio"]
@@ -267,6 +268,7 @@ def dupes():
 
 @app.route('/changepoints/<song_name>')
 def find_change_points(song_name):
+    song_name = secure_filename(urllib.unquote(song_name))
     wav_fn = APP_PATH + 'static/uploads/' + song_name + '.wav'
     try:
         cpraw = subprocess.check_output([
@@ -284,15 +286,19 @@ def find_change_points(song_name):
 def retargeted_underlay(song_name, length, before, after):
     solo_length = 6.0
 
+    song_name = secure_filename(urllib.unquote(song_name))
+
     wav_fn = APP_PATH + 'static/uploads/' + song_name + '.wav'
     npz_fn = APP_PATH + 'static/uploads/' + song_name + '.npz'
 
-    beat_path = best_changepoint_path(
+    beat_path, best_cost, cps, durs = best_changepoint_path(
         wav_fn,
         npz_fn,
         length + solo_length,
         APP_PATH=APP_PATH,
         nchangepoints=4)
+
+    print "changepoints", cps
 
     npz = N.load(npz_fn)
 
@@ -312,25 +318,54 @@ def retargeted_underlay(song_name, length, before, after):
 
     middle = round(avg_duration[0] * len(beat_path), 5)
 
+
+    # I think these word as they're supposed to, but I'm not 100% sure
+    cp1_delta = round(float(beat_path[0]) - float(cps[0]), 5)
+    cp2_delta = round(float(beat_path[-1]) - float(cps[1]), 5)
+
+    between_dur = N.sum(durs) + cp1_delta + cp2_delta
+
+    print "deltas", cp1_delta, cp2_delta
+
+    # try:
+    #     # before_dur = round(float(beat_path[0]) - float(beat_path_start[0]), 5)
+    #     before_dur = round(float(cps[0]) - float(beat_path_start[0]), 5) 
+    # except:
+    #     before_dur = 0
+
+    # out = {
+    #     "beats": beat_path_start + beat_path + beat_path_end,
+    #     "before": before_dur,
+    #     "middle": round(length, 5),
+    #     "solo1": round(middle - (length + cp1_delta), 5),
+    #     "solo2": float(solo_length + cp2_delta),
+    #     "after": round(float(beat_path_end[-1]) - float(beat_path[-1]) - solo_length, 5),
+    #     "changepoints": cps
+    #     #"changepoints": [beat_path[0], beat_path[-1]],
+    # }
+
     try:
-        before_dur = round(float(beat_path[0]) - float(beat_path_start[0]), 5)
+        # before_dur = round(float(beat_path[0]) - float(beat_path_start[0]), 5)
+        before_dur = round(float(cps[0]) - float(beat_path_start[0]), 5) 
     except:
         before_dur = 0
 
     out = {
         "beats": beat_path_start + beat_path + beat_path_end,
         "before": before_dur,
-        "middle": length,
-        "solo1": round(middle - length, 5),
-        "solo2": float(solo_length),
-        "after": round(float(beat_path_end[-1]) - float(beat_path[-1]) - solo_length, 5),
-        "changepoints": [beat_path[0], beat_path[-1]],
+        "solo1": round(between_dur - length - .5, 5),
+        "middle": round(length, 5),
+        "solo2": solo_length,
+        "after": round(float(beat_path_end[-1]) - float(cps[1]) - solo_length, 5),
+        "changepoints": cps,
     }
 
     # quick check! just in case
     while out["before"] > before:
+        print out["beats"]
         out["beats"] = out["beats"][1:]
-        out["before"] = round(float(beat_path[0]) - float(out["beats"][0]), 5)
+        # out["before"] = round(float(beat_path[0]) - float(out["beats"][0]), 5)
+        out["before"] = round(float(cps[0]) - float(out["beats"][0]), 5)
 
     out["total"] = out["before"] + out["solo1"] + out["middle"] +\
         out["solo2"] + out["after"]
@@ -338,6 +373,9 @@ def retargeted_underlay(song_name, length, before, after):
     out["total"] = round(out["total"], 5)
 
     print out
+
+    print "\n\n### Target:", (length + solo_length) / avg_duration
+    print "### Cost:", best_cost
 
     return jsonify(**out)
 
@@ -401,7 +439,8 @@ def upload_song():
         "path": "uploads/" + filename,
         "name": basename.split('.')[0],
         "title": song_title,
-        "artist": song_artist
+        "artist": song_artist,
+        "basename": os.path.splitext(filename)[0]
     }
 
     # get length of song upload

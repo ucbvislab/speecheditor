@@ -288,6 +288,11 @@ MBAPP.loadTable = function () {
                         $("#pivot").html('"' + oData.title + 
                                 '" - ' + oData.artist); 
                         $("#pivot").attr('data-pivot-song-id', song_id);
+
+                        MBAPP.fnPivotValidIDs();
+                        MBAPP.oTable.fnDraw();    
+                        MBAPP.oTable.fnSort([[0, 'asc']]);
+
                     })
                 }
             },

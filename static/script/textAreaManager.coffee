@@ -108,10 +108,11 @@ class ScriptArea
                         e.preventDefault()
                 )
             .bind('mousemove', =>
-                sel = @area.getSelection()
-                [startInd, endInd] = @rangeIndices(sel.start, sel.end)
-                console.log "highlight in words", startInd, endInd
-                @tam.highlightWordsInWaveform startInd, endInd, @
+                # TODO: make this more efficient... too slow for every mouse move
+                # sel = @area.getSelection()
+                # [startInd, endInd] = @rangeIndices(sel.start, sel.end)
+                # console.log "highlight in words", startInd, endInd
+                # @tam.highlightWordsInWaveform startInd, endInd, @
             )
             .bind('mouseup', @adjustSelection)
         
@@ -314,11 +315,12 @@ class ScriptArea
         addInds = [breath]
         
         # let's not do this for now... I don't know
-        if TAAPP?.speech of TAAPP.roomTone and false
+        if TAAPP?.speech of TAAPP.roomTone
             # create general pause before and after
-            gp = '{gp-0.08}'
+            gp1 = '{gp-0.02}'
+            gp2 = '{gp-0.05}'
             
-            addInds = [gp, breath, gp]
+            addInds = [gp1, breath, gp2]
         
         @tam.insertWords addInds, range.end, @
         
@@ -345,7 +347,7 @@ class ScriptArea
         
         rw = @_renderWord
         
-        emphHTML = _.reduce @words, ((memo, word, idx) ->
+        emphHTML = _.reduce @words, ((memo, word, idx) =>
             wrapLeft = ""
             wrapRight = ""
             if word.origPos? and word.origPos - 1 isnt this[0]
@@ -365,6 +367,10 @@ class ScriptArea
                 # out = "<span class='pause'>#{out}</span>"
             else if word.alignedWord is "{BR}"
                 wrapLeft += "<span class='breath'>"
+                wrapRight += "</span>"
+            else if word.alignedWord is @words[idx - 1]?.alignedWord\
+            or @words[idx + 1]?.alignedWord is word.alignedWord
+                wrapLeft += "<span class='repeatedWord'>"
                 wrapRight += "</span>"
             this[0] = word.origPos
             return "#{memo}#{rw(word, false, wrapLeft, wrapRight)}"
@@ -612,6 +618,8 @@ class TextAreaManager
     refresh: ->
         @dirtyTas = _.uniq(@dirtyTas)
         
+        ta.name = i for ta, i in @tas
+
         @updatePos()
         @adjustHeight()
         @emphasizeWords()
@@ -696,7 +704,8 @@ class TextAreaManager
         taIndex = cutWords[0].taIdx
         ta = @tas[taIndex]
 
-        
+        console.log "taIndex", taIndex, "ta", ta
+
         # update the script area trackers
         for txtarea, i in @tas
             if i > taIndex
@@ -780,6 +789,7 @@ class TextAreaManager
         # or RIGHT WRONG
         # or WRONG RIGHT
         # or RIGHT
+        # or WRONG
         
         tai = @tas.indexOf ta
         offset = @taIndexSpan[tai]
@@ -796,6 +806,22 @@ class TextAreaManager
                 lastSpeaker = word.speaker
         
         if pattern.length is 1 and pattern[0]
+            @refresh()
+            return
+
+        if pattern.length is 1 and not pattern[0]
+            # right wrong right
+            words = ta.words[..]
+            
+            col = @speakers.indexOf lastSpeaker
+            ta.speaker = lastSpeaker
+
+            # move the content to a different column
+            ta.el.closest('tr')
+                .find('td')
+                .eq(col)
+                .append(ta.el)
+
             @refresh()
             return
         
@@ -1094,6 +1120,10 @@ class TextAreaManager
                 @tas[taIndex - 1].words.concat @tas[taIndex].words
             )
             @removeTA @tas[taIndex]
+
+        # mark tas after this one as dirty (they need to run updatePos)
+        Array::push.apply @dirtyTas, @tas.slice(taIndex)
+
         @refresh()
     
     log: (statements...) ->

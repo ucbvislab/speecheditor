@@ -7,7 +7,7 @@ wav_fn = sys.argv[1]
 transcript_fn = sys.argv[2]
 speaker = sys.argv[3]
 
-basename = os.path.basename(wav_fn)
+basename = ".".join(os.path.basename(wav_fn).split('.')[:-1])
 
 transcript = json.load(open(transcript_fn, 'r'))["words"]
 

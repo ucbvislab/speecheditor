@@ -2136,8 +2136,12 @@ $.fn.wf = function () {
             if (canv !== undefined) {
                 gradient = canv.getContext('2d')
                     .createLinearGradient(0, 0, 0, parseInt(this.options.canvHeight));
-                gradient.addColorStop(0.0, "#4BF2A7" );
-                gradient.addColorStop(1.0, "#32CD32" );
+
+                gradient.addColorStop(0.0, "#333");
+                gradient.addColorStop(1.0, "#777");
+
+                // gradient.addColorStop(0.0, "#4BF2A7" );
+                // gradient.addColorStop(1.0, "#32CD32" );
             }
             
             if (!hasData) {
@@ -2180,7 +2184,8 @@ $.fn.wf = function () {
                 canvas: canv,
                 data: currentSamples,
                 innerColor: colorFunc,
-                outerColor: "#333333",
+                outerColor: "#eee",
+                // outerColor: "#333333",
                 height: this.options.canvHeight,
                 interpolate: true,
                 width: this.width()
@@ -2923,8 +2928,11 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             if (canv !== undefined) {
                 gradient = canv.getContext('2d')
                     .createLinearGradient(0, 0, 0, parseInt(this.options.canvHeight, 10));
-                gradient.addColorStop(0.0, "#4BF2A7" );
-                gradient.addColorStop(1.0, "#32CD32" );
+                // gradient.addColorStop(0.0, "#4BF2A7" );
+                // gradient.addColorStop(1.0, "#32CD32" );
+
+                gradient.addColorStop(0.0, "#333");
+                gradient.addColorStop(1.0, "#777");
             }
             
             if (!hasData) {
@@ -2935,7 +2943,8 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
                 canvas: canv,
                 data: currentSamples,
                 innerColor: gradient,
-                outerColor: "#333",
+                outerColor: "#eee",
+                // outerColor: "#333",
                 height: this.options.canvHeight,
                 interpolate: true,
                 width: this.width()
@@ -2996,7 +3005,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             var mainctx = this.options._mcanv.getContext('2d');
 
             // mainctx.save();
-            mainctx.strokeStyle = "yellow";
+            mainctx.strokeStyle = "#CFB52B";
             mainctx.lineWidth = 3;
             mainctx.beginPath();
 
@@ -3761,14 +3770,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             }
             return e.preventDefault();
         }
-      }).bind('mousemove', function() {
-        var endInd, sel, startInd, _ref;
-
-        sel = _this.area.getSelection();
-        _ref = _this.rangeIndices(sel.start, sel.end), startInd = _ref[0], endInd = _ref[1];
-        console.log("highlight in words", startInd, endInd);
-        return _this.tam.highlightWordsInWaveform(startInd, endInd, _this);
-      }).bind('mouseup', this.adjustSelection);
+      }).bind('mousemove', function() {}).bind('mouseup', this.adjustSelection);
       this.overlays.bind('mouseup', this.adjustSelection);
     }
 
@@ -3988,7 +3990,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     ScriptArea.prototype.addPeriod = function() {
-      var addInds, breath, breathInds, gp, i, range, sel, topBreaths,
+      var addInds, breath, breathInds, gp1, gp2, i, range, sel, topBreaths,
         _this = this;
 
       console.log("Adding a period");
@@ -4008,9 +4010,10 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       });
       breath = topBreaths[Math.floor(Math.random() * topBreaths.length)];
       addInds = [breath];
-      if ((typeof TAAPP !== "undefined" && TAAPP !== null ? TAAPP.speech : void 0) in TAAPP.roomTone && false) {
-        gp = '{gp-0.08}';
-        addInds = [gp, breath, gp];
+      if ((typeof TAAPP !== "undefined" && TAAPP !== null ? TAAPP.speech : void 0) in TAAPP.roomTone) {
+        gp1 = '{gp-0.02}';
+        gp2 = '{gp-0.05}';
+        addInds = [gp1, breath, gp2];
       }
       return this.tam.insertWords(addInds, range.end, this);
     };
@@ -4038,16 +4041,17 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     ScriptArea.prototype.emphasizeWords = function() {
-      var ctx, emphHTML, rw;
+      var ctx, emphHTML, rw,
+        _this = this;
 
       ctx = [-1];
       rw = this._renderWord;
       emphHTML = _.reduce(this.words, (function(memo, word, idx) {
-        var wrapLeft, wrapRight;
+        var wrapLeft, wrapRight, _ref, _ref1;
 
         wrapLeft = "";
         wrapRight = "";
-        if ((word.origPos != null) && word.origPos - 1 !== this[0]) {
+        if ((word.origPos != null) && word.origPos - 1 !== _this[0]) {
           wrapLeft += "<span class='editLocation'>";
           wrapRight += "</span>";
         }
@@ -4065,8 +4069,11 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         } else if (word.alignedWord === "{BR}") {
           wrapLeft += "<span class='breath'>";
           wrapRight += "</span>";
+        } else if (word.alignedWord === ((_ref = _this.words[idx - 1]) != null ? _ref.alignedWord : void 0) || ((_ref1 = _this.words[idx + 1]) != null ? _ref1.alignedWord : void 0) === word.alignedWord) {
+          wrapLeft += "<span class='repeatedWord'>";
+          wrapRight += "</span>";
         }
-        this[0] = word.origPos;
+        _this[0] = word.origPos;
         return "" + memo + (rw(word, false, wrapLeft, wrapRight));
       }), "", ctx);
       return this.emphasis.html(emphHTML);
@@ -4300,7 +4307,14 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     TextAreaManager.prototype.refresh = function() {
+      var i, ta, _i, _len, _ref;
+
       this.dirtyTas = _.uniq(this.dirtyTas);
+      _ref = this.tas;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        ta = _ref[i];
+        ta.name = i;
+      }
       this.updatePos();
       this.adjustHeight();
       this.emphasizeWords();
@@ -4400,6 +4414,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       cutWords = this.current.splice(start, end - start);
       taIndex = cutWords[0].taIdx;
       ta = this.tas[taIndex];
+      console.log("taIndex", taIndex, "ta", ta);
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         txtarea = _ref[i];
@@ -4541,6 +4556,14 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         }
       }
       if (pattern.length === 1 && pattern[0]) {
+        this.refresh();
+        return;
+      }
+      if (pattern.length === 1 && !pattern[0]) {
+        words = ta.words.slice(0);
+        col = this.speakers.indexOf(lastSpeaker);
+        ta.speaker = lastSpeaker;
+        ta.el.closest('tr').find('td').eq(col).append(ta.el);
         this.refresh();
         return;
       }
@@ -4864,6 +4887,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         this.tas[taIndex - 1].updateWords(this.tas[taIndex - 1].words.concat(this.tas[taIndex].words));
         this.removeTA(this.tas[taIndex]);
       }
+      Array.prototype.push.apply(this.dirtyTas, this.tas.slice(taIndex));
       return this.refresh();
     };
 
@@ -5185,8 +5209,8 @@ TAAPP.roomTone = {
         "alignedWord": "gp"
     },
     "bullw": {
-        "start": 123.0,
-        "end": 124.266,
+        "start": 123.429,
+        "end": 124.388,
         "word": "{gpause}",
         "alignedWord": "gp"
     },
@@ -5217,6 +5241,18 @@ TAAPP.roomTone = {
     "obama": {
         "start": 996.424,
         "end": 1001.143,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "memo": {
+        "start": 8.1,
+        "end": 8.489,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "bluesmobile-interview": {
+        "start": 394.417,
+        "end": 394.941,
         "word": "{gpause}",
         "alignedWord": "gp"
     }
@@ -5291,10 +5327,15 @@ TAAPP.underlayWizard = function (wordIndex) {
 };
 
 TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
+    console.log("In create underlay. Word index", wordIndex);
     var speechLength = _.reduce(TAAPP.current.slice(0, wordIndex + 1),
         function (memo, word) {
+            if (word.pauseLength !== undefined) {
+                return memo + word.pauseLength;
+            }
             return memo + word.end - word.start
         }, 0.0);
+    console.log("Speech length", speechLength);
 
     // once we have the changepoints...
     var _build = function (cp) {
@@ -5320,7 +5361,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         // volume
         var vx = [0, 3000.,
                   bestms - start - 500, bestms - start + 500,
-                  bestms - start + 5750, bestms - start + 6500,
+                  bestms - start + 5000, bestms - start + 6000,
                   end - start - 3500, end - start - 500];
         var vy = [0, .15,
                   .15, .75,
@@ -5448,18 +5489,34 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             _build(songInfo[songName].changepoints);
             TAAPP.spinner.stop();
         } else {
-            $.getJSON('changepoints/' + songName, function (data) {
+            var basename = TAAPP.songInfo[songName].basename;
+            $.getJSON('changepoints/' + basename, function (data) {
                 TAAPP.songInfo[songName].changepoints = data.changepoints;
                 _build(data.changepoints);
                 TAAPP.spinner.stop();
             })
         }
 
+        var wordsAfter = TAAPP.current.slice(wordIndex + 1);
+
+        // get rid of pauses and breaths right after the emphasis point
+        var removedPauseOffset = 0;
+        while (wordsAfter[0].alignedWord === "sp" ||
+               wordsAfter[0].alignedWord === "{BR}" ||
+               wordsAfter[0].alignedWord === "gp") {
+            removedPauseOffset += 1;
+            var removed = wordsAfter.splice(0, 1)[0];
+            console.log("REMOVED", removed);
+            // var ta = TAAPP.TAManager.tas[removed.taIdx];
+            TAAPP.TAManager.pruneCurrent(
+                wordIndex + 1, wordIndex + 2, false);
+        }
+
         var word = TAAPP.current[wordIndex];
         var ta = TAAPP.TAManager.tas[word.taIdx];
         var pos = TAAPP.current[wordIndex + 1].taPos;
-
         TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
+
     } else {
         // create retargeted underlay
         var wordsBetween = TAAPP.current.slice(wordIndex + 1, wordIndex2 + 1);
@@ -5507,7 +5564,8 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             before = speechLength;
         }
 
-        $.getJSON('underlayRetarget/' + songName + '/' + retargetLength +
+        var basename = TAAPP.songInfo[songName].basename;
+        $.getJSON('underlayRetarget/' + basename + '/' + retargetLength +
             '/' + before + '/15.0',
             function (data) {
                 _buildMulti(data);
@@ -6013,6 +6071,12 @@ TAAPP.loadSite = function () {
         } else if (e.which === 85) {
             // u: underlay
             TAAPP.underlayWizard();
+        } else if (e.which === 82) {
+            // r: raw speech
+            $('.origSliderHandle').trigger('click');
+        } else if (e.which === 70) {
+            // f: music browser
+            $('.browserSliderHandle').trigger('click');
         }
     });
     
@@ -7533,6 +7597,11 @@ MBAPP.loadTable = function () {
                         $("#pivot").html('"' + oData.title + 
                                 '" - ' + oData.artist); 
                         $("#pivot").attr('data-pivot-song-id', song_id);
+
+                        MBAPP.fnPivotValidIDs();
+                        MBAPP.oTable.fnDraw();    
+                        MBAPP.oTable.fnSort([[0, 'asc']]);
+
                     })
                 }
             },

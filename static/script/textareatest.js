@@ -300,8 +300,8 @@ TAAPP.roomTone = {
         "alignedWord": "gp"
     },
     "bullw": {
-        "start": 123.0,
-        "end": 124.266,
+        "start": 123.429,
+        "end": 124.388,
         "word": "{gpause}",
         "alignedWord": "gp"
     },
@@ -332,6 +332,18 @@ TAAPP.roomTone = {
     "obama": {
         "start": 996.424,
         "end": 1001.143,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "memo": {
+        "start": 8.1,
+        "end": 8.489,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "bluesmobile-interview": {
+        "start": 394.417,
+        "end": 394.941,
         "word": "{gpause}",
         "alignedWord": "gp"
     }
@@ -406,10 +418,15 @@ TAAPP.underlayWizard = function (wordIndex) {
 };
 
 TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
+    console.log("In create underlay. Word index", wordIndex);
     var speechLength = _.reduce(TAAPP.current.slice(0, wordIndex + 1),
         function (memo, word) {
+            if (word.pauseLength !== undefined) {
+                return memo + word.pauseLength;
+            }
             return memo + word.end - word.start
         }, 0.0);
+    console.log("Speech length", speechLength);
 
     // once we have the changepoints...
     var _build = function (cp) {
@@ -435,7 +452,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
         // volume
         var vx = [0, 3000.,
                   bestms - start - 500, bestms - start + 500,
-                  bestms - start + 5750, bestms - start + 6500,
+                  bestms - start + 5000, bestms - start + 6000,
                   end - start - 3500, end - start - 500];
         var vy = [0, .15,
                   .15, .75,
@@ -563,18 +580,34 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             _build(songInfo[songName].changepoints);
             TAAPP.spinner.stop();
         } else {
-            $.getJSON('changepoints/' + songName, function (data) {
+            var basename = TAAPP.songInfo[songName].basename;
+            $.getJSON('changepoints/' + basename, function (data) {
                 TAAPP.songInfo[songName].changepoints = data.changepoints;
                 _build(data.changepoints);
                 TAAPP.spinner.stop();
             })
         }
 
+        var wordsAfter = TAAPP.current.slice(wordIndex + 1);
+
+        // get rid of pauses and breaths right after the emphasis point
+        var removedPauseOffset = 0;
+        while (wordsAfter[0].alignedWord === "sp" ||
+               wordsAfter[0].alignedWord === "{BR}" ||
+               wordsAfter[0].alignedWord === "gp") {
+            removedPauseOffset += 1;
+            var removed = wordsAfter.splice(0, 1)[0];
+            console.log("REMOVED", removed);
+            // var ta = TAAPP.TAManager.tas[removed.taIdx];
+            TAAPP.TAManager.pruneCurrent(
+                wordIndex + 1, wordIndex + 2, false);
+        }
+
         var word = TAAPP.current[wordIndex];
         var ta = TAAPP.TAManager.tas[word.taIdx];
         var pos = TAAPP.current[wordIndex + 1].taPos;
-
         TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
+
     } else {
         // create retargeted underlay
         var wordsBetween = TAAPP.current.slice(wordIndex + 1, wordIndex2 + 1);
@@ -622,7 +655,8 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             before = speechLength;
         }
 
-        $.getJSON('underlayRetarget/' + songName + '/' + retargetLength +
+        var basename = TAAPP.songInfo[songName].basename;
+        $.getJSON('underlayRetarget/' + basename + '/' + retargetLength +
             '/' + before + '/15.0',
             function (data) {
                 _buildMulti(data);
@@ -1128,6 +1162,12 @@ TAAPP.loadSite = function () {
         } else if (e.which === 85) {
             // u: underlay
             TAAPP.underlayWizard();
+        } else if (e.which === 82) {
+            // r: raw speech
+            $('.origSliderHandle').trigger('click');
+        } else if (e.which === 70) {
+            // f: music browser
+            $('.browserSliderHandle').trigger('click');
         }
     });
     

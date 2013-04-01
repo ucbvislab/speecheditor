@@ -15,10 +15,11 @@ from breath_classifier import breath_classifier
 print >> sys.stderr, "Breath classifier imported"
 
 class EditGroup:
-    def __init__(self, start, end, edit_index):
+    def __init__(self, start, end, edit_index, speaker=None):
         self.start = start
         self.end = end
         self.edit_index = edit_index
+        self.speaker = speaker
 
 class Pause(EditGroup):
     def __init__(self, start, end, new_length, edit_index, generic=False):
@@ -33,6 +34,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     crossfades = kwargs.pop('crossfades', True)
     tracks_and_segments = kwargs.pop('tracks_and_segments', False)
     score_start = kwargs.pop('score_start', 0.0)
+    render_from_all_tracks = kwargs.pop('render_from_all_tracks', False)
     fade_duration = 0.005
 
     cuts = []
@@ -49,7 +51,11 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             pause_len = round(word["pauseLength"], 5)
             cuts.append(Pause(start, end, pause_len, i, generic=True))
         else:
-            cuts.append(EditGroup(start, end, i))
+            speaker = None
+            if "speaker" in word:
+                speaker = word["speaker"]
+            cuts.append(EditGroup(start, end, i, speaker=speaker))
+
     for i in range(len(alignment)):
         alignment[i]["start"] = round(alignment[i]["start"], 5)
         alignment[i]["end"] = round(alignment[i]["end"], 5)
@@ -63,16 +69,25 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     first = True
     align_idx = 0
     
+    speakers = set()
+
     if isinstance(cuts[0], Pause):
         new_pause = True
         new_group = False
     
+    last_speaker = None
     for cut_idx, cut in enumerate(cuts):
         if not first:
             align_idx += 1
+            if last_speaker is None:
+                last_speaker = cut.speaker
+                edit_groups[-1].speaker = last_speaker
+            if cut.speaker is None:
+                cut.speaker = last_speaker
             if isinstance(cut, Pause):
                 new_pause = True
-            elif alignment[align_idx]["start"] != cut.start:
+            elif (alignment[align_idx]["start"] != cut.start or
+                  (last_speaker is not None and cut.speaker != last_speaker)):
                 new_group = True 
         else:
             first = False
@@ -82,10 +97,22 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             while alignment[align_idx]["start"] < cut.start:
                 align_idx += 1
             new_group = False
+            last_speaker = cut.speaker
+            if last_speaker is not None:
+                speakers.add(last_speaker)
+
         if new_pause:
             edit_groups.append(cut)
             new_pause = False
             new_group = True
+    if last_speaker is not None:
+        speakers.add(last_speaker)
+
+    # correct trailing pause
+    countdown = -2
+    while edit_groups[-1].speaker is None:
+        edit_groups[-1].speaker = edit_groups[countdown].speaker
+        countdown -= 1
 
     # build the segments that correspond to the uncut segments of the speech
     segments = []
@@ -96,13 +123,27 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     
     c = Composition(channels=1)
 
+    speeches = {}
+
+    # setup for interview footage with multiple speakers
+    speeches["__base"] = Speech(speech, "base speech")
+    c.add_track(speeches["__base"])
+    if len(speakers) == 1:
+        speeches[speakers.pop()] = speeches["__base"]
+    else:
+        base_speech_fn = os.path.splitext(speech)[0]
+        for speaker in speakers:
+            if render_from_all_tracks:
+                speeches[speaker] = Speech("%s-%s.wav" % (base_speech_fn, speaker), speaker)
+                c.add_track(speeches[speaker])
+            else:
+                speeches[speaker] = speeches["__base"]
+
     # new reauthoring loop
-    s = Speech(speech, "s" + str(i))
-    c.add_track(s)
     for i, eg in enumerate(edit_groups):
 
-
         if isinstance(eg, Pause):
+            s = speeches["__base"]
             pause = eg
             start = pause.start
             end = pause.end
@@ -126,8 +167,17 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             c.add_score_segment(cf_seg)
             
             segments.append(cf_seg)
-            composition_loc += pause_len
+            # composition_loc += pause_len
+
+            print "Added roomtone, length", cf_seg.duration / float(track.sr())
+
+            composition_loc += cf_seg.duration / float(track.samplerate())
         else:
+            if eg.speaker is None:
+                print alignment[eg.edit_index]
+                print eg.start, eg.end, eg.edit_index, eg.speaker
+                raise AttributeError("Edit group has no speaker")
+            s = speeches[eg.speaker]
             start = eg.start
             if i + 1 < len(edit_groups):
                 end = cuts[edit_groups[i + 1].edit_index - 1].end
@@ -145,6 +195,8 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                     pass
 
             seg = Segment(s, composition_loc, start, end - start)
+            print eg.speaker, "comp loc", composition_loc, "start", start, "end", end
+            print "\t", s.filename
             c.add_score_segment(seg)
             start_times.append(composition_loc)
             segments.append(seg)
@@ -152,6 +204,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             composition_loc += end - start
     
     if crossfades:
+        print "### Adding %d crossfades" % (len(segments) - 1)
         for i in range(len(segments) - 1):
             if segments[i].score_location + segments[i].duration ==\
                 segments[i + 1].score_location:
@@ -213,6 +266,7 @@ def create_roomtone_pause(segment, final_duration):
 
     raw_seg = Segment(track, segment.score_location / float(sr),
                       0.0, final_duration)
+
     return track, raw_seg
 
 def create_roomtone_pause2(segment, final_duration):
@@ -243,6 +297,13 @@ def create_roomtone_pause2(segment, final_duration):
 
     raw_seg = Segment(track, segment.score_location / float(sr),
                       0.0, final_duration)
+
+    start = track.zero_crossing_after(0.0)
+    end = track.zero_crossing_before(final_duration)
+
+    raw_seg.start = int(start * sr)
+    raw_seg.duration = int(end * sr - start * sr)
+
     return track, raw_seg
 
 

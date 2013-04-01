@@ -142,18 +142,33 @@ def prep_mlf(trsfile, mlffile, word_dictionary, surround, between,
             gwm_entry = [txt_with_pun[w_idx]]
             
             new_up_wrd = [x.upper() for x in new_wrd]
-            print new_wrd
-            print new_up_wrd
+            # print new_wrd
+            # print new_up_wrd
             for wrd2 in new_up_wrd:
                 if (wrd2 not in dictionary) and (wrd2 not in dict_tmp):
                     print wrd2
-                    pr = Pronounce(words=[wrd2]).p(add_fake_stress=True)
-                    
-                    print pr
-                    
-                    dict_tmp[pr[wrd2][0]] = pr[wrd2][1]
-                    
-                    
+                    try:
+                        if wrd2[-1] in ['s', 'S']:
+                            twrd2 = int(wrd2[:-1])
+                        else:
+                            twrd2 = int(wrd2)
+                        num2wrd = infl.number_to_words(twrd2, andword='', threshold=1000)
+                        num2wrd = num2wrd.upper()
+                        num2wrd = num2wrd.replace('-', ' ')
+                        num2wrd = num2wrd.replace(',', '')
+                        print num2wrd
+                        pr = Pronounce(words=[num2wrd]).p(add_fake_stress=True)
+                        prn = pr[num2wrd][1]
+                        if wrd2[-1] in ['s', 'S']:
+                            prn += ' S'
+                        dict_tmp[wrd2] = prn
+                        print prn
+                    except:
+                        # print "###", e
+                        pr = Pronounce(words=[wrd2]).p(add_fake_stress=True)
+                        dict_tmp[pr[wrd2][0]] = pr[wrd2][1]
+                        print pr
+
                 words.append(wrd2)
                 gwm_entry.append(wrd2)
                 if len(between) != 0:
@@ -207,7 +222,7 @@ def writeInputMLF(mlffile, words) :
         # wrd = re.sub(r"(\d)", r"\\\1", wrd)
         except:
             pass
-        print wrd
+        # print wrd
         fw.write(wrd + '\n')
     fw.write('.\n')
     fw.close()
@@ -329,7 +344,7 @@ def writeJSON(outfile, word_alignments):
                 else:
                     skipped_pauses += 1
             total_word_idx += 1
-            tmp_word["end"] = round(wrds[total_word_idx][1])
+            tmp_word["end"] = round(wrds[total_word_idx][1], 5)
             tmp_word["alignedWord"] = " ".join([w[0]
                 for w in wrds[total_word_idx - skipped_pauses -
                               word_length : total_word_idx]])

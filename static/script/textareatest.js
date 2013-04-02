@@ -478,6 +478,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             track: TAAPP.speakers.length,
             pos: speechLength * 1000.0 + start - bestms
         });
+        TAAPP.updateMusicVolumeDropdown();
     };
 
     var _buildMulti = function (d) {
@@ -571,6 +572,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             track: TAAPP.speakers.length,
             pos: (speechLength - d.before + .5) * 1000.0
         });
+        TAAPP.updateMusicVolumeDropdown();
     }
 
     TAAPP.spinner.spin($("body")[0]);
@@ -857,8 +859,8 @@ TAAPP.updateDupes = function () {
             TAAPP.RawTAManager = new TextAreaManager($(".rawTAManager"),
                 TAAPP.speakers, TAAPP.words, clone(TAAPP.current));
             
-            TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
-            TAAPP.RawTAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
+            TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo, true);
+            TAAPP.RawTAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo, true);
         }
     });
 };
@@ -1029,6 +1031,35 @@ TAAPP.addSongToTimeline = function (songName) {
         musicGraph: songData.graph
     });
     TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
+
+    // TODO: hopefully just a temporary fix
+    TAAPP.updateMusicVolumeDropdown();
+};
+
+TAAPP.updateMusicVolumeDropdown = function () {
+    var wfs = TAAPP.$timeline.timeline("option", "wf");
+    var itemTemplate = $("#musicVolumeItemTemplate").html();
+    $(".musicVolumeDropdown").html("");
+    _.each(wfs, function (wf) {
+        var $wf = $(wf.elt);
+        if ($wf.wf("waveformClass") === "musicWaveform") {
+            var songInfo = TAAPP.songInfo[$wf.wf("option", "name")];
+            console.log("SONG INFO", songInfo, $wf.wf("option", "name"));
+            var item = _.template(itemTemplate, songInfo);
+            $(item).appendTo(".musicVolumeDropdown")
+                .find(".musicVolumeSlider")
+                .slider({
+                    range: "min",
+                    value: $(wf.elt).wf("option", "globalVolume"),
+                    min: 0.0,
+                    max: 1.0,
+                    step: .01,
+                    slide: function (event, ui) {
+                        $wf.wf("option", "globalVolume", ui.value);
+                    }
+                });
+        }
+    });
 };
 
 TAAPP.addSongToLibrary = function (songData) {

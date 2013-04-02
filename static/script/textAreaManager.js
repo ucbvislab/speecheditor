@@ -1,10 +1,12 @@
 (function() {
-  var $, ScriptArea, TextAreaManager,
+  var $, DEBUG, ScriptArea, TextAreaManager,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __slice = [].slice;
 
   $ = jQuery;
+
+  DEBUG = false;
 
   ScriptArea = (function() {
     function ScriptArea(tam, name, speaker, settings) {
@@ -146,6 +148,9 @@
       var badWords, content, rw,
         _this = this;
 
+      if (DEBUG) {
+        console.log("UPDATE WORDS");
+      }
       if (words) {
         this.words = words;
       }
@@ -178,6 +183,9 @@
     };
 
     ScriptArea.prototype.refresh = function() {
+      if (DEBUG) {
+        console.log("SA REFRESH");
+      }
       this.updatePos();
       return this.adjustHeight();
     };
@@ -185,9 +193,13 @@
     ScriptArea.prototype.adjustHeight = function() {
       var scrHeight;
 
+      if (DEBUG) {
+        console.log("ADJUST HEIGHT OF", this);
+      }
       this.area.height("20px");
       scrHeight = this.area.prop("scrollHeight") + 'px';
-      return this.$containers.height(scrHeight);
+      this.$containers.height(scrHeight);
+      return scrHeight;
     };
 
     ScriptArea.prototype.snapSelectionToWord = function() {
@@ -421,6 +433,9 @@
     ScriptArea.prototype.insertDupeOverlays = function(dupes, dupeInfo) {
       var box, boxHTML, context, dupeDropdownWrapLeft, dupeDropdownWrapRight, dupeOrder, dupeStarts, dupeStartsFirsts, locked, offset, rw, self, taWidth;
 
+      if (DEBUG) {
+        console.log("SA INSERT DUPE OVERLAYS", this);
+      }
       box = this.overlays;
       context = {
         dupeOrder: [],
@@ -648,7 +663,11 @@
     TextAreaManager.prototype.refresh = function() {
       var i, ta, _i, _len, _ref;
 
+      if (DEBUG) {
+        console.log("TAM REFRESH");
+      }
       this.dirtyTas = _.uniq(this.dirtyTas);
+      console.log("Dirty TAs", this.dirtyTas);
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         ta = _ref[i];
@@ -667,15 +686,16 @@
     };
 
     TextAreaManager.prototype.adjustHeight = function() {
-      var i, ta, _i, _j, _len, _ref, _ref1;
+      var height, ta, _i, _len, _ref;
 
-      _ref = this.tas;
+      if (DEBUG) {
+        console.log("ADJUST HEIGHT OF TAM");
+      }
+      _ref = this.dirtyTas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
-        ta.adjustHeight();
-      }
-      for (i = _j = 0, _ref1 = this.tas.length; 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
-        this.table.find('tr').eq(i).height(this.tas[i].height());
+        height = ta.adjustHeight();
+        ta.el.closest('tr').height(height);
       }
       console.log("container height", window.innerHeight - this.el.offset().top - 50);
       this.container.height(window.innerHeight - this.el.offset().top - 50);
@@ -716,6 +736,7 @@
         }
         return _this.tas[i].updateWords(words);
       });
+      this.dirtyTas = this.tas.slice(0);
       this.refresh();
       return this.lastFocused = this.tas[0];
     };
@@ -723,6 +744,9 @@
     TextAreaManager.prototype.pruneByTAPos = function(start, end, ta) {
       var match;
 
+      if (DEBUG) {
+        console.log("PRUNE BY TA POS");
+      }
       match = [];
       _.each(ta.words, function(word, idx) {
         if (word.taPos >= start && word.taPos < end) {
@@ -736,6 +760,9 @@
     TextAreaManager.prototype.pruneByTAIndex = function(start, end, ta, refresh) {
       var offset, taIndex;
 
+      if (DEBUG) {
+        console.log("PRUNE BY TA INDEX");
+      }
       if (refresh == null) {
         refresh = true;
       }
@@ -747,6 +774,9 @@
     TextAreaManager.prototype.pruneCurrent = function(start, end, refresh) {
       var cutWords, i, ta, taIndex, txtarea, _i, _len, _ref;
 
+      if (DEBUG) {
+        console.log("PRUNE CURRENT");
+      }
       if (refresh == null) {
         refresh = true;
       }
@@ -854,7 +884,7 @@
     TextAreaManager.prototype.emphasizeWords = function() {
       var ta, _i, _len, _ref, _results;
 
-      _ref = this.tas;
+      _ref = this.dirtyTas;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
@@ -975,6 +1005,9 @@
     TextAreaManager.prototype.processDelete = function(ta, direction) {
       var end, sel, spaces, text, _ref;
 
+      if (DEBUG) {
+        console.log("PROCESSDELETE");
+      }
       if (window.TAAPP.sound) {
         window.TAAPP.sound.stop();
       }
@@ -992,8 +1025,7 @@
       }
       console.log("calling prune by ta pos with start", sel.start, "end", end);
       this.pruneByTAPos(sel.start, end, ta);
-      ta.area.setSelection(sel.start, sel.start);
-      return this.refresh();
+      return ta.area.setSelection(sel.start, sel.start);
     };
 
     TextAreaManager.prototype.insertEmphasisPoint = function(ta) {
@@ -1080,6 +1112,7 @@
         sel = ta.area.getSelection();
         spaces = [" ", "\n"];
         if (a.length - b.length + sel.start !== 0 && (_ref = a.charAt(a.length - b.length + sel.start), __indexOf.call(spaces, _ref) < 0) && (_ref1 = a.charAt(a.length - b.length + sel.start - 1), __indexOf.call(spaces, _ref1) < 0)) {
+          console.log("couldn't paste", a.length, b.length, sel.start);
           ta.area.val(a);
           _this.refresh();
           return;
@@ -1193,21 +1226,40 @@
       return ta.area.val(newOut).setSelection(sel.start, sel.start + mod.length);
     };
 
-    TextAreaManager.prototype.insertDupeOverlays = function(dupes, dupeInfo) {
-      var ta, _i, _len, _ref, _results;
+    TextAreaManager.prototype.insertDupeOverlays = function(dupes, dupeInfo, forceAll) {
+      var ta, _i, _j, _len, _len1, _ref, _ref1, _results, _results1;
 
       this.dupes = dupes;
       this.dupeInfo = dupeInfo;
+      if (DEBUG) {
+        console.log("INSERT DUPE OVERLAYS");
+      }
+      if (forceAll == null) {
+        forceAll = false;
+      }
+      if (DEBUG) {
+        console.log("DIRTY:", this.dirtyTas);
+      }
       if (this.dupes == null) {
         return;
       }
-      _ref = this.tas;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        ta = _ref[_i];
-        _results.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
+      if (forceAll) {
+        _ref = this.tas;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          ta = _ref[_i];
+          _results.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
+        }
+        return _results;
+      } else {
+        _ref1 = this.dirtyTas;
+        _results1 = [];
+        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+          ta = _ref1[_j];
+          _results1.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
+        }
+        return _results1;
       }
-      return _results;
     };
 
     TextAreaManager.prototype.replaceWords = function(c1, c2, w1, w2, ta, pos) {

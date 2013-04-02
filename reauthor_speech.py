@@ -68,6 +68,18 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     new_pause = False
     first = True
     align_idx = 0
+
+    # bail if there's no speech
+    if len(cuts) == 0:
+        if tracks_and_segments:
+            out = {}
+            out["tracks"] = []
+            out["segments"] = []
+            out["samplerate"] = 44100
+            out["channels"] = 1
+            out["timing"] = []
+            return out
+    
     
     speakers = set()
 
@@ -82,6 +94,8 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             if last_speaker is None:
                 last_speaker = cut.speaker
                 edit_groups[-1].speaker = last_speaker
+                if last_speaker is not None:
+                    speakers.add(last_speaker)
             if cut.speaker is None:
                 cut.speaker = last_speaker
             if isinstance(cut, Pause):
@@ -128,6 +142,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     # setup for interview footage with multiple speakers
     speeches["__base"] = Speech(speech, "base speech")
     c.add_track(speeches["__base"])
+
     if len(speakers) == 1:
         speeches[speakers.pop()] = speeches["__base"]
     else:

@@ -51,9 +51,20 @@ def reauthor():
         result = {}
         
         c = Composition(channels=1)
-        
+
+        speech_is_done = False
+
         for t in tracks:
             if t["waveformClass"] == "textAlignedWaveform":
+                
+                # TODO: Fix this hack! This is to ensure that we only generate
+                #       the speech track once. We need to do this because we're
+                #       sending the speech twice, once with each interview
+                #       track waveform.
+                if speech_is_done: 
+                    continue
+                speech_is_done = True
+
                 score_start = t["scoreStart"]
                 with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
                     af = json.loads(f.read())["words"]
@@ -74,8 +85,10 @@ def reauthor():
 
                 speech_audio_path = APP_PATH + 'static/' + dat["speechAudio"]
 
+                print "# Rebuilding speech"
                 result = reauthor_speech.rebuild_audio(
                     speech_audio_path, af, ef, **args)
+                print "# Done rebuilding speech"
                 
                 c.add_tracks(result["tracks"])
                 c.add_score_segments(result["segments"])
@@ -85,6 +98,12 @@ def reauthor():
                 starts = t["extra"]["starts"]
                 durs = t["extra"]["durations"]
                 dists = t["extra"]["distances"]
+
+                if "globalVolume" in t:
+                    global_vol = t["globalVolume"]
+                else:
+                    global_vol = 1.0
+
                 vx = N.array(t["extra"]["volume"]["x"])
                 vy = N.array(t["extra"]["volume"]["y"])
                     
@@ -183,6 +202,8 @@ def reauthor():
                             vol_frames[i * 10000:] =\
                                 N.linspace(sy, lasty,
                                            num=seg.duration - i * 10000)
+
+                    vol_frames *= global_vol
 
                     vol = RawVolume(seg, vol_frames)
                     c.add_dynamic(vol)

@@ -2,6 +2,8 @@
 
 $ = jQuery
 
+DEBUG = false
+
 class ScriptArea
     constructor: (@tam, @name, @speaker, settings) ->
         settings ?= {}
@@ -139,6 +141,7 @@ class ScriptArea
         "#{wrapLeft}#{word.word}#{wrapRight} "
 
     updateWords: (words) ->
+        console.log("UPDATE WORDS") if DEBUG
         if words
             @words = words
 
@@ -167,13 +170,16 @@ class ScriptArea
         @area.val(str)
         
     refresh: ->
+        console.log("SA REFRESH") if DEBUG
         @updatePos()
         @adjustHeight()
     
     adjustHeight: ->
+        console.log("ADJUST HEIGHT OF", @) if DEBUG
         @area.height "20px"
         scrHeight = @area.prop("scrollHeight") + 'px'
         @$containers.height(scrHeight)
+        return scrHeight
 
     snapSelectionToWord: ->
         sel = @area.getSelection()
@@ -378,6 +384,7 @@ class ScriptArea
         @emphasis.html(emphHTML)
     
     insertDupeOverlays: (dupes, dupeInfo) ->
+        console.log("SA INSERT DUPE OVERLAYS", @) if DEBUG
         box = @overlays
         context =
             dupeOrder: []
@@ -616,7 +623,10 @@ class TextAreaManager
         ta.el
     
     refresh: ->
+        console.log("TAM REFRESH") if DEBUG
         @dirtyTas = _.uniq(@dirtyTas)
+
+        console.log("Dirty TAs", @dirtyTas)
         
         ta.name = i for ta, i in @tas
 
@@ -632,13 +642,18 @@ class TextAreaManager
         @dirtyTas = []
     
     adjustHeight: ->
+        console.log("ADJUST HEIGHT OF TAM") if DEBUG
         # height of scriptareas
-        ta.adjustHeight() for ta in @tas
+        # ta.adjustHeight() for ta in @tas
+
+        for ta in @dirtyTas
+            height = ta.adjustHeight()
+            ta.el.closest('tr').height(height)
 
         # update height of row
-        for i in [0...@tas.length]
-            @table.find('tr').eq(i)
-                .height(@tas[i].height())
+        # for i in [0...@tas.length]
+        #     @table.find('tr').eq(i)
+        #         .height(@tas[i].height())
 
         # update height of outer element
         console.log("container height", window.innerHeight - @el.offset().top - 50)
@@ -675,11 +690,13 @@ class TextAreaManager
 
             @tas[i].updateWords words
 
+        @dirtyTas = @tas[..]
         @refresh()
         
         @lastFocused = @tas[0]
 
     pruneByTAPos: (start, end, ta) ->
+        console.log("PRUNE BY TA POS") if DEBUG
         match = []
         _.each(ta.words, (word, idx) ->
             if word.taPos >= start and word.taPos < end
@@ -689,12 +706,14 @@ class TextAreaManager
         @pruneByTAIndex(match[0], _.last(match) + 1, ta)
     
     pruneByTAIndex: (start, end, ta, refresh) ->
+        console.log("PRUNE BY TA INDEX") if DEBUG
         refresh ?= true
         taIndex = @tas.indexOf ta
         offset = @taIndexSpan[taIndex]
         @pruneCurrent(start + offset, end + offset, refresh)
 
     pruneCurrent: (start, end, refresh) ->
+        console.log("PRUNE CURRENT") if DEBUG
         refresh ?= true
 
         cutWords = @current.splice start, end - start
@@ -776,12 +795,11 @@ class TextAreaManager
         ta.highlightWords start - offset, newEnd
     
     emphasizeWords: ->
-        ta.emphasizeWords() for ta in @tas
+        ta.emphasizeWords() for ta in @dirtyTas
         
     updatePos: ->
         @highlightWords -1
-        for ta in @dirtyTas
-            ta.updatePos()
+        ta.updatePos() for ta in @dirtyTas
     
     clean: (ta) ->
         # assume we'll either have
@@ -915,6 +933,7 @@ class TextAreaManager
             return
 
     processDelete: (ta, direction) ->
+        console.log("PROCESSDELETE") if DEBUG
         if window.TAAPP.sound
             window.TAAPP.sound.stop()
 
@@ -937,7 +956,7 @@ class TextAreaManager
         @pruneByTAPos(sel.start, end, ta)
         
         ta.area.setSelection(sel.start, sel.start)
-        @refresh()
+        # @refresh()
     
     insertEmphasisPoint: (ta) ->
         ta ?= @lastFocused
@@ -1023,6 +1042,7 @@ class TextAreaManager
             if a.length - b.length + sel.start isnt 0\
             and a.charAt(a.length - b.length + sel.start) not in spaces\
             and a.charAt(a.length - b.length + sel.start - 1) not in spaces
+                console.log "couldn't paste", a.length, b.length, sel.start
                 # can't insert here: middle of a word
                 ta.area.val(a)
                 @refresh()
@@ -1095,11 +1115,16 @@ class TextAreaManager
         ta.area.val(newOut)
             .setSelection(sel.start, sel.start + mod.length)
     
-    insertDupeOverlays: (@dupes, @dupeInfo) ->
+    insertDupeOverlays: (@dupes, @dupeInfo, forceAll) ->
+        console.log("INSERT DUPE OVERLAYS") if DEBUG
+        forceAll ?= false
+        console.log("DIRTY:", @dirtyTas) if DEBUG
         return if not @dupes?
         
-        for ta in @tas
-            ta.insertDupeOverlays @dupes, @dupeInfo
+        if forceAll
+            ta.insertDupeOverlays @dupes, @dupeInfo for ta in @tas
+        else
+            ta.insertDupeOverlays @dupes, @dupeInfo for ta in @dirtyTas
     
     replaceWords: (c1, c2, w1, w2, ta, pos) ->
         # replace words from c1 to c2 in @current

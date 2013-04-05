@@ -126,7 +126,7 @@
     };
 
     ScriptArea.prototype._renderWord = function(word, isTextArea, wrapLeft, wrapRight) {
-      var ending, _ref;
+      var ending, quoteEnd, _ref;
 
       if (wrapLeft == null) {
         wrapLeft = "";
@@ -135,7 +135,8 @@
         wrapRight = "";
       }
       ending = ['.', '?', '!'];
-      if (_ref = word.word[word.word.length - 1], __indexOf.call(ending, _ref) >= 0) {
+      quoteEnd = '."';
+      if ((_ref = word.word[word.word.length - 1], __indexOf.call(ending, _ref) >= 0) || word.word.slice(-2) === quoteEnd) {
         if (isTextArea) {
           return "" + wrapLeft + word.word + wrapRight + "\n";
         }
@@ -625,7 +626,7 @@
       this.el.scrollTo(0);
     }
 
-    TextAreaManager.prototype._tr = function(prev) {
+    TextAreaManager.prototype._tr = function(index) {
       var tr;
 
       tr = $(document.createElement('tr'));
@@ -636,8 +637,12 @@
         return tr.append(td);
       });
       tr.find("td").width("" + (100 / this.speakers.length) + "%");
-      if (prev != null) {
-        tr.insertAfter(prev);
+      if (index != null) {
+        if (index === 0) {
+          tr.prependTo(this.table);
+        } else {
+          tr.insertAfter(this.table.find('tr').eq(index - 1));
+        }
       } else {
         tr.appendTo(this.table);
       }
@@ -667,7 +672,6 @@
         console.log("TAM REFRESH");
       }
       this.dirtyTas = _.uniq(this.dirtyTas);
-      console.log("Dirty TAs", this.dirtyTas);
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         ta = _ref[i];
@@ -685,15 +689,18 @@
       return this.dirtyTas = [];
     };
 
-    TextAreaManager.prototype.adjustHeight = function() {
-      var height, ta, _i, _len, _ref;
+    TextAreaManager.prototype.adjustHeight = function(forceAll) {
+      var height, ta, taSet, _i, _len;
 
       if (DEBUG) {
         console.log("ADJUST HEIGHT OF TAM");
       }
-      _ref = this.dirtyTas;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        ta = _ref[_i];
+      if (forceAll == null) {
+        forceAll = false;
+      }
+      taSet = forceAll ? this.tas : this.dirtyTas;
+      for (_i = 0, _len = taSet.length; _i < _len; _i++) {
+        ta = taSet[_i];
         height = ta.adjustHeight();
         ta.el.closest('tr').height(height);
       }
@@ -781,6 +788,7 @@
         refresh = true;
       }
       cutWords = this.current.splice(start, end - start);
+      console.log("start", start, "end", end, "cutwords", cutWords);
       taIndex = cutWords[0].taIdx;
       ta = this.tas[taIndex];
       console.log("taIndex", taIndex, "ta", ta);
@@ -808,8 +816,9 @@
       _ref = this.tas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
-        this.pruneByTAIndex(0, ta.words.length, ta, false);
+        ta.updateWords([]);
       }
+      this.current.splice(0, this.current.length);
       return this.refresh();
     };
 
@@ -894,13 +903,22 @@
     };
 
     TextAreaManager.prototype.updatePos = function() {
-      var ta, _i, _len, _ref, _results;
+      var count, i, ta, _i, _j, _len, _len1, _ref, _ref1, _results;
 
       this.highlightWords(-1);
-      _ref = this.dirtyTas;
+      count = 0;
+      this.taIndexSpan = [];
+      _ref = this.tas;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        ta = _ref[i];
+        ta.name = i;
+        this.taIndexSpan.push(count);
+        count += ta.words.length;
+      }
+      _ref1 = this.dirtyTas;
       _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        ta = _ref[_i];
+      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+        ta = _ref1[_j];
         _results.push(ta.updatePos());
       }
       return _results;
@@ -941,11 +959,10 @@
         if (tai === this.tas.length - 1) {
           console.log("New row");
           col = this.speakers.indexOf(speakers[1]);
-          tr = this._tr(this.table.find('tr').eq(tai));
-          tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1]));
+          tr = this._tr(tai + 1);
+          tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1], tai + 1));
           ta.updateWords(ta.words.slice(0, segments[1]));
           this.tas[this.tas.length - 1].updateWords(words);
-          this.taIndexSpan.push(offset + ta.words.length);
           this.tas[this.tas.length - 1].area.setSelection(0, 0);
           this.refresh();
         } else if (this.tas[tai + 1].speaker === speakers[1]) {
@@ -954,7 +971,6 @@
           nextTa = this.tas[tai + 1];
           ta.updateWords(ta.words.slice(0, segments[1]));
           nextTa.updateWords(words.concat(nextTa.words));
-          this.taIndexSpan[tai + 1] -= words.length;
           nextTa.area.setSelection(0, 0);
           this.refresh();
         } else {
@@ -968,16 +984,14 @@
         if (tai === 0) {
           console.log("New row (wrong right)");
           col = this.speakers.indexOf(speakers[0]);
-          tr = this._tr(this.table.find('tr').eq(tai));
+          tr = this._tr(0);
           tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[0], 0));
           ta.updateWords(ta.words.slice(segments[1]));
           this.tas[0].updateWords(words);
-          this.taIndexSpan.splice(1, 0, words.length);
         } else if (this.tas[tai - 1].speaker === speakers[0]) {
           prevTa = this.tas[tai - 1];
           ta.updateWords(ta.words.slice(segments[1]));
           prevTa.updateWords(prevTa.words.concat(words));
-          this.taIndexSpan[tai] += words.length;
         } else {
           window.alert("should not get here (wrong right pattern)");
         }
@@ -988,15 +1002,14 @@
       if (pattern.length === 3) {
         words = ta.words.slice(0);
         col = this.speakers.indexOf(speakers[1]);
-        tr = this._tr(this.table.find('tr').eq(tai));
+        tr = this._tr(tai + 1);
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1], tai + 1));
         col = this.speakers.indexOf(speakers[2]);
-        tr = this._tr(this.table.find('tr').eq(tai + 1));
+        tr = this._tr(tai + 2);
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[2], tai + 2));
         ta.updateWords(words.slice(0, segments[1]));
         this.tas[tai + 1].updateWords(words.slice(segments[1], segments[2]));
         this.tas[tai + 2].updateWords(words.slice(segments[2]));
-        this.taIndexSpan.splice(tai + 1, 0, this.taIndexSpan[tai] + ta.words.length, this.taIndexSpan[tai] + ta.words.length + this.tas[tai + 1].words.length);
         this.refresh();
         this.tas[tai + 1].area.setSelection(0, 0);
       }
@@ -1038,6 +1051,7 @@
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {
       var args, ctx, i, loc, newEnd, offset, taIndex, word, words, _i, _j, _len, _ref, _ref1;
 
+      console.log("INSERT WORDS", indices, "POS", pos, "TA", ta);
       if (ta == null) {
         ta = this.lastFocused;
       }
@@ -1051,6 +1065,8 @@
         word = _ref[loc];
         if (word.taPos >= pos) {
           break;
+        } else if (loc === ta.words.length - 1) {
+          loc = ta.words.length;
         }
       }
       ctx = {
@@ -1088,6 +1104,7 @@
           this.taIndexSpan[i] += words.length;
         }
       }
+      this.dirtyTas.push(ta);
       if (taIndex === this.tas.length - 1) {
         ta.updateWords(this.current.slice(this.taIndexSpan[taIndex]));
       } else {
@@ -1096,16 +1113,17 @@
       this.clean(ta);
       this.refresh();
       newEnd = ctx.last.taPos + ctx.last.word.length;
-      return ta.area.setSelection(newEnd, newEnd);
+      ta.area.setSelection(newEnd, newEnd);
+      return this.current.indexOf(ctx.first);
     };
 
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
 
       return _.defer(function() {
-        var b, bRes, parse_paste, pastedWords, result, sel, spaces, _ref, _ref1;
+        var b, bRes, count, ept, epts, firstIdx, parse_paste, pastedWords, result, sel, spaces, tai, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
 
-        parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g;
+        parse_paste = /(?:\[(\d+|gp),(e?)\]([^|]+)\|)/g;
         bRes = false;
         pastedWords = [];
         b = ta.area.val();
@@ -1117,16 +1135,39 @@
           _this.refresh();
           return;
         }
+        count = 0;
+        epts = [];
         while (result = parse_paste.exec(b)) {
           bRes = true;
           if (result[1] === 'gp') {
-            pastedWords.push(result[2]);
+            pastedWords.push(result[3]);
           } else {
             pastedWords.push(parseInt(result[1], 10));
           }
+          if (result[2] === 'e') {
+            epts.push(count);
+          }
+          count += 1;
         }
         if (bRes) {
-          _this.insertWords(pastedWords, a.length - b.length + sel.start, ta);
+          firstIdx = _this.insertWords(pastedWords, a.length - b.length + sel.start, ta);
+          for (_i = 0, _len = epts.length; _i < _len; _i++) {
+            ept = epts[_i];
+            _this.current[firstIdx + ept].emphasisPoint = true;
+          }
+          for (_j = 0, _len1 = epts.length; _j < _len1; _j++) {
+            ept = epts[_j];
+            _ref2 = _this.tas;
+            for (tai = _k = 0, _len2 = _ref2.length; _k < _len2; tai = ++_k) {
+              ta = _ref2[tai];
+              if (_this.taIndexSpan[tai] <= ept && _this.taIndexSpan[tai] + ta.words.length > ept) {
+                _this.dirtyTas.push(ta);
+              }
+            }
+          }
+          if (epts.length !== 0) {
+            _this.refresh();
+          }
           console.log("taindexspan after clean", _this.taIndexSpan);
           return;
         }
@@ -1176,10 +1217,14 @@
       sel = ta.area.getSelection();
       wrds = ta.range(sel.start, sel.end);
       mod = _.reduce(wrds, (function(memo, wrd) {
-        var j, w, _i, _len, _ref;
+        var ept, j, w, _i, _len, _ref;
 
+        ept = '';
+        if ("emphasisPoint" in wrd && wrd.emphasisPoint) {
+          ept = 'e';
+        }
         if (wrd.alignedWord === "gp") {
-          return memo + '[gp]' + wrd.word + '|';
+          return "" + memo + "[gp," + ept + "]" + wrd.word + "|";
         }
         _ref = _this.words;
         for (j = _i = 0, _len = _ref.length; _i < _len; j = ++_i) {
@@ -1188,7 +1233,7 @@
             break;
           }
         }
-        return "" + memo + "[" + j + "]" + wrd.word + "|";
+        return "" + memo + "[" + j + "," + ept + "]" + wrd.word + "|";
       }), "");
       $(newdiv).css({
         position: "absolute",
@@ -1227,7 +1272,7 @@
     };
 
     TextAreaManager.prototype.insertDupeOverlays = function(dupes, dupeInfo, forceAll) {
-      var ta, _i, _j, _len, _len1, _ref, _ref1, _results, _results1;
+      var ta, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _results, _results1;
 
       this.dupes = dupes;
       this.dupeInfo = dupeInfo;
@@ -1245,17 +1290,22 @@
       }
       if (forceAll) {
         _ref = this.tas;
-        _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           ta = _ref[_i];
-          _results.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
+          ta.insertDupeOverlays(this.dupes, this.dupeInfo);
+        }
+        _ref1 = this.tas;
+        _results = [];
+        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+          ta = _ref1[_j];
+          _results.push(ta.adjustHeight());
         }
         return _results;
       } else {
-        _ref1 = this.dirtyTas;
+        _ref2 = this.dirtyTas;
         _results1 = [];
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          ta = _ref1[_j];
+        for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+          ta = _ref2[_k];
           _results1.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
         }
         return _results1;
@@ -1270,11 +1320,14 @@
     TextAreaManager.prototype.removeTA = function(ta) {
       var taIndex;
 
+      console.log("INDEX", this.tas.indexOf(ta, "REMOVING TA", ta));
       taIndex = this.tas.indexOf(ta);
       this.tas.splice(taIndex, 1);
       this.taIndexSpan.splice(taIndex, 1);
       this.table.find("tr").eq(taIndex).remove();
+      console.log("TA", ta, "taIndex", taIndex, "@TAS", this.tas);
       if (taIndex !== 0 && taIndex < this.tas.length && this.tas[taIndex - 1].speaker === this.tas[taIndex].speaker) {
+        console.log("### combining 2 text areas");
         this.tas[taIndex - 1].updateWords(this.tas[taIndex - 1].words.concat(this.tas[taIndex].words));
         this.removeTA(this.tas[taIndex]);
       }

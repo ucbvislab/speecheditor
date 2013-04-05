@@ -1421,60 +1421,6 @@
             "danceability": 0.196644
         },
         {
-            "song_id": 32,
-            "valence": -56.9178,
-            "rms_energy": 0.0803878,
-            "energy": "",
-            "tags": [
-                "soundtrack",
-                "instrumental",
-                "requiem for a dream",
-                "classical",
-                "beautiful",
-                "strings",
-                "play loudly",
-                "bandas sonoras",
-                "loved",
-                "essentials",
-                "cry me a river",
-                "stuck in my head",
-                "cool trip",
-                "death songs",
-                "melancholy goodness",
-                "discovered in a movie",
-                "bom chicka bow wow",
-                "melencolia i",
-                "the fourth watch of the night",
-                "classin it up",
-                "sadness and the city",
-                "mellow",
-                "contemporary classical",
-                "summer",
-                "amazing",
-                "favorite songs",
-                "melancholic",
-                "ost",
-                "all time faves",
-                "winter",
-                "study",
-                "sad songs",
-                "beauty",
-                "instrumentals"
-            ],
-            "tempo": "",
-            "filename": "Clint Mansell & Kronos Quartet - Lux Aeterna _Winter_",
-            "sorter": "",
-            "mode": "",
-            "arousal": -90.8049,
-            "title": "Lux Aeterna _Winter_",
-            "artist": "Clint Mansell & Kronos Quartet",
-            "categories": [
-                "calm",
-                "sad"
-            ],
-            "danceability": ""
-        },
-        {
             "song_id": 33,
             "valence": -6.08022,
             "rms_energy": 0.250874,
@@ -1664,22 +1610,6 @@
             "artist": "Ernest Gonzales",
             "categories": [],
             "danceability": 0.741005
-        },
-        {
-            "song_id": 42,
-            "valence": -40.5389,
-            "rms_energy": 0.115751,
-            "energy": "",
-            "tags": [],
-            "tempo": "",
-            "filename": "Gustavo Santaolalla - Did This Really Happen",
-            "sorter": "",
-            "mode": "",
-            "arousal": -123.902,
-            "title": "Did This Really Happen",
-            "artist": "Gustavo Santaolalla",
-            "categories": [],
-            "danceability": ""
         },
         {
             "song_id": 43,
@@ -2528,22 +2458,6 @@
                 "calm"
             ],
             "danceability": 0.217527
-        },
-        {
-            "song_id": 61,
-            "valence": 10.1153,
-            "rms_energy": 0.134921,
-            "energy": "",
-            "tags": [],
-            "tempo": "",
-            "filename": "Mark Robinson - 3 Songs from Tiger Banana",
-            "sorter": "",
-            "mode": "",
-            "arousal": 4.24807,
-            "title": "3 Songs from Tiger Banana",
-            "artist": "Mark Robinson",
-            "categories": [],
-            "danceability": ""
         },
         {
             "song_id": 62,
@@ -4436,40 +4350,6 @@
                 "gloomy"
             ],
             "danceability": 0.787276
-        },
-        {
-            "song_id": 100,
-            "valence": 15.9838,
-            "rms_energy": 0.106986,
-            "energy": "",
-            "tags": [],
-            "tempo": "",
-            "filename": "The Royal Tennenbaums _Soundtrack_ - Scrapping & Yelling",
-            "sorter": "",
-            "mode": "",
-            "arousal": 86.83,
-            "title": "Scrapping & Yelling",
-            "artist": "The Royal Tennenbaums _Soundtrack_",
-            "categories": [],
-            "danceability": ""
-        },
-        {
-            "song_id": 101,
-            "valence": 33.5097,
-            "rms_energy": 0.117137,
-            "energy": "",
-            "tags": [
-                "soundtrack"
-            ],
-            "tempo": "",
-            "filename": "Thomas Newman - Acolyte of the Flux",
-            "sorter": "",
-            "mode": "",
-            "arousal": -109.285,
-            "title": "Acolyte of the Flux",
-            "artist": "Thomas Newman",
-            "categories": [],
-            "danceability": ""
         },
         {
             "song_id": 102,

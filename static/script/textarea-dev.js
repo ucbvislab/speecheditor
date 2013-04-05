@@ -1828,6 +1828,7 @@ $.fn.wf = function () {
             fixed: false,
             mute: false,
             globalVolume: 1.0,
+            _dirty: true,
             volume: {
                 x: [0],
                 y: [1]
@@ -1841,9 +1842,14 @@ $.fn.wf = function () {
         
         waveformClass: function () { return "waveform" },
         
+        isDirty: function () {
+            return this.options._dirty;
+        },
+
         addVolumeMarker: function () { return; },
 
         exportExtras: function () {
+            this.options._dirty = false;
             return {};
         },
         
@@ -2034,6 +2040,7 @@ $.fn.wf = function () {
         
         _setOption: function (key, value) {
             // console.log("in _setOption with key:", key, "value:", value);
+            this.options._dirty = true;
             switch (key) {
             case "currentWords":
                 this.options.highlightedWordsRange = undefined;
@@ -2717,6 +2724,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         },
         
         exportExtras: function () {
+            this.options._dirty = false;
             var mainctx = this.options._mcanv.getContext('2d');
             var vx = this.options.volume.x.slice(0);
             var vy = this.options.volume.y.slice(0);
@@ -3133,6 +3141,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         },
         
         _setOption: function (key, value) {
+            this.options._dirty = true;
             // console.log("in _setOption with key:", key, "value:", value);
             switch (key) {
             case "musicGraph":
@@ -3173,6 +3182,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             position: 0.0,
             clickMode: "volume",
             linkGroups: [],
+            _dirty: true
         },
         
         _create: function () {
@@ -3353,6 +3363,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
 
         export: function () {
             var that = this;
+            this.options._dirty = false;
             var exportOpts = [];
             $.each(this.options.wf, function (i, wf) {
                 console.log("SCORE START", wf.pos / 1000.0, "WF POS", wf.pos);
@@ -3373,6 +3384,19 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             return exportOpts;
         },
 
+        isDirty: function () {
+            if (this.options._dirty) {
+                return true;
+            }
+            var i;
+            for (i = 0; i < this.options.wf.length; i++) {
+                if ($(wf.elt).wf("isDirty")) {
+                    return true;
+                }
+            }
+            return false;
+        },
+
         _setOptions: function () {
             // _super and _superApply handle keeping the right this-context
             this._superApply(arguments);
@@ -3381,6 +3405,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
 
         _setOption: function (key, value) {
             // console.log("in _setOption with key:", key, "value:", value);
+            this.options._dirty = true;
             switch (key) {
             case "pxPerMs":
                 this.options._dirtyWaveforms = this.options.wf.slice(0);
@@ -3790,7 +3815,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     ScriptArea.prototype._renderWord = function(word, isTextArea, wrapLeft, wrapRight) {
-      var ending, _ref;
+      var ending, quoteEnd, _ref;
 
       if (wrapLeft == null) {
         wrapLeft = "";
@@ -3799,7 +3824,8 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         wrapRight = "";
       }
       ending = ['.', '?', '!'];
-      if (_ref = word.word[word.word.length - 1], __indexOf.call(ending, _ref) >= 0) {
+      quoteEnd = '."';
+      if ((_ref = word.word[word.word.length - 1], __indexOf.call(ending, _ref) >= 0) || word.word.slice(-2) === quoteEnd) {
         if (isTextArea) {
           return "" + wrapLeft + word.word + wrapRight + "\n";
         }
@@ -4289,7 +4315,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       this.el.scrollTo(0);
     }
 
-    TextAreaManager.prototype._tr = function(prev) {
+    TextAreaManager.prototype._tr = function(index) {
       var tr;
 
       tr = $(document.createElement('tr'));
@@ -4300,8 +4326,12 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         return tr.append(td);
       });
       tr.find("td").width("" + (100 / this.speakers.length) + "%");
-      if (prev != null) {
-        tr.insertAfter(prev);
+      if (index != null) {
+        if (index === 0) {
+          tr.prependTo(this.table);
+        } else {
+          tr.insertAfter(this.table.find('tr').eq(index - 1));
+        }
       } else {
         tr.appendTo(this.table);
       }
@@ -4331,7 +4361,6 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         console.log("TAM REFRESH");
       }
       this.dirtyTas = _.uniq(this.dirtyTas);
-      console.log("Dirty TAs", this.dirtyTas);
       _ref = this.tas;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         ta = _ref[i];
@@ -4349,15 +4378,18 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       return this.dirtyTas = [];
     };
 
-    TextAreaManager.prototype.adjustHeight = function() {
-      var height, ta, _i, _len, _ref;
+    TextAreaManager.prototype.adjustHeight = function(forceAll) {
+      var height, ta, taSet, _i, _len;
 
       if (DEBUG) {
         console.log("ADJUST HEIGHT OF TAM");
       }
-      _ref = this.dirtyTas;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        ta = _ref[_i];
+      if (forceAll == null) {
+        forceAll = false;
+      }
+      taSet = forceAll ? this.tas : this.dirtyTas;
+      for (_i = 0, _len = taSet.length; _i < _len; _i++) {
+        ta = taSet[_i];
         height = ta.adjustHeight();
         ta.el.closest('tr').height(height);
       }
@@ -4445,6 +4477,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         refresh = true;
       }
       cutWords = this.current.splice(start, end - start);
+      console.log("start", start, "end", end, "cutwords", cutWords);
       taIndex = cutWords[0].taIdx;
       ta = this.tas[taIndex];
       console.log("taIndex", taIndex, "ta", ta);
@@ -4472,8 +4505,9 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       _ref = this.tas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
-        this.pruneByTAIndex(0, ta.words.length, ta, false);
+        ta.updateWords([]);
       }
+      this.current.splice(0, this.current.length);
       return this.refresh();
     };
 
@@ -4558,13 +4592,22 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     TextAreaManager.prototype.updatePos = function() {
-      var ta, _i, _len, _ref, _results;
+      var count, i, ta, _i, _j, _len, _len1, _ref, _ref1, _results;
 
       this.highlightWords(-1);
-      _ref = this.dirtyTas;
+      count = 0;
+      this.taIndexSpan = [];
+      _ref = this.tas;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        ta = _ref[i];
+        ta.name = i;
+        this.taIndexSpan.push(count);
+        count += ta.words.length;
+      }
+      _ref1 = this.dirtyTas;
       _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        ta = _ref[_i];
+      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+        ta = _ref1[_j];
         _results.push(ta.updatePos());
       }
       return _results;
@@ -4605,11 +4648,10 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         if (tai === this.tas.length - 1) {
           console.log("New row");
           col = this.speakers.indexOf(speakers[1]);
-          tr = this._tr(this.table.find('tr').eq(tai));
-          tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1]));
+          tr = this._tr(tai + 1);
+          tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1], tai + 1));
           ta.updateWords(ta.words.slice(0, segments[1]));
           this.tas[this.tas.length - 1].updateWords(words);
-          this.taIndexSpan.push(offset + ta.words.length);
           this.tas[this.tas.length - 1].area.setSelection(0, 0);
           this.refresh();
         } else if (this.tas[tai + 1].speaker === speakers[1]) {
@@ -4618,7 +4660,6 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
           nextTa = this.tas[tai + 1];
           ta.updateWords(ta.words.slice(0, segments[1]));
           nextTa.updateWords(words.concat(nextTa.words));
-          this.taIndexSpan[tai + 1] -= words.length;
           nextTa.area.setSelection(0, 0);
           this.refresh();
         } else {
@@ -4632,16 +4673,14 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         if (tai === 0) {
           console.log("New row (wrong right)");
           col = this.speakers.indexOf(speakers[0]);
-          tr = this._tr(this.table.find('tr').eq(tai));
+          tr = this._tr(0);
           tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[0], 0));
           ta.updateWords(ta.words.slice(segments[1]));
           this.tas[0].updateWords(words);
-          this.taIndexSpan.splice(1, 0, words.length);
         } else if (this.tas[tai - 1].speaker === speakers[0]) {
           prevTa = this.tas[tai - 1];
           ta.updateWords(ta.words.slice(segments[1]));
           prevTa.updateWords(prevTa.words.concat(words));
-          this.taIndexSpan[tai] += words.length;
         } else {
           window.alert("should not get here (wrong right pattern)");
         }
@@ -4652,15 +4691,14 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       if (pattern.length === 3) {
         words = ta.words.slice(0);
         col = this.speakers.indexOf(speakers[1]);
-        tr = this._tr(this.table.find('tr').eq(tai));
+        tr = this._tr(tai + 1);
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[1], tai + 1));
         col = this.speakers.indexOf(speakers[2]);
-        tr = this._tr(this.table.find('tr').eq(tai + 1));
+        tr = this._tr(tai + 2);
         tr.find("td").eq(col).append(this._newScriptArea(this.tas.length, speakers[2], tai + 2));
         ta.updateWords(words.slice(0, segments[1]));
         this.tas[tai + 1].updateWords(words.slice(segments[1], segments[2]));
         this.tas[tai + 2].updateWords(words.slice(segments[2]));
-        this.taIndexSpan.splice(tai + 1, 0, this.taIndexSpan[tai] + ta.words.length, this.taIndexSpan[tai] + ta.words.length + this.tas[tai + 1].words.length);
         this.refresh();
         this.tas[tai + 1].area.setSelection(0, 0);
       }
@@ -4702,6 +4740,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {
       var args, ctx, i, loc, newEnd, offset, taIndex, word, words, _i, _j, _len, _ref, _ref1;
 
+      console.log("INSERT WORDS", indices, "POS", pos, "TA", ta);
       if (ta == null) {
         ta = this.lastFocused;
       }
@@ -4715,6 +4754,8 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         word = _ref[loc];
         if (word.taPos >= pos) {
           break;
+        } else if (loc === ta.words.length - 1) {
+          loc = ta.words.length;
         }
       }
       ctx = {
@@ -4752,6 +4793,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
           this.taIndexSpan[i] += words.length;
         }
       }
+      this.dirtyTas.push(ta);
       if (taIndex === this.tas.length - 1) {
         ta.updateWords(this.current.slice(this.taIndexSpan[taIndex]));
       } else {
@@ -4760,16 +4802,17 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       this.clean(ta);
       this.refresh();
       newEnd = ctx.last.taPos + ctx.last.word.length;
-      return ta.area.setSelection(newEnd, newEnd);
+      ta.area.setSelection(newEnd, newEnd);
+      return this.current.indexOf(ctx.first);
     };
 
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
 
       return _.defer(function() {
-        var b, bRes, parse_paste, pastedWords, result, sel, spaces, _ref, _ref1;
+        var b, bRes, count, ept, epts, firstIdx, parse_paste, pastedWords, result, sel, spaces, tai, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
 
-        parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g;
+        parse_paste = /(?:\[(\d+|gp),(e?)\]([^|]+)\|)/g;
         bRes = false;
         pastedWords = [];
         b = ta.area.val();
@@ -4781,16 +4824,39 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
           _this.refresh();
           return;
         }
+        count = 0;
+        epts = [];
         while (result = parse_paste.exec(b)) {
           bRes = true;
           if (result[1] === 'gp') {
-            pastedWords.push(result[2]);
+            pastedWords.push(result[3]);
           } else {
             pastedWords.push(parseInt(result[1], 10));
           }
+          if (result[2] === 'e') {
+            epts.push(count);
+          }
+          count += 1;
         }
         if (bRes) {
-          _this.insertWords(pastedWords, a.length - b.length + sel.start, ta);
+          firstIdx = _this.insertWords(pastedWords, a.length - b.length + sel.start, ta);
+          for (_i = 0, _len = epts.length; _i < _len; _i++) {
+            ept = epts[_i];
+            _this.current[firstIdx + ept].emphasisPoint = true;
+          }
+          for (_j = 0, _len1 = epts.length; _j < _len1; _j++) {
+            ept = epts[_j];
+            _ref2 = _this.tas;
+            for (tai = _k = 0, _len2 = _ref2.length; _k < _len2; tai = ++_k) {
+              ta = _ref2[tai];
+              if (_this.taIndexSpan[tai] <= ept && _this.taIndexSpan[tai] + ta.words.length > ept) {
+                _this.dirtyTas.push(ta);
+              }
+            }
+          }
+          if (epts.length !== 0) {
+            _this.refresh();
+          }
           console.log("taindexspan after clean", _this.taIndexSpan);
           return;
         }
@@ -4840,10 +4906,14 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       sel = ta.area.getSelection();
       wrds = ta.range(sel.start, sel.end);
       mod = _.reduce(wrds, (function(memo, wrd) {
-        var j, w, _i, _len, _ref;
+        var ept, j, w, _i, _len, _ref;
 
+        ept = '';
+        if ("emphasisPoint" in wrd && wrd.emphasisPoint) {
+          ept = 'e';
+        }
         if (wrd.alignedWord === "gp") {
-          return memo + '[gp]' + wrd.word + '|';
+          return "" + memo + "[gp," + ept + "]" + wrd.word + "|";
         }
         _ref = _this.words;
         for (j = _i = 0, _len = _ref.length; _i < _len; j = ++_i) {
@@ -4852,7 +4922,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             break;
           }
         }
-        return "" + memo + "[" + j + "]" + wrd.word + "|";
+        return "" + memo + "[" + j + "," + ept + "]" + wrd.word + "|";
       }), "");
       $(newdiv).css({
         position: "absolute",
@@ -4891,7 +4961,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     };
 
     TextAreaManager.prototype.insertDupeOverlays = function(dupes, dupeInfo, forceAll) {
-      var ta, _i, _j, _len, _len1, _ref, _ref1, _results, _results1;
+      var ta, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _results, _results1;
 
       this.dupes = dupes;
       this.dupeInfo = dupeInfo;
@@ -4909,17 +4979,22 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       }
       if (forceAll) {
         _ref = this.tas;
-        _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           ta = _ref[_i];
-          _results.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
+          ta.insertDupeOverlays(this.dupes, this.dupeInfo);
+        }
+        _ref1 = this.tas;
+        _results = [];
+        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+          ta = _ref1[_j];
+          _results.push(ta.adjustHeight());
         }
         return _results;
       } else {
-        _ref1 = this.dirtyTas;
+        _ref2 = this.dirtyTas;
         _results1 = [];
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          ta = _ref1[_j];
+        for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+          ta = _ref2[_k];
           _results1.push(ta.insertDupeOverlays(this.dupes, this.dupeInfo));
         }
         return _results1;
@@ -4934,11 +5009,14 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     TextAreaManager.prototype.removeTA = function(ta) {
       var taIndex;
 
+      console.log("INDEX", this.tas.indexOf(ta, "REMOVING TA", ta));
       taIndex = this.tas.indexOf(ta);
       this.tas.splice(taIndex, 1);
       this.taIndexSpan.splice(taIndex, 1);
       this.table.find("tr").eq(taIndex).remove();
+      console.log("TA", ta, "taIndex", taIndex, "@TAS", this.tas);
       if (taIndex !== 0 && taIndex < this.tas.length && this.tas[taIndex - 1].speaker === this.tas[taIndex].speaker) {
+        console.log("### combining 2 text areas");
         this.tas[taIndex - 1].updateWords(this.tas[taIndex - 1].words.concat(this.tas[taIndex].words));
         this.removeTA(this.tas[taIndex]);
       }
@@ -5154,10 +5232,12 @@ TAAPP.generateAudio = function () {
         contentType: 'json',
         data: JSON.stringify(TAAPP.state),
         success: function (data) {
+            var lastPos = undefined;
             if (TAAPP.sound !== undefined) {
+                lastPos = TAAPP.sound.position;
                 TAAPP.sound.destruct();
             }
-            TAAPP.sound = TAAPP.createSound(data);
+            TAAPP.sound = TAAPP.createSound(data, lastPos);
 
             TAAPP.spinner.stop();
         },
@@ -5167,20 +5247,22 @@ TAAPP.generateAudio = function () {
     });
 };
 
-TAAPP.createSound = function (data) {
+TAAPP.createSound = function (data, lastPos) {
     return soundManager.createSound({
         id: 'speech',
         url: data.url + "?r=" + parseInt(Math.random() * 10000),
-        autoPlay: true,
+        autoPlay: false,
         autoLoad: true,
         onplay: function () {
             $('.playBtn').html('<i class="icon-pause icon-white"></i>');
         },
         onresume: function () {
-            $('.playBtn').html('<i class="icon-pause icon-white"></i>');
+            $('.playBtn').html('<i class="icon-pause icon-white"></i>')
+                .removeClass('btn-success').addClass('btn-warning');
         },
         onpause: function () {
-            $('.playBtn').html('<i class="icon-play icon-white"></i>');
+            $('.playBtn').html('<i class="icon-play icon-white"></i>')
+                .removeClass('btn-warning').addClass('btn-success');;
         },
         onload: function () {
             TAAPP.timing = data.timing
@@ -5197,6 +5279,13 @@ TAAPP.createSound = function (data) {
             TAAPP.$timeline.timeline({
                 sound: this
             });
+
+            if (lastPos !== undefined) {
+                if (lastPos <= this.duration) {
+                    this.setPosition(lastPos);
+                }
+            }
+            this.play();
         },
         onfinish: function () {
             TAAPP.TAManager.highlightWords(-1);
@@ -5215,6 +5304,8 @@ TAAPP.adjustHeight = function () {
     // $('.dupeList').height(eltHeight - 70 + "px");
     // $('.rawTAManager').height(eltHeight - 70 + "px");
     
+    $('#musicLibrary').height(eltHeight + "px");
+
     TAAPP.TAManager.adjustHeight();
 
     
@@ -5225,7 +5316,7 @@ TAAPP.adjustHeight = function () {
     }
     
 
-    TAAPP.RawTAManager.adjustHeight();
+    TAAPP.RawTAManager.adjustHeight(true);
     
     
     if (TAAPP.hasOwnProperty("sliders")) {
@@ -5266,6 +5357,12 @@ TAAPP.roomTone = {
     "bullw": {
         "start": 123.429,
         "end": 124.388,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "bullw-full": {
+        "start": 315.638,
+        "end": 316.095,
         "word": "{gpause}",
         "alignedWord": "gp"
     },
@@ -5543,7 +5640,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
     if (wordIndex2 === undefined) {
         if (TAAPP.songInfo[songName].hasOwnProperty("changepoints")) {
-            _build(songInfo[songName].changepoints);
+            _build(TAAPP.songInfo[songName].changepoints);
             TAAPP.spinner.stop();
         } else {
             var basename = TAAPP.songInfo[songName].basename;
@@ -5571,7 +5668,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
         var word = TAAPP.current[wordIndex];
         var ta = TAAPP.TAManager.tas[word.taIdx];
-        var pos = TAAPP.current[wordIndex + 1].taPos;
+        var pos = TAAPP.current[wordIndex].taPos +
+                  TAAPP.current[wordIndex].word.length;
+
         TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
 
     } else {
@@ -5613,6 +5712,10 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
 
         var retargetLength = _.reduce(wordsBetween, function (memo, w) {
+            if (w.hasOwnProperty("pauseLength") &&
+                w.pauseLength !== undefined) {
+                return memo + w.pauseLength;
+            }
             return memo + w.end - w.start;
         }, 0.0);
 
@@ -5942,8 +6045,15 @@ TAAPP.reauthor = function () {
     TAAPP.generateAudio();
 };
 
-TAAPP.togglePlay = function () {
+TAAPP.rewind = function () {
     if (TAAPP.sound) {
+        TAAPP.sound.setPosition(0);
+    }
+};
+
+TAAPP.togglePlay = function () {
+    if (TAAPP.sound &&
+        (TAAPP.sound.playState === 1 || !TAAPP.$timeline.timeline("isDirty"))) {
         TAAPP.sound.togglePause();
     } else {
         TAAPP.reauthor();
@@ -5994,7 +6104,8 @@ TAAPP.addSongToTimeline = function (songName) {
         len: songData.dur,
         musicGraph: songData.graph
     });
-    TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
+    var nTracks = TAAPP.$timeline.timeline("option", "tracks");
+    TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: nTracks - 1, pos: 0.0});
 
     // TODO: hopefully just a temporary fix
     TAAPP.updateMusicVolumeDropdown();
@@ -6102,6 +6213,7 @@ TAAPP.loadSite = function () {
     
     $('.genLink').click(TAAPP.reauthor);
     $('.playBtn').click(TAAPP.togglePlay);
+    $('.rewindBtn').click(TAAPP.rewind);
     $('.zoomInBtn').click(TAAPP.zoomIn);
     $('.zoomOutBtn').click(TAAPP.zoomOut);
     $('.razorBtn').click(function () {
@@ -6144,8 +6256,10 @@ TAAPP.loadSite = function () {
 
     $(window).resize(function () {    
         TAAPP.adjustHeight();
-        TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
+        TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo, true);
     });
+
+    TAAPP._commandKey = false;
 
     $(document).keydown(function (e) {
         if (e.which === 32) {
@@ -6162,7 +6276,18 @@ TAAPP.loadSite = function () {
             $('.origSliderHandle').trigger('click');
         } else if (e.which === 70) {
             // f: music browser
-            $('.browserSliderHandle').trigger('click');
+            if (!TAAPP._commandKey) {
+                $('.browserSliderHandle').trigger('click');
+            }
+        } else if (e.which === 91 || e.which === 93) {
+            // chrome apple command key
+            TAAPP._commandKey = true;
+        }
+    });
+
+    $(document).keyup(function (e) {
+        if (e.which === 91 || e.which === 93) {
+            TAAPP._commandKey = false;
         }
     });
     
@@ -6241,13 +6366,15 @@ function getParameterByName(name)
 }
 
 $(function () {
+    $('#speechSelect').chosen();
+
     // make the "create" button work and show the modal
     var speech = getParameterByName("speech");
 
     // initial state
     history.replaceState({ speech: speech }, null, null);
 
-    $('input').live('keydown', function (event) {
+    $(document).on('keydown', 'input', function (event) {
         event.stopPropagation();
     });
 
@@ -7578,7 +7705,11 @@ MBAPP.activateLinks = function () {
                 id: songName,
                 url: $(this).attr("href"),
                 autoLoad: true,
-                autoPlay: true,
+                autoPlay: false,
+                onload: function () {
+                    this.setPosition(3000);
+                    this.play();
+                },
                 onstop: function () {
                     MBAPP.showPlayButton(btn);  
                 },

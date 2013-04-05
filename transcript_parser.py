@@ -42,6 +42,7 @@ def parse(transcript):
 
             if len(current_speaker) > 0:
                 line = " ".join(current_line)
+                line = re.sub(r'\[laugh[^\]]*\]', '{laugh}', line)
                 line = re.sub(r'\[[^\[\]]*\]', '', line)
                 line = re.sub(r'\s+$', '', line)
                 line = re.sub(r'$\s+', '', line)

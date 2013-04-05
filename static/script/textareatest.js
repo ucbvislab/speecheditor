@@ -190,10 +190,12 @@ TAAPP.generateAudio = function () {
         contentType: 'json',
         data: JSON.stringify(TAAPP.state),
         success: function (data) {
+            var lastPos = undefined;
             if (TAAPP.sound !== undefined) {
+                lastPos = TAAPP.sound.position;
                 TAAPP.sound.destruct();
             }
-            TAAPP.sound = TAAPP.createSound(data);
+            TAAPP.sound = TAAPP.createSound(data, lastPos);
 
             TAAPP.spinner.stop();
         },
@@ -203,20 +205,22 @@ TAAPP.generateAudio = function () {
     });
 };
 
-TAAPP.createSound = function (data) {
+TAAPP.createSound = function (data, lastPos) {
     return soundManager.createSound({
         id: 'speech',
         url: data.url + "?r=" + parseInt(Math.random() * 10000),
-        autoPlay: true,
+        autoPlay: false,
         autoLoad: true,
         onplay: function () {
             $('.playBtn').html('<i class="icon-pause icon-white"></i>');
         },
         onresume: function () {
-            $('.playBtn').html('<i class="icon-pause icon-white"></i>');
+            $('.playBtn').html('<i class="icon-pause icon-white"></i>')
+                .removeClass('btn-success').addClass('btn-warning');
         },
         onpause: function () {
-            $('.playBtn').html('<i class="icon-play icon-white"></i>');
+            $('.playBtn').html('<i class="icon-play icon-white"></i>')
+                .removeClass('btn-warning').addClass('btn-success');;
         },
         onload: function () {
             TAAPP.timing = data.timing
@@ -233,6 +237,13 @@ TAAPP.createSound = function (data) {
             TAAPP.$timeline.timeline({
                 sound: this
             });
+
+            if (lastPos !== undefined) {
+                if (lastPos <= this.duration) {
+                    this.setPosition(lastPos);
+                }
+            }
+            this.play();
         },
         onfinish: function () {
             TAAPP.TAManager.highlightWords(-1);
@@ -251,6 +262,8 @@ TAAPP.adjustHeight = function () {
     // $('.dupeList').height(eltHeight - 70 + "px");
     // $('.rawTAManager').height(eltHeight - 70 + "px");
     
+    $('#musicLibrary').height(eltHeight + "px");
+
     TAAPP.TAManager.adjustHeight();
 
     
@@ -261,7 +274,7 @@ TAAPP.adjustHeight = function () {
     }
     
 
-    TAAPP.RawTAManager.adjustHeight();
+    TAAPP.RawTAManager.adjustHeight(true);
     
     
     if (TAAPP.hasOwnProperty("sliders")) {
@@ -302,6 +315,12 @@ TAAPP.roomTone = {
     "bullw": {
         "start": 123.429,
         "end": 124.388,
+        "word": "{gpause}",
+        "alignedWord": "gp"
+    },
+    "bullw-full": {
+        "start": 315.638,
+        "end": 316.095,
         "word": "{gpause}",
         "alignedWord": "gp"
     },
@@ -579,7 +598,7 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
     if (wordIndex2 === undefined) {
         if (TAAPP.songInfo[songName].hasOwnProperty("changepoints")) {
-            _build(songInfo[songName].changepoints);
+            _build(TAAPP.songInfo[songName].changepoints);
             TAAPP.spinner.stop();
         } else {
             var basename = TAAPP.songInfo[songName].basename;
@@ -607,7 +626,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
         var word = TAAPP.current[wordIndex];
         var ta = TAAPP.TAManager.tas[word.taIdx];
-        var pos = TAAPP.current[wordIndex + 1].taPos;
+        var pos = TAAPP.current[wordIndex].taPos +
+                  TAAPP.current[wordIndex].word.length;
+
         TAAPP.TAManager.insertWords(['{gp-6}'], pos, ta);
 
     } else {
@@ -649,6 +670,10 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
 
         var retargetLength = _.reduce(wordsBetween, function (memo, w) {
+            if (w.hasOwnProperty("pauseLength") &&
+                w.pauseLength !== undefined) {
+                return memo + w.pauseLength;
+            }
             return memo + w.end - w.start;
         }, 0.0);
 
@@ -978,8 +1003,15 @@ TAAPP.reauthor = function () {
     TAAPP.generateAudio();
 };
 
-TAAPP.togglePlay = function () {
+TAAPP.rewind = function () {
     if (TAAPP.sound) {
+        TAAPP.sound.setPosition(0);
+    }
+};
+
+TAAPP.togglePlay = function () {
+    if (TAAPP.sound &&
+        (TAAPP.sound.playState === 1 || !TAAPP.$timeline.timeline("isDirty"))) {
         TAAPP.sound.togglePause();
     } else {
         TAAPP.reauthor();
@@ -1030,7 +1062,8 @@ TAAPP.addSongToTimeline = function (songName) {
         len: songData.dur,
         musicGraph: songData.graph
     });
-    TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: 1, pos: 0.0});
+    var nTracks = TAAPP.$timeline.timeline("option", "tracks");
+    TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: nTracks - 1, pos: 0.0});
 
     // TODO: hopefully just a temporary fix
     TAAPP.updateMusicVolumeDropdown();
@@ -1138,6 +1171,7 @@ TAAPP.loadSite = function () {
     
     $('.genLink').click(TAAPP.reauthor);
     $('.playBtn').click(TAAPP.togglePlay);
+    $('.rewindBtn').click(TAAPP.rewind);
     $('.zoomInBtn').click(TAAPP.zoomIn);
     $('.zoomOutBtn').click(TAAPP.zoomOut);
     $('.razorBtn').click(function () {
@@ -1180,8 +1214,10 @@ TAAPP.loadSite = function () {
 
     $(window).resize(function () {    
         TAAPP.adjustHeight();
-        TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo);
+        TAAPP.TAManager.insertDupeOverlays(TAAPP.dupes, TAAPP.dupeInfo, true);
     });
+
+    TAAPP._commandKey = false;
 
     $(document).keydown(function (e) {
         if (e.which === 32) {
@@ -1198,7 +1234,18 @@ TAAPP.loadSite = function () {
             $('.origSliderHandle').trigger('click');
         } else if (e.which === 70) {
             // f: music browser
-            $('.browserSliderHandle').trigger('click');
+            if (!TAAPP._commandKey) {
+                $('.browserSliderHandle').trigger('click');
+            }
+        } else if (e.which === 91 || e.which === 93) {
+            // chrome apple command key
+            TAAPP._commandKey = true;
+        }
+    });
+
+    $(document).keyup(function (e) {
+        if (e.which === 91 || e.which === 93) {
+            TAAPP._commandKey = false;
         }
     });
     
@@ -1277,13 +1324,15 @@ function getParameterByName(name)
 }
 
 $(function () {
+    $('#speechSelect').chosen();
+
     // make the "create" button work and show the modal
     var speech = getParameterByName("speech");
 
     // initial state
     history.replaceState({ speech: speech }, null, null);
 
-    $('input').live('keydown', function (event) {
+    $(document).on('keydown', 'input', function (event) {
         event.stopPropagation();
     });
 

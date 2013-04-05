@@ -133,7 +133,9 @@ class ScriptArea
         wrapRight ?= ""
         
         ending = ['.', '?', '!']
-        if word.word[word.word.length - 1] in ending
+        quoteEnd = '."'
+        if word.word[word.word.length - 1] in ending \
+        or word.word.slice(-2) is quoteEnd
             if isTextArea
                 return "#{wrapLeft}#{word.word}#{wrapRight}\n"
             return "#{wrapLeft}#{word.word}#{wrapRight}<br />"
@@ -596,7 +598,7 @@ class TextAreaManager
         @el.scrollTo 0
         
     
-    _tr: (prev) ->
+    _tr: (index) ->
         tr = $(document.createElement 'tr')
         _.each @speakers, (speaker) ->
             td = $(document.createElement('td'))
@@ -605,8 +607,11 @@ class TextAreaManager
         tr.find("td")
             .width("#{100/@speakers.length}%")
         
-        if prev?
-            tr.insertAfter(prev)
+        if index?
+            if index is 0
+                tr.prependTo(@table)
+            else
+                tr.insertAfter(@table.find('tr').eq(index - 1))
         else
             tr.appendTo(@table)
             
@@ -626,7 +631,7 @@ class TextAreaManager
         console.log("TAM REFRESH") if DEBUG
         @dirtyTas = _.uniq(@dirtyTas)
 
-        console.log("Dirty TAs", @dirtyTas)
+        # console.log("Dirty TAs", @dirtyTas)
         
         ta.name = i for ta, i in @tas
 
@@ -641,12 +646,16 @@ class TextAreaManager
         
         @dirtyTas = []
     
-    adjustHeight: ->
+    adjustHeight: (forceAll) ->
         console.log("ADJUST HEIGHT OF TAM") if DEBUG
         # height of scriptareas
         # ta.adjustHeight() for ta in @tas
 
-        for ta in @dirtyTas
+        forceAll ?= false
+
+        taSet = if forceAll then @tas else @dirtyTas
+
+        for ta in taSet
             height = ta.adjustHeight()
             ta.el.closest('tr').height(height)
 
@@ -716,8 +725,10 @@ class TextAreaManager
         console.log("PRUNE CURRENT") if DEBUG
         refresh ?= true
 
-        cutWords = @current.splice start, end - start
 
+
+        cutWords = @current.splice start, end - start
+        console.log("start", start, "end", end, "cutwords", cutWords)
         # TODO: BUG: will a problem if we have words from more than one TA
 
         taIndex = cutWords[0].taIdx
@@ -743,7 +754,10 @@ class TextAreaManager
 
     pruneAll: ->
         for ta in @tas
-            @pruneByTAIndex 0, ta.words.length, ta, false
+            ta.updateWords([])
+        @current.splice(0, @current.length)
+        # for ta in @tas
+            # @pruneByTAIndex 0, ta.words.length, ta, false
         @refresh()
 
     highlightWordsInWaveform: (start, end, ta) ->
@@ -799,7 +813,14 @@ class TextAreaManager
         
     updatePos: ->
         @highlightWords -1
+        count = 0
+        @taIndexSpan = []
+        for ta, i in @tas
+            ta.name = i
+            @taIndexSpan.push count
+            count += ta.words.length
         ta.updatePos() for ta in @dirtyTas
+
     
     clean: (ta) ->
         # assume we'll either have
@@ -850,14 +871,18 @@ class TextAreaManager
                 console.log "New row"
                 # new row
                 col = @speakers.indexOf(speakers[1])
-                tr = @_tr(@table.find('tr').eq(tai))
+
+                tr = @_tr(tai + 1)
+
+                # tr = @_tr(@table.find('tr').eq(tai))
+
                 tr.find("td").eq(col)
-                    .append(@_newScriptArea(@tas.length, speakers[1]))
+                    .append(@_newScriptArea(@tas.length, speakers[1], tai + 1))
 
                 # update words
                 ta.updateWords ta.words[0...segments[1]]
                 @tas[@tas.length - 1].updateWords words
-                @taIndexSpan.push offset + ta.words.length
+                # @taIndexSpan.push offset + ta.words.length
                 
                 @tas[@tas.length - 1].area.setSelection 0, 0
                 @refresh()
@@ -868,7 +893,7 @@ class TextAreaManager
                 nextTa = @tas[tai + 1]
                 ta.updateWords ta.words[0...segments[1]]
                 nextTa.updateWords words.concat(nextTa.words)
-                @taIndexSpan[tai + 1] -= words.length
+                # @taIndexSpan[tai + 1] -= words.length
                 
                 nextTa.area.setSelection 0, 0
                 @refresh()
@@ -884,20 +909,26 @@ class TextAreaManager
             if tai is 0
                 console.log "New row (wrong right)"
                 col = @speakers.indexOf speakers[0]
-                tr = @_tr(@table.find('tr').eq(tai))
+
+                tr = @_tr(0)
+
+                # if tai is 0
+                #     tr = @_tr()
+                # else
+                #     tr = @_tr(@table.find('tr').eq(tai))
                 tr.find("td").eq(col)
                     .append(@_newScriptArea(@tas.length, speakers[0], 0))
                 
                 # update words
                 ta.updateWords ta.words[segments[1]..]
                 @tas[0].updateWords words
-                @taIndexSpan.splice(1, 0, words.length)
+                # @taIndexSpan.splice(1, 0, words.length)
                             
             else if @tas[tai - 1].speaker is speakers[0]
                 prevTa = @tas[tai - 1]
                 ta.updateWords ta.words[segments[1]..]
                 prevTa.updateWords prevTa.words.concat(words)
-                @taIndexSpan[tai] += words.length
+                # @taIndexSpan[tai] += words.length
             else
                 window.alert "should not get here (wrong right pattern)"
             ta.area.setSelection(0, 0)
@@ -909,12 +940,21 @@ class TextAreaManager
             words = ta.words[..]
             
             col = @speakers.indexOf speakers[1]
-            tr = @_tr(@table.find('tr').eq(tai))
+
+            tr = @_tr(tai + 1)
+
+            # if tai is 0
+            #     tr = @_tr()
+            # else
+            #     tr = @_tr(@table.find('tr').eq(tai))
             tr.find("td").eq(col)
                 .append(@_newScriptArea(@tas.length, speakers[1], tai + 1))
             
             col = @speakers.indexOf speakers[2]
-            tr = @_tr(@table.find('tr').eq(tai + 1))
+
+            tr = @_tr(tai + 2)
+
+            # tr = @_tr(@table.find('tr').eq(tai + 1))
             tr.find("td").eq(col)
                 .append(@_newScriptArea(@tas.length, speakers[2], tai + 2))
             
@@ -923,9 +963,9 @@ class TextAreaManager
             @tas[tai + 1].updateWords words[segments[1]...segments[2]]
             @tas[tai + 2].updateWords words[segments[2]..]
             
-            @taIndexSpan.splice tai + 1, 0,
-                @taIndexSpan[tai] + ta.words.length,
-                @taIndexSpan[tai] + ta.words.length + @tas[tai + 1].words.length
+            # @taIndexSpan.splice tai + 1, 0,
+                # @taIndexSpan[tai] + ta.words.length,
+                # @taIndexSpan[tai] + ta.words.length + @tas[tai + 1].words.length
             
             @refresh()
             
@@ -964,6 +1004,8 @@ class TextAreaManager
 
     insertWords: (indices, pos, ta) ->
         # pos and ta are optional
+        console.log("INSERT WORDS", indices, "POS", pos, "TA", ta)
+
         ta ?= @lastFocused
         pos ?= ta.area.getSelection().start
         
@@ -974,6 +1016,8 @@ class TextAreaManager
         for word, loc in ta.words
             if word.taPos >= pos
                 break
+            else if loc is ta.words.length - 1
+                loc = ta.words.length
         
         ctx = 
             first: undefined
@@ -1014,6 +1058,8 @@ class TextAreaManager
         
         # well, in a second...
         
+        @dirtyTas.push(ta)
+
         if taIndex is @tas.length - 1
             ta.updateWords @current[@taIndexSpan[taIndex]..]
         else
@@ -1026,6 +1072,8 @@ class TextAreaManager
         newEnd = ctx.last.taPos + ctx.last.word.length
         ta.area.setSelection newEnd, newEnd
         
+        return @current.indexOf(ctx.first)
+
         # newStart = ctx.first.taPos
         # newEnd = ctx.last.taPos + ctx.last.word.length
         # 
@@ -1033,7 +1081,7 @@ class TextAreaManager
     
     processPaste: (ta, a) ->
         _.defer =>
-            parse_paste = /(?:\[(\d+|gp)\]([^|]+)\|)/g
+            parse_paste = /(?:\[(\d+|gp),(e?)\]([^|]+)\|)/g
             bRes = false
             pastedWords = []
             b = ta.area.val()
@@ -1047,16 +1095,30 @@ class TextAreaManager
                 ta.area.val(a)
                 @refresh()
                 return
-                
+            
+            count = 0
+            epts = []
             while result = parse_paste.exec b
                 bRes = true
                 if result[1] is 'gp'
-                    pastedWords.push result[2]
+                    pastedWords.push result[3]
                 else
                     pastedWords.push parseInt(result[1], 10)
+                if result[2] is 'e'
+                    epts.push(count)
+                count += 1
             
             if bRes
-                @insertWords pastedWords, a.length - b.length + sel.start, ta
+                firstIdx = @insertWords pastedWords, a.length - b.length + sel.start, ta
+
+                @current[firstIdx + ept].emphasisPoint = true for ept in epts
+                for ept in epts
+                    for ta, tai in @tas
+                        if @taIndexSpan[tai] <= ept \
+                        and @taIndexSpan[tai] + ta.words.length > ept
+                            @dirtyTas.push(ta)
+                @refresh() if epts.length isnt 0
+
                 console.log "taindexspan after clean", @taIndexSpan
                 return
             
@@ -1082,12 +1144,15 @@ class TextAreaManager
         wrds = ta.range sel.start, sel.end
         
         mod = _.reduce wrds, ((memo, wrd) =>
+            ept = ''
+            if "emphasisPoint" of wrd and wrd.emphasisPoint
+                ept = 'e'
             if wrd.alignedWord is "gp"
-                return memo + '[gp]' + wrd.word + '|'
+                return "#{memo}[gp,#{ept}]#{wrd.word}|"
             for w, j in @words
                 if w.start is wrd.start and w.end is wrd.end
                     break
-            return "#{memo}[#{j}]#{wrd.word}|"
+            return "#{memo}[#{j},#{ept}]#{wrd.word}|"
             ), ""
         
         $(newdiv).css(position: "absolute", left: "-99999px")
@@ -1123,6 +1188,7 @@ class TextAreaManager
         
         if forceAll
             ta.insertDupeOverlays @dupes, @dupeInfo for ta in @tas
+            ta.adjustHeight() for ta in @tas
         else
             ta.insertDupeOverlays @dupes, @dupeInfo for ta in @dirtyTas
     
@@ -1133,14 +1199,19 @@ class TextAreaManager
         return @insertWords _.range(w1, w2 + 1), pos, ta
     
     removeTA: (ta) ->
+        console.log("INDEX", @tas.indexOf ta, "REMOVING TA", ta)
+
         taIndex = @tas.indexOf ta
         @tas.splice taIndex, 1
         @taIndexSpan.splice taIndex, 1
         @table.find("tr").eq(taIndex).remove()
         
+        console.log("TA", ta, "taIndex", taIndex, "@TAS", @tas)
+
         if taIndex isnt 0 and taIndex < @tas.length\
         and @tas[taIndex - 1].speaker is @tas[taIndex].speaker
             # combine the two
+            console.log("### combining 2 text areas")
             @tas[taIndex - 1].updateWords(
                 @tas[taIndex - 1].words.concat @tas[taIndex].words
             )

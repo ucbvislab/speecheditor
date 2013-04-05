@@ -164,20 +164,27 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             end = pause.end
             pause_len = pause.new_length
 
-            if cut_to_zc:
-                try:
-                    start = s.zero_crossing_after(start)
-                except:
-                    pass
-                try:
-                    end = s.zero_crossing_before(end)
-                except:
-                    pass
+            # Done in the create_roomtone_pause2 method
+
+            # if cut_to_zc:
+            #     try:
+            #         start = s.zero_crossing_after(start)
+            #     except:
+            #         pass
+            #     try:
+            #         end = s.zero_crossing_before(end)
+            #     except:
+            #         pass
 
             start_times.append(composition_loc)
 
             seg = Segment(s, composition_loc, start, end - start)
-            track, cf_seg = create_roomtone_pause2(seg, pause_len)
+            track, cf_seg = create_roomtone_pause2(seg, pause_len, cut_to_zc)
+
+            if cf_seg.duration < 0:
+                start_times.append(composition_loc)
+                continue
+
             c.add_track(track)
             c.add_score_segment(cf_seg)
             
@@ -208,6 +215,10 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                     end = s.zero_crossing_after(end)
                 except:
                     pass
+
+            if start >= end:
+                start_times.append(composition_loc)
+                continue
 
             seg = Segment(s, composition_loc, start, end - start)
             print eg.speaker, "comp loc", composition_loc, "start", start, "end", end
@@ -284,7 +295,7 @@ def create_roomtone_pause(segment, final_duration):
 
     return track, raw_seg
 
-def create_roomtone_pause2(segment, final_duration):
+def create_roomtone_pause2(segment, final_duration, cut_to_zc):
     final_dur_in_frames = int(final_duration * segment.track.sr())
     out = N.empty(final_dur_in_frames)
     
@@ -313,11 +324,12 @@ def create_roomtone_pause2(segment, final_duration):
     raw_seg = Segment(track, segment.score_location / float(sr),
                       0.0, final_duration)
 
-    start = track.zero_crossing_after(0.0)
-    end = track.zero_crossing_before(final_duration)
+    if cut_to_zc:
+        start = track.zero_crossing_after(0.0)
+        end = track.zero_crossing_before(final_duration)
 
-    raw_seg.start = int(start * sr)
-    raw_seg.duration = int(end * sr - start * sr)
+        raw_seg.start = int(start * sr)
+        raw_seg.duration = int(end * sr - start * sr)
 
     return track, raw_seg
 

@@ -183,7 +183,11 @@ MBAPP.activateLinks = function () {
                 id: songName,
                 url: $(this).attr("href"),
                 autoLoad: true,
-                autoPlay: true,
+                autoPlay: false,
+                onload: function () {
+                    this.setPosition(3000);
+                    this.play();
+                },
                 onstop: function () {
                     MBAPP.showPlayButton(btn);  
                 },

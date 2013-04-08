@@ -129,6 +129,9 @@ TAAPP._createBreathDropdown = function () {
     $('.breathDropdown').find('.copyButton')
     .each(function (i) {
         $(this).click(function (event) {
+
+            TAAPP.use("insertBreath");
+
             TAAPP.TAManager.insertWords(breaths[i]);
         });
     });
@@ -449,6 +452,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
     // once we have the changepoints...
     var _build = function (cp) {
+
+        TAAPP.use("createSimpleUnderlay");
+
         var padding = 500;  // in milliseconds
         var best = cp[0];
         var bestms = best * 1000.0 - padding;
@@ -490,6 +496,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             volume: {
                 x: vx,
                 y: vy
+            },
+            loopCallback: function () {
+                TAAPP.use("addLoop");
             }
         });
         TAAPP.$timeline.timeline("addWaveform", {
@@ -501,6 +510,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
     };
 
     var _buildMulti = function (d) {
+
+        TAAPP.use("createConstrainedUnderlay");
+
         // add the pauses in the speech
         var word1 = TAAPP.current[wordIndex];
         var ta1 = TAAPP.TAManager.tas[word1.taIdx];
@@ -583,7 +595,10 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             len: d.total * 1000.0,
             currentBeats: d.beats,
             musicGraph: songData.graph,
-            volume: { x: vx, y: vy }
+            volume: { x: vx, y: vy },
+            loopCallback: function () {
+                TAAPP.use("addLoop");
+            }
         });
 
         TAAPP.$timeline.timeline("addWaveform", {
@@ -807,7 +822,18 @@ TAAPP.loadOriginal = function () {
     }
 };
 
+TAAPP.use = function (name) {
+    if (TAAPP.state.usageData.hasOwnProperty(name)
+        && TAAPP.state.usageData[name] !== undefined) {
+        TAAPP.state.usageData[name] += 1;
+    } else {
+        TAAPP.state.usageData[name] = 1;
+    }
+};
+
 TAAPP.reset = function () {
+    TAAPP.state.usageData = {};
+
     TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
     if (TAAPP.sound) {
         TAAPP.sound.destruct();
@@ -1060,7 +1086,10 @@ TAAPP.addSongToTimeline = function (songName) {
         filename: songData.path,
         dur: songData.dur,
         len: songData.dur,
-        musicGraph: songData.graph
+        musicGraph: songData.graph,
+        loopCallback: function () {
+            TAAPP.use("addLoop");
+        }
     });
     var nTracks = TAAPP.$timeline.timeline("option", "tracks");
     TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: nTracks - 1, pos: 0.0});
@@ -1157,6 +1186,7 @@ TAAPP.loadSite = function () {
     $("#underlayE1Select").chosen();
     $("#underlaySongSelect").chosen();
     $('.gPause').click(function () {
+        TAAPP.use("insertPause");
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
         gp.word = '{gp-' + gp.pauseLength + '}';

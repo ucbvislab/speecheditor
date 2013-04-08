@@ -54,6 +54,10 @@ def reauthor():
 
         speech_is_done = False
 
+        json.dump(dat["usageData"],
+            open(APP_PATH + "static/tmp/" + dat["outfile"] + '-usage.json', 'w'),
+            indent=4)
+
         for t in tracks:
             if t["waveformClass"] == "textAlignedWaveform":
                 
@@ -69,6 +73,10 @@ def reauthor():
                 with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
                     af = json.loads(f.read())["words"]
                 ef = dat["speechReauthor"]["words"]
+
+                json.dump(dat["speechReauthor"],
+                    open(APP_PATH + "static/tmp/" + dat["outfile"] + '.json', 'w'),
+                    indent=4)
 
                 # crossfades = True
                 # if "crossfades" in dat:
@@ -238,7 +246,7 @@ def reauthor():
             samplerate=result["samplerate"],
             separate_tracks=False)
         
-        subprocess.call('lame -f -b 128 ' + APP_PATH + 'static/tmp/'
+        subprocess.call('lame -V0 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True)
         
         # get the new wav2json data, maybe

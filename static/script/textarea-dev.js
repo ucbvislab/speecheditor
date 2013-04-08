@@ -2644,6 +2644,11 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
                     // change waveform pos in timeline
                     var newStart = origStart - (this.options.len - origLen)
                 }
+
+                if (this.options.hasOwnProperty("loopCallback")) {
+                    this.options.loopCallback();
+                }
+
                 return;
             }
         },
@@ -3943,6 +3948,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     ScriptArea.prototype.insertEmphasisPoint = function() {
       var sel, word;
 
+      TAAPP.use("addEmphasisPoint");
       this.selectWord("backward");
       sel = this.area.getSelection();
       this.area.setSelection(sel.end);
@@ -4034,6 +4040,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       var addInds, breath, breathInds, gp1, gp2, i, range, sel, topBreaths,
         _this = this;
 
+      TAAPP.use("addPeriod");
       console.log("Adding a period");
       sel = this.area.getSelection();
       range = this.range(sel.end);
@@ -4188,6 +4195,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
         start = context.bounds[i][0];
         end = context.bounds[i][1];
         return $(this).click(function() {
+          TAAPP.use("viewSimilarSentences");
           console.log("start", start, "end", end);
           return self.area.setSelection(self.words[start].taPos, self.words[end].taPos + self.words[end].word.length);
         }).next('.dropdown-menu').css({
@@ -4221,6 +4229,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
             $(this).click(function(event) {
               var newPos;
 
+              TAAPP.use("replaceSentence");
               newPos = self.replaceWords(start, end, dupe[j][0][0], dupe[j][0][1]);
               self.area.setSelection(newPos[0], newPos[1]);
               return false;
@@ -4229,6 +4238,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
           return $(this).find('.dupePlayButton').click(function(event) {
             var audioend, audiostart;
 
+            TAAPP.use("playSimilarSentence");
             audiostart = self.tam.words[dupe[j][0][0]].start;
             audioend = self.tam.words[dupe[j][0][1]].end;
             TAAPP.origSound.play({
@@ -4707,6 +4717,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     TextAreaManager.prototype.processDelete = function(ta, direction) {
       var end, sel, spaces, text, _ref;
 
+      TAAPP.use("delete");
       if (DEBUG) {
         console.log("PROCESSDELETE");
       }
@@ -4809,6 +4820,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
 
+      TAAPP.use("paste");
       return _.defer(function() {
         var b, bRes, count, ept, epts, firstIdx, parse_paste, pastedWords, result, sel, spaces, tai, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
 
@@ -4901,6 +4913,7 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
       var mod, newdiv, sel, selection, wrds,
         _this = this;
 
+      TAAPP.use("copy");
       selection = window.getSelection();
       newdiv = document.createElement('div');
       sel = ta.area.getSelection();
@@ -5171,6 +5184,9 @@ TAAPP._createBreathDropdown = function () {
     $('.breathDropdown').find('.copyButton')
     .each(function (i) {
         $(this).click(function (event) {
+
+            TAAPP.use("insertBreath");
+
             TAAPP.TAManager.insertWords(breaths[i]);
         });
     });
@@ -5491,6 +5507,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
 
     // once we have the changepoints...
     var _build = function (cp) {
+
+        TAAPP.use("createSimpleUnderlay");
+
         var padding = 500;  // in milliseconds
         var best = cp[0];
         var bestms = best * 1000.0 - padding;
@@ -5532,6 +5551,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             volume: {
                 x: vx,
                 y: vy
+            },
+            loopCallback: function () {
+                TAAPP.use("addLoop");
             }
         });
         TAAPP.$timeline.timeline("addWaveform", {
@@ -5543,6 +5565,9 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
     };
 
     var _buildMulti = function (d) {
+
+        TAAPP.use("createConstrainedUnderlay");
+
         // add the pauses in the speech
         var word1 = TAAPP.current[wordIndex];
         var ta1 = TAAPP.TAManager.tas[word1.taIdx];
@@ -5625,7 +5650,10 @@ TAAPP.createUnderlay = function (wordIndex, songName, wordIndex2) {
             len: d.total * 1000.0,
             currentBeats: d.beats,
             musicGraph: songData.graph,
-            volume: { x: vx, y: vy }
+            volume: { x: vx, y: vy },
+            loopCallback: function () {
+                TAAPP.use("addLoop");
+            }
         });
 
         TAAPP.$timeline.timeline("addWaveform", {
@@ -5849,7 +5877,18 @@ TAAPP.loadOriginal = function () {
     }
 };
 
+TAAPP.use = function (name) {
+    if (TAAPP.state.usageData.hasOwnProperty(name)
+        && TAAPP.state.usageData[name] !== undefined) {
+        TAAPP.state.usageData[name] += 1;
+    } else {
+        TAAPP.state.usageData[name] = 1;
+    }
+};
+
 TAAPP.reset = function () {
+    TAAPP.state.usageData = {};
+
     TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
     if (TAAPP.sound) {
         TAAPP.sound.destruct();
@@ -6102,7 +6141,10 @@ TAAPP.addSongToTimeline = function (songName) {
         filename: songData.path,
         dur: songData.dur,
         len: songData.dur,
-        musicGraph: songData.graph
+        musicGraph: songData.graph,
+        loopCallback: function () {
+            TAAPP.use("addLoop");
+        }
     });
     var nTracks = TAAPP.$timeline.timeline("option", "tracks");
     TAAPP.$timeline.timeline("addWaveform", {elt: wf, track: nTracks - 1, pos: 0.0});
@@ -6199,6 +6241,7 @@ TAAPP.loadSite = function () {
     $("#underlayE1Select").chosen();
     $("#underlaySongSelect").chosen();
     $('.gPause').click(function () {
+        TAAPP.use("insertPause");
         var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
         gp.word = '{gp-' + gp.pauseLength + '}';

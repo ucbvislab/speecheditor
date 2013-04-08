@@ -254,6 +254,7 @@
     ScriptArea.prototype.insertEmphasisPoint = function() {
       var sel, word;
 
+      TAAPP.use("addEmphasisPoint");
       this.selectWord("backward");
       sel = this.area.getSelection();
       this.area.setSelection(sel.end);
@@ -345,6 +346,7 @@
       var addInds, breath, breathInds, gp1, gp2, i, range, sel, topBreaths,
         _this = this;
 
+      TAAPP.use("addPeriod");
       console.log("Adding a period");
       sel = this.area.getSelection();
       range = this.range(sel.end);
@@ -499,6 +501,7 @@
         start = context.bounds[i][0];
         end = context.bounds[i][1];
         return $(this).click(function() {
+          TAAPP.use("viewSimilarSentences");
           console.log("start", start, "end", end);
           return self.area.setSelection(self.words[start].taPos, self.words[end].taPos + self.words[end].word.length);
         }).next('.dropdown-menu').css({
@@ -532,6 +535,7 @@
             $(this).click(function(event) {
               var newPos;
 
+              TAAPP.use("replaceSentence");
               newPos = self.replaceWords(start, end, dupe[j][0][0], dupe[j][0][1]);
               self.area.setSelection(newPos[0], newPos[1]);
               return false;
@@ -540,6 +544,7 @@
           return $(this).find('.dupePlayButton').click(function(event) {
             var audioend, audiostart;
 
+            TAAPP.use("playSimilarSentence");
             audiostart = self.tam.words[dupe[j][0][0]].start;
             audioend = self.tam.words[dupe[j][0][1]].end;
             TAAPP.origSound.play({
@@ -1018,6 +1023,7 @@
     TextAreaManager.prototype.processDelete = function(ta, direction) {
       var end, sel, spaces, text, _ref;
 
+      TAAPP.use("delete");
       if (DEBUG) {
         console.log("PROCESSDELETE");
       }
@@ -1120,6 +1126,7 @@
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
 
+      TAAPP.use("paste");
       return _.defer(function() {
         var b, bRes, count, ept, epts, firstIdx, parse_paste, pastedWords, result, sel, spaces, tai, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
 
@@ -1212,6 +1219,7 @@
       var mod, newdiv, sel, selection, wrds,
         _this = this;
 
+      TAAPP.use("copy");
       selection = window.getSelection();
       newdiv = document.createElement('div');
       sel = ta.area.getSelection();

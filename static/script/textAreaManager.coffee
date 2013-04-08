@@ -238,6 +238,9 @@ class ScriptArea
         console.log "end of snap", sel
     
     insertEmphasisPoint: ->
+
+        TAAPP.use "addEmphasisPoint"
+
         @selectWord("backward")
         sel = @area.getSelection()
         @area.setSelection(sel.end)
@@ -299,6 +302,9 @@ class ScriptArea
             word.taPos >= start and word.taPos < end
     
     addPeriod: ->
+
+        TAAPP.use "addPeriod"
+
         console.log("Adding a period")
         sel = @area.getSelection()
         range = @range(sel.end)
@@ -482,6 +488,9 @@ class ScriptArea
             
             
             $(this).click( ->
+
+                TAAPP.use "viewSimilarSentences"
+
                 console.log "start", start, "end", end
                 self.area.setSelection self.words[start].taPos,
                     self.words[end].taPos + self.words[end].word.length
@@ -517,6 +526,9 @@ class ScriptArea
                 else
                     # set up text replacement in editing area
                     $(@).click((event) ->
+
+                        TAAPP.use "replaceSentence"
+
                         newPos = self.replaceWords start, end,
                             dupe[j][0][0], dupe[j][0][1]
                         self.area.setSelection newPos[0], newPos[1]
@@ -525,6 +537,9 @@ class ScriptArea
                 
                 $(@).find('.dupePlayButton')
                 .click((event) ->
+
+                    TAAPP.use "playSimilarSentence"
+
                     audiostart = self.tam.words[dupe[j][0][0]].start
                     audioend = self.tam.words[dupe[j][0][1]].end
                     TAAPP.origSound.play
@@ -973,6 +988,9 @@ class TextAreaManager
             return
 
     processDelete: (ta, direction) ->
+
+        TAAPP.use "delete"
+
         console.log("PROCESSDELETE") if DEBUG
         if window.TAAPP.sound
             window.TAAPP.sound.stop()
@@ -999,6 +1017,7 @@ class TextAreaManager
         # @refresh()
     
     insertEmphasisPoint: (ta) ->
+
         ta ?= @lastFocused
         ta.insertEmphasisPoint()
 
@@ -1080,6 +1099,9 @@ class TextAreaManager
         # [newStart, newEnd]
     
     processPaste: (ta, a) ->
+
+        TAAPP.use "paste"
+
         _.defer =>
             parse_paste = /(?:\[(\d+|gp),(e?)\]([^|]+)\|)/g
             bRes = false
@@ -1138,6 +1160,9 @@ class TextAreaManager
         return mod
 
     processCopy: (ta) ->
+
+        TAAPP.use "copy"
+
         selection = window.getSelection()
         newdiv = document.createElement 'div'
         sel = ta.area.getSelection()

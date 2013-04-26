@@ -1194,8 +1194,6 @@ TAAPP.loadSite = function () {
         return false;
     });
     
-    TAAPP.outfile = Math.random().toString(36).substring(12);
-    
     // this is now covered by a breath-selection dropdown
     // $('.insBreath').click(TAAPP.insertBreath);
     
@@ -1314,6 +1312,7 @@ TAAPP.loadSite = function () {
             return $('#editorRow').height();
         }
     });
+
 };
 
 TAAPP.newProject = function (speech) {
@@ -1355,6 +1354,8 @@ function getParameterByName(name)
 
 $(function () {
     $('#speechSelect').chosen();
+
+    TAAPP.outfile = Math.random().toString(36).substring(12);
 
     // make the "create" button work and show the modal
     var speech = getParameterByName("speech");

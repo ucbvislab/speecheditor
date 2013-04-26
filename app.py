@@ -140,9 +140,9 @@ def reauthor():
                 seg_start = starts[0]
                 seg_start_loc = current_loc
 
-                with open ("tmp-starts", 'w') as tf:
-                    for i, start in enumerate(starts):
-                        tf.write('%s,%s,%s\n' % (start, dists[i], durs[i]))
+                # with open ("tmp-starts", 'w') as tf:
+                #     for i, start in enumerate(starts):
+                #         tf.write('%s,%s,%s\n' % (start, dists[i], durs[i]))
                 
                 for i, start in enumerate(starts):
                     if i == 0 or dists[i - 1] == 0:

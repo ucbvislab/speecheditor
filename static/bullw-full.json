@@ -1,0 +1,7299 @@
+{
+    "words": [
+        {
+            "start": 0.01247,
+            "speaker": "Julia",
+            "end": 0.20204,
+            "word": "Sound",
+            "alignedWord": "SOUND"
+        },
+        {
+            "start": 0.20204,
+            "speaker": "Julia",
+            "end": 0.48141,
+            "word": "test?",
+            "alignedWord": "TEST"
+        },
+        {
+            "start": 0.48141,
+            "end": 3.07551,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 3.07551,
+            "speaker": "Julia",
+            "end": 3.36485,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 3.36485,
+            "end": 3.6941,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 3.6941,
+            "speaker": "Julia",
+            "end": 4.07324,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 4.07324,
+            "end": 5.78934,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 5.78934,
+            "speaker": "Julia",
+            "end": 5.96893,
+            "word": "I",
+            "alignedWord": "I"
+        },
+        {
+            "start": 5.96893,
+            "end": 7.36576,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 7.36576,
+            "speaker": "Julia",
+            "end": 7.61519,
+            "word": "don't",
+            "alignedWord": "DON'T"
+        },
+        {
+            "start": 7.61519,
+            "end": 11.37664,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 11.37664,
+            "speaker": "Julia",
+            "end": 11.94535,
+            "word": "know",
+            "alignedWord": "KNOW"
+        },
+        {
+            "start": 11.94535,
+            "speaker": "Julia",
+            "end": 12.13492,
+            "word": "if",
+            "alignedWord": "IF"
+        },
+        {
+            "start": 12.13492,
+            "end": 12.70363,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 12.70363,
+            "speaker": "Julia",
+            "end": 13.45193,
+            "word": "I'm",
+            "alignedWord": "I'M"
+        },
+        {
+            "start": 13.45193,
+            "speaker": "Julia",
+            "end": 13.71134,
+            "word": "going",
+            "alignedWord": "GOING"
+        },
+        {
+            "start": 13.71134,
+            "speaker": "Julia",
+            "end": 13.80113,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 13.80113,
+            "speaker": "Julia",
+            "end": 13.96077,
+            "word": "be",
+            "alignedWord": "BE"
+        },
+        {
+            "start": 13.96077,
+            "speaker": "Julia",
+            "end": 14.27007,
+            "word": "able",
+            "alignedWord": "ABLE"
+        },
+        {
+            "start": 14.27007,
+            "speaker": "Julia",
+            "end": 14.76893,
+            "word": "to.",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 14.76893,
+            "end": 16.1458,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 16.1458,
+            "speaker": "Julia",
+            "end": 16.36531,
+            "word": "My",
+            "alignedWord": "MY"
+        },
+        {
+            "start": 16.36531,
+            "speaker": "Julia",
+            "end": 16.95397,
+            "word": "nose",
+            "alignedWord": "NOSE"
+        },
+        {
+            "start": 16.95397,
+            "speaker": "Julia",
+            "end": 17.22336,
+            "word": "just",
+            "alignedWord": "JUST"
+        },
+        {
+            "start": 17.22336,
+            "speaker": "Julia",
+            "end": 17.47279,
+            "word": "got",
+            "alignedWord": "GOT"
+        },
+        {
+            "start": 17.47279,
+            "speaker": "Julia",
+            "end": 17.85193,
+            "word": "plugged",
+            "alignedWord": "PLUGGED"
+        },
+        {
+            "start": 17.85193,
+            "speaker": "Julia",
+            "end": 18.01156,
+            "word": "up",
+            "alignedWord": "UP"
+        },
+        {
+            "start": 18.01156,
+            "speaker": "Julia",
+            "end": 18.19116,
+            "word": "when",
+            "alignedWord": "WHEN"
+        },
+        {
+            "start": 18.19116,
+            "speaker": "Julia",
+            "end": 18.32086,
+            "word": "I...",
+            "alignedWord": "I"
+        },
+        {
+            "start": 18.32086,
+            "speaker": "Julia",
+            "end": 18.3907,
+            "word": "all",
+            "alignedWord": "ALL"
+        },
+        {
+            "start": 18.3907,
+            "end": 18.42063,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 18.42063,
+            "speaker": "Julia",
+            "end": 18.68005,
+            "word": "right.",
+            "alignedWord": "RIGHT"
+        },
+        {
+            "start": 18.68005,
+            "speaker": "Julia",
+            "end": 18.83968,
+            "word": "I'll",
+            "alignedWord": "I'LL"
+        },
+        {
+            "start": 18.83968,
+            "speaker": "Julia",
+            "end": 19.10907,
+            "word": "try,",
+            "alignedWord": "TRY"
+        },
+        {
+            "start": 19.10907,
+            "speaker": "Julia",
+            "end": 19.3585,
+            "word": "though.",
+            "alignedWord": "THOUGH"
+        },
+        {
+            "start": 19.3585,
+            "end": 19.58798,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 19.58798,
+            "speaker": "Julia",
+            "end": 19.8873,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 19.8873,
+            "end": 20.13673,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 20.13673,
+            "speaker": "Julia",
+            "end": 20.17664,
+            "word": "Oh,",
+            "alignedWord": "OH"
+        },
+        {
+            "start": 20.17664,
+            "end": 21.05465,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 21.05465,
+            "speaker": "Julia",
+            "end": 21.77302,
+            "word": "god.",
+            "alignedWord": "GOD"
+        },
+        {
+            "start": 21.77302,
+            "end": 22.14218,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 22.14218,
+            "speaker": "Julia",
+            "end": 23.64875,
+            "word": "He's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 23.64875,
+            "speaker": "Julia",
+            "end": 24.09773,
+            "word": "not",
+            "alignedWord": "NOT"
+        },
+        {
+            "start": 24.09773,
+            "end": 25.19524,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 25.19524,
+            "speaker": "Julia",
+            "end": 25.89365,
+            "word": "just",
+            "alignedWord": "JUST"
+        },
+        {
+            "start": 25.89365,
+            "speaker": "Julia",
+            "end": 25.95351,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 25.95351,
+            "speaker": "Julia",
+            "end": 26.60204,
+            "word": "fan.",
+            "alignedWord": "FAN"
+        },
+        {
+            "start": 26.60204,
+            "speaker": "Julia",
+            "end": 27.08095,
+            "word": "Whenever",
+            "alignedWord": "WHENEVER"
+        },
+        {
+            "start": 27.08095,
+            "speaker": "Julia",
+            "end": 27.54989,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 27.54989,
+            "speaker": "Julia",
+            "end": 27.76939,
+            "word": "makes",
+            "alignedWord": "MAKES"
+        },
+        {
+            "start": 27.76939,
+            "speaker": "Julia",
+            "end": 27.82925,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 27.82925,
+            "speaker": "Julia",
+            "end": 28.31814,
+            "word": "appearance",
+            "alignedWord": "APPEARANCE"
+        },
+        {
+            "start": 28.31814,
+            "speaker": "Julia",
+            "end": 28.56757,
+            "word": "these",
+            "alignedWord": "THESE"
+        },
+        {
+            "start": 28.56757,
+            "speaker": "Julia",
+            "end": 29.08639,
+            "word": "days,",
+            "alignedWord": "DAYS"
+        },
+        {
+            "start": 29.08639,
+            "end": 29.24603,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 29.24603,
+            "speaker": "Julia",
+            "end": 29.50544,
+            "word": "that's",
+            "alignedWord": "THAT'S"
+        },
+        {
+            "start": 29.50544,
+            "speaker": "Julia",
+            "end": 29.81474,
+            "word": "Keith",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 29.81474,
+            "speaker": "Julia",
+            "end": 30.21383,
+            "word": "Scott",
+            "alignedWord": "SCOTT"
+        },
+        {
+            "start": 30.21383,
+            "end": 30.25374,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 30.25374,
+            "speaker": "Julia",
+            "end": 30.55306,
+            "word": "behind",
+            "alignedWord": "BEHIND"
+        },
+        {
+            "start": 30.55306,
+            "speaker": "Julia",
+            "end": 30.68277,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 30.68277,
+            "speaker": "Julia",
+            "end": 31.32132,
+            "word": "antlers.",
+            "alignedWord": "ANTLERS"
+        },
+        {
+            "start": 31.32132,
+            "end": 31.8102,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 31.8102,
+            "speaker": "Julia",
+            "end": 31.96984,
+            "word": "He",
+            "alignedWord": "HE"
+        },
+        {
+            "start": 31.96984,
+            "speaker": "Julia",
+            "end": 32.2093,
+            "word": "took",
+            "alignedWord": "TOOK"
+        },
+        {
+            "start": 32.2093,
+            "speaker": "Julia",
+            "end": 32.49864,
+            "word": "over",
+            "alignedWord": "OVER"
+        },
+        {
+            "start": 32.49864,
+            "speaker": "Julia",
+            "end": 32.66825,
+            "word": "as",
+            "alignedWord": "AS"
+        },
+        {
+            "start": 32.66825,
+            "speaker": "Julia",
+            "end": 32.76803,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 32.76803,
+            "speaker": "Julia",
+            "end": 33.16712,
+            "word": "official",
+            "alignedWord": "OFFICIAL"
+        },
+        {
+            "start": 33.16712,
+            "speaker": "Julia",
+            "end": 33.64603,
+            "word": "voiceover",
+            "alignedWord": "VOICEOVER"
+        },
+        {
+            "start": 33.64603,
+            "speaker": "Julia",
+            "end": 33.93537,
+            "word": "guy",
+            "alignedWord": "GUY"
+        },
+        {
+            "start": 33.93537,
+            "speaker": "Julia",
+            "end": 34.09501,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 34.09501,
+            "speaker": "Julia",
+            "end": 34.19478,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 34.19478,
+            "speaker": "Julia",
+            "end": 34.47415,
+            "word": "early",
+            "alignedWord": "EARLY"
+        },
+        {
+            "start": 34.47415,
+            "speaker": "Julia",
+            "end": 35.19252,
+            "word": "'90s.",
+            "alignedWord": "90S"
+        },
+        {
+            "start": 35.19252,
+            "end": 35.60159,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 35.60159,
+            "speaker": "Julia",
+            "end": 35.93084,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 35.93084,
+            "speaker": "Julia",
+            "end": 36.65918,
+            "word": "unofficially,",
+            "alignedWord": "UNOFFICIALLY"
+        },
+        {
+            "start": 36.65918,
+            "end": 36.86871,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 36.86871,
+            "speaker": "Julia",
+            "end": 37.07823,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 37.07823,
+            "speaker": "Julia",
+            "end": 37.19796,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 37.19796,
+            "speaker": "Julia",
+            "end": 37.67687,
+            "word": "closest",
+            "alignedWord": "CLOSEST"
+        },
+        {
+            "start": 37.67687,
+            "speaker": "Julia",
+            "end": 37.96621,
+            "word": "thing",
+            "alignedWord": "THING"
+        },
+        {
+            "start": 37.96621,
+            "speaker": "Julia",
+            "end": 38.08594,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 38.08594,
+            "speaker": "Julia",
+            "end": 38.13583,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 38.13583,
+            "speaker": "Julia",
+            "end": 38.81429,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 38.81429,
+            "speaker": "Julia",
+            "end": 39.61247,
+            "word": "historian.",
+            "alignedWord": "HISTORIAN"
+        },
+        {
+            "start": 39.61247,
+            "end": 40.1712,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 40.1712,
+            "speaker": "Julia",
+            "end": 40.36077,
+            "word": "He's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 40.36077,
+            "speaker": "Julia",
+            "end": 40.51043,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 40.51043,
+            "speaker": "Julia",
+            "end": 40.84966,
+            "word": "author",
+            "alignedWord": "AUTHOR"
+        },
+        {
+            "start": 40.84966,
+            "speaker": "Julia",
+            "end": 40.98934,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 40.98934,
+            "end": 41.0093,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 41.0093,
+            "speaker": "Julia",
+            "end": 41.17891,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 41.17891,
+            "speaker": "Julia",
+            "end": 41.50816,
+            "word": "Moose",
+            "alignedWord": "MOOSE"
+        },
+        {
+            "start": 41.50816,
+            "speaker": "Julia",
+            "end": 41.69773,
+            "word": "That",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 41.69773,
+            "speaker": "Julia",
+            "end": 42.13673,
+            "word": "Roared,\"",
+            "alignedWord": "ROARED"
+        },
+        {
+            "start": 42.13673,
+            "end": 42.51587,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 42.51587,
+            "speaker": "Julia",
+            "end": 42.60567,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 42.60567,
+            "speaker": "Julia",
+            "end": 42.81519,
+            "word": "book",
+            "alignedWord": "BOOK"
+        },
+        {
+            "start": 42.81519,
+            "speaker": "Julia",
+            "end": 42.96485,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 42.96485,
+            "speaker": "Julia",
+            "end": 43.21429,
+            "word": "tells",
+            "alignedWord": "TELLS"
+        },
+        {
+            "start": 43.21429,
+            "speaker": "Julia",
+            "end": 43.31406,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 43.31406,
+            "speaker": "Julia",
+            "end": 43.74308,
+            "word": "saga",
+            "alignedWord": "SAGA"
+        },
+        {
+            "start": 43.74308,
+            "speaker": "Julia",
+            "end": 44.06236,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 44.06236,
+            "speaker": "Julia",
+            "end": 44.14218,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 44.14218,
+            "speaker": "Julia",
+            "end": 44.47143,
+            "word": "Rocky",
+            "alignedWord": "ROCKY"
+        },
+        {
+            "start": 44.47143,
+            "speaker": "Julia",
+            "end": 44.60113,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 44.60113,
+            "speaker": "Julia",
+            "end": 45.43923,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 45.43923,
+            "end": 47.45465,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 47.45465,
+            "speaker": "Julia",
+            "end": 47.8737,
+            "word": "Show.\"",
+            "alignedWord": "SHOW"
+        },
+        {
+            "start": 47.8737,
+            "end": 54.41882,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 54.41882,
+            "speaker": "Julia",
+            "end": 54.96757,
+            "word": "Yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 54.96757,
+            "speaker": "Julia",
+            "end": 55.3966,
+            "word": "no.",
+            "alignedWord": "NO"
+        },
+        {
+            "start": 55.3966,
+            "end": 57.08277,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 57.08277,
+            "speaker": "Julia",
+            "end": 57.14263,
+            "word": "No.",
+            "alignedWord": "NO"
+        },
+        {
+            "start": 57.14263,
+            "speaker": "Julia",
+            "end": 57.59161,
+            "word": "Yeah.",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 57.59161,
+            "end": 58.34989,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 58.34989,
+            "speaker": "Julia",
+            "end": 58.72902,
+            "word": "Yeah.",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 58.72902,
+            "end": 61.71224,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 61.71224,
+            "speaker": "Julia",
+            "end": 62.01156,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 62.01156,
+            "end": 64.5059,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 64.5059,
+            "speaker": "Julia",
+            "end": 64.83515,
+            "word": "He's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 64.83515,
+            "speaker": "Julia",
+            "end": 65.10454,
+            "word": "not",
+            "alignedWord": "NOT"
+        },
+        {
+            "start": 65.10454,
+            "speaker": "Julia",
+            "end": 65.35397,
+            "word": "just",
+            "alignedWord": "JUST"
+        },
+        {
+            "start": 65.35397,
+            "speaker": "Julia",
+            "end": 65.39388,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 65.39388,
+            "speaker": "Julia",
+            "end": 65.89274,
+            "word": "fan.",
+            "alignedWord": "FAN"
+        },
+        {
+            "start": 65.89274,
+            "end": 66.39161,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 66.39161,
+            "speaker": "Julia",
+            "end": 66.83061,
+            "word": "Whenever",
+            "alignedWord": "WHENEVER"
+        },
+        {
+            "start": 66.83061,
+            "speaker": "Julia",
+            "end": 67.26961,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 67.26961,
+            "speaker": "Julia",
+            "end": 67.49909,
+            "word": "makes",
+            "alignedWord": "MAKES"
+        },
+        {
+            "start": 67.49909,
+            "speaker": "Julia",
+            "end": 67.56893,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 67.56893,
+            "speaker": "Julia",
+            "end": 68.05782,
+            "word": "appearance",
+            "alignedWord": "APPEARANCE"
+        },
+        {
+            "start": 68.05782,
+            "speaker": "Julia",
+            "end": 68.2873,
+            "word": "these",
+            "alignedWord": "THESE"
+        },
+        {
+            "start": 68.2873,
+            "speaker": "Julia",
+            "end": 68.73628,
+            "word": "days,",
+            "alignedWord": "DAYS"
+        },
+        {
+            "start": 68.73628,
+            "end": 69.07551,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 69.07551,
+            "speaker": "Julia",
+            "end": 69.33492,
+            "word": "that's",
+            "alignedWord": "THAT'S"
+        },
+        {
+            "start": 69.33492,
+            "speaker": "Julia",
+            "end": 69.5644,
+            "word": "Keith",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 69.5644,
+            "end": 69.58435,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 69.58435,
+            "speaker": "Julia",
+            "end": 69.99342,
+            "word": "Scott",
+            "alignedWord": "SCOTT"
+        },
+        {
+            "start": 69.99342,
+            "speaker": "Julia",
+            "end": 70.35261,
+            "word": "behind...",
+            "alignedWord": "BEHIND"
+        },
+        {
+            "start": 70.35261,
+            "end": 70.64195,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 70.64195,
+            "speaker": "Julia",
+            "end": 70.93129,
+            "word": "eh.",
+            "alignedWord": "EH"
+        },
+        {
+            "start": 70.93129,
+            "end": 71.66961,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 71.66961,
+            "speaker": "Julia",
+            "end": 71.89909,
+            "word": "He's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 71.89909,
+            "speaker": "Julia",
+            "end": 72.11859,
+            "word": "not",
+            "alignedWord": "NOT"
+        },
+        {
+            "start": 72.11859,
+            "speaker": "Julia",
+            "end": 72.31814,
+            "word": "just",
+            "alignedWord": "JUST"
+        },
+        {
+            "start": 72.31814,
+            "speaker": "Julia",
+            "end": 72.35805,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 72.35805,
+            "speaker": "Julia",
+            "end": 72.87687,
+            "word": "fan.",
+            "alignedWord": "FAN"
+        },
+        {
+            "start": 72.87687,
+            "end": 73.26599,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 73.26599,
+            "speaker": "Julia",
+            "end": 73.68503,
+            "word": "Whenever",
+            "alignedWord": "WHENEVER"
+        },
+        {
+            "start": 73.68503,
+            "speaker": "Julia",
+            "end": 74.15397,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 74.15397,
+            "speaker": "Julia",
+            "end": 74.35351,
+            "word": "makes",
+            "alignedWord": "MAKES"
+        },
+        {
+            "start": 74.35351,
+            "speaker": "Julia",
+            "end": 74.42336,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 74.42336,
+            "speaker": "Julia",
+            "end": 74.86236,
+            "word": "appearance",
+            "alignedWord": "APPEARANCE"
+        },
+        {
+            "start": 74.86236,
+            "speaker": "Julia",
+            "end": 75.07188,
+            "word": "these",
+            "alignedWord": "THESE"
+        },
+        {
+            "start": 75.07188,
+            "speaker": "Julia",
+            "end": 75.49093,
+            "word": "days,",
+            "alignedWord": "DAYS"
+        },
+        {
+            "start": 75.49093,
+            "end": 75.85011,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 75.85011,
+            "speaker": "Julia",
+            "end": 76.09955,
+            "word": "that's",
+            "alignedWord": "THAT'S"
+        },
+        {
+            "start": 76.09955,
+            "speaker": "Julia",
+            "end": 76.31905,
+            "word": "Keith",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 76.31905,
+            "speaker": "Julia",
+            "end": 76.74807,
+            "word": "Scott",
+            "alignedWord": "SCOTT"
+        },
+        {
+            "start": 76.74807,
+            "speaker": "Julia",
+            "end": 77.04739,
+            "word": "behind",
+            "alignedWord": "BEHIND"
+        },
+        {
+            "start": 77.04739,
+            "speaker": "Julia",
+            "end": 77.10726,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 77.10726,
+            "speaker": "Julia",
+            "end": 77.69592,
+            "word": "antlers.",
+            "alignedWord": "ANTLERS"
+        },
+        {
+            "start": 77.69592,
+            "end": 78.2746,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 78.2746,
+            "speaker": "Julia",
+            "end": 78.39433,
+            "word": "He",
+            "alignedWord": "HE"
+        },
+        {
+            "start": 78.39433,
+            "speaker": "Julia",
+            "end": 78.59388,
+            "word": "took",
+            "alignedWord": "TOOK"
+        },
+        {
+            "start": 78.59388,
+            "speaker": "Julia",
+            "end": 78.83333,
+            "word": "over",
+            "alignedWord": "OVER"
+        },
+        {
+            "start": 78.83333,
+            "speaker": "Julia",
+            "end": 78.98299,
+            "word": "as",
+            "alignedWord": "AS"
+        },
+        {
+            "start": 78.98299,
+            "speaker": "Julia",
+            "end": 79.1127,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 79.1127,
+            "speaker": "Julia",
+            "end": 79.50181,
+            "word": "official",
+            "alignedWord": "OFFICIAL"
+        },
+        {
+            "start": 79.50181,
+            "speaker": "Julia",
+            "end": 79.9907,
+            "word": "voiceover",
+            "alignedWord": "VOICEOVER"
+        },
+        {
+            "start": 79.9907,
+            "speaker": "Julia",
+            "end": 80.28005,
+            "word": "guy",
+            "alignedWord": "GUY"
+        },
+        {
+            "start": 80.28005,
+            "speaker": "Julia",
+            "end": 80.44966,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 80.44966,
+            "speaker": "Julia",
+            "end": 80.52948,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 80.52948,
+            "speaker": "Julia",
+            "end": 80.83878,
+            "word": "early",
+            "alignedWord": "EARLY"
+        },
+        {
+            "start": 80.83878,
+            "speaker": "Julia",
+            "end": 81.46735,
+            "word": "'90s.",
+            "alignedWord": "90S"
+        },
+        {
+            "start": 81.46735,
+            "end": 82.02608,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 82.02608,
+            "speaker": "Julia",
+            "end": 82.18571,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 82.18571,
+            "speaker": "Julia",
+            "end": 83.01383,
+            "word": "unofficially,",
+            "alignedWord": "UNOFFICIALLY"
+        },
+        {
+            "start": 83.01383,
+            "end": 83.22336,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 83.22336,
+            "speaker": "Julia",
+            "end": 83.41293,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 83.41293,
+            "speaker": "Julia",
+            "end": 83.50272,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 83.50272,
+            "speaker": "Julia",
+            "end": 84.0415,
+            "word": "closest",
+            "alignedWord": "CLOSEST"
+        },
+        {
+            "start": 84.0415,
+            "speaker": "Julia",
+            "end": 84.32086,
+            "word": "thing",
+            "alignedWord": "THING"
+        },
+        {
+            "start": 84.32086,
+            "speaker": "Julia",
+            "end": 84.46054,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 84.46054,
+            "speaker": "Julia",
+            "end": 84.51043,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 84.51043,
+            "speaker": "Julia",
+            "end": 85.139,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 85.139,
+            "speaker": "Julia",
+            "end": 85.94717,
+            "word": "historian.",
+            "alignedWord": "HISTORIAN"
+        },
+        {
+            "start": 85.94717,
+            "end": 86.87506,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 86.87506,
+            "speaker": "Julia",
+            "end": 87.04467,
+            "word": "He's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 87.04467,
+            "speaker": "Julia",
+            "end": 87.21429,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 87.21429,
+            "speaker": "Julia",
+            "end": 87.54354,
+            "word": "author",
+            "alignedWord": "AUTHOR"
+        },
+        {
+            "start": 87.54354,
+            "speaker": "Julia",
+            "end": 87.74308,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 87.74308,
+            "speaker": "Julia",
+            "end": 87.92268,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 87.92268,
+            "speaker": "Julia",
+            "end": 88.27188,
+            "word": "Moose",
+            "alignedWord": "MOOSE"
+        },
+        {
+            "start": 88.27188,
+            "speaker": "Julia",
+            "end": 88.40159,
+            "word": "That",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 88.40159,
+            "speaker": "Julia",
+            "end": 88.94036,
+            "word": "Roared,\"",
+            "alignedWord": "ROARED"
+        },
+        {
+            "start": 88.94036,
+            "end": 89.29955,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 89.29955,
+            "speaker": "Julia",
+            "end": 89.38934,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 89.38934,
+            "speaker": "Julia",
+            "end": 89.60884,
+            "word": "book",
+            "alignedWord": "BOOK"
+        },
+        {
+            "start": 89.60884,
+            "speaker": "Julia",
+            "end": 89.76848,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 89.76848,
+            "speaker": "Julia",
+            "end": 90.03787,
+            "word": "tells",
+            "alignedWord": "TELLS"
+        },
+        {
+            "start": 90.03787,
+            "speaker": "Julia",
+            "end": 90.12766,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 90.12766,
+            "speaker": "Julia",
+            "end": 90.52676,
+            "word": "saga",
+            "alignedWord": "SAGA"
+        },
+        {
+            "start": 90.52676,
+            "speaker": "Julia",
+            "end": 90.86599,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 90.86599,
+            "speaker": "Julia",
+            "end": 90.95578,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 90.95578,
+            "speaker": "Julia",
+            "end": 91.30499,
+            "word": "Rocky",
+            "alignedWord": "ROCKY"
+        },
+        {
+            "start": 91.30499,
+            "speaker": "Julia",
+            "end": 91.43469,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 91.43469,
+            "speaker": "Julia",
+            "end": 91.91361,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 91.91361,
+            "speaker": "Julia",
+            "end": 92.30272,
+            "word": "Show.\"",
+            "alignedWord": "SHOW"
+        },
+        {
+            "start": 92.30272,
+            "end": 94.13855,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 94.13855,
+            "speaker": "Julia",
+            "end": 94.65737,
+            "word": "\"Plucky",
+            "alignedWord": "PLUCKY"
+        },
+        {
+            "start": 94.65737,
+            "speaker": "Julia",
+            "end": 94.83696,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 94.83696,
+            "speaker": "Julia",
+            "end": 95.4356,
+            "word": "innocent.\"",
+            "alignedWord": "INNOCENT"
+        },
+        {
+            "start": 95.4356,
+            "end": 95.90454,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 95.90454,
+            "speaker": "Julia",
+            "end": 96.00431,
+            "word": "That",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 96.00431,
+            "speaker": "Julia",
+            "end": 96.45329,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 96.45329,
+            "speaker": "Julia",
+            "end": 96.69274,
+            "word": "really",
+            "alignedWord": "REALLY"
+        },
+        {
+            "start": 96.69274,
+            "speaker": "Julia",
+            "end": 97.28141,
+            "word": "describe",
+            "alignedWord": "DESCRIBE"
+        },
+        {
+            "start": 97.28141,
+            "speaker": "Julia",
+            "end": 97.69048,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 97.69048,
+            "speaker": "Julia",
+            "end": 97.95986,
+            "word": "during",
+            "alignedWord": "DURING"
+        },
+        {
+            "start": 97.95986,
+            "speaker": "Julia",
+            "end": 98.02971,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 98.02971,
+            "speaker": "Julia",
+            "end": 98.339,
+            "word": "Cold",
+            "alignedWord": "COLD"
+        },
+        {
+            "start": 98.339,
+            "speaker": "Julia",
+            "end": 98.92766,
+            "word": "War,",
+            "alignedWord": "WAR"
+        },
+        {
+            "start": 98.92766,
+            "end": 99.00748,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 99.00748,
+            "speaker": "Julia",
+            "end": 99.23696,
+            "word": "let",
+            "alignedWord": "LET"
+        },
+        {
+            "start": 99.23696,
+            "speaker": "Julia",
+            "end": 99.56621,
+            "word": "alone",
+            "alignedWord": "ALONE"
+        },
+        {
+            "start": 99.56621,
+            "speaker": "Julia",
+            "end": 100.00522,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 100.00522,
+            "speaker": "Julia",
+            "end": 100.60385,
+            "word": "today.",
+            "alignedWord": "TODAY"
+        },
+        {
+            "start": 100.60385,
+            "end": 101.2424,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 101.2424,
+            "speaker": "Julia",
+            "end": 101.44195,
+            "word": "But",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 101.44195,
+            "speaker": "Julia",
+            "end": 101.68141,
+            "word": "Jay",
+            "alignedWord": "JAY"
+        },
+        {
+            "start": 101.68141,
+            "speaker": "Julia",
+            "end": 102.07052,
+            "word": "Ward",
+            "alignedWord": "WARD"
+        },
+        {
+            "start": 102.07052,
+            "speaker": "Julia",
+            "end": 102.42971,
+            "word": "tapped",
+            "alignedWord": "TAPPED"
+        },
+        {
+            "start": 102.42971,
+            "speaker": "Julia",
+            "end": 102.64921,
+            "word": "into",
+            "alignedWord": "INTO"
+        },
+        {
+            "start": 102.64921,
+            "speaker": "Julia",
+            "end": 102.74898,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 102.74898,
+            "speaker": "Julia",
+            "end": 103.1381,
+            "word": "things",
+            "alignedWord": "THINGS"
+        },
+        {
+            "start": 103.1381,
+            "speaker": "Julia",
+            "end": 103.2678,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 103.2678,
+            "speaker": "Julia",
+            "end": 103.66689,
+            "word": "most",
+            "alignedWord": "MOST"
+        },
+        {
+            "start": 103.66689,
+            "speaker": "Julia",
+            "end": 103.88639,
+            "word": "want",
+            "alignedWord": "WANT"
+        },
+        {
+            "start": 103.88639,
+            "speaker": "Julia",
+            "end": 103.95624,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 103.95624,
+            "speaker": "Julia",
+            "end": 104.30544,
+            "word": "believe",
+            "alignedWord": "BELIEVE"
+        },
+        {
+            "start": 104.30544,
+            "speaker": "Julia",
+            "end": 104.56485,
+            "word": "about",
+            "alignedWord": "ABOUT"
+        },
+        {
+            "start": 104.56485,
+            "speaker": "Julia",
+            "end": 105.08367,
+            "word": "ourselves",
+            "alignedWord": "OURSELVES"
+        },
+        {
+            "start": 105.08367,
+            "speaker": "Julia",
+            "end": 105.2034,
+            "word": "as",
+            "alignedWord": "AS"
+        },
+        {
+            "start": 105.2034,
+            "speaker": "Julia",
+            "end": 105.25329,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 105.25329,
+            "speaker": "Julia",
+            "end": 105.88186,
+            "word": "nation.",
+            "alignedWord": "NATION"
+        },
+        {
+            "start": 105.88186,
+            "end": 106.37075,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 106.37075,
+            "speaker": "Julia",
+            "end": 106.58027,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 106.58027,
+            "speaker": "Julia",
+            "end": 106.93946,
+            "word": "maybe",
+            "alignedWord": "MAYBE"
+        },
+        {
+            "start": 106.93946,
+            "speaker": "Julia",
+            "end": 107.11905,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 107.11905,
+            "speaker": "Julia",
+            "end": 107.55805,
+            "word": "means",
+            "alignedWord": "MEANS"
+        },
+        {
+            "start": 107.55805,
+            "speaker": "Julia",
+            "end": 107.73764,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 107.73764,
+            "speaker": "Julia",
+            "end": 107.9771,
+            "word": "all",
+            "alignedWord": "ALL"
+        },
+        {
+            "start": 107.9771,
+            "speaker": "Julia",
+            "end": 108.11678,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 108.11678,
+            "speaker": "Julia",
+            "end": 108.18662,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 108.18662,
+            "speaker": "Julia",
+            "end": 108.25646,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 108.25646,
+            "speaker": "Julia",
+            "end": 108.69546,
+            "word": "country",
+            "alignedWord": "COUNTRY"
+        },
+        {
+            "start": 108.69546,
+            "speaker": "Julia",
+            "end": 108.9449,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 108.9449,
+            "speaker": "Julia",
+            "end": 109.22426,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 109.22426,
+            "speaker": "Julia",
+            "end": 109.83288,
+            "word": "exist.",
+            "alignedWord": "EXIST"
+        },
+        {
+            "start": 109.83288,
+            "end": 112.36712,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 112.36712,
+            "speaker": "Julia",
+            "end": 112.93583,
+            "word": "\"Plucky",
+            "alignedWord": "PLUCKY"
+        },
+        {
+            "start": 112.93583,
+            "speaker": "Julia",
+            "end": 113.16531,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 113.16531,
+            "speaker": "Julia",
+            "end": 113.76395,
+            "word": "innocent.\"",
+            "alignedWord": "INNOCENT"
+        },
+        {
+            "start": 113.76395,
+            "end": 114.57211,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 114.57211,
+            "speaker": "Julia",
+            "end": 115.07098,
+            "word": "That",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 115.07098,
+            "end": 117.90454,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 117.90454,
+            "speaker": "Julia",
+            "end": 118.15397,
+            "word": "duh...",
+            "alignedWord": "DUH"
+        },
+        {
+            "start": 118.15397,
+            "end": 118.32358,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 118.32358,
+            "speaker": "Julia",
+            "end": 118.92222,
+            "word": "Yeah.",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 118.92222,
+            "speaker": "Julia",
+            "end": 119.31134,
+            "word": "Yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 119.31134,
+            "end": 119.34127,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 119.34127,
+            "speaker": "Julia",
+            "end": 119.5907,
+            "word": "I",
+            "alignedWord": "I"
+        },
+        {
+            "start": 119.5907,
+            "speaker": "Julia",
+            "end": 119.93991,
+            "word": "was",
+            "alignedWord": "WAS"
+        },
+        {
+            "start": 119.93991,
+            "speaker": "Julia",
+            "end": 120.53855,
+            "word": "wondering",
+            "alignedWord": "WONDERING"
+        },
+        {
+            "start": 120.53855,
+            "end": 121.24694,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 121.24694,
+            "speaker": "Julia",
+            "end": 121.66599,
+            "word": "about",
+            "alignedWord": "ABOUT"
+        },
+        {
+            "start": 121.66599,
+            "speaker": "Julia",
+            "end": 121.97528,
+            "word": "that,",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 121.97528,
+            "speaker": "Julia",
+            "end": 122.17483,
+            "word": "too.",
+            "alignedWord": "TOO"
+        },
+        {
+            "start": 122.17483,
+            "end": 124.39977,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 124.39977,
+            "speaker": "Julia",
+            "end": 124.45964,
+            "word": "Yeah.",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 124.45964,
+            "end": 124.61927,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 124.61927,
+            "speaker": "Julia",
+            "end": 125.24785,
+            "word": "\"Plucky",
+            "alignedWord": "PLUCKY"
+        },
+        {
+            "start": 125.24785,
+            "speaker": "Julia",
+            "end": 125.41746,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 125.41746,
+            "speaker": "Julia",
+            "end": 126.04603,
+            "word": "innocent.\"",
+            "alignedWord": "INNOCENT"
+        },
+        {
+            "start": 126.04603,
+            "end": 126.41519,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 126.41519,
+            "speaker": "Julia",
+            "end": 126.62472,
+            "word": "Does",
+            "alignedWord": "DOES"
+        },
+        {
+            "start": 126.62472,
+            "speaker": "Julia",
+            "end": 126.94399,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 126.94399,
+            "speaker": "Julia",
+            "end": 127.2034,
+            "word": "really",
+            "alignedWord": "REALLY"
+        },
+        {
+            "start": 127.2034,
+            "speaker": "Julia",
+            "end": 127.7322,
+            "word": "describe",
+            "alignedWord": "DESCRIBE"
+        },
+        {
+            "start": 127.7322,
+            "speaker": "Julia",
+            "end": 128.16122,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 128.16122,
+            "speaker": "Julia",
+            "end": 128.41066,
+            "word": "during",
+            "alignedWord": "DURING"
+        },
+        {
+            "start": 128.41066,
+            "speaker": "Julia",
+            "end": 128.4805,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 128.4805,
+            "speaker": "Julia",
+            "end": 128.75986,
+            "word": "Cold",
+            "alignedWord": "COLD"
+        },
+        {
+            "start": 128.75986,
+            "speaker": "Julia",
+            "end": 129.27868,
+            "word": "War,",
+            "alignedWord": "WAR"
+        },
+        {
+            "start": 129.27868,
+            "end": 129.73764,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 129.73764,
+            "speaker": "Julia",
+            "end": 129.91723,
+            "word": "let",
+            "alignedWord": "LET"
+        },
+        {
+            "start": 129.91723,
+            "speaker": "Julia",
+            "end": 130.1966,
+            "word": "alone",
+            "alignedWord": "ALONE"
+        },
+        {
+            "start": 130.1966,
+            "speaker": "Julia",
+            "end": 130.3263,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 130.3263,
+            "speaker": "Julia",
+            "end": 130.89501,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 130.89501,
+            "speaker": "Julia",
+            "end": 131.02472,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 131.02472,
+            "speaker": "Julia",
+            "end": 131.28413,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 131.28413,
+            "speaker": "Julia",
+            "end": 131.46372,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 131.46372,
+            "speaker": "Julia",
+            "end": 131.95261,
+            "word": "now?",
+            "alignedWord": "NOW"
+        },
+        {
+            "start": 131.95261,
+            "end": 132.98027,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 132.98027,
+            "speaker": "Julia",
+            "end": 133.13991,
+            "word": "But",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 133.13991,
+            "speaker": "Julia",
+            "end": 133.39932,
+            "word": "Jay",
+            "alignedWord": "JAY"
+        },
+        {
+            "start": 133.39932,
+            "speaker": "Julia",
+            "end": 133.74853,
+            "word": "Ward",
+            "alignedWord": "WARD"
+        },
+        {
+            "start": 133.74853,
+            "speaker": "Julia",
+            "end": 134.07778,
+            "word": "tapped",
+            "alignedWord": "TAPPED"
+        },
+        {
+            "start": 134.07778,
+            "speaker": "Julia",
+            "end": 134.27732,
+            "word": "into",
+            "alignedWord": "INTO"
+        },
+        {
+            "start": 134.27732,
+            "speaker": "Julia",
+            "end": 134.3771,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 134.3771,
+            "speaker": "Julia",
+            "end": 134.7263,
+            "word": "things",
+            "alignedWord": "THINGS"
+        },
+        {
+            "start": 134.7263,
+            "speaker": "Julia",
+            "end": 134.84603,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 134.84603,
+            "speaker": "Julia",
+            "end": 134.98571,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 134.98571,
+            "speaker": "Julia",
+            "end": 135.35488,
+            "word": "most",
+            "alignedWord": "MOST"
+        },
+        {
+            "start": 135.35488,
+            "speaker": "Julia",
+            "end": 135.54444,
+            "word": "want",
+            "alignedWord": "WANT"
+        },
+        {
+            "start": 135.54444,
+            "speaker": "Julia",
+            "end": 135.62426,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 135.62426,
+            "speaker": "Julia",
+            "end": 136.0034,
+            "word": "believe",
+            "alignedWord": "BELIEVE"
+        },
+        {
+            "start": 136.0034,
+            "speaker": "Julia",
+            "end": 136.24286,
+            "word": "about",
+            "alignedWord": "ABOUT"
+        },
+        {
+            "start": 136.24286,
+            "speaker": "Julia",
+            "end": 136.72177,
+            "word": "ourselves",
+            "alignedWord": "OURSELVES"
+        },
+        {
+            "start": 136.72177,
+            "speaker": "Julia",
+            "end": 136.8415,
+            "word": "as",
+            "alignedWord": "AS"
+        },
+        {
+            "start": 136.8415,
+            "speaker": "Julia",
+            "end": 136.89138,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 136.89138,
+            "speaker": "Julia",
+            "end": 137.48005,
+            "word": "nation.",
+            "alignedWord": "NATION"
+        },
+        {
+            "start": 137.48005,
+            "end": 138.13855,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 138.13855,
+            "speaker": "Julia",
+            "end": 138.38798,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 138.38798,
+            "speaker": "Julia",
+            "end": 138.66735,
+            "word": "maybe",
+            "alignedWord": "MAYBE"
+        },
+        {
+            "start": 138.66735,
+            "speaker": "Julia",
+            "end": 138.87687,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 138.87687,
+            "speaker": "Julia",
+            "end": 139.28594,
+            "word": "means",
+            "alignedWord": "MEANS"
+        },
+        {
+            "start": 139.28594,
+            "speaker": "Julia",
+            "end": 139.47551,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 139.47551,
+            "speaker": "Julia",
+            "end": 139.60522,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 139.60522,
+            "speaker": "Julia",
+            "end": 139.79478,
+            "word": "all",
+            "alignedWord": "ALL"
+        },
+        {
+            "start": 139.79478,
+            "speaker": "Julia",
+            "end": 139.92449,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 139.92449,
+            "speaker": "Julia",
+            "end": 139.99433,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 139.99433,
+            "speaker": "Julia",
+            "end": 140.06417,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 140.06417,
+            "speaker": "Julia",
+            "end": 140.46327,
+            "word": "country",
+            "alignedWord": "COUNTRY"
+        },
+        {
+            "start": 140.46327,
+            "speaker": "Julia",
+            "end": 140.65283,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 140.65283,
+            "speaker": "Julia",
+            "end": 140.91224,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 140.91224,
+            "speaker": "Julia",
+            "end": 141.47098,
+            "word": "exist.",
+            "alignedWord": "EXIST"
+        },
+        {
+            "start": 141.47098,
+            "end": 144.35442,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 144.35442,
+            "speaker": "Julia",
+            "end": 144.83333,
+            "word": "\"Plucky",
+            "alignedWord": "PLUCKY"
+        },
+        {
+            "start": 144.83333,
+            "speaker": "Julia",
+            "end": 145.0229,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 145.0229,
+            "speaker": "Julia",
+            "end": 145.6415,
+            "word": "innocent.\"",
+            "alignedWord": "INNOCENT"
+        },
+        {
+            "start": 145.6415,
+            "end": 146.14036,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 146.14036,
+            "speaker": "Julia",
+            "end": 146.30998,
+            "word": "Does",
+            "alignedWord": "DOES"
+        },
+        {
+            "start": 146.30998,
+            "speaker": "Julia",
+            "end": 146.55941,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 146.55941,
+            "speaker": "Julia",
+            "end": 146.77891,
+            "word": "really",
+            "alignedWord": "REALLY"
+        },
+        {
+            "start": 146.77891,
+            "speaker": "Julia",
+            "end": 147.29773,
+            "word": "describe",
+            "alignedWord": "DESCRIBE"
+        },
+        {
+            "start": 147.29773,
+            "speaker": "Julia",
+            "end": 147.69683,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 147.69683,
+            "speaker": "Julia",
+            "end": 147.94626,
+            "word": "during",
+            "alignedWord": "DURING"
+        },
+        {
+            "start": 147.94626,
+            "speaker": "Julia",
+            "end": 148.02608,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 148.02608,
+            "speaker": "Julia",
+            "end": 148.34535,
+            "word": "Cold",
+            "alignedWord": "COLD"
+        },
+        {
+            "start": 148.34535,
+            "speaker": "Julia",
+            "end": 148.78435,
+            "word": "War,",
+            "alignedWord": "WAR"
+        },
+        {
+            "start": 148.78435,
+            "end": 149.12358,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 149.12358,
+            "speaker": "Julia",
+            "end": 149.26327,
+            "word": "let",
+            "alignedWord": "LET"
+        },
+        {
+            "start": 149.26327,
+            "speaker": "Julia",
+            "end": 149.56259,
+            "word": "alone",
+            "alignedWord": "ALONE"
+        },
+        {
+            "start": 149.56259,
+            "speaker": "Julia",
+            "end": 149.68231,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 149.68231,
+            "speaker": "Julia",
+            "end": 150.29093,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 150.29093,
+            "speaker": "Julia",
+            "end": 150.43061,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 150.43061,
+            "speaker": "Julia",
+            "end": 150.66009,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 150.66009,
+            "speaker": "Julia",
+            "end": 150.85964,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 150.85964,
+            "speaker": "Julia",
+            "end": 151.48821,
+            "word": "today?",
+            "alignedWord": "TODAY"
+        },
+        {
+            "start": 151.48821,
+            "end": 154.84059,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 154.84059,
+            "speaker": "Julia",
+            "end": 155.38934,
+            "word": "\"Plucky",
+            "alignedWord": "PLUCKY"
+        },
+        {
+            "start": 155.38934,
+            "speaker": "Julia",
+            "end": 155.60884,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 155.60884,
+            "speaker": "Julia",
+            "end": 156.16757,
+            "word": "innocent\"?",
+            "alignedWord": "INNOCENT"
+        },
+        {
+            "start": 156.16757,
+            "end": 157.0356,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 157.0356,
+            "speaker": "Julia",
+            "end": 157.24512,
+            "word": "That",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 157.24512,
+            "speaker": "Julia",
+            "end": 157.48458,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 157.48458,
+            "speaker": "Julia",
+            "end": 157.72404,
+            "word": "really",
+            "alignedWord": "REALLY"
+        },
+        {
+            "start": 157.72404,
+            "speaker": "Julia",
+            "end": 158.28277,
+            "word": "describe",
+            "alignedWord": "DESCRIBE"
+        },
+        {
+            "start": 158.28277,
+            "speaker": "Julia",
+            "end": 158.68186,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 158.68186,
+            "speaker": "Julia",
+            "end": 158.94127,
+            "word": "during",
+            "alignedWord": "DURING"
+        },
+        {
+            "start": 158.94127,
+            "speaker": "Julia",
+            "end": 159.01111,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 159.01111,
+            "speaker": "Julia",
+            "end": 159.34036,
+            "word": "Cold",
+            "alignedWord": "COLD"
+        },
+        {
+            "start": 159.34036,
+            "speaker": "Julia",
+            "end": 159.87914,
+            "word": "War,",
+            "alignedWord": "WAR"
+        },
+        {
+            "start": 159.87914,
+            "end": 160.11859,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 160.11859,
+            "speaker": "Julia",
+            "end": 160.30816,
+            "word": "let",
+            "alignedWord": "LET"
+        },
+        {
+            "start": 160.30816,
+            "speaker": "Julia",
+            "end": 160.57755,
+            "word": "alone",
+            "alignedWord": "ALONE"
+        },
+        {
+            "start": 160.57755,
+            "speaker": "Julia",
+            "end": 160.69728,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 160.69728,
+            "speaker": "Julia",
+            "end": 161.2161,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 161.2161,
+            "speaker": "Julia",
+            "end": 161.32585,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 161.32585,
+            "speaker": "Julia",
+            "end": 161.55533,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 161.55533,
+            "speaker": "Julia",
+            "end": 161.7449,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 161.7449,
+            "speaker": "Julia",
+            "end": 162.31361,
+            "word": "today.",
+            "alignedWord": "TODAY"
+        },
+        {
+            "start": 162.31361,
+            "end": 163.45102,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 163.45102,
+            "speaker": "Julia",
+            "end": 163.5907,
+            "word": "But",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 163.5907,
+            "speaker": "Julia",
+            "end": 163.67052,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 163.67052,
+            "speaker": "Julia",
+            "end": 163.9898,
+            "word": "Rocky",
+            "alignedWord": "ROCKY"
+        },
+        {
+            "start": 163.9898,
+            "speaker": "Julia",
+            "end": 164.07959,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 164.07959,
+            "speaker": "Julia",
+            "end": 164.45873,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 164.45873,
+            "speaker": "Julia",
+            "end": 164.70816,
+            "word": "Show\"",
+            "alignedWord": "SHOW"
+        },
+        {
+            "start": 164.70816,
+            "speaker": "Julia",
+            "end": 165.09728,
+            "word": "tapped",
+            "alignedWord": "TAPPED"
+        },
+        {
+            "start": 165.09728,
+            "speaker": "Julia",
+            "end": 165.29683,
+            "word": "into",
+            "alignedWord": "INTO"
+        },
+        {
+            "start": 165.29683,
+            "speaker": "Julia",
+            "end": 165.3966,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 165.3966,
+            "speaker": "Julia",
+            "end": 165.7458,
+            "word": "things",
+            "alignedWord": "THINGS"
+        },
+        {
+            "start": 165.7458,
+            "speaker": "Julia",
+            "end": 165.88549,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 165.88549,
+            "speaker": "Julia",
+            "end": 166.01519,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 166.01519,
+            "speaker": "Julia",
+            "end": 166.3644,
+            "word": "most",
+            "alignedWord": "MOST"
+        },
+        {
+            "start": 166.3644,
+            "speaker": "Julia",
+            "end": 166.56395,
+            "word": "want",
+            "alignedWord": "WANT"
+        },
+        {
+            "start": 166.56395,
+            "speaker": "Julia",
+            "end": 166.63379,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 166.63379,
+            "speaker": "Julia",
+            "end": 167.03288,
+            "word": "believe",
+            "alignedWord": "BELIEVE"
+        },
+        {
+            "start": 167.03288,
+            "speaker": "Julia",
+            "end": 167.30227,
+            "word": "about",
+            "alignedWord": "ABOUT"
+        },
+        {
+            "start": 167.30227,
+            "speaker": "Julia",
+            "end": 167.78118,
+            "word": "ourselves",
+            "alignedWord": "OURSELVES"
+        },
+        {
+            "start": 167.78118,
+            "speaker": "Julia",
+            "end": 167.90091,
+            "word": "as",
+            "alignedWord": "AS"
+        },
+        {
+            "start": 167.90091,
+            "speaker": "Julia",
+            "end": 167.95079,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 167.95079,
+            "speaker": "Julia",
+            "end": 168.55941,
+            "word": "nation.",
+            "alignedWord": "NATION"
+        },
+        {
+            "start": 168.55941,
+            "end": 169.14807,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 169.14807,
+            "speaker": "Julia",
+            "end": 169.3576,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 169.3576,
+            "speaker": "Julia",
+            "end": 169.68685,
+            "word": "maybe",
+            "alignedWord": "MAYBE"
+        },
+        {
+            "start": 169.68685,
+            "speaker": "Julia",
+            "end": 169.86644,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 169.86644,
+            "speaker": "Julia",
+            "end": 170.28549,
+            "word": "means",
+            "alignedWord": "MEANS"
+        },
+        {
+            "start": 170.28549,
+            "speaker": "Julia",
+            "end": 170.48503,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 170.48503,
+            "speaker": "Julia",
+            "end": 170.65465,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 170.65465,
+            "speaker": "Julia",
+            "end": 170.90408,
+            "word": "all",
+            "alignedWord": "ALL"
+        },
+        {
+            "start": 170.90408,
+            "speaker": "Julia",
+            "end": 171.06372,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 171.06372,
+            "speaker": "Julia",
+            "end": 171.13356,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 171.13356,
+            "speaker": "Julia",
+            "end": 171.17347,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 171.17347,
+            "speaker": "Julia",
+            "end": 171.63243,
+            "word": "country",
+            "alignedWord": "COUNTRY"
+        },
+        {
+            "start": 171.63243,
+            "speaker": "Julia",
+            "end": 171.80204,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 171.80204,
+            "end": 172.03152,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 172.03152,
+            "speaker": "Julia",
+            "end": 172.29093,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 172.29093,
+            "speaker": "Julia",
+            "end": 172.92948,
+            "word": "exist.",
+            "alignedWord": "EXIST"
+        },
+        {
+            "start": 172.92948,
+            "end": 176.61111,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 176.61111,
+            "speaker": "Julia",
+            "end": 177.17982,
+            "word": "\"Plucky",
+            "alignedWord": "PLUCKY"
+        },
+        {
+            "start": 177.17982,
+            "speaker": "Julia",
+            "end": 177.36939,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 177.36939,
+            "speaker": "Julia",
+            "end": 177.978,
+            "word": "innocent.\"",
+            "alignedWord": "INNOCENT"
+        },
+        {
+            "start": 177.978,
+            "end": 178.71633,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 178.71633,
+            "speaker": "Julia",
+            "end": 178.88594,
+            "word": "That",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 178.88594,
+            "speaker": "Julia",
+            "end": 179.11542,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 179.11542,
+            "speaker": "Julia",
+            "end": 179.33492,
+            "word": "really",
+            "alignedWord": "REALLY"
+        },
+        {
+            "start": 179.33492,
+            "speaker": "Julia",
+            "end": 179.8737,
+            "word": "describe",
+            "alignedWord": "DESCRIBE"
+        },
+        {
+            "start": 179.8737,
+            "speaker": "Julia",
+            "end": 180.30272,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 180.30272,
+            "speaker": "Julia",
+            "end": 180.63197,
+            "word": "during",
+            "alignedWord": "DURING"
+        },
+        {
+            "start": 180.63197,
+            "speaker": "Julia",
+            "end": 180.72177,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 180.72177,
+            "speaker": "Julia",
+            "end": 181.00113,
+            "word": "Cold",
+            "alignedWord": "COLD"
+        },
+        {
+            "start": 181.00113,
+            "end": 181.03107,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 181.03107,
+            "speaker": "Julia",
+            "end": 181.52993,
+            "word": "War,",
+            "alignedWord": "WAR"
+        },
+        {
+            "start": 181.52993,
+            "end": 181.77937,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 181.77937,
+            "speaker": "Julia",
+            "end": 182.01882,
+            "word": "let",
+            "alignedWord": "LET"
+        },
+        {
+            "start": 182.01882,
+            "speaker": "Julia",
+            "end": 182.39796,
+            "word": "alone",
+            "alignedWord": "ALONE"
+        },
+        {
+            "start": 182.39796,
+            "speaker": "Julia",
+            "end": 182.53764,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 182.53764,
+            "speaker": "Julia",
+            "end": 183.10635,
+            "word": "America",
+            "alignedWord": "AMERICA"
+        },
+        {
+            "start": 183.10635,
+            "speaker": "Julia",
+            "end": 183.31587,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 183.31587,
+            "speaker": "Julia",
+            "end": 183.5254,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 183.5254,
+            "speaker": "Julia",
+            "end": 183.66508,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 183.66508,
+            "speaker": "Julia",
+            "end": 184.25374,
+            "word": "now.",
+            "alignedWord": "NOW"
+        },
+        {
+            "start": 184.25374,
+            "end": 185.1517,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 185.1517,
+            "speaker": "Julia",
+            "end": 185.34127,
+            "word": "But",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 185.34127,
+            "speaker": "Julia",
+            "end": 185.65057,
+            "word": "Rocky",
+            "alignedWord": "ROCKY"
+        },
+        {
+            "start": 185.65057,
+            "speaker": "Julia",
+            "end": 185.79025,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 185.79025,
+            "speaker": "Julia",
+            "end": 186.29909,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 186.29909,
+            "speaker": "Julia",
+            "end": 186.65828,
+            "word": "tapped",
+            "alignedWord": "TAPPED"
+        },
+        {
+            "start": 186.65828,
+            "speaker": "Julia",
+            "end": 186.8678,
+            "word": "into",
+            "alignedWord": "INTO"
+        },
+        {
+            "start": 186.8678,
+            "speaker": "Julia",
+            "end": 186.97755,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 186.97755,
+            "speaker": "Julia",
+            "end": 187.37664,
+            "word": "things",
+            "alignedWord": "THINGS"
+        },
+        {
+            "start": 187.37664,
+            "speaker": "Julia",
+            "end": 187.50635,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 187.50635,
+            "speaker": "Julia",
+            "end": 187.66599,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 187.66599,
+            "speaker": "Julia",
+            "end": 188.08503,
+            "word": "most",
+            "alignedWord": "MOST"
+        },
+        {
+            "start": 188.08503,
+            "speaker": "Julia",
+            "end": 188.3644,
+            "word": "want",
+            "alignedWord": "WANT"
+        },
+        {
+            "start": 188.3644,
+            "speaker": "Julia",
+            "end": 188.43424,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 188.43424,
+            "speaker": "Julia",
+            "end": 188.76349,
+            "word": "believe",
+            "alignedWord": "BELIEVE"
+        },
+        {
+            "start": 188.76349,
+            "speaker": "Julia",
+            "end": 189.03288,
+            "word": "about",
+            "alignedWord": "ABOUT"
+        },
+        {
+            "start": 189.03288,
+            "speaker": "Julia",
+            "end": 189.52177,
+            "word": "ourselves",
+            "alignedWord": "OURSELVES"
+        },
+        {
+            "start": 189.52177,
+            "speaker": "Julia",
+            "end": 189.65147,
+            "word": "as",
+            "alignedWord": "AS"
+        },
+        {
+            "start": 189.65147,
+            "speaker": "Julia",
+            "end": 189.69138,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 189.69138,
+            "speaker": "Julia",
+            "end": 190.3,
+            "word": "nation.",
+            "alignedWord": "NATION"
+        },
+        {
+            "start": 190.3,
+            "end": 191.10816,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 191.10816,
+            "speaker": "Julia",
+            "end": 191.29773,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 191.29773,
+            "speaker": "Julia",
+            "end": 191.5771,
+            "word": "maybe",
+            "alignedWord": "MAYBE"
+        },
+        {
+            "start": 191.5771,
+            "speaker": "Julia",
+            "end": 191.97619,
+            "word": "that...",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 191.97619,
+            "end": 192.70454,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 192.70454,
+            "speaker": "Julia",
+            "end": 192.90408,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 192.90408,
+            "speaker": "Julia",
+            "end": 193.2034,
+            "word": "maybe",
+            "alignedWord": "MAYBE"
+        },
+        {
+            "start": 193.2034,
+            "speaker": "Julia",
+            "end": 193.38299,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 193.38299,
+            "speaker": "Julia",
+            "end": 193.89184,
+            "word": "means",
+            "alignedWord": "MEANS"
+        },
+        {
+            "start": 193.89184,
+            "speaker": "Julia",
+            "end": 194.10136,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 194.10136,
+            "speaker": "Julia",
+            "end": 194.31088,
+            "word": "all",
+            "alignedWord": "ALL"
+        },
+        {
+            "start": 194.31088,
+            "speaker": "Julia",
+            "end": 194.46054,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 194.46054,
+            "speaker": "Julia",
+            "end": 194.55034,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 194.55034,
+            "speaker": "Julia",
+            "end": 194.6102,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 194.6102,
+            "speaker": "Julia",
+            "end": 195.02925,
+            "word": "place",
+            "alignedWord": "PLACE"
+        },
+        {
+            "start": 195.02925,
+            "speaker": "Julia",
+            "end": 195.2288,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 195.2288,
+            "end": 195.39841,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 195.39841,
+            "speaker": "Julia",
+            "end": 195.64785,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 195.64785,
+            "speaker": "Julia",
+            "end": 196.29637,
+            "word": "exist.",
+            "alignedWord": "EXIST"
+        },
+        {
+            "start": 196.29637,
+            "end": 197.97256,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 197.97256,
+            "speaker": "Julia",
+            "end": 198.19206,
+            "word": "And",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 198.19206,
+            "speaker": "Julia",
+            "end": 198.50136,
+            "word": "maybe",
+            "alignedWord": "MAYBE"
+        },
+        {
+            "start": 198.50136,
+            "speaker": "Julia",
+            "end": 198.70091,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 198.70091,
+            "speaker": "Julia",
+            "end": 199.32948,
+            "word": "means",
+            "alignedWord": "MEANS"
+        },
+        {
+            "start": 199.32948,
+            "end": 199.50907,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 199.50907,
+            "speaker": "Julia",
+            "end": 199.72857,
+            "word": "we",
+            "alignedWord": "WE"
+        },
+        {
+            "start": 199.72857,
+            "speaker": "Julia",
+            "end": 199.94807,
+            "word": "all",
+            "alignedWord": "ALL"
+        },
+        {
+            "start": 199.94807,
+            "speaker": "Julia",
+            "end": 200.0678,
+            "word": "live",
+            "alignedWord": "LIVE"
+        },
+        {
+            "start": 200.0678,
+            "speaker": "Julia",
+            "end": 200.1576,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 200.1576,
+            "speaker": "Julia",
+            "end": 200.19751,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 200.19751,
+            "speaker": "Julia",
+            "end": 200.5966,
+            "word": "place",
+            "alignedWord": "PLACE"
+        },
+        {
+            "start": 200.5966,
+            "speaker": "Julia",
+            "end": 200.74626,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 200.74626,
+            "speaker": "Julia",
+            "end": 201.02562,
+            "word": "doesn't",
+            "alignedWord": "DOESN'T"
+        },
+        {
+            "start": 201.02562,
+            "speaker": "Julia",
+            "end": 201.6542,
+            "word": "exist.",
+            "alignedWord": "EXIST"
+        },
+        {
+            "start": 201.6542,
+            "end": 205.28594,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 205.28594,
+            "speaker": "Julia",
+            "end": 205.61519,
+            "word": "{LG}",
+            "alignedWord": "{LG}"
+        },
+        {
+            "start": 205.61519,
+            "end": 206.08413,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 206.08413,
+            "speaker": "Julia",
+            "end": 206.15397,
+            "word": "I",
+            "alignedWord": "I"
+        },
+        {
+            "start": 206.15397,
+            "speaker": "Julia",
+            "end": 206.41338,
+            "word": "think",
+            "alignedWord": "THINK"
+        },
+        {
+            "start": 206.41338,
+            "end": 206.68277,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 206.68277,
+            "speaker": "Julia",
+            "end": 209.82562,
+            "word": "that's",
+            "alignedWord": "THAT'S"
+        },
+        {
+            "start": 209.82562,
+            "end": 210.02517,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 210.02517,
+            "speaker": "Julia",
+            "end": 210.28458,
+            "word": "because",
+            "alignedWord": "BECAUSE"
+        },
+        {
+            "start": 210.28458,
+            "end": 210.47415,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 210.47415,
+            "speaker": "Julia",
+            "end": 210.70363,
+            "word": "I'm",
+            "alignedWord": "I'M"
+        },
+        {
+            "start": 210.70363,
+            "end": 211.03288,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 211.03288,
+            "speaker": "Julia",
+            "end": 211.19252,
+            "word": "sick.",
+            "alignedWord": "SICK"
+        },
+        {
+            "start": 211.19252,
+            "end": 211.71134,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 211.71134,
+            "speaker": "Julia",
+            "end": 213.50726,
+            "word": "{LG}",
+            "alignedWord": "{LG}"
+        },
+        {
+            "start": 213.50726,
+            "end": 213.59705,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 213.59705,
+            "speaker": "Julia",
+            "end": 214.17574,
+            "word": "Oh,",
+            "alignedWord": "OH"
+        },
+        {
+            "start": 214.17574,
+            "speaker": "Julia",
+            "end": 214.6746,
+            "word": "man.",
+            "alignedWord": "MAN"
+        },
+        {
+            "start": 214.6746,
+            "speaker": "Julia",
+            "end": 215.19342,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 215.19342,
+            "speaker": "Julia",
+            "end": 215.36304,
+            "word": "I",
+            "alignedWord": "I"
+        },
+        {
+            "start": 215.36304,
+            "speaker": "Julia",
+            "end": 215.79206,
+            "word": "think",
+            "alignedWord": "THINK"
+        },
+        {
+            "start": 215.79206,
+            "speaker": "Julia",
+            "end": 215.97166,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 215.97166,
+            "speaker": "Julia",
+            "end": 216.31088,
+            "word": "that's",
+            "alignedWord": "THAT'S"
+        },
+        {
+            "start": 216.31088,
+            "speaker": "Julia",
+            "end": 216.60023,
+            "word": "it",
+            "alignedWord": "IT"
+        },
+        {
+            "start": 216.60023,
+            "end": 217.21882,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 217.21882,
+            "speaker": "Julia",
+            "end": 217.33855,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 217.33855,
+            "speaker": "Julia",
+            "end": 217.5381,
+            "word": "now.",
+            "alignedWord": "NOW"
+        },
+        {
+            "start": 217.5381,
+            "end": 219.1644,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 219.1644,
+            "speaker": "Julia",
+            "end": 219.58345,
+            "word": "Thanks,",
+            "alignedWord": "THANKS"
+        },
+        {
+            "start": 219.58345,
+            "speaker": "Julia",
+            "end": 219.89274,
+            "word": "Josh.",
+            "alignedWord": "JOSH"
+        },
+        {
+            "start": 219.89274,
+            "speaker": "Julia",
+            "end": 220.24195,
+            "word": "Sorry",
+            "alignedWord": "SORRY"
+        },
+        {
+            "start": 220.24195,
+            "speaker": "Julia",
+            "end": 220.30181,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 220.30181,
+            "speaker": "Julia",
+            "end": 220.42154,
+            "word": "so",
+            "alignedWord": "SO"
+        },
+        {
+            "start": 220.42154,
+            "speaker": "Julia",
+            "end": 220.5712,
+            "word": "much",
+            "alignedWord": "MUCH"
+        },
+        {
+            "start": 220.5712,
+            "speaker": "Julia",
+            "end": 221.25964,
+            "word": "strife.",
+            "alignedWord": "STRIFE"
+        },
+        {
+            "start": 221.25964,
+            "end": 221.79841,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 221.79841,
+            "speaker": "Julia",
+            "end": 222.02789,
+            "word": "For",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 222.02789,
+            "end": 222.24739,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 222.24739,
+            "speaker": "Julia",
+            "end": 222.98571,
+            "word": "TV",
+            "alignedWord": "TV"
+        },
+        {
+            "start": 222.98571,
+            "end": 225.52993,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 225.52993,
+            "speaker": "Julia",
+            "end": 226.56757,
+            "word": "audiences",
+            "alignedWord": "AUDIENCES"
+        },
+        {
+            "start": 226.56757,
+            "speaker": "Julia",
+            "end": 226.64739,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 226.64739,
+            "speaker": "Julia",
+            "end": 226.74717,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 226.74717,
+            "speaker": "Julia",
+            "end": 226.98662,
+            "word": "early",
+            "alignedWord": "EARLY"
+        },
+        {
+            "start": 226.98662,
+            "speaker": "Julia",
+            "end": 227.66508,
+            "word": "'60s,",
+            "alignedWord": "60S"
+        },
+        {
+            "start": 227.66508,
+            "speaker": "Julia",
+            "end": 227.86463,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 227.86463,
+            "speaker": "Julia",
+            "end": 227.98435,
+            "word": "was",
+            "alignedWord": "WAS"
+        },
+        {
+            "start": 227.98435,
+            "speaker": "Julia",
+            "end": 228.08413,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 228.08413,
+            "speaker": "Julia",
+            "end": 228.32358,
+            "word": "big",
+            "alignedWord": "BIG"
+        },
+        {
+            "start": 228.32358,
+            "speaker": "Julia",
+            "end": 228.63288,
+            "word": "leap",
+            "alignedWord": "LEAP"
+        },
+        {
+            "start": 228.63288,
+            "end": 228.66281,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 228.66281,
+            "speaker": "Julia",
+            "end": 228.80249,
+            "word": "from",
+            "alignedWord": "FROM"
+        },
+        {
+            "start": 228.80249,
+            "speaker": "Julia",
+            "end": 228.92222,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 228.92222,
+            "speaker": "Julia",
+            "end": 229.44104,
+            "word": "recycled",
+            "alignedWord": "RECYCLED"
+        },
+        {
+            "start": 229.44104,
+            "speaker": "Julia",
+            "end": 229.92993,
+            "word": "gags",
+            "alignedWord": "GAGS"
+        },
+        {
+            "start": 229.92993,
+            "speaker": "Julia",
+            "end": 230.01973,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 230.01973,
+            "speaker": "Julia",
+            "end": 230.40884,
+            "word": "shows",
+            "alignedWord": "SHOWS"
+        },
+        {
+            "start": 230.40884,
+            "speaker": "Julia",
+            "end": 230.53855,
+            "word": "like",
+            "alignedWord": "LIKE"
+        },
+        {
+            "start": 230.53855,
+            "speaker": "Julia",
+            "end": 230.62834,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 230.62834,
+            "speaker": "Julia",
+            "end": 231.42653,
+            "word": "Flintstones.\"",
+            "alignedWord": "FLINTSTONES"
+        },
+        {
+            "start": 231.42653,
+            "end": 232.11497,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 232.11497,
+            "speaker": "Julia",
+            "end": 232.23469,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 232.23469,
+            "speaker": "Julia",
+            "end": 232.65374,
+            "word": "episode",
+            "alignedWord": "EPISODE"
+        },
+        {
+            "start": 232.65374,
+            "speaker": "Julia",
+            "end": 233.22245,
+            "word": "one,",
+            "alignedWord": "ONE"
+        },
+        {
+            "start": 233.22245,
+            "end": 233.2424,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 233.2424,
+            "speaker": "Julia",
+            "end": 233.73129,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 233.73129,
+            "speaker": "Julia",
+            "end": 233.94082,
+            "word": "sets",
+            "alignedWord": "SETS"
+        },
+        {
+            "start": 233.94082,
+            "speaker": "Julia",
+            "end": 234.09048,
+            "word": "off",
+            "alignedWord": "OFF"
+        },
+        {
+            "start": 234.09048,
+            "speaker": "Julia",
+            "end": 234.23016,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 234.23016,
+            "speaker": "Julia",
+            "end": 234.90862,
+            "word": "international",
+            "alignedWord": "INTERNATIONAL"
+        },
+        {
+            "start": 234.90862,
+            "speaker": "Julia",
+            "end": 235.38753,
+            "word": "incident",
+            "alignedWord": "INCIDENT"
+        },
+        {
+            "start": 235.38753,
+            "speaker": "Julia",
+            "end": 235.59705,
+            "word": "when",
+            "alignedWord": "WHEN"
+        },
+        {
+            "start": 235.59705,
+            "speaker": "Julia",
+            "end": 235.62698,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 235.62698,
+            "speaker": "Julia",
+            "end": 235.86644,
+            "word": "pie",
+            "alignedWord": "PIE"
+        },
+        {
+            "start": 235.86644,
+            "speaker": "Julia",
+            "end": 236.03605,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 236.03605,
+            "speaker": "Julia",
+            "end": 236.41519,
+            "word": "making",
+            "alignedWord": "MAKING"
+        },
+        {
+            "start": 236.41519,
+            "speaker": "Julia",
+            "end": 236.6746,
+            "word": "turns",
+            "alignedWord": "TURNS"
+        },
+        {
+            "start": 236.6746,
+            "speaker": "Julia",
+            "end": 236.8542,
+            "word": "out",
+            "alignedWord": "OUT"
+        },
+        {
+            "start": 236.8542,
+            "speaker": "Julia",
+            "end": 236.92404,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 236.92404,
+            "speaker": "Julia",
+            "end": 237.05374,
+            "word": "be",
+            "alignedWord": "BE"
+        },
+        {
+            "start": 237.05374,
+            "speaker": "Julia",
+            "end": 237.12358,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 237.12358,
+            "speaker": "Julia",
+            "end": 237.54263,
+            "word": "recipe",
+            "alignedWord": "RECIPE"
+        },
+        {
+            "start": 237.54263,
+            "speaker": "Julia",
+            "end": 237.7322,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 237.7322,
+            "speaker": "Julia",
+            "end": 237.76213,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 237.76213,
+            "speaker": "Julia",
+            "end": 238.19116,
+            "word": "super",
+            "alignedWord": "SUPER"
+        },
+        {
+            "start": 238.19116,
+            "speaker": "Julia",
+            "end": 238.7,
+            "word": "powerful",
+            "alignedWord": "POWERFUL"
+        },
+        {
+            "start": 238.7,
+            "speaker": "Julia",
+            "end": 238.95941,
+            "word": "jet",
+            "alignedWord": "JET"
+        },
+        {
+            "start": 238.95941,
+            "speaker": "Julia",
+            "end": 239.34853,
+            "word": "fuel.",
+            "alignedWord": "FUEL"
+        },
+        {
+            "start": 239.34853,
+            "end": 239.85737,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 239.85737,
+            "speaker": "Julia",
+            "end": 240.06689,
+            "word": "Yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 240.06689,
+            "end": 242.33175,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 242.33175,
+            "speaker": "Julia",
+            "end": 242.74082,
+            "word": "yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 242.74082,
+            "end": 244.1576,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 244.1576,
+            "speaker": "Julia",
+            "end": 244.71633,
+            "word": "yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 244.71633,
+            "speaker": "Julia",
+            "end": 244.9458,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 244.9458,
+            "end": 249.11633,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 249.11633,
+            "speaker": "Julia",
+            "end": 251.62063,
+            "word": "Mm-hmm.",
+            "alignedWord": "MM sp HMM"
+        },
+        {
+            "start": 251.62063,
+            "end": 261.19887,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 261.19887,
+            "speaker": "Julia",
+            "end": 261.34853,
+            "word": "For",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 261.34853,
+            "speaker": "Julia",
+            "end": 261.71769,
+            "word": "TV",
+            "alignedWord": "TV"
+        },
+        {
+            "start": 261.71769,
+            "speaker": "Julia",
+            "end": 262.23651,
+            "word": "audiences",
+            "alignedWord": "AUDIENCES"
+        },
+        {
+            "start": 262.23651,
+            "speaker": "Julia",
+            "end": 262.33628,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 262.33628,
+            "speaker": "Julia",
+            "end": 262.42608,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 262.42608,
+            "speaker": "Julia",
+            "end": 262.69546,
+            "word": "early",
+            "alignedWord": "EARLY"
+        },
+        {
+            "start": 262.69546,
+            "speaker": "Julia",
+            "end": 263.41383,
+            "word": "'60s,",
+            "alignedWord": "60S"
+        },
+        {
+            "start": 263.41383,
+            "speaker": "Julia",
+            "end": 263.66327,
+            "word": "that",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 263.66327,
+            "speaker": "Julia",
+            "end": 263.79297,
+            "word": "was",
+            "alignedWord": "WAS"
+        },
+        {
+            "start": 263.79297,
+            "speaker": "Julia",
+            "end": 263.83288,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 263.83288,
+            "speaker": "Julia",
+            "end": 264.17211,
+            "word": "big",
+            "alignedWord": "BIG"
+        },
+        {
+            "start": 264.17211,
+            "speaker": "Julia",
+            "end": 264.47143,
+            "word": "leap",
+            "alignedWord": "LEAP"
+        },
+        {
+            "start": 264.47143,
+            "speaker": "Julia",
+            "end": 264.62109,
+            "word": "from",
+            "alignedWord": "FROM"
+        },
+        {
+            "start": 264.62109,
+            "speaker": "Julia",
+            "end": 264.69093,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 264.69093,
+            "speaker": "Julia",
+            "end": 265.1898,
+            "word": "recycled",
+            "alignedWord": "RECYCLED"
+        },
+        {
+            "start": 265.1898,
+            "speaker": "Julia",
+            "end": 265.52902,
+            "word": "gags",
+            "alignedWord": "GAGS"
+        },
+        {
+            "start": 265.52902,
+            "speaker": "Julia",
+            "end": 265.58889,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 265.58889,
+            "speaker": "Julia",
+            "end": 265.91814,
+            "word": "shows",
+            "alignedWord": "SHOWS"
+        },
+        {
+            "start": 265.91814,
+            "speaker": "Julia",
+            "end": 266.0678,
+            "word": "like",
+            "alignedWord": "LIKE"
+        },
+        {
+            "start": 266.0678,
+            "speaker": "Julia",
+            "end": 266.14762,
+            "word": "\"The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 266.14762,
+            "speaker": "Julia",
+            "end": 266.95578,
+            "word": "Flintstones.\"",
+            "alignedWord": "FLINTSTONES"
+        },
+        {
+            "start": 266.95578,
+            "end": 267.44467,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 267.44467,
+            "speaker": "Julia",
+            "end": 267.58435,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 267.58435,
+            "speaker": "Julia",
+            "end": 268.0932,
+            "word": "episode",
+            "alignedWord": "EPISODE"
+        },
+        {
+            "start": 268.0932,
+            "speaker": "Julia",
+            "end": 268.49229,
+            "word": "one,",
+            "alignedWord": "ONE"
+        },
+        {
+            "start": 268.49229,
+            "end": 268.83152,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 268.83152,
+            "speaker": "Julia",
+            "end": 269.31043,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 269.31043,
+            "speaker": "Julia",
+            "end": 269.51995,
+            "word": "sets",
+            "alignedWord": "SETS"
+        },
+        {
+            "start": 269.51995,
+            "speaker": "Julia",
+            "end": 269.63968,
+            "word": "off",
+            "alignedWord": "OFF"
+        },
+        {
+            "start": 269.63968,
+            "speaker": "Julia",
+            "end": 269.78934,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 269.78934,
+            "speaker": "Julia",
+            "end": 270.51769,
+            "word": "international",
+            "alignedWord": "INTERNATIONAL"
+        },
+        {
+            "start": 270.51769,
+            "speaker": "Julia",
+            "end": 271.08639,
+            "word": "incident",
+            "alignedWord": "INCIDENT"
+        },
+        {
+            "start": 271.08639,
+            "speaker": "Julia",
+            "end": 271.23605,
+            "word": "when",
+            "alignedWord": "WHEN"
+        },
+        {
+            "start": 271.23605,
+            "speaker": "Julia",
+            "end": 271.27596,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 271.27596,
+            "speaker": "Julia",
+            "end": 271.63515,
+            "word": "pie",
+            "alignedWord": "PIE"
+        },
+        {
+            "start": 271.63515,
+            "speaker": "Julia",
+            "end": 271.83469,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 271.83469,
+            "speaker": "Julia",
+            "end": 272.20385,
+            "word": "making",
+            "alignedWord": "MAKING"
+        },
+        {
+            "start": 272.20385,
+            "speaker": "Julia",
+            "end": 272.45329,
+            "word": "turns",
+            "alignedWord": "TURNS"
+        },
+        {
+            "start": 272.45329,
+            "speaker": "Julia",
+            "end": 272.61293,
+            "word": "out",
+            "alignedWord": "OUT"
+        },
+        {
+            "start": 272.61293,
+            "speaker": "Julia",
+            "end": 272.68277,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 272.68277,
+            "speaker": "Julia",
+            "end": 272.80249,
+            "word": "be",
+            "alignedWord": "BE"
+        },
+        {
+            "start": 272.80249,
+            "speaker": "Julia",
+            "end": 272.88231,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 272.88231,
+            "speaker": "Julia",
+            "end": 273.31134,
+            "word": "recipe",
+            "alignedWord": "RECIPE"
+        },
+        {
+            "start": 273.31134,
+            "speaker": "Julia",
+            "end": 273.50091,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 273.50091,
+            "speaker": "Julia",
+            "end": 273.53084,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 273.53084,
+            "speaker": "Julia",
+            "end": 273.92993,
+            "word": "super",
+            "alignedWord": "SUPER"
+        },
+        {
+            "start": 273.92993,
+            "speaker": "Julia",
+            "end": 274.43878,
+            "word": "powerful",
+            "alignedWord": "POWERFUL"
+        },
+        {
+            "start": 274.43878,
+            "speaker": "Julia",
+            "end": 274.66825,
+            "word": "jet",
+            "alignedWord": "JET"
+        },
+        {
+            "start": 274.66825,
+            "speaker": "Julia",
+            "end": 275.10726,
+            "word": "fuel.",
+            "alignedWord": "FUEL"
+        },
+        {
+            "start": 275.10726,
+            "end": 279.16803,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 279.16803,
+            "speaker": "Julia",
+            "end": 279.33764,
+            "word": "On",
+            "alignedWord": "ON"
+        },
+        {
+            "start": 279.33764,
+            "speaker": "Julia",
+            "end": 279.42744,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 279.42744,
+            "speaker": "Julia",
+            "end": 279.83651,
+            "word": "pie?",
+            "alignedWord": "PIE"
+        },
+        {
+            "start": 279.83651,
+            "end": 281.23333,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 281.23333,
+            "speaker": "Julia",
+            "end": 281.60249,
+            "word": "P,",
+            "alignedWord": "P"
+        },
+        {
+            "start": 281.60249,
+            "speaker": "Julia",
+            "end": 282.07143,
+            "word": "P,",
+            "alignedWord": "P"
+        },
+        {
+            "start": 282.07143,
+            "end": 282.81973,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 282.81973,
+            "speaker": "Julia",
+            "end": 283.56803,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 283.56803,
+            "speaker": "Julia",
+            "end": 283.72766,
+            "word": "{LG}",
+            "alignedWord": "{LG}"
+        },
+        {
+            "start": 283.72766,
+            "end": 284.4161,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 284.4161,
+            "speaker": "Julia",
+            "end": 284.87506,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 284.87506,
+            "end": 286.95034,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 286.95034,
+            "speaker": "Julia",
+            "end": 287.37937,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 287.37937,
+            "end": 287.64875,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 287.64875,
+            "speaker": "Julia",
+            "end": 287.87823,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 287.87823,
+            "end": 288.18753,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 288.18753,
+            "speaker": "Julia",
+            "end": 288.36712,
+            "word": "Just",
+            "alignedWord": "JUST"
+        },
+        {
+            "start": 288.36712,
+            "end": 288.99569,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 288.99569,
+            "speaker": "Julia",
+            "end": 289.71406,
+            "word": "take",
+            "alignedWord": "TAKE"
+        },
+        {
+            "start": 289.71406,
+            "end": 291.86916,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 291.86916,
+            "speaker": "Julia",
+            "end": 292.00884,
+            "word": "it",
+            "alignedWord": "IT"
+        },
+        {
+            "start": 292.00884,
+            "speaker": "Julia",
+            "end": 292.20839,
+            "word": "from",
+            "alignedWord": "FROM"
+        },
+        {
+            "start": 292.20839,
+            "end": 292.36803,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 292.36803,
+            "speaker": "Julia",
+            "end": 292.53764,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 292.53764,
+            "end": 293.64512,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 293.64512,
+            "speaker": "Julia",
+            "end": 294.75261,
+            "word": "second",
+            "alignedWord": "SECOND"
+        },
+        {
+            "start": 294.75261,
+            "speaker": "Julia",
+            "end": 296.6483,
+            "word": "sentence?",
+            "alignedWord": "SENTENCE"
+        },
+        {
+            "start": 296.6483,
+            "end": 300.42971,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 300.42971,
+            "speaker": "Julia",
+            "end": 300.57937,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 300.57937,
+            "speaker": "Julia",
+            "end": 301.05828,
+            "word": "episode",
+            "alignedWord": "EPISODE"
+        },
+        {
+            "start": 301.05828,
+            "speaker": "Julia",
+            "end": 301.50726,
+            "word": "one,",
+            "alignedWord": "ONE"
+        },
+        {
+            "start": 301.50726,
+            "speaker": "Julia",
+            "end": 302.05601,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 302.05601,
+            "speaker": "Julia",
+            "end": 302.26553,
+            "word": "sets",
+            "alignedWord": "SETS"
+        },
+        {
+            "start": 302.26553,
+            "speaker": "Julia",
+            "end": 302.41519,
+            "word": "off",
+            "alignedWord": "OFF"
+        },
+        {
+            "start": 302.41519,
+            "speaker": "Julia",
+            "end": 302.51497,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 302.51497,
+            "speaker": "Julia",
+            "end": 303.18345,
+            "word": "international",
+            "alignedWord": "INTERNATIONAL"
+        },
+        {
+            "start": 303.18345,
+            "speaker": "Julia",
+            "end": 303.61247,
+            "word": "incident",
+            "alignedWord": "INCIDENT"
+        },
+        {
+            "start": 303.61247,
+            "speaker": "Julia",
+            "end": 303.7322,
+            "word": "when",
+            "alignedWord": "WHEN"
+        },
+        {
+            "start": 303.7322,
+            "speaker": "Julia",
+            "end": 303.76213,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 303.76213,
+            "speaker": "Julia",
+            "end": 304.07143,
+            "word": "pie",
+            "alignedWord": "PIE"
+        },
+        {
+            "start": 304.07143,
+            "speaker": "Julia",
+            "end": 304.21111,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 304.21111,
+            "speaker": "Julia",
+            "end": 304.58027,
+            "word": "making",
+            "alignedWord": "MAKING"
+        },
+        {
+            "start": 304.58027,
+            "speaker": "Julia",
+            "end": 304.79977,
+            "word": "turns",
+            "alignedWord": "TURNS"
+        },
+        {
+            "start": 304.79977,
+            "speaker": "Julia",
+            "end": 305.34853,
+            "word": "out",
+            "alignedWord": "OUT"
+        },
+        {
+            "start": 305.34853,
+            "speaker": "Julia",
+            "end": 305.54807,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 305.54807,
+            "end": 306.25646,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 306.25646,
+            "speaker": "Julia",
+            "end": 306.7254,
+            "word": "be",
+            "alignedWord": "BE"
+        },
+        {
+            "start": 306.7254,
+            "end": 307.12449,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 307.12449,
+            "speaker": "Julia",
+            "end": 307.28413,
+            "word": "the...",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 307.28413,
+            "speaker": "Julia",
+            "end": 307.9127,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 307.9127,
+            "end": 311.37483,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 311.37483,
+            "speaker": "Julia",
+            "end": 311.53447,
+            "word": "you're",
+            "alignedWord": "YOU'RE"
+        },
+        {
+            "start": 311.53447,
+            "end": 312.33265,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 312.33265,
+            "speaker": "Julia",
+            "end": 312.72177,
+            "word": "right,",
+            "alignedWord": "RIGHT"
+        },
+        {
+            "start": 312.72177,
+            "end": 313.33039,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 313.33039,
+            "speaker": "Julia",
+            "end": 313.60975,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 313.60975,
+            "end": 313.87914,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 313.87914,
+            "speaker": "Julia",
+            "end": 314.09864,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 314.09864,
+            "end": 316.16395,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 316.16395,
+            "speaker": "Julia",
+            "end": 316.30363,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 316.30363,
+            "speaker": "Julia",
+            "end": 316.76259,
+            "word": "episode",
+            "alignedWord": "EPISODE"
+        },
+        {
+            "start": 316.76259,
+            "speaker": "Julia",
+            "end": 317.23152,
+            "word": "one,",
+            "alignedWord": "ONE"
+        },
+        {
+            "start": 317.23152,
+            "end": 317.47098,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 317.47098,
+            "speaker": "Julia",
+            "end": 317.96984,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 317.96984,
+            "speaker": "Julia",
+            "end": 318.21927,
+            "word": "sets",
+            "alignedWord": "SETS"
+        },
+        {
+            "start": 318.21927,
+            "speaker": "Julia",
+            "end": 318.37891,
+            "word": "off",
+            "alignedWord": "OFF"
+        },
+        {
+            "start": 318.37891,
+            "speaker": "Julia",
+            "end": 318.5585,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 318.5585,
+            "speaker": "Julia",
+            "end": 319.24694,
+            "word": "international",
+            "alignedWord": "INTERNATIONAL"
+        },
+        {
+            "start": 319.24694,
+            "speaker": "Julia",
+            "end": 319.77574,
+            "word": "incident",
+            "alignedWord": "INCIDENT"
+        },
+        {
+            "start": 319.77574,
+            "speaker": "Julia",
+            "end": 319.9254,
+            "word": "when",
+            "alignedWord": "WHEN"
+        },
+        {
+            "start": 319.9254,
+            "speaker": "Julia",
+            "end": 319.96531,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 319.96531,
+            "speaker": "Julia",
+            "end": 320.26463,
+            "word": "pie",
+            "alignedWord": "PIE"
+        },
+        {
+            "start": 320.26463,
+            "speaker": "Julia",
+            "end": 320.44422,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 320.44422,
+            "speaker": "Julia",
+            "end": 320.79342,
+            "word": "making",
+            "alignedWord": "MAKING"
+        },
+        {
+            "start": 320.79342,
+            "speaker": "Julia",
+            "end": 321.04286,
+            "word": "turns",
+            "alignedWord": "TURNS"
+        },
+        {
+            "start": 321.04286,
+            "speaker": "Julia",
+            "end": 321.19252,
+            "word": "out",
+            "alignedWord": "OUT"
+        },
+        {
+            "start": 321.19252,
+            "speaker": "Julia",
+            "end": 321.27234,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 321.27234,
+            "speaker": "Julia",
+            "end": 321.41202,
+            "word": "be",
+            "alignedWord": "BE"
+        },
+        {
+            "start": 321.41202,
+            "speaker": "Julia",
+            "end": 321.49184,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 321.49184,
+            "speaker": "Julia",
+            "end": 322.03061,
+            "word": "recipe",
+            "alignedWord": "RECIPE"
+        },
+        {
+            "start": 322.03061,
+            "speaker": "Julia",
+            "end": 322.23016,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 322.23016,
+            "speaker": "Julia",
+            "end": 322.28005,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 322.28005,
+            "end": 322.40975,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 322.40975,
+            "speaker": "Julia",
+            "end": 322.58934,
+            "word": "su...",
+            "alignedWord": "SU"
+        },
+        {
+            "start": 322.58934,
+            "end": 323.53719,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 323.53719,
+            "speaker": "Julia",
+            "end": 323.69683,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 323.69683,
+            "speaker": "Julia",
+            "end": 324.12585,
+            "word": "episode",
+            "alignedWord": "EPISODE"
+        },
+        {
+            "start": 324.12585,
+            "speaker": "Julia",
+            "end": 324.53492,
+            "word": "one,",
+            "alignedWord": "ONE"
+        },
+        {
+            "start": 324.53492,
+            "end": 324.92404,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 324.92404,
+            "speaker": "Julia",
+            "end": 325.41293,
+            "word": "Bullwinkle",
+            "alignedWord": "BULLWINKLE"
+        },
+        {
+            "start": 325.41293,
+            "speaker": "Julia",
+            "end": 325.6424,
+            "word": "sets",
+            "alignedWord": "SETS"
+        },
+        {
+            "start": 325.6424,
+            "speaker": "Julia",
+            "end": 325.80204,
+            "word": "off",
+            "alignedWord": "OFF"
+        },
+        {
+            "start": 325.80204,
+            "speaker": "Julia",
+            "end": 325.91179,
+            "word": "an",
+            "alignedWord": "AN"
+        },
+        {
+            "start": 325.91179,
+            "speaker": "Julia",
+            "end": 326.58027,
+            "word": "international",
+            "alignedWord": "INTERNATIONAL"
+        },
+        {
+            "start": 326.58027,
+            "speaker": "Julia",
+            "end": 327.06916,
+            "word": "incident",
+            "alignedWord": "INCIDENT"
+        },
+        {
+            "start": 327.06916,
+            "speaker": "Julia",
+            "end": 327.23878,
+            "word": "when",
+            "alignedWord": "WHEN"
+        },
+        {
+            "start": 327.23878,
+            "speaker": "Julia",
+            "end": 327.27868,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 327.27868,
+            "speaker": "Julia",
+            "end": 327.56803,
+            "word": "pie",
+            "alignedWord": "PIE"
+        },
+        {
+            "start": 327.56803,
+            "speaker": "Julia",
+            "end": 327.74762,
+            "word": "he's",
+            "alignedWord": "HE'S"
+        },
+        {
+            "start": 327.74762,
+            "speaker": "Julia",
+            "end": 328.1068,
+            "word": "making",
+            "alignedWord": "MAKING"
+        },
+        {
+            "start": 328.1068,
+            "speaker": "Julia",
+            "end": 328.35624,
+            "word": "turns",
+            "alignedWord": "TURNS"
+        },
+        {
+            "start": 328.35624,
+            "speaker": "Julia",
+            "end": 328.48594,
+            "word": "out",
+            "alignedWord": "OUT"
+        },
+        {
+            "start": 328.48594,
+            "speaker": "Julia",
+            "end": 328.56576,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 328.56576,
+            "speaker": "Julia",
+            "end": 328.67551,
+            "word": "be",
+            "alignedWord": "BE"
+        },
+        {
+            "start": 328.67551,
+            "speaker": "Julia",
+            "end": 328.75533,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 328.75533,
+            "speaker": "Julia",
+            "end": 329.27415,
+            "word": "recipe",
+            "alignedWord": "RECIPE"
+        },
+        {
+            "start": 329.27415,
+            "speaker": "Julia",
+            "end": 329.50363,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 329.50363,
+            "speaker": "Julia",
+            "end": 329.53356,
+            "word": "a",
+            "alignedWord": "A"
+        },
+        {
+            "start": 329.53356,
+            "speaker": "Julia",
+            "end": 329.99252,
+            "word": "super",
+            "alignedWord": "SUPER"
+        },
+        {
+            "start": 329.99252,
+            "speaker": "Julia",
+            "end": 330.52132,
+            "word": "powerful",
+            "alignedWord": "POWERFUL"
+        },
+        {
+            "start": 330.52132,
+            "speaker": "Julia",
+            "end": 330.78073,
+            "word": "jet",
+            "alignedWord": "JET"
+        },
+        {
+            "start": 330.78073,
+            "end": 330.83061,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 330.83061,
+            "speaker": "Julia",
+            "end": 331.21973,
+            "word": "fuel.",
+            "alignedWord": "FUEL"
+        },
+        {
+            "start": 331.21973,
+            "end": 341.81565,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 341.81565,
+            "speaker": "Julia",
+            "end": 342.16485,
+            "word": "Which",
+            "alignedWord": "WHICH"
+        },
+        {
+            "start": 342.16485,
+            "speaker": "Julia",
+            "end": 342.92313,
+            "word": "naturally",
+            "alignedWord": "NATURALLY"
+        },
+        {
+            "start": 342.92313,
+            "speaker": "Julia",
+            "end": 343.34218,
+            "word": "attracts",
+            "alignedWord": "ATTRACTS"
+        },
+        {
+            "start": 343.34218,
+            "speaker": "Julia",
+            "end": 343.44195,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 343.44195,
+            "speaker": "Julia",
+            "end": 343.85102,
+            "word": "attention",
+            "alignedWord": "ATTENTION"
+        },
+        {
+            "start": 343.85102,
+            "speaker": "Julia",
+            "end": 343.95079,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 343.95079,
+            "speaker": "Julia",
+            "end": 344.32993,
+            "word": "super",
+            "alignedWord": "SUPER"
+        },
+        {
+            "start": 344.32993,
+            "speaker": "Julia",
+            "end": 344.69909,
+            "word": "spy",
+            "alignedWord": "SPY"
+        },
+        {
+            "start": 344.69909,
+            "speaker": "Julia",
+            "end": 345.10816,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 345.10816,
+            "speaker": "Julia",
+            "end": 345.64694,
+            "word": "Badenov.",
+            "alignedWord": "BADENOV"
+        },
+        {
+            "start": 345.64694,
+            "end": 354.26735,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 354.26735,
+            "speaker": "Julia",
+            "end": 354.79615,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 354.79615,
+            "end": 358.66735,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 358.66735,
+            "speaker": "Julia",
+            "end": 358.96667,
+            "word": "Which",
+            "alignedWord": "WHICH"
+        },
+        {
+            "start": 358.96667,
+            "speaker": "Julia",
+            "end": 359.63515,
+            "word": "naturally",
+            "alignedWord": "NATURALLY"
+        },
+        {
+            "start": 359.63515,
+            "speaker": "Julia",
+            "end": 360.1839,
+            "word": "attracts",
+            "alignedWord": "ATTRACTS"
+        },
+        {
+            "start": 360.1839,
+            "speaker": "Julia",
+            "end": 360.29365,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 360.29365,
+            "speaker": "Julia",
+            "end": 360.73265,
+            "word": "attention",
+            "alignedWord": "ATTENTION"
+        },
+        {
+            "start": 360.73265,
+            "speaker": "Julia",
+            "end": 360.85238,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 360.85238,
+            "speaker": "Julia",
+            "end": 361.26145,
+            "word": "super",
+            "alignedWord": "SUPER"
+        },
+        {
+            "start": 361.26145,
+            "speaker": "Julia",
+            "end": 361.67052,
+            "word": "spy",
+            "alignedWord": "SPY"
+        },
+        {
+            "start": 361.67052,
+            "speaker": "Julia",
+            "end": 362.29909,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 362.29909,
+            "end": 362.32902,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 362.32902,
+            "speaker": "Julia",
+            "end": 362.98753,
+            "word": "Badenov.",
+            "alignedWord": "BADENOV"
+        },
+        {
+            "start": 362.98753,
+            "end": 371.24875,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 371.24875,
+            "speaker": "Julia",
+            "end": 371.96712,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 371.96712,
+            "end": 373.34399,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 373.34399,
+            "speaker": "Julia",
+            "end": 373.70317,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 373.70317,
+            "end": 374.71088,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 374.71088,
+            "speaker": "Julia",
+            "end": 375.22971,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 375.22971,
+            "end": 379.18073,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 379.18073,
+            "speaker": "Julia",
+            "end": 379.52993,
+            "word": "Yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 379.52993,
+            "end": 379.74943,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 379.74943,
+            "speaker": "Julia",
+            "end": 380.59751,
+            "word": "yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 380.59751,
+            "end": 382.44331,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 382.44331,
+            "speaker": "Julia",
+            "end": 382.69274,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 382.69274,
+            "end": 386.0551,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 386.0551,
+            "speaker": "Julia",
+            "end": 386.3644,
+            "word": "Which",
+            "alignedWord": "WHICH"
+        },
+        {
+            "start": 386.3644,
+            "speaker": "Julia",
+            "end": 387.16259,
+            "word": "naturally",
+            "alignedWord": "NATURALLY"
+        },
+        {
+            "start": 387.16259,
+            "speaker": "Julia",
+            "end": 387.59161,
+            "word": "attracts",
+            "alignedWord": "ATTRACTS"
+        },
+        {
+            "start": 387.59161,
+            "speaker": "Julia",
+            "end": 387.68141,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 387.68141,
+            "speaker": "Julia",
+            "end": 388.06054,
+            "word": "attention",
+            "alignedWord": "ATTENTION"
+        },
+        {
+            "start": 388.06054,
+            "speaker": "Julia",
+            "end": 388.14036,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 388.14036,
+            "speaker": "Julia",
+            "end": 388.49955,
+            "word": "super",
+            "alignedWord": "SUPER"
+        },
+        {
+            "start": 388.49955,
+            "speaker": "Julia",
+            "end": 388.84875,
+            "word": "spy",
+            "alignedWord": "SPY"
+        },
+        {
+            "start": 388.84875,
+            "speaker": "Julia",
+            "end": 389.34762,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 389.34762,
+            "speaker": "Julia",
+            "end": 389.96621,
+            "word": "Badenov.",
+            "alignedWord": "BADENOV"
+        },
+        {
+            "start": 389.96621,
+            "end": 396.33175,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 396.33175,
+            "speaker": "Julia",
+            "end": 396.65102,
+            "word": "That's",
+            "alignedWord": "THAT'S"
+        },
+        {
+            "start": 396.65102,
+            "speaker": "Julia",
+            "end": 396.96032,
+            "word": "Keith.",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 396.96032,
+            "speaker": "Julia",
+            "end": 397.23968,
+            "word": "He",
+            "alignedWord": "HE"
+        },
+        {
+            "start": 397.23968,
+            "speaker": "Julia",
+            "end": 397.45918,
+            "word": "does",
+            "alignedWord": "DOES"
+        },
+        {
+            "start": 397.45918,
+            "speaker": "Julia",
+            "end": 397.78844,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 397.78844,
+            "end": 397.82834,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 397.82834,
+            "speaker": "Julia",
+            "end": 398.27732,
+            "word": "too,",
+            "alignedWord": "TOO"
+        },
+        {
+            "start": 398.27732,
+            "end": 399.0356,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 399.0356,
+            "speaker": "Julia",
+            "end": 399.19524,
+            "word": "but",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 399.19524,
+            "speaker": "Julia",
+            "end": 399.2551,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 399.2551,
+            "speaker": "Julia",
+            "end": 399.50454,
+            "word": "show",
+            "alignedWord": "SHOW"
+        },
+        {
+            "start": 399.50454,
+            "speaker": "Julia",
+            "end": 399.75397,
+            "word": "didn't",
+            "alignedWord": "DIDN'T"
+        },
+        {
+            "start": 399.75397,
+            "speaker": "Julia",
+            "end": 400.14308,
+            "word": "reserve",
+            "alignedWord": "RESERVE"
+        },
+        {
+            "start": 400.14308,
+            "speaker": "Julia",
+            "end": 400.29274,
+            "word": "its",
+            "alignedWord": "ITS"
+        },
+        {
+            "start": 400.29274,
+            "speaker": "Julia",
+            "end": 400.77166,
+            "word": "mockery",
+            "alignedWord": "MOCKERY"
+        },
+        {
+            "start": 400.77166,
+            "speaker": "Julia",
+            "end": 400.91134,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 400.91134,
+            "speaker": "Julia",
+            "end": 400.99116,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 400.99116,
+            "speaker": "Julia",
+            "end": 401.66961,
+            "word": "Soviets.",
+            "alignedWord": "SOVIETS"
+        },
+        {
+            "start": 401.66961,
+            "end": 401.85918,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 401.85918,
+            "speaker": "Julia",
+            "end": 402.0288,
+            "word": "The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 402.0288,
+            "speaker": "Julia",
+            "end": 402.35805,
+            "word": "jokes",
+            "alignedWord": "JOKES"
+        },
+        {
+            "start": 402.35805,
+            "speaker": "Julia",
+            "end": 402.76712,
+            "word": "at",
+            "alignedWord": "AT"
+        },
+        {
+            "start": 402.76712,
+            "end": 403.1263,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 403.1263,
+            "speaker": "Julia",
+            "end": 403.20612,
+            "word": "the...",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 403.20612,
+            "end": 404.70272,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 404.70272,
+            "speaker": "Julia",
+            "end": 404.86236,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 404.86236,
+            "speaker": "Julia",
+            "end": 405.14172,
+            "word": "jokes",
+            "alignedWord": "JOKES"
+        },
+        {
+            "start": 405.14172,
+            "speaker": "Julia",
+            "end": 405.22154,
+            "word": "at",
+            "alignedWord": "AT"
+        },
+        {
+            "start": 405.22154,
+            "speaker": "Julia",
+            "end": 405.34127,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 405.34127,
+            "speaker": "Julia",
+            "end": 405.70045,
+            "word": "expense",
+            "alignedWord": "EXPENSE"
+        },
+        {
+            "start": 405.70045,
+            "speaker": "Julia",
+            "end": 405.77029,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 405.77029,
+            "speaker": "Julia",
+            "end": 405.9,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 405.9,
+            "speaker": "Julia",
+            "end": 406.29909,
+            "word": "American",
+            "alignedWord": "AMERICAN"
+        },
+        {
+            "start": 406.29909,
+            "speaker": "Julia",
+            "end": 406.76803,
+            "word": "government",
+            "alignedWord": "GOVERNMENT"
+        },
+        {
+            "start": 406.76803,
+            "speaker": "Julia",
+            "end": 406.89773,
+            "word": "were",
+            "alignedWord": "WERE"
+        },
+        {
+            "start": 406.89773,
+            "speaker": "Julia",
+            "end": 407.15714,
+            "word": "sharp",
+            "alignedWord": "SHARP"
+        },
+        {
+            "start": 407.15714,
+            "speaker": "Julia",
+            "end": 407.32676,
+            "word": "enough",
+            "alignedWord": "ENOUGH"
+        },
+        {
+            "start": 407.32676,
+            "speaker": "Julia",
+            "end": 407.41655,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 407.41655,
+            "speaker": "Julia",
+            "end": 407.76576,
+            "word": "cause",
+            "alignedWord": "CAUSE"
+        },
+        {
+            "start": 407.76576,
+            "speaker": "Julia",
+            "end": 408.02517,
+            "word": "fights",
+            "alignedWord": "FIGHTS"
+        },
+        {
+            "start": 408.02517,
+            "speaker": "Julia",
+            "end": 408.11497,
+            "word": "with",
+            "alignedWord": "WITH"
+        },
+        {
+            "start": 408.11497,
+            "speaker": "Julia",
+            "end": 408.18481,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 408.18481,
+            "speaker": "Julia",
+            "end": 408.4542,
+            "word": "show's",
+            "alignedWord": "SHOW'S"
+        },
+        {
+            "start": 408.4542,
+            "speaker": "Julia",
+            "end": 409.09274,
+            "word": "sponsor,",
+            "alignedWord": "SPONSOR"
+        },
+        {
+            "start": 409.09274,
+            "end": 409.12268,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 409.12268,
+            "speaker": "Julia",
+            "end": 409.51179,
+            "word": "General",
+            "alignedWord": "GENERAL"
+        },
+        {
+            "start": 409.51179,
+            "speaker": "Julia",
+            "end": 409.89093,
+            "word": "Mills,",
+            "alignedWord": "MILLS"
+        },
+        {
+            "start": 409.89093,
+            "end": 410.01066,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 410.01066,
+            "speaker": "Julia",
+            "end": 410.10045,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 410.10045,
+            "speaker": "Julia",
+            "end": 410.49955,
+            "word": "cereal",
+            "alignedWord": "CEREAL"
+        },
+        {
+            "start": 410.49955,
+            "speaker": "Julia",
+            "end": 411.00839,
+            "word": "company.",
+            "alignedWord": "COMPANY"
+        },
+        {
+            "start": 411.00839,
+            "end": 413.54263,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 413.54263,
+            "speaker": "Julia",
+            "end": 413.77211,
+            "word": "OK,",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 413.77211,
+            "end": 416.44603,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 416.44603,
+            "speaker": "Julia",
+            "end": 416.87506,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 416.87506,
+            "end": 424.00884,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 424.00884,
+            "speaker": "Julia",
+            "end": 424.31814,
+            "word": "Yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 424.31814,
+            "speaker": "Julia",
+            "end": 424.61746,
+            "word": "Keith",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 424.61746,
+            "end": 424.63741,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 424.63741,
+            "speaker": "Julia",
+            "end": 424.86689,
+            "word": "does",
+            "alignedWord": "DOES"
+        },
+        {
+            "start": 424.86689,
+            "speaker": "Julia",
+            "end": 425.3059,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 425.3059,
+            "speaker": "Julia",
+            "end": 425.41565,
+            "word": "too.",
+            "alignedWord": "TOO"
+        },
+        {
+            "start": 425.41565,
+            "speaker": "Julia",
+            "end": 425.63515,
+            "word": "No,",
+            "alignedWord": "NO"
+        },
+        {
+            "start": 425.63515,
+            "end": 426.25374,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 426.25374,
+            "speaker": "Julia",
+            "end": 426.56304,
+            "word": "not",
+            "alignedWord": "NOT"
+        },
+        {
+            "start": 426.56304,
+            "end": 426.59297,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 426.59297,
+            "speaker": "Julia",
+            "end": 426.81247,
+            "word": "like",
+            "alignedWord": "LIKE"
+        },
+        {
+            "start": 426.81247,
+            "speaker": "Julia",
+            "end": 427.01202,
+            "word": "that.",
+            "alignedWord": "THAT"
+        },
+        {
+            "start": 427.01202,
+            "speaker": "Julia",
+            "end": 427.30136,
+            "word": "Um,",
+            "alignedWord": "UM"
+        },
+        {
+            "start": 427.30136,
+            "end": 427.62063,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 427.62063,
+            "speaker": "Julia",
+            "end": 427.95986,
+            "word": "yeah,",
+            "alignedWord": "YEAH"
+        },
+        {
+            "start": 427.95986,
+            "speaker": "Julia",
+            "end": 428.29909,
+            "word": "Keith",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 428.29909,
+            "speaker": "Julia",
+            "end": 428.54853,
+            "word": "also",
+            "alignedWord": "ALSO"
+        },
+        {
+            "start": 428.54853,
+            "speaker": "Julia",
+            "end": 428.75805,
+            "word": "does",
+            "alignedWord": "DOES"
+        },
+        {
+            "start": 428.75805,
+            "speaker": "Julia",
+            "end": 429.16712,
+            "word": "Boris,",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 429.16712,
+            "end": 429.90544,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 429.90544,
+            "speaker": "Julia",
+            "end": 430.40431,
+            "word": "but",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 430.40431,
+            "end": 430.78345,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 430.78345,
+            "speaker": "Julia",
+            "end": 430.84331,
+            "word": "the...",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 430.84331,
+            "end": 431.422,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 431.422,
+            "speaker": "Julia",
+            "end": 431.62154,
+            "word": "but",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 431.62154,
+            "speaker": "Julia",
+            "end": 431.69138,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 431.69138,
+            "speaker": "Julia",
+            "end": 431.90091,
+            "word": "show",
+            "alignedWord": "SHOW"
+        },
+        {
+            "start": 431.90091,
+            "speaker": "Julia",
+            "end": 432.19025,
+            "word": "didn't",
+            "alignedWord": "DIDN'T"
+        },
+        {
+            "start": 432.19025,
+            "speaker": "Julia",
+            "end": 432.49955,
+            "word": "reserve",
+            "alignedWord": "RESERVE"
+        },
+        {
+            "start": 432.49955,
+            "speaker": "Julia",
+            "end": 432.63923,
+            "word": "its",
+            "alignedWord": "ITS"
+        },
+        {
+            "start": 432.63923,
+            "speaker": "Julia",
+            "end": 432.99841,
+            "word": "mockery",
+            "alignedWord": "MOCKERY"
+        },
+        {
+            "start": 432.99841,
+            "speaker": "Julia",
+            "end": 433.12812,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 433.12812,
+            "speaker": "Julia",
+            "end": 433.20794,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 433.20794,
+            "speaker": "Julia",
+            "end": 433.90635,
+            "word": "Soviets.",
+            "alignedWord": "SOVIETS"
+        },
+        {
+            "start": 433.90635,
+            "end": 434.19569,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 434.19569,
+            "speaker": "Julia",
+            "end": 434.34535,
+            "word": "The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 434.34535,
+            "speaker": "Julia",
+            "end": 434.6746,
+            "word": "jokes",
+            "alignedWord": "JOKES"
+        },
+        {
+            "start": 434.6746,
+            "speaker": "Julia",
+            "end": 434.7644,
+            "word": "at",
+            "alignedWord": "AT"
+        },
+        {
+            "start": 434.7644,
+            "speaker": "Julia",
+            "end": 434.86417,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 434.86417,
+            "speaker": "Julia",
+            "end": 435.2034,
+            "word": "expense",
+            "alignedWord": "EXPENSE"
+        },
+        {
+            "start": 435.2034,
+            "speaker": "Julia",
+            "end": 435.27324,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 435.27324,
+            "speaker": "Julia",
+            "end": 435.39297,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 435.39297,
+            "speaker": "Julia",
+            "end": 435.79206,
+            "word": "American",
+            "alignedWord": "AMERICAN"
+        },
+        {
+            "start": 435.79206,
+            "speaker": "Julia",
+            "end": 436.22109,
+            "word": "government",
+            "alignedWord": "GOVERNMENT"
+        },
+        {
+            "start": 436.22109,
+            "speaker": "Julia",
+            "end": 436.33084,
+            "word": "were",
+            "alignedWord": "WERE"
+        },
+        {
+            "start": 436.33084,
+            "speaker": "Julia",
+            "end": 436.6102,
+            "word": "sharp",
+            "alignedWord": "SHARP"
+        },
+        {
+            "start": 436.6102,
+            "speaker": "Julia",
+            "end": 436.80975,
+            "word": "enough",
+            "alignedWord": "ENOUGH"
+        },
+        {
+            "start": 436.80975,
+            "speaker": "Julia",
+            "end": 436.89955,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 436.89955,
+            "speaker": "Julia",
+            "end": 437.20884,
+            "word": "cause",
+            "alignedWord": "CAUSE"
+        },
+        {
+            "start": 437.20884,
+            "speaker": "Julia",
+            "end": 437.49819,
+            "word": "fights",
+            "alignedWord": "FIGHTS"
+        },
+        {
+            "start": 437.49819,
+            "speaker": "Julia",
+            "end": 437.58798,
+            "word": "with",
+            "alignedWord": "WITH"
+        },
+        {
+            "start": 437.58798,
+            "speaker": "Julia",
+            "end": 437.65782,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 437.65782,
+            "speaker": "Julia",
+            "end": 437.92721,
+            "word": "show's",
+            "alignedWord": "SHOW'S"
+        },
+        {
+            "start": 437.92721,
+            "speaker": "Julia",
+            "end": 438.46599,
+            "word": "sponsor,",
+            "alignedWord": "SPONSOR"
+        },
+        {
+            "start": 438.46599,
+            "end": 438.64558,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 438.64558,
+            "speaker": "Julia",
+            "end": 438.99478,
+            "word": "General",
+            "alignedWord": "GENERAL"
+        },
+        {
+            "start": 438.99478,
+            "speaker": "Julia",
+            "end": 439.49365,
+            "word": "Mills,",
+            "alignedWord": "MILLS"
+        },
+        {
+            "start": 439.49365,
+            "end": 439.61338,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 439.61338,
+            "speaker": "Julia",
+            "end": 439.70317,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 439.70317,
+            "speaker": "Julia",
+            "end": 440.08231,
+            "word": "cereal",
+            "alignedWord": "CEREAL"
+        },
+        {
+            "start": 440.08231,
+            "speaker": "Julia",
+            "end": 440.58118,
+            "word": "company.",
+            "alignedWord": "COMPANY"
+        },
+        {
+            "start": 440.58118,
+            "end": 444.15306,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 444.15306,
+            "speaker": "Julia",
+            "end": 444.95125,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 444.95125,
+            "end": 449.12177,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 449.12177,
+            "speaker": "Julia",
+            "end": 449.38118,
+            "word": "Yep,",
+            "alignedWord": "YEP"
+        },
+        {
+            "start": 449.38118,
+            "end": 449.51088,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 449.51088,
+            "speaker": "Julia",
+            "end": 449.86009,
+            "word": "Keith",
+            "alignedWord": "KEITH"
+        },
+        {
+            "start": 449.86009,
+            "speaker": "Julia",
+            "end": 450.09955,
+            "word": "also",
+            "alignedWord": "ALSO"
+        },
+        {
+            "start": 450.09955,
+            "speaker": "Julia",
+            "end": 450.28912,
+            "word": "does",
+            "alignedWord": "DOES"
+        },
+        {
+            "start": 450.28912,
+            "speaker": "Julia",
+            "end": 450.79796,
+            "word": "Boris,",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 450.79796,
+            "end": 451.51633,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 451.51633,
+            "speaker": "Julia",
+            "end": 451.68594,
+            "word": "but",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 451.68594,
+            "speaker": "Julia",
+            "end": 451.7458,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 451.7458,
+            "speaker": "Julia",
+            "end": 451.93537,
+            "word": "show",
+            "alignedWord": "SHOW"
+        },
+        {
+            "start": 451.93537,
+            "speaker": "Julia",
+            "end": 452.17483,
+            "word": "didn't",
+            "alignedWord": "DIDN'T"
+        },
+        {
+            "start": 452.17483,
+            "speaker": "Julia",
+            "end": 452.55397,
+            "word": "reserve",
+            "alignedWord": "RESERVE"
+        },
+        {
+            "start": 452.55397,
+            "speaker": "Julia",
+            "end": 452.71361,
+            "word": "its",
+            "alignedWord": "ITS"
+        },
+        {
+            "start": 452.71361,
+            "speaker": "Julia",
+            "end": 453.05283,
+            "word": "mockery",
+            "alignedWord": "MOCKERY"
+        },
+        {
+            "start": 453.05283,
+            "speaker": "Julia",
+            "end": 453.18254,
+            "word": "for",
+            "alignedWord": "FOR"
+        },
+        {
+            "start": 453.18254,
+            "speaker": "Julia",
+            "end": 453.26236,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 453.26236,
+            "speaker": "Julia",
+            "end": 453.88095,
+            "word": "Soviets.",
+            "alignedWord": "SOVIETS"
+        },
+        {
+            "start": 453.88095,
+            "end": 454.23016,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 454.23016,
+            "speaker": "Julia",
+            "end": 454.32993,
+            "word": "The",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 454.32993,
+            "speaker": "Julia",
+            "end": 454.66916,
+            "word": "jokes",
+            "alignedWord": "JOKES"
+        },
+        {
+            "start": 454.66916,
+            "speaker": "Julia",
+            "end": 454.75896,
+            "word": "at",
+            "alignedWord": "AT"
+        },
+        {
+            "start": 454.75896,
+            "speaker": "Julia",
+            "end": 454.84875,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 454.84875,
+            "speaker": "Julia",
+            "end": 455.22789,
+            "word": "expense",
+            "alignedWord": "EXPENSE"
+        },
+        {
+            "start": 455.22789,
+            "speaker": "Julia",
+            "end": 455.30771,
+            "word": "of",
+            "alignedWord": "OF"
+        },
+        {
+            "start": 455.30771,
+            "speaker": "Julia",
+            "end": 455.41746,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 455.41746,
+            "speaker": "Julia",
+            "end": 455.84649,
+            "word": "American",
+            "alignedWord": "AMERICAN"
+        },
+        {
+            "start": 455.84649,
+            "speaker": "Julia",
+            "end": 456.26553,
+            "word": "government",
+            "alignedWord": "GOVERNMENT"
+        },
+        {
+            "start": 456.26553,
+            "speaker": "Julia",
+            "end": 456.38526,
+            "word": "were",
+            "alignedWord": "WERE"
+        },
+        {
+            "start": 456.38526,
+            "speaker": "Julia",
+            "end": 456.66463,
+            "word": "sharp",
+            "alignedWord": "SHARP"
+        },
+        {
+            "start": 456.66463,
+            "speaker": "Julia",
+            "end": 456.8542,
+            "word": "enough",
+            "alignedWord": "ENOUGH"
+        },
+        {
+            "start": 456.8542,
+            "speaker": "Julia",
+            "end": 456.94399,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 456.94399,
+            "speaker": "Julia",
+            "end": 457.25329,
+            "word": "cause",
+            "alignedWord": "CAUSE"
+        },
+        {
+            "start": 457.25329,
+            "speaker": "Julia",
+            "end": 457.54263,
+            "word": "fights",
+            "alignedWord": "FIGHTS"
+        },
+        {
+            "start": 457.54263,
+            "speaker": "Julia",
+            "end": 457.6424,
+            "word": "with",
+            "alignedWord": "WITH"
+        },
+        {
+            "start": 457.6424,
+            "speaker": "Julia",
+            "end": 457.71224,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 457.71224,
+            "speaker": "Julia",
+            "end": 457.99161,
+            "word": "show's",
+            "alignedWord": "SHOW'S"
+        },
+        {
+            "start": 457.99161,
+            "speaker": "Julia",
+            "end": 458.55034,
+            "word": "sponsor,",
+            "alignedWord": "SPONSOR"
+        },
+        {
+            "start": 458.55034,
+            "end": 458.66009,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 458.66009,
+            "speaker": "Julia",
+            "end": 458.99932,
+            "word": "General",
+            "alignedWord": "GENERAL"
+        },
+        {
+            "start": 458.99932,
+            "speaker": "Julia",
+            "end": 459.42834,
+            "word": "Mills,",
+            "alignedWord": "MILLS"
+        },
+        {
+            "start": 459.42834,
+            "end": 459.47823,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 459.47823,
+            "speaker": "Julia",
+            "end": 459.55805,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 459.55805,
+            "speaker": "Julia",
+            "end": 459.94717,
+            "word": "cereal",
+            "alignedWord": "CEREAL"
+        },
+        {
+            "start": 459.94717,
+            "speaker": "Julia",
+            "end": 460.38617,
+            "word": "company.",
+            "alignedWord": "COMPANY"
+        },
+        {
+            "start": 460.38617,
+            "end": 462.59116,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 462.59116,
+            "speaker": "Julia",
+            "end": 463.33946,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 463.33946,
+            "end": 467.48005,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 467.48005,
+            "speaker": "Julia",
+            "end": 467.86916,
+            "word": "real",
+            "alignedWord": "REAL"
+        },
+        {
+            "start": 467.86916,
+            "speaker": "Julia",
+            "end": 468.16848,
+            "word": "life,",
+            "alignedWord": "LIFE"
+        },
+        {
+            "start": 468.16848,
+            "end": 468.22834,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 468.22834,
+            "speaker": "Julia",
+            "end": 468.34807,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 468.34807,
+            "speaker": "Julia",
+            "end": 468.72721,
+            "word": "doomsday",
+            "alignedWord": "DOOMSDAY"
+        },
+        {
+            "start": 468.72721,
+            "speaker": "Julia",
+            "end": 469.04649,
+            "word": "clock",
+            "alignedWord": "CLOCK"
+        },
+        {
+            "start": 469.04649,
+            "speaker": "Julia",
+            "end": 469.18617,
+            "word": "may",
+            "alignedWord": "MAY"
+        },
+        {
+            "start": 469.18617,
+            "speaker": "Julia",
+            "end": 469.27596,
+            "word": "have",
+            "alignedWord": "HAVE"
+        },
+        {
+            "start": 469.27596,
+            "speaker": "Julia",
+            "end": 469.38571,
+            "word": "been",
+            "alignedWord": "BEEN"
+        },
+        {
+            "start": 469.38571,
+            "speaker": "Julia",
+            "end": 469.73492,
+            "word": "edging",
+            "alignedWord": "EDGING"
+        },
+        {
+            "start": 469.73492,
+            "speaker": "Julia",
+            "end": 469.9644,
+            "word": "towards",
+            "alignedWord": "TOWARDS"
+        },
+        {
+            "start": 469.9644,
+            "speaker": "Julia",
+            "end": 470.46327,
+            "word": "midnight,",
+            "alignedWord": "MIDNIGHT"
+        },
+        {
+            "start": 470.46327,
+            "end": 470.60295,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 470.60295,
+            "speaker": "Julia",
+            "end": 470.77256,
+            "word": "but",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 470.77256,
+            "speaker": "Julia",
+            "end": 470.92222,
+            "word": "on",
+            "alignedWord": "ON"
+        },
+        {
+            "start": 470.92222,
+            "speaker": "Julia",
+            "end": 471.31134,
+            "word": "Saturday",
+            "alignedWord": "SATURDAY"
+        },
+        {
+            "start": 471.31134,
+            "speaker": "Julia",
+            "end": 471.8102,
+            "word": "mornings",
+            "alignedWord": "MORNINGS"
+        },
+        {
+            "start": 471.8102,
+            "speaker": "Julia",
+            "end": 471.94989,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 471.94989,
+            "speaker": "Julia",
+            "end": 472.37891,
+            "word": "Frostbite",
+            "alignedWord": "FROSTBITE"
+        },
+        {
+            "start": 472.37891,
+            "speaker": "Julia",
+            "end": 472.70816,
+            "word": "Falls,",
+            "alignedWord": "FALLS"
+        },
+        {
+            "start": 472.70816,
+            "speaker": "Julia",
+            "end": 473.38662,
+            "word": "Minnesota,",
+            "alignedWord": "MINNESOTA"
+        },
+        {
+            "start": 473.38662,
+            "end": 473.71587,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 473.71587,
+            "speaker": "Julia",
+            "end": 473.8356,
+            "word": "it",
+            "alignedWord": "IT"
+        },
+        {
+            "start": 473.8356,
+            "speaker": "Julia",
+            "end": 474.15488,
+            "word": "boiled",
+            "alignedWord": "BOILED"
+        },
+        {
+            "start": 474.15488,
+            "speaker": "Julia",
+            "end": 474.39433,
+            "word": "down",
+            "alignedWord": "DOWN"
+        },
+        {
+            "start": 474.39433,
+            "speaker": "Julia",
+            "end": 474.4941,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 474.4941,
+            "speaker": "Julia",
+            "end": 474.91315,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 474.91315,
+            "speaker": "Julia",
+            "end": 475.00295,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 475.00295,
+            "speaker": "Julia",
+            "end": 475.4619,
+            "word": "Natasha",
+            "alignedWord": "NATASHA"
+        },
+        {
+            "start": 475.4619,
+            "speaker": "Julia",
+            "end": 475.7712,
+            "word": "coming",
+            "alignedWord": "COMING"
+        },
+        {
+            "start": 475.7712,
+            "speaker": "Julia",
+            "end": 475.89093,
+            "word": "up",
+            "alignedWord": "UP"
+        },
+        {
+            "start": 475.89093,
+            "speaker": "Julia",
+            "end": 475.9907,
+            "word": "with",
+            "alignedWord": "WITH"
+        },
+        {
+            "start": 475.9907,
+            "speaker": "Julia",
+            "end": 476.15034,
+            "word": "their",
+            "alignedWord": "THEIR"
+        },
+        {
+            "start": 476.15034,
+            "speaker": "Julia",
+            "end": 476.63923,
+            "word": "fiend...",
+            "alignedWord": "FIEND"
+        },
+        {
+            "start": 476.63923,
+            "speaker": "Julia",
+            "end": 476.66916,
+            "word": "oh,",
+            "alignedWord": "OH"
+        },
+        {
+            "start": 476.66916,
+            "speaker": "Julia",
+            "end": 476.8288,
+            "word": "I",
+            "alignedWord": "I"
+        },
+        {
+            "start": 476.8288,
+            "speaker": "Julia",
+            "end": 476.99841,
+            "word": "just",
+            "alignedWord": "JUST"
+        },
+        {
+            "start": 476.99841,
+            "speaker": "Julia",
+            "end": 477.40748,
+            "word": "whistled.",
+            "alignedWord": "WHISTLED"
+        },
+        {
+            "start": 477.40748,
+            "end": 478.51497,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 478.51497,
+            "speaker": "Julia",
+            "end": 478.95397,
+            "word": "Um...",
+            "alignedWord": "UM"
+        },
+        {
+            "start": 478.95397,
+            "end": 480.46054,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 480.46054,
+            "speaker": "Julia",
+            "end": 482.38617,
+            "word": "Mm-hmm,",
+            "alignedWord": "MM sp HMM"
+        },
+        {
+            "start": 482.38617,
+            "end": 482.88503,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 482.88503,
+            "speaker": "Julia",
+            "end": 483.11451,
+            "word": "OK.",
+            "alignedWord": "OK"
+        },
+        {
+            "start": 483.11451,
+            "end": 492.23379,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 492.23379,
+            "speaker": "Julia",
+            "end": 492.36349,
+            "word": "In",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 492.36349,
+            "speaker": "Julia",
+            "end": 492.61293,
+            "word": "real",
+            "alignedWord": "REAL"
+        },
+        {
+            "start": 492.61293,
+            "speaker": "Julia",
+            "end": 492.89229,
+            "word": "life,",
+            "alignedWord": "LIFE"
+        },
+        {
+            "start": 492.89229,
+            "end": 493.01202,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 493.01202,
+            "speaker": "Julia",
+            "end": 493.14172,
+            "word": "the",
+            "alignedWord": "THE"
+        },
+        {
+            "start": 493.14172,
+            "speaker": "Julia",
+            "end": 493.54082,
+            "word": "doomsday",
+            "alignedWord": "DOOMSDAY"
+        },
+        {
+            "start": 493.54082,
+            "speaker": "Julia",
+            "end": 493.89002,
+            "word": "clock",
+            "alignedWord": "CLOCK"
+        },
+        {
+            "start": 493.89002,
+            "speaker": "Julia",
+            "end": 493.99977,
+            "word": "may",
+            "alignedWord": "MAY"
+        },
+        {
+            "start": 493.99977,
+            "speaker": "Julia",
+            "end": 494.10952,
+            "word": "have",
+            "alignedWord": "HAVE"
+        },
+        {
+            "start": 494.10952,
+            "speaker": "Julia",
+            "end": 494.23923,
+            "word": "been",
+            "alignedWord": "BEEN"
+        },
+        {
+            "start": 494.23923,
+            "speaker": "Julia",
+            "end": 494.62834,
+            "word": "edging",
+            "alignedWord": "EDGING"
+        },
+        {
+            "start": 494.62834,
+            "speaker": "Julia",
+            "end": 494.87778,
+            "word": "towards",
+            "alignedWord": "TOWARDS"
+        },
+        {
+            "start": 494.87778,
+            "speaker": "Julia",
+            "end": 495.37664,
+            "word": "midnight,",
+            "alignedWord": "MIDNIGHT"
+        },
+        {
+            "start": 495.37664,
+            "end": 495.51633,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 495.51633,
+            "speaker": "Julia",
+            "end": 495.7059,
+            "word": "but",
+            "alignedWord": "BUT"
+        },
+        {
+            "start": 495.7059,
+            "speaker": "Julia",
+            "end": 495.88549,
+            "word": "on",
+            "alignedWord": "ON"
+        },
+        {
+            "start": 495.88549,
+            "speaker": "Julia",
+            "end": 496.28458,
+            "word": "Saturday",
+            "alignedWord": "SATURDAY"
+        },
+        {
+            "start": 496.28458,
+            "speaker": "Julia",
+            "end": 496.86327,
+            "word": "mornings",
+            "alignedWord": "MORNINGS"
+        },
+        {
+            "start": 496.86327,
+            "speaker": "Julia",
+            "end": 496.96304,
+            "word": "in",
+            "alignedWord": "IN"
+        },
+        {
+            "start": 496.96304,
+            "speaker": "Julia",
+            "end": 497.45193,
+            "word": "Frostbite",
+            "alignedWord": "FROSTBITE"
+        },
+        {
+            "start": 497.45193,
+            "speaker": "Julia",
+            "end": 497.71134,
+            "word": "Falls,",
+            "alignedWord": "FALLS"
+        },
+        {
+            "start": 497.71134,
+            "speaker": "Julia",
+            "end": 498.33991,
+            "word": "Minnesota,",
+            "alignedWord": "MINNESOTA"
+        },
+        {
+            "start": 498.33991,
+            "end": 498.69909,
+            "word": "{p}",
+            "alignedWord": "sp"
+        },
+        {
+            "start": 498.69909,
+            "speaker": "Julia",
+            "end": 498.85873,
+            "word": "it",
+            "alignedWord": "IT"
+        },
+        {
+            "start": 498.85873,
+            "speaker": "Julia",
+            "end": 499.1381,
+            "word": "boiled",
+            "alignedWord": "BOILED"
+        },
+        {
+            "start": 499.1381,
+            "speaker": "Julia",
+            "end": 499.36757,
+            "word": "down",
+            "alignedWord": "DOWN"
+        },
+        {
+            "start": 499.36757,
+            "speaker": "Julia",
+            "end": 499.44739,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 499.44739,
+            "speaker": "Julia",
+            "end": 499.83651,
+            "word": "Boris",
+            "alignedWord": "BORIS"
+        },
+        {
+            "start": 499.83651,
+            "speaker": "Julia",
+            "end": 499.9263,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 499.9263,
+            "speaker": "Julia",
+            "end": 500.46508,
+            "word": "Natasha",
+            "alignedWord": "NATASHA"
+        },
+        {
+            "start": 500.46508,
+            "speaker": "Julia",
+            "end": 500.71451,
+            "word": "coming",
+            "alignedWord": "COMING"
+        },
+        {
+            "start": 500.71451,
+            "speaker": "Julia",
+            "end": 500.83424,
+            "word": "up",
+            "alignedWord": "UP"
+        },
+        {
+            "start": 500.83424,
+            "speaker": "Julia",
+            "end": 500.93401,
+            "word": "with",
+            "alignedWord": "WITH"
+        },
+        {
+            "start": 500.93401,
+            "speaker": "Julia",
+            "end": 501.06372,
+            "word": "their",
+            "alignedWord": "THEIR"
+        },
+        {
+            "start": 501.06372,
+            "speaker": "Julia",
+            "end": 501.48277,
+            "word": "fiendish",
+            "alignedWord": "FIENDISH"
+        },
+        {
+            "start": 501.48277,
+            "speaker": "Julia",
+            "end": 501.83197,
+            "word": "plots",
+            "alignedWord": "PLOTS"
+        },
+        {
+            "start": 501.83197,
+            "speaker": "Julia",
+            "end": 501.92177,
+            "word": "to",
+            "alignedWord": "TO"
+        },
+        {
+            "start": 501.92177,
+            "speaker": "Julia",
+            "end": 502.23107,
+            "word": "kill",
+            "alignedWord": "KILL"
+        },
+        {
+            "start": 502.23107,
+            "speaker": "Julia",
+            "end": 502.44059,
+            "word": "moose",
+            "alignedWord": "MOOSE"
+        },
+        {
+            "start": 502.44059,
+            "speaker": "Julia",
+            "end": 502.57029,
+            "word": "and",
+            "alignedWord": "AND"
+        },
+        {
+            "start": 502.57029,
+            "speaker": "Julia",
+            "end": 503.05918,
+            "word": "squirrel.",
+            "alignedWord": "SQUIRREL"
+        },
+        {
+            "start": 503.05918,
+            "end": 504.16667,
+            "word": "{p}",
+            "alignedWord": "sp"
+        }
+    ]
+}

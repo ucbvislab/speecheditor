@@ -95,7 +95,7 @@ MBAPP.fnPivotValidIDs = function() {
         
     q = '?c=' + JSON.stringify(constraints) + '&song_id=' + pivot_id;
     $.ajax({
-        url: '/musicbrowser/constrained' + q,
+        url: 'musicbrowser/constrained' + q,
         async: false,
         dataType: 'json',
         success: function(data) {

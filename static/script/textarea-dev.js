@@ -2644,11 +2644,6 @@ c){f=va(a.m());f.sort(function(a,b){return b[1]-a[1]});g=0;j=b;for(m=f.length;g<
                     // change waveform pos in timeline
                     var newStart = origStart - (this.options.len - origLen)
                 }
-
-                if (this.options.hasOwnProperty("loopCallback")) {
-                    this.options.loopCallback();
-                }
-
                 return;
             }
         },
@@ -7661,7 +7656,7 @@ MBAPP.fnPivotValidIDs = function() {
         
     q = '?c=' + JSON.stringify(constraints) + '&song_id=' + pivot_id;
     $.ajax({
-        url: '/musicbrowser/constrained' + q,
+        url: 'musicbrowser/constrained' + q,
         async: false,
         dataType: 'json',
         success: function(data) {

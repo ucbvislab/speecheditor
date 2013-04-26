@@ -8,7 +8,8 @@ except:
 import sys
 import numpy as N
 
-from radiotool.composer import Composition, Speech, Segment, RawTrack, equal_power
+from radiotool.composer import Composition, Speech, Segment, RawTrack
+from radiotool.composer.utils import equal_power
 print >> sys.stderr, "Composer imported"
 
 from breath_classifier import breath_classifier
@@ -186,14 +187,14 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
                 continue
 
             c.add_track(track)
-            c.add_score_segment(cf_seg)
+            c.add_segment(cf_seg)
             
             segments.append(cf_seg)
             # composition_loc += pause_len
 
-            print "Added roomtone, length", cf_seg.duration / float(track.sr())
+            print "Added roomtone, length", cf_seg.duration / float(track.samplerate)
 
-            composition_loc += cf_seg.duration / float(track.samplerate())
+            composition_loc += cf_seg.duration / float(track.samplerate)
         else:
             if eg.speaker is None:
                 print alignment[eg.edit_index]
@@ -223,7 +224,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             seg = Segment(s, composition_loc, start, end - start)
             print eg.speaker, "comp loc", composition_loc, "start", start, "end", end
             print "\t", s.filename
-            c.add_score_segment(seg)
+            c.add_segment(seg)
             start_times.append(composition_loc)
             segments.append(seg)
 
@@ -232,14 +233,14 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
     if crossfades:
         print "### Adding %d crossfades" % (len(segments) - 1)
         for i in range(len(segments) - 1):
-            if segments[i].score_location + segments[i].duration ==\
-                segments[i + 1].score_location:
+            if segments[i].comp_location + segments[i].duration ==\
+                segments[i + 1].comp_location:
                 c.cross_fade(segments[i], segments[i + 1], .005)
     
     out = {}
     
     if not tracks_and_segments:
-        c.output_score(
+        c.export(
             adjust_dynamics=False,
             filename=out_file,
             channels=1,
@@ -248,7 +249,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             separate_tracks=False)
     else:
         out["tracks"] = c.tracks
-        out["segments"] = c.score
+        out["segments"] = c.segments
         out["samplerate"] = samplerate
         out["channels"] = 1
     
@@ -272,7 +273,7 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
 
 def create_roomtone_pause(segment, final_duration):
-    final_dur_in_frames = int(final_duration * segment.track.sr())
+    final_dur_in_frames = int(final_duration * segment.track.samplerate)
     out = N.empty(final_dur_in_frames)
     
     breath_dur = segment.duration
@@ -287,16 +288,16 @@ def create_roomtone_pause(segment, final_duration):
         breaths[half_bd:final_dur_in_frames + half_bd]
     
 
-    sr = segment.track.sr()
+    sr = segment.track.samplerate
     track = RawTrack(out / 2, name="raw", samplerate=sr)
 
-    raw_seg = Segment(track, segment.score_location / float(sr),
+    raw_seg = Segment(track, segment.comp_location / float(sr),
                       0.0, final_duration)
 
     return track, raw_seg
 
 def create_roomtone_pause2(segment, final_duration, cut_to_zc):
-    final_dur_in_frames = int(final_duration * segment.track.sr())
+    final_dur_in_frames = int(final_duration * segment.track.samplerate)
     out = N.empty(final_dur_in_frames)
     
     breath_dur = segment.duration
@@ -318,10 +319,10 @@ def create_roomtone_pause2(segment, final_duration, cut_to_zc):
     
     out = breaths[:final_dur_in_frames]
 
-    sr = segment.track.sr()
+    sr = segment.track.samplerate
     track = RawTrack(out, name="raw", samplerate=sr)
 
-    raw_seg = Segment(track, segment.score_location / float(sr),
+    raw_seg = Segment(track, segment.comp_location / float(sr),
                       0.0, final_duration)
 
     if cut_to_zc:
@@ -355,13 +356,13 @@ def render_pauses(speech_file, alignment):
             # print "len", end - start
             print "Creating pause", start, end - start
             seg = Segment(speech, 0.0, start, end - start)
-            comp.add_score_segment(seg)
-            comp.output_score(
+            comp.add_segment(seg)
+            comp.export(
                 adjust_dynamics=False,
                 filename="tmp/pauses/p%03d" % pause_idx,
                 channels=1,
                 filetype='wav',
-                samplerate=speech.samplerate(),
+                samplerate=speech.samplerate,
                 separate_tracks=False)
             print "# classifying p%03d.wav" % pause_idx
             print "# segment length:", x["end"] - x["start"]
@@ -395,14 +396,14 @@ def render_pauses_as_one_track(speech_file, alignment):
             start = x["start"]
             end = x["end"]
             seg = Segment(speech, comp_loc, start, end - start)
-            comp.add_score_segment(seg)
+            comp.add_segment(seg)
             comp_loc += (end - start)
-    comp.output_score(
+    comp.export(
         adjust_dynamics=False,
         filename="tmp/pauses-%s" % fname.split('.')[0],
         channels=1,
         filetype='wav',
-        samplerate=speech.samplerate(),
+        samplerate=speech.samplerate,
         separate_tracks=False)
 
 def render_breaths_and_pauses(audio_file, alignment):
@@ -418,7 +419,7 @@ def render_breaths_and_pauses(audio_file, alignment):
             start = x["start"]
             end = x["end"]
             seg = Segment(audio, comp_loc, start, end - start)
-            comp.add_score_segment(seg)
+            comp.add_segment(seg)
             comp_loc += end - start
         elif x["alignedWord"] == "{BR}":
             audio = Speech(audio_file, "breath%02d" % breath_idx)
@@ -427,14 +428,14 @@ def render_breaths_and_pauses(audio_file, alignment):
             start = x["start"]
             end = x["end"]
             seg = Segment(audio, comp_loc, start, end - start)
-            comp.add_score_segment(seg)
+            comp.add_segment(seg)
             comp_loc += end - start
-    comp.output_score(
+    comp.export(
         adjust_dynamics=False,
         filename="tmp/pb",
         channels=1,
         filetype='wav',
-        samplerate=audio.samplerate(),
+        samplerate=audio.samplerate,
         separate_tracks=True)
 
 
@@ -465,10 +466,10 @@ def find_breaths(speech, alignment):
     for i, br in enumerate(breaths):
         s = Speech(speech, str(i))
         c = Composition(tracks=[s], channels=1)
-        c.add_score_segment(
+        c.add_segment(
             Segment(s, 0.0, br["start"], br["end"] - br["start"])
         )
-        c.output_score(
+        c.export(
             adjust_dynamics=False,
             filename="tmp/%d" % i,
             channels=1,

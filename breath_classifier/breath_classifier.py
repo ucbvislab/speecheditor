@@ -62,7 +62,7 @@ def store_svm():
 
 def get_mfcc(filename):
     audio = C.Track(filename, 'woop')
-    resample_factor = 11025.0 / audio.samplerate()
+    resample_factor = 11025.0 / audio.samplerate
     src = AudioSource(filename)
     pipe = Pipeline(
         src,
@@ -73,7 +73,7 @@ def get_mfcc(filename):
 
 def get_rms_energy(filename):
     audio = C.Track(filename, 'woop')
-    resample_factor = 11025.0 / audio.samplerate()
+    resample_factor = 11025.0 / audio.samplerate
     src = AudioSource(filename)
     pip = Pipeline(
         src,
@@ -109,7 +109,7 @@ def get_features(audio_file):
     cc = get_mfcc(audio_file)
     audio = C.Track(audio_file, 'woop')
     n_frames = audio.total_frames()
-    length = n_frames / float(audio.sr())
+    length = n_frames / float(audio.samplerate)
     n_subframes = N.shape(cc)[0]
     features = N.hstack((cc, deltas(cc, 5), deltas(deltas(cc, 5), 5)))
     return features

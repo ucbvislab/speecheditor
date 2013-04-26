@@ -34,7 +34,7 @@ class PathFinder(object):
 
     def find(self, length_padding=5, avoid=None):
         self.build_table(length_padding=length_padding, bad_nodes=avoid)
-        N.save("tmp_cost_table" + str(self.start) + '-' + str(self.end), self.C)
+        # N.save("tmp_cost_table" + str(self.start) + '-' + str(self.end), self.C)
 
         res = self.C[self.end,
                      self.length - 1 - length_padding:

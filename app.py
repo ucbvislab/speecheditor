@@ -50,7 +50,9 @@ def reauthor():
         tracks = dat["exportedTimeline"]
         result = {}
         
-        c = Composition(channels=1)
+        comp = Composition(channels=1)
+
+        print "Start: comp segments", len(comp.segments)
 
         speech_is_done = False
 
@@ -98,8 +100,8 @@ def reauthor():
                     speech_audio_path, af, ef, **args)
                 print "# Done rebuilding speech"
                 
-                c.add_tracks(result["tracks"])
-                c.add_score_segments(result["segments"])
+                comp.add_tracks(result["tracks"])
+                comp.add_segments(result["segments"])
             
             elif t["waveformClass"] == "musicWaveform":
                 # handle music authored per beat
@@ -125,11 +127,11 @@ def reauthor():
                             % filename, shell=True)
                 
                 track = Track(wav_fn, t["name"])
-                c.add_track(track)
+                comp.add_track(track)
                 current_loc = float(score_start)
                 
                 # create the spline interpolator
-                vx = vx / 1000.0 * track.sr()
+                vx = vx / 1000.0 * track.samplerate
                 # cdf = MonotonicCubicSpline(vx, vy)
                 
                 
@@ -149,11 +151,11 @@ def reauthor():
                     else:
                         seg = Segment(track, seg_start_loc, seg_start,
                             current_loc - seg_start_loc)
-                        c.add_score_segment(seg)
+                        comp.add_segment(seg)
                         segments.append(seg)
                         
                         # track = Track(wav_fn, t["name"])
-                        # c.add_track(track)
+                        # comp.add_track(track)
                         dur = durs[i]
                         cf_durations.append(dur)
                         
@@ -166,7 +168,7 @@ def reauthor():
 
                 last_seg = Segment(track, seg_start_loc, seg_start,
                     current_loc - seg_start_loc)
-                c.add_score_segment(last_seg)
+                comp.add_segment(last_seg)
                 segments.append(last_seg)
                 
                 all_segs = []
@@ -177,14 +179,14 @@ def reauthor():
                     vy = vy[1:]
                 
                 for i, seg in enumerate(segments[:-1]):
-                    rawseg = c.cross_fade(seg, segments[i + 1], cf_durations[i])
+                    rawseg = comp.cross_fade(seg, segments[i + 1], cf_durations[i])
                     all_segs.extend([seg, rawseg])
 
                 all_segs.append(segments[-1])
 
-                first_loc = all_segs[0].score_location
+                first_loc = all_segs[0].comp_location
                 
-                vx[-1] = all_segs[-1].score_location -\
+                vx[-1] = all_segs[-1].comp_location -\
                          first_loc + all_segs[-1].duration
                 
                 cdf = MonotonicCubicSpline(vx, vy)
@@ -192,14 +194,14 @@ def reauthor():
                 for seg in all_segs:
                     vol_frames = N.empty(seg.duration)
                     
-                    samplex = N.arange(seg.score_location - first_loc,
-                        seg.score_location - first_loc + seg.duration,
+                    samplex = N.arange(seg.comp_location - first_loc,
+                        seg.comp_location - first_loc + seg.duration,
                         10000)
                         
                     sampley = N.array([cdf.interpolate(x) for x in samplex])
 
                     lasty = cdf.interpolate(
-                        seg.score_location - first_loc + seg.duration)
+                        seg.comp_location - first_loc + seg.duration)
                     
                     for i, sy in enumerate(sampley):
                         # print i, sy
@@ -214,7 +216,7 @@ def reauthor():
                     vol_frames *= global_vol
 
                     vol = RawVolume(seg, vol_frames)
-                    c.add_dynamic(vol)
+                    comp.add_dynamic(vol)
 
             
             elif t["waveformClass"] == "waveform":
@@ -233,12 +235,14 @@ def reauthor():
 
                     
                 track = Track(wav_fn, t["name"])
-                segment = Segment(track, score_start, track_start, duration)
+                seg = Segment(track, score_start, track_start, duration)
                 
-                c.add_track(track)
-                c.add_score_segment(segment)
+                comp.add_track(track)
+                comp.add_segment(seg)
         
-        c.output_score(
+        print "\n\n### SEGMENT COUNT", len(comp.segments), "\n\n"
+
+        comp.export(
             adjust_dynamics=False,
             filename=APP_PATH + "static/tmp/" + dat["outfile"],
             channels=1,
@@ -246,6 +250,9 @@ def reauthor():
             samplerate=result["samplerate"],
             separate_tracks=False)
         
+        subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
+            dat["outfile"] + '.mp3', shell=True)
+
         subprocess.call('lame -V0 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True)
         
@@ -474,7 +481,7 @@ def upload_song():
 
     # get length of song upload
     track = Track(wav_name, "track")
-    out["dur"] = track.total_frames() / float(track.sr()) * 1000.0
+    out["dur"] = track.total_frames() / float(track.samplerate) * 1000.0
 
     # get song graph
     mg = MusicGraph(full_name, cache_path=upload_path, verbose=True)        

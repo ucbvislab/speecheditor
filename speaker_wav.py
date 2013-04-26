@@ -40,5 +40,5 @@ c.output_score(
     filename="static/%s-%s-test" % (basename, speaker),
     channels=1,
     filetype='wav',
-    samplerate=t.sr(),
+    samplerate=t.samplerate,
     separate_tracks=False)

@@ -253,7 +253,7 @@ def reauthor():
         subprocess.call('rm ' + APP_PATH + 'static/tmp/' +
             dat["outfile"] + '.mp3', shell=True)
 
-        subprocess.call('lame -V0 ' + APP_PATH + 'static/tmp/'
+        subprocess.call('lame -q 5 ' + APP_PATH + 'static/tmp/'
             + dat["outfile"] + '.wav', shell=True)
         
         # get the new wav2json data, maybe

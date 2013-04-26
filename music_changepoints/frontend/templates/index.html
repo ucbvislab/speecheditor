@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>UnderScore changpoing finding tool</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="rubin">
+	<!-- Date: 2012-09-05 -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script>
+    <script src="/static/js/spin.min.js"></script>
+    <script src="/static/js/soundmanager2-jsmin.js"></script>
+	<script src="/static/js/bootstrap.js" type="text/javascript"></script>
+	<script src="/static/js/index.js" type="text/javascript"></script>
+
+	<p></p>
+</head>
+<body>
+	
+<div class="container">	
+	
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <a class="brand" href="#">UnderScore Changepoint Finding</a>
+	    <ul class="nav">
+	      <li class="active"><a href="#">Home</a></li>
+	    </ul>
+	  </div>
+	</div>
+    
+	<div class="row">
+		<div class="span4">
+            
+			<form>
+				<label>Song</label>
+				<select class="song-select input-xlarge">
+					
+				</select>
+				<label>Distance function</label>
+				<select class="input-xlarge dist-select">
+                    <option value="euc">Euclidean</option>
+					<option value="cos">Cosine</option>
+				</select>
+				<label>Audio feature</label>
+				<select class="input-xlarge feat-select">
+					<option value="rms">RMS energy</option>
+                    <option value="chroma">Chroma features</option>
+					<option value="mfcc">MFCCs</option>
+                    <option value="rmsmfcc">RMS energy + MFCCs</option>
+				</select>
+                <label>RMS weight</label>
+                <input type="text" class="rmsWeight" ></input>
+                <div id="slider"></div>
+				<label>Kernel size (comma separated integers)</label><input class="input-xlarge kernel-size" type="text" value="128,64,32" />
+                <label>Max results</label><input class="input-xlarge nresults" type="text" value="5" />
+                <br />
+                <button class="btn" type="button" onclick="changepoints()">Show changepoints</button>
+			</form>
+            
+            <div class="spinbox" style="width:120px;height:60px"></div>
+		</div>
+        
+        <div class="span8 results">
+            
+
+            <div style="margin:0 auto; width: 85px"><button class="btn ppbtn play"><i class="icon-play"></i>Play</button></div>
+            
+            
+            
+            
+            <canvas class="tmp-canvas" style="display:none" width="600" height="100">
+            </canvas>
+        </div>
+	</div>
+
+</div>
+</body>
+</html>

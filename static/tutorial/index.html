@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="css/markdown.css">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="content-based-audio-editor-tutorial">Content-Based Audio Editor Tutorial</h1>
+<p>The content-based audio editor allows users to edit audio stories that take advantage of the content of speech and music.</p>
+<p>Go to <a href="http://voicebox.eecs.berkeley.edu/speecheditor/?speech=bluesmobile-interview">http://voicebox.eecs.berkeley.edu/speecheditor/?speech=bluesmobile-interview</a> to load a short clip from an interview between Ben Manilla and Bettye Lavette.</p>
+<h2 id="basics">Basics</h2>
+<ul>
+<li>Press <code>enter</code> or click <img src="img/render.png" alt="Render" /> to render the current timeline.</li>
+<li>Press <code>space bar</code> or click <img src="img/play.png" alt="Play" /> to play the current timeline. This will (usually) force a re-render if necessary, but it's occasionally buggy so I'd recommend rendering first (<code>enter</code>)</li>
+<li>Scrub by clicking in the timeline.</li>
+</ul>
+<h2 id="speech-editing">Speech editing</h2>
+<ul>
+<li>You can select, delete, copy, and paste the text as normal.</li>
+<li>Pasted text will appear chronologically in the transcript (even if you paste text from Speaker A into a text box of Speaker B).</li>
+</ul>
+<h3 id="advanced-speech-editing">Advanced speech editing</h3>
+<ul>
+<li>Press <code>.</code> to insert a pause/breath to split up a sentence.</li>
+<li>To insert a pause, type in a value and press the <code>insert pause</code> button - <img src="img/insertpause.png" alt="Insert pause" /></li>
+<li>To see to complete, original transcript, click on the speech library tab on the side of the window, or press <code>r</code>. You can copy, paste, delete in here and from here too.</li>
+<li>Press <code>e</code> or <img src="img/ept.png" alt="Add emphasis point" /> to add an emphasis point after the current word. The current word is selected based on the cursor position in the text boxes.</li>
+</ul>
+<h2 id="music-browsing">Music browsing</h2>
+<ul>
+<li>Click the music browser tab on the right side of the window or press <code>f</code> to open the music browser.</li>
+<li>The emotion buttons filter the song table by emotion (coarsely). Once an emotion is selected, click it again to clear that filter.</li>
+<li>The features buttons toggle addition columns of the song table</li>
+<li>The play button for each song plays a clip centered around the a music change point in that song.</li>
+<li>Press <img src="img/sim.png" alt="Similar songs" /> to filter by the song's nearest timbral neighbors. Press the <code>x</code> in the red box to clear this filter.</li>
+<li>Press the plus button by a song to add it to your local music library.</li>
+<li>You can also add your own songs by uploading songs through the <code>Add   Song</code> button in the local music library.</li>
+</ul>
+<h2 id="music-editing">Music editing</h2>
+<ul>
+<li>Press the plus button next to a song in the local Music Library to add it to the timeline. Songs in the timeline can be moved by clicking and dragging on the top bar. A song can be shortened by clicking and dragging on the song's left and right edges.</li>
+<li>If a song has been clipped to a short segment and a loop has been detected, click <img src="img/loop.png" alt="Add a loop" /> to add a loop.</li>
+</ul>
+<h3 id="adding-musical-underlays">Adding musical underlays</h3>
+<ul>
+<li>First, make sure the song you want to use is in the local Music Library but is not in the timeline. To remove a song from the timeline, click the <code>x</code> in the top-right corner of the track.</li>
+<li>Press <code>u</code> or click on an emphasis point in the timeline (<img src="img/tlept.png" alt="Emphasis point in timeline" />) to open the underlay creation dialog.
+<ul>
+<li>Select a first (required) and second (optional) speech emphasis point.</li>
+<li>Select a song</li>
+<li>Press <code>Create</code> (this will be very fast for a single emphasis point; it will be quadratic in the length of the song for multiple change points)</li>
+</ul></li>
+</ul>
+<h2 id="other-shortcuts-features-and-quirks">Other shortcuts, features, and quirks</h2>
+<ul>
+<li><code>w</code> and <code>s</code> move the cursor up and down between paragraphs in the text boxes.</li>
+<li>The <code>Music Volume</code> button allows for global adjustments to the music. This is a hack, but can be useful when generated underlays are too loud or too soft.</li>
+<li><em>Make sure to re-render after all changes!</em></li>
+<li>Press <img src="img/dl.png" alt="Download button" /> to download the current composition as an mp3.</li>
+<li>Press <img src="img/new.png" alt="New composition" /> to start a new composition with one of the other speech tracks.</li>
+<li>The <code>Clear words</code> button clears all of the words from the timeline/transcript view. Sometimes it's nice to start fresh. If you do this, it's sometimes tricky to see where you can paste words; one of the two columns of the transcript view <em>will</em> still contain a text box! Hover right beneath the speaker names until you see the cursor change, then click and paste.</li>
+</ul>
+</body>
+</html>

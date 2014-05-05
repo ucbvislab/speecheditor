@@ -55,3 +55,15 @@ Install eyed3: `pip install eyed3 --allow-external eyed3 --allow-unverified eyed
 
 ## Running the editor
 
+In the virtual environment, run `python app.py --no-browser`
+
+If you change the javascript or coffeescript, run `grunt dev` to
+regenerate the javascript. Alternatively, you can  uncomment lines
+254-274 in templates/index.html and comment line 276. This will let
+you load everything while making changes to the
+coffeescript/javascript without re-running `grunt dev`.
+
+The music browser won't work. To get the browser to work, you need to
+set up a mysql database and load it with the appropriate data-- I can
+explain this in more detail later, but in general, the music browser
+is not integral to the rest of the app.

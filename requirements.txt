@@ -1,15 +1,14 @@
-Flask==0.9
+Flask==0.10
 Jinja2==2.6
 Mako==0.7.3
 MarkupSafe==0.15
-Werkzeug==0.8.3
 distribute==0.6.31
--e git+http://github.com/fredj/flask-jsonify.git@5e20dd2774eb99abe354158a79dced0f9c72c9ab#egg=flask_jsonify-dev
 networkx==1.7
 python-Levenshtein==0.10.2
-scikit-learn==0.13
+numpy
+scipy
+scikit-learn
 scikits.audiolab==0.11.0
 scikits.samplerate==0.3.3
-scipy==0.11.0
 simplejson==3.0.9
 wsgiref==0.1.2

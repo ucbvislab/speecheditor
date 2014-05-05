@@ -1,9 +1,6 @@
-[submodule "numpy"]
-	path = numpy
-	url = git://github.com/numpy/numpy.git
 [submodule "radiotool"]
 	path = radiotool
-	url = git@bitbucket.org:srubin/radiotool.git
+    url = git://github.com/ucbvislab/radiotool.git
 [submodule "static/edible"]
 	path = static/edible
 	url = git@bitbucket.org:srubin/edible.git

@@ -1,9 +1,9 @@
-[submodule "radiotool"]
-	path = radiotool
-    url = git://github.com/ucbvislab/radiotool.git
 [submodule "static/edible"]
 	path = static/edible
 	url = git@bitbucket.org:srubin/edible.git
 [submodule "wav2json"]
 	path = wav2json
 	url = git://github.com/beschulz/wav2json.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/ronw/frontend.git

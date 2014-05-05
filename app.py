@@ -13,6 +13,7 @@ sys.path.append("/home/ubuntu/speecheditor")
 sys.path.append("/var/www/html/srubin/speecheditor")
 
 import numpy as N
+import click
 
 import reauthor_speech
 import duplicate_lines
@@ -524,14 +525,24 @@ def alignment(name):
 from werkzeug.serving import run_simple
 from werkzeug.wsgi import DispatcherMiddleware
 
-from music_browser.browser_flask import app as browserapp
 
-application = DispatcherMiddleware(app, {
-    '/musicbrowser': browserapp
-})
+@click.command()
+@click.option('--browser/--no-browser', default=True,
+              help='do not load the music browser app')
+def run_app(browser):
+    if browser:
+        from music_browser.browser_flask import app as browserapp
 
-if __name__ == '__main__':
-
+        application = DispatcherMiddleware(app, {
+            '/musicbrowser': browserapp
+        })
+    else:
+        application = app
     run_simple('localhost', 5000, application,
                use_reloader=True, use_debugger=True, use_evalex=True)
+
+
+if __name__ == '__main__':
+    run_app()
+
 

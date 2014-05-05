@@ -10,9 +10,9 @@ never one of its goals.
 
 ## Play with the interface without installation
 
-If you want to play around with the system _without_ installing it, please visit: http://voicebox.eecs.berkeley.edu/speecheditor/?speech=bluesmobile-interview in *Chrome*. Username: audio, password: editor.
+If you want to play around with the system _without_ installing it, please visit: [http://voicebox.eecs.berkeley.edu/speecheditor/?speech=bluesmobile-interview](http://voicebox.eecs.berkeley.edu/speecheditor/?speech=bluesmobile-interview) in *Chrome*. Username: audio, password: editor.
 
-See the tutorial for how to use the system here: http://voicebox.eecs.berkeley.edu/speecheditor/static/tutorial/
+See the tutorial for how to use the system here: [http://voicebox.eecs.berkeley.edu/speecheditor/static/tutorial/](http://voicebox.eecs.berkeley.edu/speecheditor/static/tutorial/)
 
 ## Old radiotool
 
@@ -26,7 +26,7 @@ Install XCode through the Mac App Store
 
 Install the OSX Command Line Tools: `xcode-select --install`
 
-Install node.js: http://nodejs.org/download/
+Install node.js: [http://nodejs.org/download/](http://nodejs.org/download/)
 
 If you're on a Mac, install homebrew: `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
 

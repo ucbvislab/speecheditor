@@ -15,4 +15,6 @@ wsgiref==0.1.2
 click
 git+https://github.com/ucbvislab/radiotool@dcb398e48d942741c2f06a21efddec97c69091c8
 pyechonest
-git+https://github.com/srubin/remix
+#git+https://github.com/srubin/remix
+#https://github.com/srubin/remix/archive/694298d0a05aa83dca42d53656ad125c16918200.zip
+remix

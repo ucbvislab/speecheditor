@@ -451,8 +451,16 @@ def upload_song():
 
     # get id3 tags
     song = eyed3.load(full_name)
-    song_title = song.tag.title
-    song_artist = song.tag.artist
+    try:
+        song_title = song.tag.title
+    except:
+        song_title = full_name
+
+    try:
+        song_artist = song.tag.artist
+    except:
+        song_artist = "unknown"
+
     
     wav_name = ".".join(full_name.split('.')[:-1]) + '.wav'
 
@@ -464,13 +472,14 @@ def upload_song():
             'lame --decode "%s"' % full_name, shell=True)
                 
     # wav2json if necessary
+    print "wav2json if necessary"
     try:
         with open(upload_path + 'wfData/' + filename + '.json'): pass
     except IOError:
-        subprocess.call(
-            'wav2json -p 2 -s 10000 --channels mid -n -o "%s" "%s"' %
-            (upload_path + 'wfData/' + filename + '.json', wav_name),
-            shell=True)
+        cmd = 'wav2json -p 2 -s 10000 --channels mid -n -o "%s" "%s"' %\
+            (upload_path + 'wfData/' + filename + '.json', wav_name)
+        print cmd
+        subprocess.call(cmd, shell=True)
 
     out = {
         "path": "uploads/" + filename,

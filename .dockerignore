@@ -1,6 +1,7 @@
 .git
 p2fa
 static/tmp/*.mp3
+static/*.wav
 static/tmp/*.json
 static/musicbrowser
 static/uploads/*.wav

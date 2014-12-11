@@ -96,6 +96,13 @@ def reauthor():
 
                 speech_audio_path = APP_PATH + 'static/' + dat["speechAudio"]
 
+                if os.path.splitext(speech_audio_path)[-1] == ".mp3":
+                    wav_speech_audio_path = os.path.splitext(speech_audio_path)[0] + ".wav"
+
+                    if os.path.exists(wav_speech_audio_path):
+                        speech_audio_path = wav_speech_audio_path
+
+
                 print "# Rebuilding speech"
                 result = reauthor_speech.rebuild_audio(
                     speech_audio_path, af, ef, **args)

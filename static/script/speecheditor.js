@@ -309,48 +309,6 @@ TAAPP.playFromSelection = function () {
 };
 
 TAAPP.roomTone = {
-    "sedaris": {
-        "start": 32.837, 
-        "end": 34.118, 
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "bullw": {
-        "start": 123.429,
-        "end": 124.388,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "bullw-full": {
-        "start": 315.638,
-        "end": 316.095,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "scorerickard": {
-        "start": 19.530,
-        "end": 19.851,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "teleclip": {
-        "start": 0.000,
-        "end": 0.557,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "bluesmobile": {
-        "start": 333.334,
-        "end": 334.249,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "photoshop": {
-        "start": 747.588,
-        "end": 748.000,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
     "obama": {
         "start": 996.424,
         "end": 1001.143,
@@ -360,12 +318,6 @@ TAAPP.roomTone = {
     "memo": {
         "start": 8.1,
         "end": 8.489,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "bluesmobile-interview": {
-        "start": 394.417,
-        "end": 394.941,
         "word": "{gpause}",
         "alignedWord": "gp"
     }
@@ -834,7 +786,8 @@ TAAPP.use = function (name) {
 TAAPP.reset = function () {
     TAAPP.state.usageData = {};
 
-    TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
+    // TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
+    TAAPP.state.speechAudio = TAAPP.speech + ".mp3";
     if (TAAPP.sound) {
         TAAPP.sound.destruct();
         TAAPP.sound = undefined;

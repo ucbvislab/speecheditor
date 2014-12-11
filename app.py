@@ -518,21 +518,19 @@ def upload_song():
 
 @app.route('/alignment/<name>')
 def alignment(name):
-    try:
-        out = json.load(
-            open("%sstatic/%s-breaths.json" % (APP_PATH, name), 'r'))
-    except Exception, e:
-        print e
-        algn = json.load(
-            open("%sstatic/%s.json" % (APP_PATH, name), 'r'))["words"]
-        print "filename", "%sstatic/%s44.wav" % (APP_PATH, name)
-        new_alignment = reauthor_speech.render_pauses(
-            "%sstatic/%s44.wav" % (APP_PATH, name), algn)
-        out = {"words": new_alignment}
-        json.dump(out,
-            open('%sstatic/%s-breaths.json' % (APP_PATH, name), 'w'))
+    breath_fn = "%s-breaths.json" % name
+    breath_full_path = "%sstatic/%s-breaths.json" % (APP_PATH, name)
 
-    out["speechText"] = '%s-breaths.json' % name
+    nobreath_fn = name + ".json"
+    nobreath_full_path = "{}static/{}.json".format(APP_PATH, name)
+
+    if os.path.isfile(breath_full_path):
+        out = json.load(open(breath_full_path, 'r'))
+        out["speechText"] = breath_fn
+    else:
+        out = json.load(open(nobreath_full_path, 'r'))
+        out["speechText"] = nobreath_fn
+
     return jsonify(**out)
 
 

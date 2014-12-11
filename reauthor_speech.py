@@ -11,7 +11,6 @@ import numpy as N
 from radiotool.composer import Composition, Speech, Segment, RawTrack
 from radiotool.utils import equal_power
 
-from breath_classifier import breath_classifier
 
 class EditGroup:
     def __init__(self, start, end, edit_index, speaker=None):
@@ -333,148 +332,99 @@ def create_roomtone_pause2(segment, final_duration, cut_to_zc):
     return track, raw_seg
 
 
-def render_pauses(speech_file, alignment):
-    """and reauthor the alignment json"""
-    pause_idx = 0
-    subprocess.call('rm tmp/pauses/*.wav', shell=True)
-    new_alignment = []
-    for x in alignment:
-        if x["alignedWord"] == "sp":
-            comp = Composition(channels=1)
-            speech = Speech(speech_file, "p")
-            comp.add_track(speech)
-            start = x["start"]
-            end = x["end"]
-            # ignore super-short pauses
-            if end - start <= .05:
-                new_alignment.append(x)
-                pause_idx += 1
-                continue
-            # print "pause", pause_idx-1, "start:", start, "end", end
-            # print "len", end - start
-            print "Creating pause", start, end - start
-            seg = Segment(speech, 0.0, start, end - start)
-            comp.add_segment(seg)
-            comp.export(
-                adjust_dynamics=False,
-                filename="tmp/pauses/p%03d" % pause_idx,
-                channels=1,
-                filetype='wav',
-                samplerate=speech.samplerate,
-                separate_tracks=False)
-            print "# classifying p%03d.wav" % pause_idx
-            print "# segment length:", x["end"] - x["start"]
-            
-            cls = breath_classifier.classify_htk(
-                'tmp/pauses/p%03d.wav' % pause_idx)
-            
-            # cls = breath_classifier.classify(
-            #     'tmp/pauses/p%03d.wav' % pause_idx)
+# def render_pauses_as_one_track(speech_file, alignment):
+#     comp = Composition(channels=1)
+#     speech = Speech(speech_file, "p")
+#     comp.add_track(speech)
+#     comp_loc = 0.0
+#     fname = os.path.basename(speech_file)
+#     # subprocess.call('rm tmp/pauses/*.wav', shell=True)
+#     for x in alignment:
+#         if x["alignedWord"] == "sp":
+#             start = x["start"]
+#             end = x["end"]
+#             seg = Segment(speech, comp_loc, start, end - start)
+#             comp.add_segment(seg)
+#             comp_loc += (end - start)
+#     comp.export(
+#         adjust_dynamics=False,
+#         filename="tmp/pauses-%s" % fname.split('.')[0],
+#         channels=1,
+#         filetype='wav',
+#         samplerate=speech.samplerate,
+#         separate_tracks=False)
 
-            for word in cls:
-                word["start"] = round(word["start"] + x["start"], 5)
-                word["end"] = round(word["end"] + x["start"], 5)
-            cls[-1]["end"] = x["end"]
-            new_alignment.extend(cls)
-            pause_idx += 1
-        else:
-            new_alignment.append(x)
-    return new_alignment
-
-
-def render_pauses_as_one_track(speech_file, alignment):
-    comp = Composition(channels=1)
-    speech = Speech(speech_file, "p")
-    comp.add_track(speech)
-    comp_loc = 0.0
-    fname = os.path.basename(speech_file)
-    # subprocess.call('rm tmp/pauses/*.wav', shell=True)
-    for x in alignment:
-        if x["alignedWord"] == "sp":
-            start = x["start"]
-            end = x["end"]
-            seg = Segment(speech, comp_loc, start, end - start)
-            comp.add_segment(seg)
-            comp_loc += (end - start)
-    comp.export(
-        adjust_dynamics=False,
-        filename="tmp/pauses-%s" % fname.split('.')[0],
-        channels=1,
-        filetype='wav',
-        samplerate=speech.samplerate,
-        separate_tracks=False)
-
-def render_breaths_and_pauses(audio_file, alignment):
-    comp = Composition(channels=1)
-    comp_loc = 0
-    pause_idx = 0
-    breath_idx = 0
-    for x in alignment:
-        if x["alignedWord"] == "sp":
-            audio = Speech(audio_file, "pause%02d" % pause_idx)
-            pause_idx += 1
-            comp.add_track(audio)
-            start = x["start"]
-            end = x["end"]
-            seg = Segment(audio, comp_loc, start, end - start)
-            comp.add_segment(seg)
-            comp_loc += end - start
-        elif x["alignedWord"] == "{BR}":
-            audio = Speech(audio_file, "breath%02d" % breath_idx)
-            breath_idx += 1
-            comp.add_track(audio)
-            start = x["start"]
-            end = x["end"]
-            seg = Segment(audio, comp_loc, start, end - start)
-            comp.add_segment(seg)
-            comp_loc += end - start
-    comp.export(
-        adjust_dynamics=False,
-        filename="tmp/pb",
-        channels=1,
-        filetype='wav',
-        samplerate=audio.samplerate,
-        separate_tracks=True)
+# def render_breaths_and_pauses(audio_file, alignment):
+#     comp = Composition(channels=1)
+#     comp_loc = 0
+#     pause_idx = 0
+#     breath_idx = 0
+#     for x in alignment:
+#         if x["alignedWord"] == "sp":
+#             audio = Speech(audio_file, "pause%02d" % pause_idx)
+#             pause_idx += 1
+#             comp.add_track(audio)
+#             start = x["start"]
+#             end = x["end"]
+#             seg = Segment(audio, comp_loc, start, end - start)
+#             comp.add_segment(seg)
+#             comp_loc += end - start
+#         elif x["alignedWord"] == "{BR}":
+#             audio = Speech(audio_file, "breath%02d" % breath_idx)
+#             breath_idx += 1
+#             comp.add_track(audio)
+#             start = x["start"]
+#             end = x["end"]
+#             seg = Segment(audio, comp_loc, start, end - start)
+#             comp.add_segment(seg)
+#             comp_loc += end - start
+#     comp.export(
+#         adjust_dynamics=False,
+#         filename="tmp/pb",
+#         channels=1,
+#         filetype='wav',
+#         samplerate=audio.samplerate,
+#         separate_tracks=True)
 
 
-def find_breaths(speech, alignment):
-    breaths = []
+# def find_breaths(speech, alignment):
+#     breaths = []
 
-    breath_threshold = .5
+#     breath_threshold = .5
     
-    import os
-    import glob
-    for wav_file in glob.glob('tmp/*.wav'):
-        try:
-            if os.path.isfile(wav_file):
-                os.unlink(wav_file)
-        except Exception, e:
-            print e
+#     import os
+#     import glob
+#     for wav_file in glob.glob('tmp/*.wav'):
+#         try:
+#             if os.path.isfile(wav_file):
+#                 os.unlink(wav_file)
+#         except Exception, e:
+#             print e
 
-    for i, word in enumerate(alignment[:-1]):
-        if word["alignedWord"] == "sp":
-            breaths.append(word)
-        # if word["alignedWord"] == "sp" and\
-        #     word["end"] - word["start"] > .5:
-        #     breaths.append(word)
-        # if word["word"].endswith(".") and\
-        #     alignment[i + 1]["alignedWord"] == "sp":
-        #     breaths.append(alignment[i + 1])
+#     for i, word in enumerate(alignment[:-1]):
+#         if word["alignedWord"] == "sp":
+#             breaths.append(word)
+#         # if word["alignedWord"] == "sp" and\
+#         #     word["end"] - word["start"] > .5:
+#         #     breaths.append(word)
+#         # if word["word"].endswith(".") and\
+#         #     alignment[i + 1]["alignedWord"] == "sp":
+#         #     breaths.append(alignment[i + 1])
 
-    for i, br in enumerate(breaths):
-        s = Speech(speech, str(i))
-        c = Composition(tracks=[s], channels=1)
-        c.add_segment(
-            Segment(s, 0.0, br["start"], br["end"] - br["start"])
-        )
-        c.export(
-            adjust_dynamics=False,
-            filename="tmp/%d" % i,
-            channels=1,
-            samplerate=16000
-        )
+#     for i, br in enumerate(breaths):
+#         s = Speech(speech, str(i))
+#         c = Composition(tracks=[s], channels=1)
+#         c.add_segment(
+#             Segment(s, 0.0, br["start"], br["end"] - br["start"])
+#         )
+#         c.export(
+#             adjust_dynamics=False,
+#             filename="tmp/%d" % i,
+#             channels=1,
+#             samplerate=16000
+#         )
         
-    return breaths
+#     return breaths
 
 if __name__ == '__main__':
     # speech_file = sys.argv[1]

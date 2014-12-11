@@ -9,11 +9,9 @@ import sys
 import numpy as N
 
 from radiotool.composer import Composition, Speech, Segment, RawTrack
-from radiotool.composer.utils import equal_power
-print >> sys.stderr, "Composer imported"
+from radiotool.utils import equal_power
 
 from breath_classifier import breath_classifier
-print >> sys.stderr, "Breath classifier imported"
 
 class EditGroup:
     def __init__(self, start, end, edit_index, speaker=None):

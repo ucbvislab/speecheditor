@@ -12,7 +12,6 @@
     function ScriptArea(tam, name, speaker, settings) {
       var containers,
         _this = this;
-
       this.tam = tam;
       this.name = name;
       this.speaker = speaker;
@@ -54,7 +53,6 @@
         return false;
       }).keydown(function(e) {
         var tai;
-
         switch (e.which) {
           case 8:
             e.preventDefault();
@@ -117,7 +115,6 @@
 
     ScriptArea.prototype.adjustSelection = function() {
       var endInd, sel, startInd, _ref;
-
       this.tam.lastFocused = this;
       this.snapSelectionToWord();
       sel = this.area.getSelection();
@@ -127,7 +124,6 @@
 
     ScriptArea.prototype._renderWord = function(word, isTextArea, wrapLeft, wrapRight) {
       var ending, quoteEnd, _ref;
-
       if (wrapLeft == null) {
         wrapLeft = "";
       }
@@ -148,7 +144,6 @@
     ScriptArea.prototype.updateWords = function(words) {
       var badWords, content, rw,
         _this = this;
-
       if (DEBUG) {
         console.log("UPDATE WORDS");
       }
@@ -159,7 +154,6 @@
       badWords = ["UH", "UM", "AH"];
       content = _.reduce(this.words, (function(memo, word) {
         var _ref;
-
         if (_ref = word.alignedWord, __indexOf.call(badWords, _ref) >= 0) {
           word.emph = true;
         }
@@ -193,7 +187,6 @@
 
     ScriptArea.prototype.adjustHeight = function() {
       var scrHeight;
-
       if (DEBUG) {
         console.log("ADJUST HEIGHT OF", this);
       }
@@ -205,7 +198,6 @@
 
     ScriptArea.prototype.snapSelectionToWord = function() {
       var doneEnd, doneStart, oldLen, sel, spaces, text, _ref, _ref1, _ref2, _ref3;
-
       sel = this.area.getSelection();
       console.log(sel);
       doneEnd = false;
@@ -253,7 +245,6 @@
 
     ScriptArea.prototype.insertEmphasisPoint = function() {
       var sel, word;
-
       TAAPP.use("addEmphasisPoint");
       this.selectWord("backward");
       sel = this.area.getSelection();
@@ -266,7 +257,6 @@
 
     ScriptArea.prototype.selectWord = function(direction) {
       var other, spaces, start, text, _ref, _ref1;
-
       if (direction == null) {
         direction = "backward";
       }
@@ -291,7 +281,6 @@
 
     ScriptArea.prototype.updatePos = function() {
       var name;
-
       name = this.name;
       return _.each(this.words, (function(elt, i, words) {
         words[i].taPos = this.total;
@@ -304,7 +293,6 @@
 
     ScriptArea.prototype.rangeIndices = function(start, end) {
       var endInd, i, startInd, w, _i, _j, _len, _len1, _ref, _ref1;
-
       _ref = this.words;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         w = _ref[i];
@@ -325,7 +313,6 @@
 
     ScriptArea.prototype.range = function(start, end) {
       var first, i, word, _i, _len, _ref;
-
       if (end == null) {
         _ref = this.words;
         for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
@@ -345,7 +332,6 @@
     ScriptArea.prototype.addPeriod = function() {
       var addInds, breath, breathInds, gp1, gp2, i, range, sel, topBreaths,
         _this = this;
-
       TAAPP.use("addPeriod");
       console.log("Adding a period");
       sel = this.area.getSelection();
@@ -374,11 +360,9 @@
 
     ScriptArea.prototype.highlightWords = function(start, end) {
       var hlHTML, rw;
-
       rw = this._renderWord;
       hlHTML = _.reduce(this.words, (function(memo, word, idx) {
         var wrapLeft, wrapRight;
-
         wrapLeft = "";
         wrapRight = "";
         if (idx === start && (idx === end - 1 || (end == null))) {
@@ -397,12 +381,10 @@
     ScriptArea.prototype.emphasizeWords = function() {
       var ctx, emphHTML, rw,
         _this = this;
-
       ctx = [-1];
       rw = this._renderWord;
       emphHTML = _.reduce(this.words, (function(memo, word, idx) {
         var wrapLeft, wrapRight, _ref, _ref1;
-
         wrapLeft = "";
         wrapRight = "";
         if ((word.origPos != null) && word.origPos - 1 !== _this[0]) {
@@ -435,7 +417,6 @@
 
     ScriptArea.prototype.insertDupeOverlays = function(dupes, dupeInfo) {
       var box, boxHTML, context, dupeDropdownWrapLeft, dupeDropdownWrapRight, dupeOrder, dupeStarts, dupeStartsFirsts, locked, offset, rw, self, taWidth;
-
       if (DEBUG) {
         console.log("SA INSERT DUPE OVERLAYS", this);
       }
@@ -454,7 +435,6 @@
       locked = this.locked;
       boxHTML = _.reduce(this.words, (function(memo, word, idx, words) {
         var allIdx, d, dupeIdx, header, sentenceEnd, wrapLeft, wrapRight;
-
         dupeIdx = dupeStartsFirsts.indexOf(word.origPos);
         wrapLeft = "";
         wrapRight = "";
@@ -494,7 +474,6 @@
       });
       return box.find('.dropdown-toggle').dropdown().each(function(i) {
         var dupe, eltPos, end, pos, start;
-
         pos = $(this).offset();
         eltPos = self.area.offset();
         dupe = dupes[context.dupeOrder[i]];
@@ -509,7 +488,6 @@
           width: "" + (taWidth - 20) + "px"
         }).find('span.dupeOpt').each(function(j) {
           var indices, _i, _ref, _ref1, _results;
-
           if (locked) {
             $(this).closest('.dropdown').addClass('open');
             "zero clipboard is obnoxious for now";
@@ -534,7 +512,6 @@
           } else {
             $(this).click(function(event) {
               var newPos;
-
               TAAPP.use("replaceSentence");
               newPos = self.replaceWords(start, end, dupe[j][0][0], dupe[j][0][1]);
               self.area.setSelection(newPos[0], newPos[1]);
@@ -543,7 +520,6 @@
           }
           return $(this).find('.dupePlayButton').click(function(event) {
             var audioend, audiostart;
-
             TAAPP.use("playSimilarSentence");
             audiostart = self.tam.words[dupe[j][0][0]].start;
             audioend = self.tam.words[dupe[j][0][1]].end;
@@ -574,7 +550,6 @@
     function TextAreaManager(el, speakers, words, current, settings) {
       var speaker, tr, _i, _len, _ref,
         _this = this;
-
       this.el = el;
       this.speakers = speakers;
       this.words = words;
@@ -593,7 +568,6 @@
       tr = $(document.createElement('tr')).appendTo(this.headerTable);
       _.each(this.speakers, function(speaker) {
         var th;
-
         th = document.createElement('th');
         return $(th).html(speaker).width("" + (100 / _this.speakers.length) + "%").appendTo(tr);
       });
@@ -610,7 +584,6 @@
       }
       _.each(this.words, function(word, i, cur) {
         var j;
-
         if (word.alignedWord === "{BR}") {
           j = i;
           while (j < _this.words.length) {
@@ -633,11 +606,9 @@
 
     TextAreaManager.prototype._tr = function(index) {
       var tr;
-
       tr = $(document.createElement('tr'));
       _.each(this.speakers, function(speaker) {
         var td;
-
         td = $(document.createElement('td'));
         return tr.append(td);
       });
@@ -656,7 +627,6 @@
 
     TextAreaManager.prototype._newScriptArea = function(name, speaker, index) {
       var ta;
-
       ta = new ScriptArea(this, name, speaker, {
         locked: this.locked
       });
@@ -672,7 +642,6 @@
 
     TextAreaManager.prototype.refresh = function() {
       var i, ta, _i, _len, _ref;
-
       if (DEBUG) {
         console.log("TAM REFRESH");
       }
@@ -696,7 +665,6 @@
 
     TextAreaManager.prototype.adjustHeight = function(forceAll) {
       var height, ta, taSet, _i, _len;
-
       if (DEBUG) {
         console.log("ADJUST HEIGHT OF TAM");
       }
@@ -718,14 +686,12 @@
     TextAreaManager.prototype.draw = function() {
       var count, lastSpeaker,
         _this = this;
-
       this.table.find("tr").remove();
       lastSpeaker = this.speakers[0];
       count = 0;
       this.taIndexSpan = [0];
       _.each(this.current, function(word, i) {
         var col, tr;
-
         if (i === 0) {
           col = 0;
           tr = _this._tr();
@@ -740,7 +706,6 @@
       });
       _.each(this.taIndexSpan, function(start, i) {
         var words;
-
         if (i === _this.taIndexSpan.length - 1) {
           words = _this.current.slice(start);
         } else {
@@ -755,7 +720,6 @@
 
     TextAreaManager.prototype.pruneByTAPos = function(start, end, ta) {
       var match;
-
       if (DEBUG) {
         console.log("PRUNE BY TA POS");
       }
@@ -771,7 +735,6 @@
 
     TextAreaManager.prototype.pruneByTAIndex = function(start, end, ta, refresh) {
       var offset, taIndex;
-
       if (DEBUG) {
         console.log("PRUNE BY TA INDEX");
       }
@@ -785,7 +748,6 @@
 
     TextAreaManager.prototype.pruneCurrent = function(start, end, refresh) {
       var cutWords, i, ta, taIndex, txtarea, _i, _len, _ref;
-
       if (DEBUG) {
         console.log("PRUNE CURRENT");
       }
@@ -817,7 +779,6 @@
 
     TextAreaManager.prototype.pruneAll = function() {
       var ta, _i, _len, _ref;
-
       _ref = this.tas;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         ta = _ref[_i];
@@ -829,7 +790,6 @@
 
     TextAreaManager.prototype.highlightWordsInWaveform = function(start, end, ta) {
       var offset, speaker, _i, _len, _ref, _ref1, _ref2, _results;
-
       if (this.textAlignedWfs != null) {
         offset = this.taIndexSpan[this.tas.indexOf(ta)];
         if (((_ref = this.highlightedWordsRange) != null ? _ref[0] : void 0) !== offset + start || ((_ref1 = this.highlightedWordsRange) != null ? _ref1[1] : void 0) !== offset + end) {
@@ -856,7 +816,6 @@
 
     TextAreaManager.prototype.highlightWords = function(start, end) {
       var i, newEnd, offset, t, ta, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _ref3, _ref4;
-
       if (start === -1) {
         this.currentHighlight = void 0;
         _ref = this.tas;
@@ -897,7 +856,6 @@
 
     TextAreaManager.prototype.emphasizeWords = function() {
       var ta, _i, _len, _ref, _results;
-
       _ref = this.dirtyTas;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -909,7 +867,6 @@
 
     TextAreaManager.prototype.updatePos = function() {
       var count, i, ta, _i, _j, _len, _len1, _ref, _ref1, _results;
-
       this.highlightWords(-1);
       count = 0;
       this.taIndexSpan = [];
@@ -931,7 +888,6 @@
 
     TextAreaManager.prototype.clean = function(ta) {
       var col, i, lastSpeaker, nextTa, offset, pattern, prevTa, segments, speakers, tai, tr, word, words, _i, _len, _ref;
-
       tai = this.tas.indexOf(ta);
       offset = this.taIndexSpan[tai];
       segments = [];
@@ -1022,7 +978,6 @@
 
     TextAreaManager.prototype.processDelete = function(ta, direction) {
       var end, sel, spaces, text, _ref;
-
       TAAPP.use("delete");
       if (DEBUG) {
         console.log("PROCESSDELETE");
@@ -1056,7 +1011,6 @@
 
     TextAreaManager.prototype.insertWords = function(indices, pos, ta) {
       var args, ctx, i, loc, newEnd, offset, taIndex, word, words, _i, _j, _len, _ref, _ref1;
-
       console.log("INSERT WORDS", indices, "POS", pos, "TA", ta);
       if (ta == null) {
         ta = this.lastFocused;
@@ -1084,20 +1038,19 @@
         indices = [indices];
       }
       words = _.map(indices, (function(idx) {
-        var tmp, _ref1, _ref2;
-
+        var tmp;
         if (idx.toString().split('-')[0] === '{gp') {
           tmp = clone(TAAPP.roomTone[TAAPP.speech]);
           tmp.word = idx;
           tmp.pauseLength = parseFloat(idx.split('-')[1]);
-          if ((_ref1 = this.first) == null) {
+          if (this.first == null) {
             this.first = tmp;
           }
           this.last = tmp;
           return tmp;
         }
         tmp = clone(this.words[idx]);
-        if ((_ref2 = this.first) == null) {
+        if (this.first == null) {
           this.first = tmp;
         }
         this.last = tmp;
@@ -1125,11 +1078,9 @@
 
     TextAreaManager.prototype.processPaste = function(ta, a) {
       var _this = this;
-
       TAAPP.use("paste");
       return _.defer(function() {
         var b, bRes, count, ept, epts, firstIdx, parse_paste, pastedWords, result, sel, spaces, tai, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
-
         parse_paste = /(?:\[(\d+|gp),(e?)\]([^|]+)\|)/g;
         bRes = false;
         pastedWords = [];
@@ -1186,10 +1137,8 @@
     TextAreaManager.prototype.generateCopyTextFromIndices = function(indices) {
       var i, mod, wrds,
         _this = this;
-
       wrds = (function() {
         var _i, _len, _results;
-
         _results = [];
         for (_i = 0, _len = indices.length; _i < _len; _i++) {
           i = indices[_i];
@@ -1199,7 +1148,6 @@
       }).call(this);
       mod = _.reduce(wrds, (function(memo, wrd) {
         var j, w, _i, _len, _ref;
-
         if (wrd.alignedWord === "gp") {
           return memo + '[gp]' + wrd.word + '|';
         }
@@ -1218,7 +1166,6 @@
     TextAreaManager.prototype.processCopy = function(ta) {
       var mod, newdiv, sel, selection, wrds,
         _this = this;
-
       TAAPP.use("copy");
       selection = window.getSelection();
       newdiv = document.createElement('div');
@@ -1226,7 +1173,6 @@
       wrds = ta.range(sel.start, sel.end);
       mod = _.reduce(wrds, (function(memo, wrd) {
         var ept, j, w, _i, _len, _ref;
-
         ept = '';
         if ("emphasisPoint" in wrd && wrd.emphasisPoint) {
           ept = 'e';
@@ -1256,13 +1202,11 @@
     TextAreaManager.prototype.processCut = function(ta) {
       var mod, newOut, sel, wrds,
         _this = this;
-
       sel = ta.area.getSelection();
       wrds = ta.range(sel.start, sel.end);
       newOut = ta.area.val();
       mod = _.reduce(wrds, (function(memo, wrd) {
         var j, w, _i, _len, _ref;
-
         if (wrd.alignedWord === "gp") {
           return memo + '[gp]' + wrd.word + '|';
         }
@@ -1281,7 +1225,6 @@
 
     TextAreaManager.prototype.insertDupeOverlays = function(dupes, dupeInfo, forceAll) {
       var ta, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _results, _results1;
-
       this.dupes = dupes;
       this.dupeInfo = dupeInfo;
       if (DEBUG) {
@@ -1327,7 +1270,6 @@
 
     TextAreaManager.prototype.removeTA = function(ta) {
       var taIndex;
-
       console.log("INDEX", this.tas.indexOf(ta, "REMOVING TA", ta));
       taIndex = this.tas.indexOf(ta);
       this.tas.splice(taIndex, 1);
@@ -1345,7 +1287,6 @@
 
     TextAreaManager.prototype.log = function() {
       var args, statements;
-
       statements = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       args = ["[TAM]"].concat(statements);
       return console.log.apply(console, args);

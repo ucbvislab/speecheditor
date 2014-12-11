@@ -55,7 +55,7 @@ cc = get_mfcc(fn)
 # cc -= cep_mean
 
 song = C.Song(fn, 'woop')
-n_song_frames = song.total_frames()
+n_song_frames = song.duration
 length = n_song_frames / float(song.samplerate)
 n_subframes = N.shape(cc)[0]
 features = N.hstack((cc, deltas(cc, 5), deltas(deltas(cc, 5), 5)))

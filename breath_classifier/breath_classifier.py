@@ -5,24 +5,19 @@ import subprocess
 import re
 import simplejson as json
 
-print >> sys.stderr, "system stuff"
-
 import numpy as N
 from sklearn import svm
-print >> sys.stderr, "svc"
 from numpy.random import permutation
 from sklearn.cross_validation import StratifiedKFold
 from sklearn.grid_search import GridSearchCV
 from scipy.signal import lfilter
 
-sys.path.append(os.path.join('/Users/srubin/code/'))
 from frontend import *
 from frontend import Pipeline
 
 from radiotool import composer as C
 import all_features
 
-print >> sys.stderr, "Succeeded in all the imports in breath_classifier"
 
 def svm_grid_search(features, labels, samples="all", feat=39):
     if samples == "all":
@@ -108,7 +103,7 @@ def get_features(audio_file):
     print "Getting features of", audio_file
     cc = get_mfcc(audio_file)
     audio = C.Track(audio_file, 'woop')
-    n_frames = audio.total_frames()
+    n_frames = audio.duration
     length = n_frames / float(audio.samplerate)
     n_subframes = N.shape(cc)[0]
     features = N.hstack((cc, deltas(cc, 5), deltas(deltas(cc, 5), 5)))

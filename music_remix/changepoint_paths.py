@@ -281,9 +281,9 @@ if __name__ == '__main__':
         out_json = {
             "transitions": [],
             "changepoints": [float("%.3f" % c) for c in changepoints],
-            "origLength": track.total_frames() / float(track.samplerate()),
+            "origLength": track.duration / float(track.samplerate()),
             "origAudioUrl": "retarget/%s.mp3" % basename.split('.')[0],
-            "retargetLength": new_track.total_frames() /\
+            "retargetLength": new_track.duration /\
                 float(new_track.samplerate()),
             "retargetAudioUrl": "retarget/%s.mp3" % out_name,
             "origData": orig_wf_data,
@@ -300,9 +300,9 @@ if __name__ == '__main__':
         print "Changepoints used"
         for i, seg in enumerate(segments[:-1]):
             out_json["transitions"].append(float("%.3f" %
-                (segments[i + 1].score_location / float(track.sr()) ) ))
+                (segments[i + 1].score_location / float(track.samplerate) ) ))
             print "Transition at %.2f" % (segments[i + 1].score_location /
-                float(track.sr()))
+                float(track.samplerate))
         
         with open("generated/" + out_name + ".json", "w") as f:
             json.dump(out_json, f)

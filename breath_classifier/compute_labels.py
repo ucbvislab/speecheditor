@@ -45,7 +45,7 @@ fn = sys.argv[1]
 name = fn.split('.wav')[0].split('/')[-1]
 
 song = C.Song(fn, 'woop')
-n_song_frames = song.total_frames()
+n_song_frames = song.duration
 length = n_song_frames / float(song.samplerate)
 
 labels = get_labels("labels/%s.lab" % name, length)

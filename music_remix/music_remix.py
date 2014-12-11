@@ -5,17 +5,18 @@ import subprocess
 import simplejson as json
 from decimal import *
 
-from echonest.remix.audio import LocalAudioFile
+# from echonest.remix.audio import LocalAudioFile
 import networkx as nx
 from networkx.readwrite import json_graph
-import numpy as N
+import numpy as np
 
-import earworm
+# import earworm
 from radiotool import composer as C
+from radiotool.algorithms import librosa_analysis
 
 
-from pyechonest import config
-config.ECHO_NEST_API_KEY = "0KJK6BQUW0BV6XX3I"
+# from pyechonest import config
+# config.ECHO_NEST_API_KEY = "0KJK6BQUW0BV6XX3I"
 
 class MusicGraph(object):
 
@@ -53,45 +54,81 @@ class MusicGraph(object):
                 print e
                 pass
 
-        track = LocalAudioFile(self.filename, verbose=self.verbose)
+        # replace this with new graph generation
+        # track = LocalAudioFile(self.filename, verbose=self.verbose)
+        # graph, dense_mats = earworm.do_work(track, graph_only=True,
+        #     verbose=self.verbose, force=True, string_names=True,
+        #     dense_result=True)
 
-        graph, dense_mats = earworm.do_work(track, graph_only=True,
-            verbose=self.verbose, force=True, string_names=True,
-            dense_result=True)
+        # tim = dense_mats["timbre"]
+        # pit = dense_mats["pitch"]
+        #######
 
-        tim = dense_mats["timbre"]
-        pit = dense_mats["pitch"]
+        # new version
+        track = C.Song(self.filename, cache_dir=self.cache_path)
+        rt_tim = np.array(track.analysis["timbres"])
+        rt_pit = np.array(track.analysis["chroma"])
+        rt_dist = np.array(track.analysis["dense_dist"])
 
-        cost_mat = N.exp(pit / N.std(pit) + tim / N.std(tim))
+        rt_timbre_dist = librosa_analysis.structure(rt_tim.T)
+        rt_chroma_dist = librosa_analysis.structure(rt_pit.T)
 
-        edge_lens = [graph[e[0]][e[1]]["duration"]
-                     for e in graph.edges_iter()]
-        avg_duration = N.mean(edge_lens)
+        # rt_cost_mat = np.exp(
+        #     rt_chroma_dist / np.std(rt_chroma_dist) +
+        #     rt_timbre_dist / np.std(rt_timbre_dist))
 
-        N.savez(os.path.join(self.cache_path, npz_filename), 
-            timbre=dense_mats["timbre"],
-            pitch=dense_mats["pitch"],
-            avg_duration=N.array([avg_duration]),
-            cost=cost_mat,
-            markers=N.array(dense_mats["markers"])
-        )
+        rt_cost_mat = rt_chroma_dist + rt_timbre_dist
 
-        self._graph = graph
+        rt_json_graph = {}
+        rt_json_graph["nodes"] = []
+        beats = np.array([round(beat, 6) for beat in track.analysis["beats"]])
+        str_beats = [str(beat) for beat in beats]
+
+        for beat in beats:
+            rt_json_graph["nodes"].append([str(beat), {}])
+
+        rt_json_graph["edges"] = []
+        for b_i, (b1, b2) in enumerate(zip(beats[:-1], beats[1:])):
+            rt_json_graph["edges"].append([
+                str_beats[b_i],
+                str_beats[b_i + 1],
+                {
+                    "distance": 0,
+                    "target": b_i + 1,
+                    "source": b_i,
+                    "timbredist": 0,
+                    "duration": b2 - b1,
+                    "pitchdist": 0
+                }
+            ])
+
+
+        for b_i, row in enumerate(rt_cost_mat):
+            good_transitions = np.where(row < .1)[0] - b_i + 1
+            for gt_i in good_transitions:
+                try:
+                    if np.abs(gt_i) > 3:
+                        rt_json_graph["edges"].append([
+                            str_beats[b_i],
+                            str_beats[b_i + gt_i],
+                            {
+                                "distance": round(row[gt_i - 1 + b_i], 5),
+                                "target": b_i + gt_i,
+                                "source": b_i,
+                                "timbredist": round(rt_timbre_dist[b_i, b_i + gt_i - 1], 5),
+                                "pitchdist": round(rt_chroma_dist[b_i, b_i + gt_i - 1], 5),
+                                "duration": round(beats[b_i + 1] - beats[b_i], 5)
+                            }
+                        ])
+                except:
+                    pass
+
         try:
             path = os.path.join(self.cache_path, json_filename)
             print path
 
-            data = dict(nodes=[[n, self._graph.node[n]]
-                               for n in self._graph.nodes()],
-                        edges=[[u, v, self._graph.edge[u][v]]
-                               for u, v in self._graph.edges()])
-
-            for e in data["edges"]:
-                for k, v in e[2].iteritems():
-                    e[2][k] = Decimal(str(v))
-
-            with open(path, 'w') as file:
-                json.dump(data, file, use_decimal=True)
+            with open(path, 'w') as f:
+                json.dump(rt_json_graph, f, use_decimal=True)
 
             print "Reading json (initial generation)"
             self._graph = self.read_json_graph(path)
@@ -99,7 +136,60 @@ class MusicGraph(object):
         except Exception, e:
             print e
             pass
+
+        np.savez(os.path.join(self.cache_path, npz_filename),
+            timbre=rt_timbre_dist,
+            pitch=rt_chroma_dist,
+            avg_duration=np.array([np.mean(beats[1:] - beats[:-1])]),
+            cost=rt_cost_mat,
+            markers=np.array(beats)
+        )
+
         return self._graph
+
+
+        #######
+
+        # cost_mat = np.exp(pit / np.std(pit) + tim / np.std(tim))
+
+        # edge_lens = [graph[e[0]][e[1]]["duration"]
+        #              for e in graph.edges_iter()]
+        # avg_duration = np.mean(edge_lens)
+
+        # import pdb; pdb.set_trace()
+
+        # np.savez(os.path.join(self.cache_path, npz_filename), 
+        #     timbre=dense_mats["timbre"],
+        #     pitch=dense_mats["pitch"],
+        #     avg_duration=np.array([avg_duration]),
+        #     cost=cost_mat,
+        #     markers=np.array(dense_mats["markers"])
+        # )
+
+        # self._graph = graph
+        # try:
+        #     path = os.path.join(self.cache_path, json_filename)
+        #     print path
+
+        #     data = dict(nodes=[[n, self._graph.node[n]]
+        #                        for n in self._graph.nodes()],
+        #                 edges=[[u, v, self._graph.edge[u][v]]
+        #                        for u, v in self._graph.edges()])
+
+        #     for e in data["edges"]:
+        #         for k, v in e[2].iteritems():
+        #             e[2][k] = Decimal(str(v))
+
+        #     with open(path, 'w') as file:
+        #         json.dump(data, file, use_decimal=True)
+
+        #     print "Reading json (initial generation)"
+        #     self._graph = self.read_json_graph(path)
+        #     print "Done reading json (initial generation)"
+        # except Exception, e:
+        #     print e
+        #     pass
+        # return self._graph
 
     def json_graph(self):
         G = self.graph

@@ -1,1 +1,0 @@
-This folder with automatically be populated with waveform images.

@@ -1,0 +1,11 @@
+.git
+p2fa
+static/tmp/*.mp3
+static/tmp/*.json
+static/musicbrowser
+static/uploads/*.wav
+static/uploads/*.mp3
+static/uploads/*.npz
+static/uploads/*.pickle
+static/uploads/*.json
+static/uploads/wfData/*.json

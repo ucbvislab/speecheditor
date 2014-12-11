@@ -10,12 +10,12 @@ module.exports = function (grunt) {
         },
         uglify: {
             production: {
-                'static/script/textarea.min.js':
-                    ['static/script/setProductionEnv.js', 'static/script/textarea-dev.js']
+                'static/script/speecheditor.min.js':
+                    ['static/script/setProductionEnv.js', 'static/script/speecheditor-dev.js']
             },
             dev: {
-                src: ['static/script/textarea-dev.js'],
-                dest: 'static/script/textarea-dev.min.js'
+                src: ['static/script/speecheditor-dev.js'],
+                dest: 'static/script/speecheditor-dev.min.js'
             }
         },
         concat: {
@@ -43,14 +43,14 @@ module.exports = function (grunt) {
                     'static/edible/js/lib/waveform.js',
                     'static/script/less.js',
                     'static/script/textAreaManager.js',
-                    'static/script/textareatest.js',
+                    'static/script/speecheditor.js',
                     'static/musicbrowser/js/jquery.dataTables.min.js',
                     "static/musicbrowser/js/paging.js",
                     "static/musicbrowser/js/berniecode-animator.js",
                     "static/musicbrowser/js/kdTree.js",
                     "static/musicbrowser/js/musicBrowserApp.js"
                 ],
-                dest: 'static/script/textarea-dev.js'
+                dest: 'static/script/speecheditor-dev.js'
 
             }
         }

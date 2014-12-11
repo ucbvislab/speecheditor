@@ -5,7 +5,7 @@ except:
 import urllib
 import subprocess
 import os
-import eyed3
+from mutagen.id3 import ID3
 import shutil
 
 import sys
@@ -450,16 +450,14 @@ def upload_song():
         filename = sec_fn
 
     # get id3 tags
-    song = eyed3.load(full_name)
     try:
-        song_title = song.tag.title
-    except:
-        song_title = full_name
 
-    try:
-        song_artist = song.tag.artist
+        song = ID3(full_name)
+        song_title = song["TIT2"].text[0]
+        song_artist = song["TPE1"].text[0]
     except:
-        song_artist = "unknown"
+        song_title = os.path.basename(full_name)
+        song_artist = "Unknown"
 
     
     wav_name = ".".join(full_name.split('.')[:-1]) + '.wav'
@@ -491,7 +489,7 @@ def upload_song():
 
     # get length of song upload
     track = Track(wav_name, "track")
-    out["dur"] = track.total_frames() / float(track.samplerate) * 1000.0
+    out["dur"] = track.duration / float(track.samplerate) * 1000.0
 
     # get song graph
     mg = MusicGraph(full_name, cache_path=upload_path, verbose=True)        
@@ -536,7 +534,7 @@ from werkzeug.wsgi import DispatcherMiddleware
 
 
 @click.command()
-@click.option('--browser/--no-browser', default=True,
+@click.option('--browser/--no-browser', default=False,
               help='do not load the music browser app')
 def run_app(browser):
     if browser:
@@ -547,7 +545,7 @@ def run_app(browser):
         })
     else:
         application = app
-    run_simple('localhost', 5000, application,
+    run_simple('0.0.0.0', 5000, application,
                use_reloader=True, use_debugger=True, use_evalex=True)
 
 

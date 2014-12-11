@@ -1,0 +1,11 @@
+--- wav2json/build/Makefile	2014-11-05 14:35:29.000000000 -0800
++++ wav2json/build/Makefile-fixed	2014-12-10 22:20:54.000000000 -0800
+@@ -8,7 +8,7 @@
+ SRC=../src
+ 
+ ifeq ($(UNAME), Linux)
+-LD_PLATFORM_FLAGS=$(LD_FLAGS) -lboost_program_options
++LD_PLATFORM_FLAGS=$(LD_FLAGS) -l:/usr/lib/x86_64-linux-gnu/libboost_program_options.so
+ CC=g++
+ endif
+ ifeq ($(UNAME), Darwin)

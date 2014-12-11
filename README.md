@@ -24,7 +24,7 @@ audio.
 
 ## Components
 
-### `textareatest.js` - main front-end javascript code
+### `speecheditor.js` - main front-end javascript code
 
 Defines `TAAPP`, a global variable that controls the state of the app.
 Key functions of `TAAPP` include `loadSite`, `newProject`,
@@ -77,7 +77,7 @@ You can, for example, see the keyboard shortcuts defined in the
 within a textarea.
 
 The `TAM` is created in the `TAAPP.reset` function in
-`textareatest.js`.
+`speecheditor.js`.
 
 ### `musicbrowser` - sub-app for the music browser
 

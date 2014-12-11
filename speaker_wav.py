@@ -36,7 +36,7 @@ if start is not None:
 
 c.output_score(
     adjust_dynamics=False,
-    min_length=t.total_frames(),
+    min_length=t.duration,
     filename="static/%s-%s-test" % (basename, speaker),
     channels=1,
     filetype='wav',

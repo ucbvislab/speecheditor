@@ -95,10 +95,10 @@ def novelty(filename, k=64, wlen_ms=100, duration=-1, start=0, nchangepoints=5):
     for p in peaks:
         frame = p[0]
         if frame > k:
-            left_frames = frames[(frame - k) * wlen_samples / 2:
-                                 frame * wlen_samples / 2]
-            right_frames = frames[frame * wlen_samples / 2:
-                                  (frame + k) * wlen_samples / 2]
+            left_frames = frames[int((frame - k) * wlen_samples / 2):
+                                 int(frame * wlen_samples / 2)]
+            right_frames = frames[int(frame * wlen_samples / 2):
+                                  int((frame + k) * wlen_samples / 2)]
             if RMS_energy(left_frames) <\
                RMS_energy(right_frames):
                out_peaks.append(p)

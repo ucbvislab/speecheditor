@@ -14,7 +14,7 @@ def collect_stats(name):
 
     stats = {}
 
-    seconds = track.total_frames() / float(track.sr())
+    seconds = track.duration / float(track.samplerate)
     m, s = divmod(seconds, 60)
 
     stats["length"] = "%d:%02d" % (m, s)

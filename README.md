@@ -1,5 +1,9 @@
 #Integrated Radio/Audio Editor
 
+## Installation
+
+See [INSTALL.md](https://github.com/ucbvislab/speecheditor/blob/master/INSTALL.md)
+
 ## Tools
 
 ### Text-based speech editor

@@ -13,7 +13,15 @@ Clone the speech editor repository:
 git clone git@bitbucket.org:srubin/speecheditor.git
 ```
 
-In the `/speecheditor` directory, spin up the vagrant enivornment by running `vagrant up`. This will take time: vagrant will set up a virtualmachine with all the requirements necessary to run the speech editor.
+In the `/speecheditor` directory, spin up the vagrant enivornment by running
+
+```
+#!bash
+# (> means a prompt on your computer)
+> vagrant up
+```
+
+This will take time: vagrant will set up a virtualmachine with all the requirements necessary to run the speech editor.
 
 Now, to run the speech editor:
 

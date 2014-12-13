@@ -47,6 +47,7 @@ def index():
         music_browser=app.config["MUSIC_BROWSER"],
         speechtracks=app.config["SPEECH_TRACKS"])
 
+
 @app.route('/reauthor', methods=['POST'])
 def reauthor():
     if request.method == 'POST':

@@ -154,14 +154,14 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
 </div>
         
 <!-- Disabling the music browser for now -->
-<!--
+{% if music_browser %}
 <div class="browserSlider tabSlider">
     <div class="browserSliderHandle">Music Browser</div>        
         <div class="musicBrowserBox">
-            {# {% include "browser.html" %} #}
+            {% include "browser.html" %}
         </div>
 </div>
--->
+{% endif %}
 
 <!-- Setup dialog -->
 <div id="setupModal" style="display:none" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="setupModalLabel" aria-hidden="true" >
@@ -189,6 +189,9 @@ href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui
         <div class="btn-group input-prepend">
             <select name="speechSelect" id="speechSelect" data-placeholder="Select a recording" class="chzn-select" style="width:515px">
                 <option value="none" selected></option>
+                {% for track in speechtracks %}
+                    <option value="{{ track }}">{{ track }}</option>
+                {% endfor %}
                 <option value="obama">Barack Obama - "2nd Inauguration"</option>
                 <option value="memo">Steve - "Voice memo"</option>
             </select>

@@ -5,6 +5,7 @@ except:
 import urllib
 import subprocess
 import os
+import glob
 from mutagen.id3 import ID3
 import shutil
 
@@ -40,7 +41,11 @@ app.debug = True
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+
+    return render_template(
+        'index.html',
+        music_browser=app.config["MUSIC_BROWSER"],
+        speechtracks=app.config["SPEECH_TRACKS"])
 
 @app.route('/reauthor', methods=['POST'])
 def reauthor():
@@ -73,7 +78,7 @@ def reauthor():
                 speech_is_done = True
 
                 score_start = t["scoreStart"]
-                with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
+                with open(APP_PATH + 'static/speechtracks/' + dat["speechText"], 'r') as f:
                     af = json.loads(f.read())["words"]
                 ef = dat["speechReauthor"]["words"]
 
@@ -94,7 +99,7 @@ def reauthor():
                     "render_from_all_tracks": False
                 }
 
-                speech_audio_path = APP_PATH + 'static/' + dat["speechAudio"]
+                speech_audio_path = APP_PATH + 'static/speechtracks/' + dat["speechAudio"]
 
                 if os.path.splitext(speech_audio_path)[-1] == ".mp3":
                     wav_speech_audio_path = os.path.splitext(speech_audio_path)[0] + ".wav"
@@ -231,7 +236,7 @@ def reauthor():
                 score_start = t["scoreStart"]
                 track_start = t["wfStart"]
                 duration = t["duration"]
-                filename = APP_PATH + "static/" + t["filename"]
+                filename = APP_PATH + "static/speechtracks/" + t["filename"]
                 
                 wav_fn = filename
                 
@@ -302,7 +307,7 @@ def dupes():
     if request.method == 'POST':
         post_data = urllib.unquote(request.data)
         dat = json.loads(post_data)
-        with open(APP_PATH + 'static/' + dat["speechText"], 'r') as f:
+        with open(APP_PATH + 'static/speechtracks/' + dat["speechText"], 'r') as f:
             af = json.load(f)["words"]
 
         return Response(json.dumps(duplicate_lines.get_dupes(af)),
@@ -519,10 +524,10 @@ def upload_song():
 @app.route('/alignment/<name>')
 def alignment(name):
     breath_fn = "%s-breaths.json" % name
-    breath_full_path = "%sstatic/%s-breaths.json" % (APP_PATH, name)
+    breath_full_path = "{}static/speechtracks/{}-breaths.json".format(APP_PATH, name)
 
     nobreath_fn = name + ".json"
-    nobreath_full_path = "{}static/{}.json".format(APP_PATH, name)
+    nobreath_full_path = "{}static/speechtracks/{}.json".format(APP_PATH, name)
 
     if os.path.isfile(breath_full_path):
         out = json.load(open(breath_full_path, 'r'))
@@ -545,11 +550,22 @@ def run_app(browser):
     if browser:
         from music_browser.browser_flask import app as browserapp
 
+        app.config["MUSIC_BROWSER"] = True
+
         application = DispatcherMiddleware(app, {
             '/musicbrowser': browserapp
         })
     else:
+        app.config["MUSIC_BROWSER"] = False
         application = app
+
+    app.config["SPEECH_TRACKS"] = set()
+    for fn in glob.glob(APP_PATH + 'static/speechtracks/*.json'):
+        name = os.path.splitext(os.path.basename(fn))[0]
+        if name.endswith("-breaths"):
+            name = name.split('-breaths')[0]
+        app.config["SPEECH_TRACKS"].add(name)
+
     run_simple('0.0.0.0', 5000, application,
                use_reloader=True, use_debugger=True, use_evalex=True)
 

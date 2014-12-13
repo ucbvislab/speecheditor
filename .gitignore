@@ -2,8 +2,10 @@
 app_path.py
 static/tmp/*.png
 static/tmp/*.mp3
+static/tmp/*.json
 .svn
 .idea
+.vagrant
 ed_env
 tmp/pauses
 music_browser/fail
@@ -12,3 +14,10 @@ music_browser/results
 music_browser/succ
 line_profiler
 node_modules
+static/uploads/*.mp3
+static/uploads/*.pickle
+static/uploads/*.wav
+static/uploads/*.json
+static/uploads/*.npz
+static/uploads/*.gml
+static/uploads/wfData/*.json

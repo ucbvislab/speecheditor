@@ -5783,7 +5783,7 @@ TAAPP.reset = function () {
     TAAPP.state.usageData = {};
 
     // TAAPP.state.speechAudio = TAAPP.speech + "44.wav";
-    TAAPP.state.speechAudio = TAAPP.speech + '.mp3';
+    TAAPP.state.speechAudio = TAAPP.speech + ".mp3";
     if (TAAPP.sound) {
         TAAPP.sound.destruct();
         TAAPP.sound = undefined;

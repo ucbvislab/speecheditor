@@ -73,6 +73,8 @@ Then, `vagrant up`, `vagrant ssh`, `cd /vagrant` and `python app.py` to start it
 
 ## Adding speech tracks
 
+(TODO)
+
 ## Enabling the music browser
 
 If you have access to the music browser data files (private access only due to copyrights): put the `musicbrowser` folder inside of `/speecheditor/static`. Instead of using `python app.py` run the speech editor with:

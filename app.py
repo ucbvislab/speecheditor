@@ -544,17 +544,20 @@ from werkzeug.wsgi import DispatcherMiddleware
 
 
 @click.command()
-@click.option('--browser/--no-browser', default=False,
+@click.option('--music-browser/--no-browser', default=False,
               help='do not load the music browser app')
-def run_app(browser):
-    if browser:
-        from music_browser.browser_flask import app as browserapp
+def run_app(music_browser):
+    if music_browser:
+        # Figure out how to do these searches without requiring MySQL
+
+        # from music_browser.browser_flask import app as browserapp
+        # application = DispatcherMiddleware(app, {
+        #     '/musicbrowser': browserapp
+        # })
 
         app.config["MUSIC_BROWSER"] = True
+        application = app
 
-        application = DispatcherMiddleware(app, {
-            '/musicbrowser': browserapp
-        })
     else:
         app.config["MUSIC_BROWSER"] = False
         application = app

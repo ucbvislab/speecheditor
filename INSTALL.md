@@ -13,6 +13,8 @@ Clone the speech editor repository:
 # (> means a prompt on your computer)
 > git clone git@bitbucket.org:srubin/speecheditor.git
 > cd speecheditor
+> git submodule init
+> git submodule update
 ```
 
 In the `/speecheditor` directory, spin up the vagrant enivornment by running
@@ -68,3 +70,14 @@ Once you're done using the speech editor, free up the system resources taken up 
 ```
 
 Then, `vagrant up`, `vagrant ssh`, `cd /vagrant` and `python app.py` to start it up again.
+
+## Adding speech tracks
+
+## Enabling the music browser
+
+If you have access to the music browser data files (private access only due to copyrights): put the `musicbrowser` folder inside of `/speecheditor/static`. Instead of using `python app.py` run the speech editor with:
+
+```
+#!bash
+$ python app.py --music-browser
+```

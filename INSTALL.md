@@ -41,7 +41,7 @@ $ cd /vagrant
 $ python app.py
 ```
 
-To access the speech editor, go to [http://localhost:8080](http://localhost:8080)
+To access the speech editor, go to [http://localhost:8080](http://localhost:8080) in **Chrome only**.
 
 See the tutorial for how to use the speech editor at [http://localhost:8080/static/tutorial/index.html](http://localhost:8080/static/tutorial/index.html).
 

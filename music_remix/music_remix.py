@@ -5,18 +5,13 @@ import subprocess
 import simplejson as json
 from decimal import *
 
-# from echonest.remix.audio import LocalAudioFile
 import networkx as nx
 from networkx.readwrite import json_graph
 import numpy as np
 
-# import earworm
 from radiotool import composer as C
 from radiotool.algorithms import librosa_analysis
 
-
-# from pyechonest import config
-# config.ECHO_NEST_API_KEY = "0KJK6BQUW0BV6XX3I"
 
 class MusicGraph(object):
 
@@ -54,16 +49,6 @@ class MusicGraph(object):
                 print e
                 pass
 
-        # replace this with new graph generation
-        # track = LocalAudioFile(self.filename, verbose=self.verbose)
-        # graph, dense_mats = earworm.do_work(track, graph_only=True,
-        #     verbose=self.verbose, force=True, string_names=True,
-        #     dense_result=True)
-
-        # tim = dense_mats["timbre"]
-        # pit = dense_mats["pitch"]
-        #######
-
         # new version
         track = C.Song(self.filename, cache_dir=self.cache_path)
         rt_tim = np.array(track.analysis["timbres"])
@@ -72,10 +57,6 @@ class MusicGraph(object):
 
         rt_timbre_dist = librosa_analysis.structure(rt_tim.T)
         rt_chroma_dist = librosa_analysis.structure(rt_pit.T)
-
-        # rt_cost_mat = np.exp(
-        #     rt_chroma_dist / np.std(rt_chroma_dist) +
-        #     rt_timbre_dist / np.std(rt_timbre_dist))
 
         rt_cost_mat = rt_chroma_dist + rt_timbre_dist
 
@@ -146,50 +127,6 @@ class MusicGraph(object):
         )
 
         return self._graph
-
-
-        #######
-
-        # cost_mat = np.exp(pit / np.std(pit) + tim / np.std(tim))
-
-        # edge_lens = [graph[e[0]][e[1]]["duration"]
-        #              for e in graph.edges_iter()]
-        # avg_duration = np.mean(edge_lens)
-
-        # import pdb; pdb.set_trace()
-
-        # np.savez(os.path.join(self.cache_path, npz_filename), 
-        #     timbre=dense_mats["timbre"],
-        #     pitch=dense_mats["pitch"],
-        #     avg_duration=np.array([avg_duration]),
-        #     cost=cost_mat,
-        #     markers=np.array(dense_mats["markers"])
-        # )
-
-        # self._graph = graph
-        # try:
-        #     path = os.path.join(self.cache_path, json_filename)
-        #     print path
-
-        #     data = dict(nodes=[[n, self._graph.node[n]]
-        #                        for n in self._graph.nodes()],
-        #                 edges=[[u, v, self._graph.edge[u][v]]
-        #                        for u, v in self._graph.edges()])
-
-        #     for e in data["edges"]:
-        #         for k, v in e[2].iteritems():
-        #             e[2][k] = Decimal(str(v))
-
-        #     with open(path, 'w') as file:
-        #         json.dump(data, file, use_decimal=True)
-
-        #     print "Reading json (initial generation)"
-        #     self._graph = self.read_json_graph(path)
-        #     print "Done reading json (initial generation)"
-        # except Exception, e:
-        #     print e
-        #     pass
-        # return self._graph
 
     def json_graph(self):
         G = self.graph

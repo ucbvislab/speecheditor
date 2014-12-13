@@ -8,8 +8,7 @@ Download and install [Vagrant](https://www.vagrantup.com/downloads.html)
 
 Clone the speech editor repository:
 
-```
-#!bash
+```bash
 # (> means a prompt on your computer)
 > git clone git@bitbucket.org:srubin/speecheditor.git
 > cd speecheditor
@@ -19,8 +18,7 @@ Clone the speech editor repository:
 
 In the `/speecheditor` directory, spin up the vagrant enivornment by running
 
-```
-#!bash
+```bash
 > vagrant up
 ```
 
@@ -28,8 +26,7 @@ This will take time: vagrant will set up a virtualmachine with all the requireme
 
 Now, to run the speech editor:
 
-```
-#!bash
+```bash
 # ssh into your vagrant box
 > vagrant ssh
 
@@ -50,23 +47,20 @@ be shared between your main computer and the virtual vagrant box.
 
 If you change the javascript or coffeescript, run
 
-```
-#!bash
+```bash
 $ grunt dev
 ```
 inside the vagrant box to regenerate the javascript.
 
 You can exit the ssh session with
 
-```
-#!bash
+```bash
 $ exit
 ```
 
 Once you're done using the speech editor, free up the system resources taken up by the vagrant box by running:
 
-```
-#!bash
+```bash
 # from the /speecheditor directory on your computer
 > vagrant halt
 ```
@@ -81,7 +75,6 @@ Then, `vagrant up`, `vagrant ssh`, `cd /vagrant` and `python app.py` to start it
 
 If you have access to the music browser data files (private access only due to copyrights): put the `musicbrowser` folder inside of `/speecheditor/static`. Also put the `music_browser_app` folder inside of `/speecheditor`. Instead of using `python app.py` run the speech editor with:
 
-```
-#!bash
+```bash
 $ python app.py --music-browser
 ```

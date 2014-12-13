@@ -12,6 +12,7 @@ Clone the speech editor repository:
 #!bash
 # (> means a prompt on your computer)
 > git clone git@bitbucket.org:srubin/speecheditor.git
+> cd speecheditor
 ```
 
 In the `/speecheditor` directory, spin up the vagrant enivornment by running

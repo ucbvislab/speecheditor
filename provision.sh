@@ -1,3 +1,7 @@
+# This file is automatically run during the first `vagrant up`.
+# It provisions an ubuntu box with all of the requirements
+# necessary to run the speech editor.
+
 #!/usr/bin/env bash
 apt-add-repository ppa:chris-lea/node.js
 apt-get update

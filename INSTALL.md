@@ -10,14 +10,14 @@ Clone the speech editor repository:
 
 ```
 #!bash
-git clone git@bitbucket.org:srubin/speecheditor.git
+# (> means a prompt on your computer)
+> git clone git@bitbucket.org:srubin/speecheditor.git
 ```
 
 In the `/speecheditor` directory, spin up the vagrant enivornment by running
 
 ```
 #!bash
-# (> means a prompt on your computer)
 > vagrant up
 ```
 

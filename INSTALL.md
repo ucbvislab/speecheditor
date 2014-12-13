@@ -39,7 +39,7 @@ $ cd /vagrant
 $ python app.py
 ```
 
-To access the speech editor, go to http://localhost:8080
+To access the speech editor, go to [http://localhost:8080](http://localhost:8080)
 
 You are free to edit the source code on your computer; everything will
 be shared between your main computer and the virtual vagrant box.

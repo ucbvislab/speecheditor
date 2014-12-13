@@ -37,7 +37,7 @@ if start is not None:
 c.output_score(
     adjust_dynamics=False,
     min_length=t.duration,
-    filename="static/%s-%s-test" % (basename, speaker),
+    filename="static/speechtracks/%s-%s" % (basename, speaker),
     channels=1,
     filetype='wav',
     samplerate=t.samplerate,

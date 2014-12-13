@@ -5696,14 +5696,14 @@ TAAPP.buildWaveform = function (sound, kind) {
     // wav2json -p 2 -s 2000 --channels mid -n FILENAME.wav 
 
     if (TAAPP.speakers.length === 1) {
-        $.getJSON('static/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
+        $.getJSON('static/speechtracks/wfData/' + TAAPP.speech + '.wav.json', function (data) {
             $(wfs).wf({
                 data: data.mid
             });
         }); 
     } else {
         _.each(TAAPP.speakers, function (speaker, i) {
-            $.getJSON('static/wfData/' + TAAPP.speech + '44-' + speaker + '.wav.json',
+            $.getJSON('static/speechtracks/wfData/' + TAAPP.speech + '-' + speaker + '.wav.json',
                 function (data) {
                     $(wfs[i]).wf({
                         data: data.mid
@@ -5719,8 +5719,8 @@ TAAPP.buildWaveform = function (sound, kind) {
 TAAPP.origSoundURL = function () {
     if (TAAPP.env !== undefined) {
         if (TAAPP.env === "production") {
-            return "http://d1qv8gm47dmlns.cloudfront.net/mp3s/" +
-                TAAPP.speech + ".mp3";
+            // return "http://d1qv8gm47dmlns.cloudfront.net/mp3s/" +
+            //     TAAPP.speech + ".mp3";
             // return "https://s3.amazonaws.com/speecheditor/mp3s/" +
             //     TAAPP.speech + ".mp3";
         }

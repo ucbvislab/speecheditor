@@ -4,6 +4,7 @@ static/tmp/*.png
 static/tmp/*.mp3
 static/tmp/*.json
 static/speechtracks/*.wav
+htk/
 .svn
 .idea
 .vagrant

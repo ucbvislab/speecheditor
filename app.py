@@ -429,6 +429,24 @@ def retargeted_underlay(song_name, length, before, after):
 
     return jsonify(**out)
 
+@app.route('/analyzeSpeech', methods=['POST'])
+def analyze_speech():
+    upload_path = APP_PATH + 'static/speechtracks/'
+
+    if request.method == 'POST':
+        post_data = urllib.unquote(request.data)
+        dat = json.loads(post_data)
+        
+        short_name = dat["name"]
+        text = dat["text"]
+        f = request.files['speech']
+
+        # save the speech file
+        filename = short_name + '.mp3'
+        full_name = upload_path + filename
+        f.save(full_name)
+
+        
 
 @app.route('/uploadSong', methods=['POST', 'GET'])
 def upload_song():

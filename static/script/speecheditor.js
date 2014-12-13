@@ -700,14 +700,14 @@ TAAPP.buildWaveform = function (sound, kind) {
     // wav2json -p 2 -s 2000 --channels mid -n FILENAME.wav 
 
     if (TAAPP.speakers.length === 1) {
-        $.getJSON('static/speechtracks/wfData/' + TAAPP.speech + '44.wav.json', function (data) {
+        $.getJSON('static/speechtracks/wfData/' + TAAPP.speech + '.wav.json', function (data) {
             $(wfs).wf({
                 data: data.mid
             });
         }); 
     } else {
         _.each(TAAPP.speakers, function (speaker, i) {
-            $.getJSON('static/speechtracks/wfData/' + TAAPP.speech + '44-' + speaker + '.wav.json',
+            $.getJSON('static/speechtracks/wfData/' + TAAPP.speech + '-' + speaker + '.wav.json',
                 function (data) {
                     $(wfs[i]).wf({
                         data: data.mid

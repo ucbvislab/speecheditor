@@ -1,8 +1,9 @@
+#!/usr/bin/env bash
+
 # This file is automatically run during the first `vagrant up`.
 # It provisions an ubuntu box with all of the requirements
 # necessary to run the speech editor.
 
-#!/usr/bin/env bash
 apt-add-repository ppa:chris-lea/node.js
 apt-get update
 apt-get install -y python2.7-dev python-setuptools libsndfile1-dev git gcc build-essential alsa-base flac vorbis-tools python-numpy python-scipy python-matplotlib python-sklearn libsamplerate0-dev libasound2-dev cython lame libboost-program-options-dev nodejs
@@ -24,3 +25,4 @@ npm install -g npm@latest
 npm install -g grunt-cli
 cd /vagrant
 su -c "npm install" vagrant
+

@@ -9,8 +9,8 @@ easy_install pip
 # wav2json
 git clone https://github.com/beschulz/wav2json.git w2j && \
     patch w2j/build/Makefile < /vagrant/wav2json.patch && \
-    cd w2j/build && make all && cd ../.. && \
-    ln -s ~/w2j/bin/Linux/wav2json /usr/local/bin/wav2json
+    cd w2j/build && make all && cd ../.. \
+cp ~/w2j/bin/Linux/wav2json /usr/local/bin/wav2json
 
 # Install python module requirements
 pip install -r /vagrant/requirements.txt
@@ -19,4 +19,4 @@ pip install -r /vagrant/requirements.txt
 npm install -g npm@latest
 npm install -g grunt-cli
 cd /vagrant
-npm install
+su -c "npm install" vagrant

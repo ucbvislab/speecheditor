@@ -551,7 +551,7 @@ def run_app(music_browser):
     if music_browser:
         # Figure out how to do these searches without requiring MySQL
 
-        # from music_browser.browser_flask import app as browserapp
+        # from music_browser_app.browser_flask import app as browserapp
         # application = DispatcherMiddleware(app, {
         #     '/musicbrowser': browserapp
         # })

@@ -1,6 +1,3 @@
 [submodule "static/edible"]
 	path = static/edible
 	url = git@bitbucket.org:srubin/edible.git
-[submodule "frontend"]
-	path = frontend
-	url = https://github.com/ronw/frontend.git

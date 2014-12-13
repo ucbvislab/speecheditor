@@ -3,6 +3,7 @@ app_path.py
 static/tmp/*.png
 static/tmp/*.mp3
 static/tmp/*.json
+static/speechtracks/*.wav
 .svn
 .idea
 .vagrant

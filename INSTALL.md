@@ -69,7 +69,32 @@ Then, `vagrant up`, `vagrant ssh`, `cd /vagrant` and `python app.py` to start it
 
 ## Adding speech tracks
 
-(TODO)
+There is a bit more setup you need to do to add your own speech tracks to the speech editor.
+
+### Setup
+
+You need to get HTK 3.4. First, register here: http://htk.eng.cam.ac.uk/register.shtml
+
+Once you have a username and password, run this in the vagrant box:
+
+```bash
+$ sh alignment-setup.sh
+```
+
+This will prompt you for your HTK username and password. It will then download and install HTK 3.4 and p2fa-vislab (a wrapper for HTK's HVite).
+
+### Analyzing your tracks
+
+Once you have successfully run `alignment-setup.sh`, you can analyze your own speech tracks.
+
+Add your new speech track mp3 file at `/speecheditor/static/speechtracks/{track-name}.mp3`. Also add the text transcript of the speech track at `/speecheditor/static/speechtracks/{track-name}.txt`. Then, in the vagrant box, run
+
+```bash
+$ cd vagrant
+$ python analyze_speech.py {track-name}
+```
+
+Once this finished (note: it may take a while if the speech is long), your track will show up in the new composition dialog in the speech editor.
 
 ## Enabling the music browser
 

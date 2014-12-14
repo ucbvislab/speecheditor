@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Get HTK
+read -p "HTK username: " htkuser
+wget http://htk.eng.cam.ac.uk/ftp/software/HTK-3.4.tar.gz --user=$htkuser --ask-password
+
 # Install HTK
 tar xvfz HTK-3.4.tar.gz
 sudo apt-get install libc6-dev-i386 sox

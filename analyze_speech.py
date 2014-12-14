@@ -1,5 +1,5 @@
 import os
-from subprocess import check_output
+import subprocess
 import sys
 import simplejson as json
 
@@ -10,17 +10,17 @@ def analyze_speech(mp3_path, text_path, name):
     wav_path = os.path.splitext(mp3_path)[0] + '.wav'
     waveform_path = os.path.join(
         os.path.split(mp3_path)[0], 'wfData/{}.wav.json'.format(name))
-    check_output(
+    subprocess.call(
         "python utilities/transcript_parser.py {} {}".format(
             text_path, transcript_path), shell=True)
     with open(transcript_path, 'r') as trf:
         if len(json.load(trf)) == 0:
-            check_output(
+            subprocess.call(
                 "python p2fa-vislab/text_to_transcript.py {} --output-file {}".format(
                     text_path, transcript_path), shell=True)
 
     # split multiple speakers
-    # check_output(
+    # subprocess.call(
     #     "python utilities/split-transcript.py {}".format(transcript_path),
     #     shell=True)
 
@@ -34,22 +34,25 @@ def analyze_speech(mp3_path, text_path, name):
     #         # align everything at once
 
     #     for speaker in speakers:
-    #         check_output(
+    #         subprocess.call(
     #             "python utilities/speaker_wav")
 
     # alignment
-    check_output("lame --decode {}".format(mp3_path), shell=True)
+    subprocess.call("lame --decode {}".format(mp3_path), shell=True)
     os.chdir('p2fa-vislab')
-    check_output("python align.py ../{} ../{} ../{} --json --phonemes".format(
+    subprocess.call("python align.py ../{} ../{} ../{} --json --phonemes".format(
         wav_path, transcript_path, alignment_path), shell=True)
 
     # breath detection
-    check_output("python detect_breaths.py ../{} ../{}".format(wav_path, alignment_path), shell=True)
+    subprocess.call("python detect_breaths.py ../{} ../{}".format(wav_path, alignment_path), shell=True)
     os.chdir('..')
 
     # wav2json
-    check_output("wav2json -p 2 -s 10000 --channels mid -n -o {} {}".format(
+    subprocess.call("wav2json -p 2 -s 10000 --channels mid -n -o {} {}".format(
         waveform_path, wav_path), shell=True)
 
 if __name__ == '__main__':
-    analyze_speech(sys.argv[1], sys.argv[2], sys.argv[3])
+    name = sys.argv[1]
+    mp3_path = "static/speechtracks/{}.mp3".format(name)
+    text_path = "static/speechtracks/{}.txt".format(name)
+    analyze_speech(mp3_path, text_path, name)

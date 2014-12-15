@@ -139,18 +139,26 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
 
     # setup for interview footage with multiple speakers
     speeches["__base"] = Speech(speech, "base speech")
-    c.add_track(speeches["__base"])
+    # c.add_track(speeches["__base"])
 
-    if len(speakers) == 1:
-        speeches[speakers.pop()] = speeches["__base"]
-    else:
-        base_speech_fn = os.path.splitext(speech)[0]
-        for speaker in speakers:
-            if render_from_all_tracks:
-                speeches[speaker] = Speech("%s-%s.wav" % (base_speech_fn, speaker), speaker)
-                c.add_track(speeches[speaker])
-            else:
-                speeches[speaker] = speeches["__base"]
+    base_speech_fn = os.path.splitext(speech)[0]
+    for speaker in speakers:
+        if render_from_all_tracks:
+            speeches[speaker] = Speech("{}-{}.wav".format(base_speech_fn, speaker), speaker)
+            c.add_track(speeches[speaker])
+        else:
+            speeches[speaker] = speeches["__base"]
+
+    # if len(speakers) == 1:
+    #     speeches[speakers.pop()] = speeches["__base"]
+    # else:
+    #     base_speech_fn = os.path.splitext(speech)[0]
+    #     for speaker in speakers:
+    #         if render_from_all_tracks:
+    #             speeches[speaker] = Speech("%s-%s.wav" % (base_speech_fn, speaker), speaker)
+    #             c.add_track(speeches[speaker])
+    #         else:
+    #             speeches[speaker] = speeches["__base"]
 
     # new reauthoring loop
     for i, eg in enumerate(edit_groups):

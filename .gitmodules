@@ -1,3 +1,4 @@
 [submodule "static/edible"]
 	path = static/edible
-	url = git@bitbucket.org:srubin/edible.git
+	url = https://github.com/srubin/edible.git
+

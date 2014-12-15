@@ -185,7 +185,13 @@ def rebuild_audio(speech, alignment, edits, **kwargs):
             start_times.append(composition_loc)
 
             seg = Segment(s, composition_loc, start, end - start)
-            track, cf_seg = create_roomtone_pause2(seg, pause_len, cut_to_zc)
+
+            # Uncomment when we want to use real roomtone.
+            # Set in TAAPP.roomTone in speecheditor.js
+            # track, cf_seg = create_roomtone_pause2(seg, pause_len, cut_to_zc)
+
+            # Fake roomtone (just pure silence) for now
+            track, cf_seg = create_fake_roomtone_with_zeros(seg, pause_len)
 
             if cf_seg.duration < 0:
                 start_times.append(composition_loc)
@@ -338,6 +344,16 @@ def create_roomtone_pause2(segment, final_duration, cut_to_zc):
         raw_seg.duration = int(end * sr - start * sr)
 
     return track, raw_seg
+
+
+def create_fake_roomtone_with_zeros(segment, final_duration):
+    sr = segment.track.samplerate
+    track = RawTrack(
+        N.zeros(final_duration * sr),
+        name="raw", samplerate=sr)
+    raw_seg = Segment(track, segment.comp_location / float(sr), 0.0, final_duration)
+    return track, raw_seg
+
 
 
 # def render_pauses_as_one_track(speech_file, alignment):

@@ -350,7 +350,7 @@
       });
       breath = topBreaths[Math.floor(Math.random() * topBreaths.length)];
       addInds = [breath];
-      if ((typeof TAAPP !== "undefined" && TAAPP !== null ? TAAPP.speech : void 0) in TAAPP.roomTone) {
+      if (TAAPP.roomTone != null) {
         gp1 = '{gp-0.02}';
         gp2 = '{gp-0.05}';
         addInds = [gp1, breath, gp2];
@@ -1040,7 +1040,7 @@
       words = _.map(indices, (function(idx) {
         var tmp;
         if (idx.toString().split('-')[0] === '{gp') {
-          tmp = clone(TAAPP.roomTone[TAAPP.speech]);
+          tmp = clone(TAAPP.roomTone);
           tmp.word = idx;
           tmp.pauseLength = parseFloat(idx.split('-')[1]);
           if (this.first == null) {

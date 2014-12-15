@@ -58,9 +58,10 @@ def analyze_speech(mp3_path, text_path, name, force=False):
             text_path, transcript_path), shell=True)
     with open(transcript_path, 'r') as trf:
         if len(json.load(trf)) == 0:
+            speaker_name = raw_input("Enter the name of the speaker: ")
             subprocess.call(
-                "python p2fa-vislab/text_to_transcript.py {} --output-file {}".format(
-                    text_path, transcript_path), shell=True)
+                "python p2fa-vislab/text_to_transcript.py {} --output-file {} --speaker-name \"{}\"".format(
+                    text_path, transcript_path, speaker_name), shell=True)
 
     # alignment
     if not os.path.isfile(alignment_path) or force:
@@ -84,10 +85,10 @@ def analyze_speech(mp3_path, text_path, name, force=False):
             speaker_wav_path = speaker_wav(wav_path, alignment_path, speaker)
             speaker_waveform_path = os.path.join(
                 os.path.split(mp3_path)[0], 'wfData/{}-{}.wav.json'.format(name, speaker))
-            subprocess.call("wav2json -p 2 -s 10000 --channels mid -n -o {} {}".format(
+
+            subprocess.call("wav2json -p 2 -s 10000 --channels mid -n -o \"{}\" \"{}\"".format(
                 speaker_waveform_path, speaker_wav_path), shell=True)
             os.remove(speaker_wav_path)
-
 
 @click.command()
 @click.argument('name')

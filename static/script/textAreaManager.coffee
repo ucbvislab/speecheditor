@@ -329,11 +329,13 @@ class ScriptArea
         addInds = [breath]
         
         # let's not do this for now... I don't know
-        if TAAPP?.speech of TAAPP.roomTone
+
+        # if TAAPP?.speech of TAAPP.roomTone
             # create general pause before and after
+        if TAAPP.roomTone?
             gp1 = '{gp-0.02}'
             gp2 = '{gp-0.05}'
-            
+        
             addInds = [gp1, breath, gp2]
         
         @tam.insertWords addInds, range.end, @
@@ -1048,7 +1050,7 @@ class TextAreaManager
         
         words = _.map indices, ((idx) ->
             if idx.toString().split('-')[0] is '{gp'
-                tmp = clone(TAAPP.roomTone[TAAPP.speech]);
+                tmp = clone(TAAPP.roomTone);
                 tmp.word = idx
                 tmp.pauseLength = parseFloat idx.split('-')[1]
                 this.first ?= tmp

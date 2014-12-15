@@ -308,20 +308,14 @@ TAAPP.playFromSelection = function () {
     TAAPP.sound.play();
 };
 
-TAAPP.roomTone = {
-    "obama": {
-        "start": 996.424,
-        "end": 1001.143,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    },
-    "memo": {
-        "start": 8.1,
-        "end": 8.489,
-        "word": "{gpause}",
-        "alignedWord": "gp"
-    }
-};
+// TAAPP.roomTone = {
+//     "obama": {
+//         "start": 996.424,
+//         "end": 1001.143,
+//         "word": "{gpause}",
+//         "alignedWord": "gp"
+//     },
+// };
 
 TAAPP.underlayWizard = function (wordIndex) {
 
@@ -838,6 +832,25 @@ TAAPP.reset = function () {
             .filter(function (word) { return !_.isUndefined(word); })
             .uniq()
             .value();
+
+        // find the longest pause- use for room tone (general inserted pauses)
+        var longestPauseLen = 0.0;
+        for (var i = 0; i < TAAPP.words.length; i++) {
+            var word = TAAPP.words[i];
+            if (word["alignedWord"] == "sp") {
+                if (word["end"] - word["start"] > longestPauseLen) {
+                    longestPauseLen = word["end"] - word["start"];
+                    TAAPP.roomTone = {
+                        "start": word["start"],
+                        "end": word["end"],
+                        "word": "{gpause}",
+                        "alignedWord": "gp"
+                    }
+
+                    console.log("RTONE", word);
+                }
+            }
+        }
             
         TAAPP.TAManager = new TextAreaManager($(".TAManager"),
             TAAPP.speakers, TAAPP.words, TAAPP.current);
@@ -1142,9 +1155,11 @@ TAAPP.loadSite = function () {
     $("#underlaySongSelect").chosen();
     $('.gPause').click(function () {
         TAAPP.use("insertPause");
-        var gp = clone(TAAPP.roomTone[TAAPP.speech]);
+        var gp = clone(TAAPP.roomTone);
+        // var gp = clone(TAAPP.roomTone[TAAPP.speech]);
         gp.pauseLength = parseFloat($('.gpLen').val());
         gp.word = '{gp-' + gp.pauseLength + '}';
+
         TAAPP.TAManager.insertWords([gp.word])
         return false;
     });

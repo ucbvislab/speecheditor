@@ -5,8 +5,10 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.provision :shell, path: "provision.sh"
   config.vm.network :forwarded_port, host: 8080, guest: 5000
-  config.vm.network "private_network", type: "dhcp"
-  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+
+  # These options can speed up i/o, but might not work on all systems
+  # config.vm.network "private_network", type: "dhcp"
+  # config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
   config.vm.provider "virtualbox" do |v|
     host = RbConfig::CONFIG['host_os']

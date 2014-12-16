@@ -10,7 +10,7 @@ Clone the speech editor repository:
 
 ```bash
 # (> means a prompt on your computer)
-> git clone git@bitbucket.org:srubin/speecheditor.git
+> git clone https://github.com/ucbvislab/speecheditor.git
 > cd speecheditor
 > git submodule init
 > git submodule update

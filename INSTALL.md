@@ -6,6 +6,8 @@ This document explains how to set up the text-based speech editor, as seen in [C
 
 Download and install [Vagrant](https://www.vagrantup.com/downloads.html)
 
+Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (or possibly another Vagrant host like VMWare Fusion).
+
 Clone the speech editor repository:
 
 ```bash

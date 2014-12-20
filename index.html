@@ -39,99 +39,94 @@
 
         <h2>Installation</h2>
 
-      <p>This document explains how to set up the text-based speech editor, as seen in <a href="http://vis.berkeley.edu/papers/audiostories">Content-based Tools for Editing Audio Stories</a>.</p>
+<p>Download and install <a href="https://www.vagrantup.com/downloads.html">Vagrant</a></p>
 
-      <h2>
-      <a id="user-content-easy-method-vagrant" class="anchor" href="#easy-method-vagrant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Easy method (Vagrant)</h2>
+<p>Download and install <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> (or possibly another Vagrant host like VMWare Fusion).</p>
 
-      <p>Download and install <a href="https://www.vagrantup.com/downloads.html">Vagrant</a></p>
+<p>Clone the speech editor repository:</p>
 
-      <p>Download and install <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> (or possibly another Vagrant host like VMWare Fusion).</p>
+<div class="highlight highlight-bash"><pre><span class="pl-c"># (&gt; means a prompt on your computer)</span>
+<span class="pl-k">&gt;</span> git clone https://github.com/ucbvislab/speecheditor.git
+<span class="pl-k">&gt;</span> <span class="pl-s3">cd</span> speecheditor
+<span class="pl-k">&gt;</span> git submodule init
+<span class="pl-k">&gt;</span> git submodule update</pre></div>
 
-      <p>Clone the speech editor repository:</p>
+<p>In the <code>/speecheditor</code> directory, spin up the vagrant enivornment by running</p>
 
-      <div class="highlight highlight-bash"><pre><span class="pl-c"># (&gt; means a prompt on your computer)</span>
-      <span class="pl-k">&gt;</span> git clone https://github.com/ucbvislab/speecheditor.git
-      <span class="pl-k">&gt;</span> <span class="pl-s3">cd</span> speecheditor
-      <span class="pl-k">&gt;</span> git submodule init
-      <span class="pl-k">&gt;</span> git submodule update</pre></div>
+<div class="highlight highlight-bash"><pre><span class="pl-k">&gt;</span> vagrant up</pre></div>
 
-      <p>In the <code>/speecheditor</code> directory, spin up the vagrant enivornment by running</p>
+<p>This will take time: vagrant will set up a virtualmachine with all the requirements necessary to run the speech editor.</p>
 
-      <div class="highlight highlight-bash"><pre><span class="pl-k">&gt;</span> vagrant up</pre></div>
+<p>Now, to run the speech editor:</p>
 
-      <p>This will take time: vagrant will set up a virtualmachine with all the requirements necessary to run the speech editor.</p>
+<div class="highlight highlight-bash"><pre><span class="pl-c"># ssh into your vagrant box</span>
+<span class="pl-k">&gt;</span> vagrant ssh
 
-      <p>Now, to run the speech editor:</p>
+<span class="pl-c"># the /speecheditor is mounted on the vagrant box at /vagrant, so cd to there</span>
+<span class="pl-c"># (the $ means a prompt inside the vagrant box)</span>
+$ <span class="pl-s3">cd</span> /vagrant
 
-      <div class="highlight highlight-bash"><pre><span class="pl-c"># ssh into your vagrant box</span>
-      <span class="pl-k">&gt;</span> vagrant ssh
+<span class="pl-c"># run the speech editor!</span>
+$ python app.py</pre></div>
 
-      <span class="pl-c"># the /speecheditor is mounted on the vagrant box at /vagrant, so cd to there</span>
-      <span class="pl-c"># (the $ means a prompt inside the vagrant box)</span>
-      $ <span class="pl-s3">cd</span> /vagrant
+<p>To access the speech editor, go to <a href="http://localhost:8080">http://localhost:8080</a> in <strong>Chrome only</strong>.</p>
 
-      <span class="pl-c"># run the speech editor!</span>
-      $ python app.py</pre></div>
+<p>See the tutorial for how to use the speech editor at <a href="http://localhost:8080/static/tutorial/index.html">http://localhost:8080/static/tutorial/index.html</a>.</p>
 
-      <p>To access the speech editor, go to <a href="http://localhost:8080">http://localhost:8080</a> in <strong>Chrome only</strong>.</p>
+<p>You are free to edit the source code on your computer; everything will
+be shared between your main computer and the virtual vagrant box.</p>
 
-      <p>See the tutorial for how to use the speech editor at <a href="http://localhost:8080/static/tutorial/index.html">http://localhost:8080/static/tutorial/index.html</a>.</p>
+<p>If you change the javascript or coffeescript, run</p>
 
-      <p>You are free to edit the source code on your computer; everything will
-      be shared between your main computer and the virtual vagrant box.</p>
+<div class="highlight highlight-bash"><pre>$ grunt dev</pre></div>
 
-      <p>If you change the javascript or coffeescript, run</p>
+<p>inside the vagrant box to regenerate the javascript.</p>
 
-      <div class="highlight highlight-bash"><pre>$ grunt dev</pre></div>
+<p>You can exit the ssh session with</p>
 
-      <p>inside the vagrant box to regenerate the javascript.</p>
+<div class="highlight highlight-bash"><pre>$ <span class="pl-s3">exit</span></pre></div>
 
-      <p>You can exit the ssh session with</p>
+<p>Once you're done using the speech editor, free up the system resources taken up by the vagrant box by running:</p>
 
-      <div class="highlight highlight-bash"><pre>$ <span class="pl-s3">exit</span></pre></div>
+<div class="highlight highlight-bash"><pre><span class="pl-c"># from the /speecheditor directory on your computer</span>
+<span class="pl-k">&gt;</span> vagrant halt</pre></div>
 
-      <p>Once you're done using the speech editor, free up the system resources taken up by the vagrant box by running:</p>
+<p>Then, <code>vagrant up</code>, <code>vagrant ssh</code>, <code>cd /vagrant</code> and <code>python app.py</code> to start it up again.</p>
 
-      <div class="highlight highlight-bash"><pre><span class="pl-c"># from the /speecheditor directory on your computer</span>
-      <span class="pl-k">&gt;</span> vagrant halt</pre></div>
+<h2>
+<a id="user-content-adding-speech-tracks" class="anchor" href="#adding-speech-tracks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding speech tracks</h2>
 
-      <p>Then, <code>vagrant up</code>, <code>vagrant ssh</code>, <code>cd /vagrant</code> and <code>python app.py</code> to start it up again.</p>
+<p>There is a bit more setup you need to do to add your own speech tracks to the speech editor.</p>
 
-      <h2>
-      <a id="user-content-adding-speech-tracks" class="anchor" href="#adding-speech-tracks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding speech tracks</h2>
+<h3>
+<a id="user-content-setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h3>
 
-      <p>There is a bit more setup you need to do to add your own speech tracks to the speech editor.</p>
+<p>You need to get HTK 3.4. First, register here: <a href="http://htk.eng.cam.ac.uk/register.shtml">http://htk.eng.cam.ac.uk/register.shtml</a></p>
 
-      <h3>
-      <a id="user-content-setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h3>
+<p>Once you have a username and password, run this in the vagrant box:</p>
 
-      <p>You need to get HTK 3.4. First, register here: <a href="http://htk.eng.cam.ac.uk/register.shtml">http://htk.eng.cam.ac.uk/register.shtml</a></p>
+<div class="highlight highlight-bash"><pre>$ sh alignment-setup.sh</pre></div>
 
-      <p>Once you have a username and password, run this in the vagrant box:</p>
+<p>This will prompt you for your HTK username and password. It will then download and install HTK 3.4 and p2fa-vislab (a wrapper for HTK's HVite).</p>
 
-      <div class="highlight highlight-bash"><pre>$ sh alignment-setup.sh</pre></div>
+<h3>
+<a id="user-content-analyzing-your-tracks" class="anchor" href="#analyzing-your-tracks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analyzing your tracks</h3>
 
-      <p>This will prompt you for your HTK username and password. It will then download and install HTK 3.4 and p2fa-vislab (a wrapper for HTK's HVite).</p>
+<p>Once you have successfully run <code>alignment-setup.sh</code>, you can analyze your own speech tracks.</p>
 
-      <h3>
-      <a id="user-content-analyzing-your-tracks" class="anchor" href="#analyzing-your-tracks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analyzing your tracks</h3>
+<p>Add your new speech track mp3 file at <code>/speecheditor/static/speechtracks/{track-name}.mp3</code>. Also add the text transcript of the speech track at <code>/speecheditor/static/speechtracks/{track-name}.txt</code>. Then, in the vagrant box, run</p>
 
-      <p>Once you have successfully run <code>alignment-setup.sh</code>, you can analyze your own speech tracks.</p>
+<div class="highlight highlight-bash"><pre>$ <span class="pl-s3">cd</span> vagrant
+$ python analyze_speech.py {track-name}</pre></div>
 
-      <p>Add your new speech track mp3 file at <code>/speecheditor/static/speechtracks/{track-name}.mp3</code>. Also add the text transcript of the speech track at <code>/speecheditor/static/speechtracks/{track-name}.txt</code>. Then, in the vagrant box, run</p>
+<p>Once this finished (note: it may take a while if the speech is long), your track will show up in the new composition dialog in the speech editor.</p>
 
-      <div class="highlight highlight-bash"><pre>$ <span class="pl-s3">cd</span> vagrant
-      $ python analyze_speech.py {track-name}</pre></div>
+<h2>
+<a id="user-content-enabling-the-music-browser" class="anchor" href="#enabling-the-music-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling the music browser</h2>
 
-      <p>Once this finished (note: it may take a while if the speech is long), your track will show up in the new composition dialog in the speech editor.</p>
+<p>If you have access to the music browser data files (private access only due to copyrights): put the <code>musicbrowser</code> folder inside of <code>/speecheditor/static</code>. Also put the <code>music_browser_app</code> folder inside of <code>/speecheditor</code>. Instead of using <code>python app.py</code> run the speech editor with:</p>
 
-      <h2>
-      <a id="user-content-enabling-the-music-browser" class="anchor" href="#enabling-the-music-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling the music browser</h2>
-
-      <p>If you have access to the music browser data files (private access only due to copyrights): put the <code>musicbrowser</code> folder inside of <code>/speecheditor/static</code>. Also put the <code>music_browser_app</code> folder inside of <code>/speecheditor</code>. Instead of using <code>python app.py</code> run the speech editor with:</p>
-
-      <div class="highlight highlight-bash"><pre>$ python app.py --music-browser</pre></div>
+<div class="highlight highlight-bash"><pre>$ python app.py --music-browser</pre></div>
 
               
 

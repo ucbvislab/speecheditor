@@ -8,9 +8,18 @@ body {
   font-weight:300;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   color:#222;
-  margin:0 0 20px;
+  margin:10px 0 10px;
+}
+
+h4, h5, h6 {
+  color:#777;
+  margin:10px 0 10px;
+}
+
+h4 {
+  margin: 10px 0 10px 28px;
 }
 
 p, ul, ol, table, pre, dl {
@@ -37,7 +46,7 @@ h2 {
   color:#393939;
 }
 
-h3, h4, h5, h6 {
+h3 {
   color:#494949;
 }
 

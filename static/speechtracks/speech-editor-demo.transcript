@@ -1,0 +1,30 @@
+[
+    {
+        "line": "This piece of software that you're looking at is a text based audio editor. It runs in Google Chrome.",
+        "speaker": "Steve"
+    },
+    {
+        "line": "The idea behind this editor is that you can edit audio using text rather than uh with low level waveforms.",
+        "speaker": "Steve"
+    },
+    {
+        "line": "Well that didn't come out right. If I say a similar sentence again, the speech editor will allow me to choose between the different versions that I recorded. It also shows me when I say some repeated repeated words.",
+        "speaker": "Steve"
+    },
+    {
+        "line": "The idea behind the editor is that you can edit audio using text rather than using waveforms.",
+        "speaker": "Steve"
+    },
+    {
+        "line": "The editor also has features that allow you retarget music to hit exciting musical cues.",
+        "speaker": "Steve"
+    },
+    {
+        "line": "Just imagine how good your speech tracks are going to sound when you are saying something really important and emotional, and then the perfect music plays an exciting moment to emphasize that point.",
+        "speaker": "Steve"
+    },
+    {
+        "line": "This speech editor will provide you with a new way to edit audio stories for radio, podcasts, and audiobooks. Enjoy!",
+        "speaker": "Steve"
+    }
+]

@@ -43,7 +43,68 @@
         <h2>
 <a id="edit-speech-like-its-text" class="anchor" href="#step-by-step-editing-tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step-by-step editing tutorial</h2>
 
-        <h3>Coming soon!</h3>
+<h3>Load and play the demo track</h3>
+
+<p>Install and start the speecheditor. Go to <a href="http://localhost:5000">http://localhost:5000</a> in Google Chrome and select <code>speech-editor-demo</code> from the list of tracks. You'll see the interface with the loaded audio track. The bottom left shows a transcript view, the the top shows a waveform view, and the right side holds a (currently empty) music library. The gray {p} markers represent pauses in the speech, and the blue {br} markers represent predicted breaths in the speech.</p>
+
+<p><img src="img/stepbystep/interface.png" alt="The basic speecheditor interface" title="" /></p>
+
+<p>To listen to the track, press the play buttom on the top bar, or press enter. As the speech plays, the transcript view will highlight the currently-spoken text.</p>
+
+<p><img src="img/stepbystep/transcript-highlight.png" alt="The transcript highlights words as they are spoken" title="" /></p>
+
+<p>Clicking around to different points in the waveform view will move the playhead to that point and start playing the speech from there.</p>
+
+<h3>Editing the speech</h3>
+
+<p>You can use the transcript view to edit the speech audio much like you would edit a text document. The speecheditor supports copy, paste, and delete text operations. For example, you can select the sentence "{p} {br} {p} Well, that didn't come out right." by clicking and dragging over it in the transcript view</p>
+
+<p><img src="img/stepbystep/highlight-pre-delete.png" alt="Manually selected words" title="" /></p>
+
+<p>And then you can delete it by pressing the <code>delete</code> or <code>backspace</code> key on your keyboard.</p>
+
+<p><img src="img/stepbystep/highlight-post-delete.png" alt="Words after deletion" title="" /></p>
+
+<p>Now, if you press the play button again, the audio will re-render and the sentence will be gone! You can also copy and paste words and sentences within the transcript view. If you delete something and you want it back, click on the <code>Speech Library</code> button on the right side of the interface. This brings up a transcript of the original speech track. You can copy and paste from this library to the transcript view.</p>
+
+<h3>Multiple takes</h3>
+
+<p>You may have noticed that I messed up a sentence and recorded it twice:</p>
+
+<ul>
+<li>The idea behind this editor is that you can edit audio using text rather than uh with low level waveforms.</li>
+<li>The idea behind the editor is that you can edit audio using text rather than using waveforms.</li>
+</ul>
+
+<p>The speecheditor highlights problematic words (e.g., "uh") and repeated words in red. We <em>could</em> fix the first version of the sentence by deleting the "uh," but I like the delivery in the second version better. The speecheditor allows you to see and compare similar sentences. If the first word of a sentence has a purple dotted line under it, click that word to see the alternate takes of that sentence.</p>
+
+<p><img src="img/stepbystep/takes.png" alt="Alternate takes of a sentence" title="" /></p>
+
+<p>Clicking the play button at the beginning of one of these sentences will play that take. Once you found the take you want to use in your story, click on the sentence and it will be inserted into the transcript in place of the original sentence. I'll select the second version, which I think sounds much better.</p>
+
+<p>Finally, delete the second of the two "repeated" words by clicking the cursor on the word you want to delete and pressing the <code>delete</code> or <code>backspace</code> key. Notice that the speecheditor performs deletions by word, not by letter like a typical text editor. You can also delete the second occurence of the sentence, "The idea behind the editor is that you can edit audio using text rather than using waveforms."</p>
+
+<h3>Adding music</h3>
+
+<p>The speecheditor has a few tools to facilitate adding music to audio stories. Here, I'll demonstrate adding a musical underlay. A musical underlay is where an exciting moment in music plays solo right after the speaker has said something important, emotional, or exciting. The music emphasizes the speech.</p>
+
+<p>First, we'll add a music track. Click the "Add song" button in the music library. Select an <strong>mp3</strong> from your computer. I selected "Zabawa Gwiezdnych Dzieci" by Zibbon, which I downloaded on <a href="http://www.jamendo.com">Jamendo</a>, a site for royalty free music. Then, click "Upload." This will upload and analyze the song you selected- this process can take a few minutes.</p>
+
+<p>Next, we'll select the point in the speech that we want to emphasize. In this demo speech, I want to emphasize the speech right after I say "exciting moment to emphasize that point." Click on the word "point" and click the <strong>Emphasis point</strong> button on the top toolbar. You can also type the letter "e" to add an emphasis point. After you do this, you'll see a red marker in the speech waveform and a red line in the transcript view that indicate the location of the speech emphasis point.</p>
+
+<p><img src="img/stepbystep/emphasis-point.png" alt="The red markers in the waveform and transcript show the location of the emphasis point" title="" /></p>
+
+<p>Now, click on the red emphasis point marker in the waveform view, or type the letter "u"-- this brings up the "Create musical underlay" modal dialog. Select the emphasis point you created as the <em>First emphasis point</em> and leave the second emphasis point blank so it says <em>(No second emphasis point</em>). Also, select the song you want to use in the <strong>Select a song</strong> dropdown. Then click "Create."</p>
+
+<p><img src="img/stepbystep/underlay-modal.png" alt="The underlay creation modal dialog" title="" /></p>
+
+<p>This will give us our final product, which you can see and listen to in this video:</p>
+
+<p><iframe width="600" height="338" src="//www.youtube.com/embed/LGDoYu2k-m8" frameborder="0" allowfullscreen></iframe></p>
+
+<p>You can also use the speecheditor to loop sections of music and to create a musical underlay that emphasizes two points in speech instead of just one.</p>
+
+
 
       </section>
       <footer>

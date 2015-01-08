@@ -60,6 +60,10 @@ class MusicGraph(object):
 
         rt_cost_mat = rt_chroma_dist + rt_timbre_dist
 
+        # rt_cost_mat = np.exp(
+        #     rt_timbre_dist / np.std(rt_timbre_dist) +
+        #     rt_chroma_dist / np.std(rt_chroma_dist)) 
+
         rt_json_graph = {}
         rt_json_graph["nodes"] = []
         beats = np.array([round(beat, 6) for beat in track.analysis["beats"]])

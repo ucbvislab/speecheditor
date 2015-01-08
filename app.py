@@ -368,7 +368,6 @@ def retargeted_underlay(song_name, length, before, after):
 
     middle = round(avg_duration[0] * len(beat_path), 5)
 
-
     # I think these word as they're supposed to, but I'm not 100% sure
     cp1_delta = round(float(beat_path[0]) - float(cps[0]), 5)
     cp2_delta = round(float(beat_path[-1]) - float(cps[1]), 5)
@@ -400,15 +399,22 @@ def retargeted_underlay(song_name, length, before, after):
     except:
         before_dur = 0
 
+    # print "lens", last_beat, beat_path_end, cps, solo_length, len(beat_path_end), len(cps)
+
     out = {
         "beats": beat_path_start + beat_path + beat_path_end,
         "before": before_dur,
         "solo1": round(between_dur - length - .5, 5),
         "middle": round(length, 5),
         "solo2": solo_length,
-        "after": round(float(beat_path_end[-1]) - float(cps[1]) - solo_length, 5),
+        # "after": round(float(beat_path_end[-1]) - float(cps[1]) - solo_length, 5),
         "changepoints": cps,
     }
+
+    try:
+        out["after"] = round(float(beat_path_end[-1]) - float(cps[1]) - solo_length, 5)
+    except:
+        out["after"] = 0.0
 
     # quick check! just in case
     while out["before"] > before:

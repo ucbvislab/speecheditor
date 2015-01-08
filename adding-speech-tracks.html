@@ -60,7 +60,13 @@
 
 <p>Once you have successfully run <code>alignment-setup.sh</code>, you can analyze your own speech tracks.</p>
 
-<p>Add your new speech track mp3 file at <code>/speecheditor/static/speechtracks/{track-name}.mp3</code>. Also add the text transcript of the speech track at <code>/speecheditor/static/speechtracks/{track-name}.txt</code>. Then, in the vagrant box, run</p>
+<p>Add your new speech track mp3 file at <code>/speecheditor/static/speechtracks/{track-name}.mp3</code>. Also add the text transcript of the speech track at <code>/speecheditor/static/speechtracks/{track-name}.txt</code>. 
+
+<p>
+The transcript file should be a plain text file that has a verbatim transcript of the speech. If you want, you can indicate the speaker at the beginning of every line with the name and a colon. You can generate the transcript by hand or using an online service like  <a href="https://castingwords.com">CastingWords</a> or <a href="https://rev.com">rev</a> for a minimum of $1 per minute of audio; be sure to request verbatim transcripts.
+</p>
+
+<p>Then, in the vagrant box, run</p>
 
 <div class="highlight highlight-bash"><pre>$ <span class="pl-s3">cd</span> vagrant
 $ python analyze_speech.py {track-name}</pre></div>

@@ -18,26 +18,39 @@ def parse(transcript):
 
     script = []
 
-    speaker_name = re.compile(r'^\s\s([^\s:]+):?')
+
+    castingwords_speaker_name = re.compile(r'^\s\s([^\s:]+):?')
+    standard_speaker_name = re.compile(r'^([^\s:]+):\s(.*)')
     line_text = re.compile(r'^.{20}([^\s].*)')
     special_token = re.compile(r'\[([^\[\]])\]')
 
     current_speaker = []
     current_line = []
 
+    cw = False
+
     for i, line in enumerate(lines):
-        match = speaker_name.match(line)
+        
+        match = castingwords_speaker_name.match(line)
         if match:
             current_speaker.append(match.group(1))
-        
-        line = re.sub(r'\t', '    ', line)
-        
-        line_match = line_text.match(line)
-        if line_match:
-            current_line.append(line_match.group(1))
+            cw = True
+
+        if cw:    
+            line = re.sub(r'\t', '    ', line)
+
+            line_match = line_text.match(line)
+            if line_match:
+                current_line.append(line_match.group(1))
+        else:
+            match = standard_speaker_name.match(line)
+            if match:
+                current_speaker.append(match.group(1))
+                current_line.append(match.group(2))
         
         if i + 1 == len(lines) or (
-            len(line) == 0 and speaker_name.match(lines[i + 1])):
+            len(line) == 0 and\
+                (castingwords_speaker_name.match(lines[i + 1])) or standard_speaker_name.match(lines[i + 1])):
             # construct the DialogLine
 
             if len(current_speaker) > 0:

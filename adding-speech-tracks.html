@@ -56,18 +56,24 @@
 <p>This will prompt you for your HTK username and password. It will then download and install HTK 3.4 and p2fa-vislab (a wrapper for HTK's HVite).</p>
 
 <h3>
-  <a id="acquiring-tracks" class="anchor" href="#acquiring-tracks" aria-hidden="true"><span class="octicon octicon-link"></span>Acquiring tracks
+  <a id="acquiring-tracks" class="anchor" href="#acquiring-tracks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acquiring tracks
 </h3>
 
-<p>If you don't have any speech tracks of your own, you can find some free readings of classic works of literature on <a href="http://librivox.org">librivox</a>, or you could <a href="http://www.americanrhetoric.com/top100speechesall.html">download famous speeches</a>. The nice thing about speeches and classic literature is that you can usually find an accompanying text transcript online too.</p>
+<p>If you don't have any speech tracks of your own, you can find some free readings of classic works of literature on <a href="https://librivox.org">librivox</a>, or you could <a href="http://www.americanrhetoric.com/top100speechesall.html">download famous speeches</a>. The nice thing about speeches and classic literature is that you can usually find an accompanying text transcript online too.</p>
 
 <p>
 The transcript file should be a plain text file that has a verbatim transcript of the speech. If you want, you can indicate the speaker at the beginning of every line with the name and a colon. You can generate the transcript by hand or using an online service like  <a href="https://castingwords.com">CastingWords</a> or <a href="https://rev.com">rev</a> for a minimum of $1 per minute of audio; be sure to request verbatim transcripts.
 </p>
 
-<p>The speecheditor comes with a sample track, <code>static/speechtracks/short-test-track.mp3</code>. Here's what the accompanying transcript (<code>static/speechtracks/short-test-track.txt</code>) looks like:</p>
+<p>The speecheditor comes with a sample track, <a href="https://raw.githubusercontent.com/ucbvislab/speecheditor/master/static/speechtracks/short-test-track.mp3">static/speechtracks/short-test-track.mp3</a>. Here's what the accompanying transcript (<code>static/speechtracks/short-test-track.txt</code>) looks like:</p>
 
+<div>
+  <pre>Steve: This is a test track that comes with the speech editor.
 
+Amy: You can have more than one person talking in the audio track.
+
+Steve: I haven't aligned it yet so you can get practice using the alignment tool. Once you actually run that alignment you'll be able to view it in the speech editor web interface.</pre>
+</div>
 
 
 <h3>
@@ -77,16 +83,19 @@ The transcript file should be a plain text file that has a verbatim transcript o
 
 <p>Add your new speech track mp3 file at <code>/speecheditor/static/speechtracks/{track-name}.mp3</code>. Also add the text transcript of the speech track at <code>/speecheditor/static/speechtracks/{track-name}.txt</code>. 
 
-<p>
-The transcript file should be a plain text file that has a verbatim transcript of the speech. If you want, you can indicate the speaker at the beginning of every line with the name and a colon. You can generate the transcript by hand or using an online service like  <a href="https://castingwords.com">CastingWords</a> or <a href="https://rev.com">rev</a> for a minimum of $1 per minute of audio; be sure to request verbatim transcripts.
-</p>
-
 <p>Then, in the vagrant box, run</p>
 
 <div class="highlight highlight-bash"><pre>$ <span class="pl-s3">cd</span> vagrant
 $ python analyze_speech.py {track-name}</pre></div>
 
 <p>Once this finished (note: it may take a while if the speech is long), your track will show up in the new composition dialog in the speech editor.</p>
+
+<p>So, to align the included test track, run</p>
+
+<div class="highlight highlight-bash"><pre>$ <span class="pl-s3">cd</span> vagrant
+$ python analyze_speech.py short-test-track</pre></div>
+
+<p>and then load the speecheditor in the browser.</p>
 
       </section>
       <footer>

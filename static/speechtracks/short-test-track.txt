@@ -1,0 +1,5 @@
+Steve: This is a test track that comes with the speech editor.
+
+Amy: You can have more than one person talking in the audio track.
+
+Steve: I haven't aligned it yet so you can get practice using the alignment tool. Once you actually run that alignment you'll be able to view it in the speech editor web interface.

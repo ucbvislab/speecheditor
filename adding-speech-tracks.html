@@ -20,10 +20,11 @@
         <p>GUI text-based speech and music editor for creating radio/audio stories</p>
 
         <hr>
-
         <p class="view"><a href="index.html">Home</a></p>
         <p class="subview"><a href="index.html#installation">Installation</a></p>  
-        <p class="subview"><a href="index.html#enabling-the-music-browser">Enabling the music browser</a></p>  
+        <p class="subview"><a href="index.html#enabling-the-music-browser">Enabling the music browser</a></p>
+        <p class="subview"><a href="index.html#issues-and-bugs">Issues and bugs</a></p>
+
         <p class="view"><a href="usage.html">Basic interface usage</a></p>
         <p class="view"><a href="step-by-step.html">Step-by-step editing tutorial</a></p>
         <p class="view"><a href="adding-speech-tracks.html">Adding speech tracks tutorial</a></p>
@@ -95,7 +96,11 @@ $ python analyze_speech.py {track-name}</pre></div>
 <div class="highlight highlight-bash"><pre>$ <span class="pl-s3">cd</span> vagrant
 $ python analyze_speech.py short-test-track</pre></div>
 
-<p>and then load the speecheditor in the browser.</p>
+<p>This creates a few files: <code>static/speechtracks/{track-name}.transcript</code> is the text in <a href="https://github.com/srubin/p2fa-vislab/blob/master/README.md#transcript-format">transcript format.</a> <code>static/speechtracks/{track-name}.json</code>, and <code>static/speechtracks/{track-name}-breaths.json</code> are jsons in the <a href="https://github.com/srubin/p2fa-vislab/blob/master/README.md#alignment-format">alignment format</a> that contain the alignment between the text and the speech. The <code>-breaths</code> version also has alignments for detected breaths.
+
+<p>You can now load the speecheditor in the browser and select <code>{track-name}</code> from the list of tracks.</p>
+
+
 
       </section>
       <footer>

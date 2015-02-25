@@ -134,6 +134,7 @@ def reauthor():
                 score_start = t["scoreStart"]
                 filename = APP_PATH + "static/" + t["filename"]
                 
+                wav_fn = filename
                 if filename.lower().endswith('.mp3'):
                     wav_fn = ".".join(filename.split('.')[:-1]) + ".wav"
                     if not os.path.isfile(wav_fn):
@@ -318,8 +319,10 @@ def dupes():
 
 @app.route('/changepoints/<song_name>')
 def find_change_points(song_name):
-    song_name = secure_filename(urllib.unquote(song_name))
+    # song_name = secure_filename(urllib.unquote(song_name))
+    song_name = urllib.unquote(song_name)
     wav_fn = APP_PATH + 'static/uploads/' + song_name + '.wav'
+    print wav_fn
     try:
         cpraw = subprocess.check_output([
             APP_PATH + 'music_changepoints/novelty',
@@ -336,7 +339,7 @@ def find_change_points(song_name):
 def retargeted_underlay(song_name, length, before, after):
     solo_length = 6.0
 
-    song_name = secure_filename(urllib.unquote(song_name))
+    song_name = urllib.unquote(song_name)
 
     wav_fn = APP_PATH + 'static/uploads/' + song_name + '.wav'
     npz_fn = APP_PATH + 'static/uploads/' + song_name + '.npz'
@@ -461,7 +464,7 @@ def upload_song():
         f = request.files['song']
         file_path = f.filename.replace('\\', '/')
         basename = os.path.basename(file_path)
-        filename = secure_filename(f.filename)
+        filename = f.filename
         full_name = upload_path + filename
         f.save(full_name)
 
@@ -471,7 +474,7 @@ def upload_song():
         in static/musicbrowser/fullmp3s    
         """
         filename = request.args.get('filename')
-        sec_fn = secure_filename(filename)
+        sec_fn = filename
         basename = os.path.basename(sec_fn)
         full_name = os.path.join(upload_path, basename)
         try:

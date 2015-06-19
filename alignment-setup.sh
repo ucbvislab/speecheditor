@@ -13,7 +13,7 @@ make all && sudo make install
 
 # Install p2fa-vislab
 cd /vagrant
-git clone https://github.com/srubin/p2fa-vislab.git
+git clone https://github.com/ucbvislab/p2fa-vislab.git
 cd p2fa-vislab
 git submodule init
 git submodule update

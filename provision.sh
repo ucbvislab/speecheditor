@@ -6,7 +6,7 @@
 
 apt-add-repository ppa:chris-lea/node.js
 apt-get update
-apt-get install -y python2.7-dev python-setuptools libsndfile1-dev git gcc build-essential alsa-base flac vorbis-tools python-numpy python-scipy python-matplotlib python-sklearn libsamplerate0-dev libasound2-dev cython lame libboost-program-options-dev nodejs
+apt-get install -y python2.7-dev python-setuptools libsndfile1-dev git gcc build-essential alsa-base flac vorbis-tools python-numpy python-scipy python-matplotlib python-sklearn libsamplerate0-dev libasound2-dev cython lame libboost-program-options-dev nodejs libfreetype6-dev libpng-dev
 
 # Install pip
 easy_install pip

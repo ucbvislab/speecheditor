@@ -46,7 +46,7 @@ python-dateutil==1.5
 python-debian===0.1.21-nmu2ubuntu2
 python-Levenshtein==0.10.2
 pytz==2012rc0
-PyYAML==3.10
+PyYAML==5.1
 git+https://github.com/ucbvislab/radiotool
 requests==2.2.1
 scikit-learn==0.14.1

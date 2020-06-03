@@ -1,6 +1,6 @@
 import sys
 import itertools
-import simplejson as json
+import ujson as json
 import subprocess
 import os
 

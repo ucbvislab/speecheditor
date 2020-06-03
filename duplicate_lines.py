@@ -51,7 +51,7 @@ def get_dupes(words):
 
 if __name__ == '__main__':
     try:
-        import simplejson as json
+        import ujson as json
     except:
         import json
     with open(sys.argv[1], 'r') as f:

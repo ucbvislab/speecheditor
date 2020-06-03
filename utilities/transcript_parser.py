@@ -3,7 +3,7 @@ from collections import namedtuple
 import re
 import argparse
 try:
-    import simplejson as json
+    import ujson as json
 except:
     import json
 

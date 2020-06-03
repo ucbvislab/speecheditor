@@ -1,5 +1,5 @@
 try:
-    import simplejson as json
+    import ujson as json
 except:
     import json
 import urllib
@@ -489,7 +489,6 @@ def upload_song():
 
     # get id3 tags
     try:
-
         song = ID3(full_name)
         song_title = song["TIT2"].text[0]
         song_artist = song["TPE1"].text[0]

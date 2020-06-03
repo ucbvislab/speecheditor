@@ -2,7 +2,7 @@ import sys
 import os
 import subprocess
 try:
-    import simplejson as json
+    import ujson as json
 except:
     import json
 import sys

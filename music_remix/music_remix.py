@@ -2,7 +2,7 @@ import sys
 import copy
 import os
 import subprocess
-import simplejson as json
+import ujson as json
 from decimal import *
 
 import networkx as nx

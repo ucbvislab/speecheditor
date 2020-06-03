@@ -1,7 +1,7 @@
 import os
 import subprocess
 import sys
-import simplejson as json
+import ujson as json
 
 import click
 from radiotool import composer as C

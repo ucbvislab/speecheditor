@@ -1,5 +1,5 @@
 import sys
-import simplejson as json
+import ujson as json
 from collections import defaultdict
 
 with open(sys.argv[1]) as f:

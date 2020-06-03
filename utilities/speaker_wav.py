@@ -1,5 +1,5 @@
 import sys
-import simplejson as json
+import ujson as json
 from radiotool import composer as C
 import os
 

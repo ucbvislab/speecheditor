@@ -36,6 +36,9 @@ Now, to run the speech editor:
 # (the $ means a prompt inside the vagrant box)
 $ cd /vagrant
 
+# install python requirements
+$ pip install -r requirements.txt
+
 # run the speech editor!
 $ python app.py
 ```

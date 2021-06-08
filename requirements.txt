@@ -32,7 +32,7 @@ nose==1.3.1
 numpy==1.9.1
 oauth==1.0.1
 PAM==0.4.2
-Pillow==2.3.0
+Pillow==8.2.0
 prettytable==0.7.2
 pycrypto==2.6.1
 pycurl==7.19.3

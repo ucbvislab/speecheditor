@@ -48,7 +48,7 @@ python-Levenshtein==0.10.2
 pytz==2012rc0
 PyYAML==3.10
 git+https://github.com/ucbvislab/radiotool
-requests==2.2.1
+requests==2.20.0
 scikit-learn==0.14.1
 scikits.audiolab==0.11.0
 scikits.samplerate==0.3.3

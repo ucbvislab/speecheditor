@@ -2,7 +2,7 @@ apt-xapian-index==0.45
 audioread==2.1.0
 backports-abc==0.5
 backports.ssl-match-hostname==3.7.0.1
-certifi==2020.4.5.1
+certifi==2022.12.7
 chardet==2.0.1
 Cheetah==2.4.4
 click==3.3
